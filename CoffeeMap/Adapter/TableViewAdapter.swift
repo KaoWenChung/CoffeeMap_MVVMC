@@ -35,6 +35,11 @@ class TableViewAdapter: NSObject {
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
     }
+    
+    func updateData(_ rowModels: [BaseCellRowModel]) {
+        self.rowModels = rowModels
+        tableView?.reloadData()
+    }
 
 }
 
