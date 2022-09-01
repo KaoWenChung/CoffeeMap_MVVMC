@@ -11,18 +11,23 @@ import XCTest
 class TableViewAdapterTests: XCTestCase {
     func testTableView_updateData_1cell() {
         let tableView = UITableView()
-        let cell = MockBaseCell()
-        let sut: TableViewAdapter = TableViewAdapter(tableView, cell: cell)
+        let sut: TableViewAdapter = makeSUT(tableView)
         sut.updateData([MockCellModel()])
         XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 0), 1)
     }
 
     func testTableView_updateData_2cell() {
         let tableView = UITableView()
-        let cell = MockBaseCell()
-        let sut: TableViewAdapter = TableViewAdapter(tableView, cell: cell)
+        let sut: TableViewAdapter = makeSUT(tableView)
         sut.updateData([MockCellModel(), MockCellModel()])
         XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 0), 2)
+    }
+
+    // MARK: - Helper
+    func makeSUT(_ tableView: UITableView) -> TableViewAdapter {
+        let cell = MockBaseCell()
+        let sut: TableViewAdapter = TableViewAdapter(tableView, cell: cell)
+        return sut
     }
 
     class MockBaseCell: UITableViewCell, BaseCellView {
