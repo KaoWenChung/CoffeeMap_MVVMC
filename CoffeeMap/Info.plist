@@ -22,6 +22,6 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need to find out your current location in order to compute the route</string>
+	<string>We need to find out your current location in order to find coffee shops</string>
 </dict>
 </plist>

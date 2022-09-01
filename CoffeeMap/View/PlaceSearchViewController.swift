@@ -47,7 +47,10 @@ class PlaceSearchViewController: UIViewController {
     }
 
     private func fetchData() {
-        guard let location = locationManager?.location else { return }
+        guard let location = locationManager?.location else {
+            Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
+            return
+        }
         Spinner.shared.showOn(view)
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
@@ -59,7 +62,7 @@ class PlaceSearchViewController: UIViewController {
                 self.tableViewAdapter?.updateData( self.viewModel.placeList)
                 self.updateNoResultView()
             case .failure(let error):
-                print(error)
+                Alert.show(vc: self, title: "Error", message: error.message)
             }
         }
     }
@@ -72,6 +75,6 @@ extension PlaceSearchViewController: CLLocationManagerDelegate {
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         Spinner.shared.hide()
-        print(error)
+        Alert.show(vc: self, title: "Error", message: error.localizedDescription)
     }
 }
