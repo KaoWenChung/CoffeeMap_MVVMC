@@ -10,9 +10,17 @@ struct PlaceSearchCellViewModel: BaseCellRowModel {
     
     var cellAction: ((BaseCellRowModel) -> ())?
     
-    let title: String
+    let name: String
+    let address: String?
+    let distance: String?
     
     init(_ dataModel: GetPlaceResultModel) {
-        title = dataModel.name ?? ""
+        name = dataModel.name ?? ""
+        address = dataModel.location?.formattedAddress
+        if let distance = dataModel.distance {
+            self.distance = distance.description + " meters"
+        } else {
+            distance = nil
+        }
     }
 }

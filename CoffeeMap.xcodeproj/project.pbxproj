@@ -13,6 +13,8 @@
 		79242C6628C03ADD00766059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6428C03ADD00766059 /* Main.storyboard */; };
 		79242C6828C03ADF00766059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6728C03ADF00766059 /* Assets.xcassets */; };
 		79242C6B28C03ADF00766059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6928C03ADF00766059 /* LaunchScreen.storyboard */; };
+		79290E0D28C080CF00439E38 /* PlaceSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79290E0B28C080CF00439E38 /* PlaceSearchTableViewCell.swift */; };
+		79290E0E28C080CF00439E38 /* PlaceSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79290E0C28C080CF00439E38 /* PlaceSearchTableViewCell.xib */; };
 		7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB1928C03F5000607B77 /* TableViewAdapter.swift */; };
 		7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */; };
 		7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */; };
@@ -46,6 +48,8 @@
 		79242C6728C03ADF00766059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79242C6A28C03ADF00766059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79242C6C28C03ADF00766059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79290E0B28C080CF00439E38 /* PlaceSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchTableViewCell.swift; sourceTree = "<group>"; };
+		79290E0C28C080CF00439E38 /* PlaceSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceSearchTableViewCell.xib; sourceTree = "<group>"; };
 		7952AB1928C03F5000607B77 /* TableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
 		7952AB1F28C040CE00607B77 /* CoffeeMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapterTests.swift; sourceTree = "<group>"; };
@@ -115,9 +119,19 @@
 			path = CoffeeMap;
 			sourceTree = "<group>";
 		};
+		79290E0F28C080D300439E38 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				79290E0B28C080CF00439E38 /* PlaceSearchTableViewCell.swift */,
+				79290E0C28C080CF00439E38 /* PlaceSearchTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		7952AB1728C03F1B00607B77 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				79290E0F28C080D300439E38 /* Cell */,
 				79242C6228C03ADD00766059 /* PlaceSearchViewController.swift */,
 				79242C6428C03ADD00766059 /* Main.storyboard */,
 			);
@@ -278,6 +292,7 @@
 				79242C6B28C03ADF00766059 /* LaunchScreen.storyboard in Resources */,
 				79242C6828C03ADF00766059 /* Assets.xcassets in Resources */,
 				79242C6628C03ADD00766059 /* Main.storyboard in Resources */,
+				79290E0E28C080CF00439E38 /* PlaceSearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +322,7 @@
 				7952AB3328C0540100607B77 /* BaseViewModel.swift in Sources */,
 				79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */,
 				7952AB3128C0509F00607B77 /* GetPlaceDataModel.swift in Sources */,
+				79290E0D28C080CF00439E38 /* PlaceSearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
