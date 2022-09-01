@@ -46,11 +46,11 @@ class TableViewAdapter: NSObject {
 // MARK: - TableViewAdapter UITableViewDataSource
 extension TableViewAdapter: UITableViewDataSource {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowModels.count
     }
 

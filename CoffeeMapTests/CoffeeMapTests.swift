@@ -17,6 +17,14 @@ class TableViewAdapterTests: XCTestCase {
         XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 0), 1)
     }
 
+    func testTableView_updateData_2cell() {
+        let tableView = UITableView()
+        let cell = MockBaseCell()
+        let sut: TableViewAdapter = TableViewAdapter(tableView, cell: cell)
+        sut.updateData([MockCellModel(), MockCellModel()])
+        XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 0), 2)
+    }
+
     class MockBaseCell: UITableViewCell, BaseCellView {
 
         func setupCellView(rowModel: BaseCellRowModel) {}
