@@ -75,6 +75,6 @@ extension PlaceSearchViewController: CLLocationManagerDelegate {
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         Spinner.shared.hide()
-        Alert.show(vc: self, title: "Error", message: error.localizedDescription)
+        Alert.show(vc: self, title: "Error", message: "Unable to get user's location, please try again")
     }
 }
