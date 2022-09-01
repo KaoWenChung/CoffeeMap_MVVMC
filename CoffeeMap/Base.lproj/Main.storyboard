@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Place Search View Controller-->
+        <!--Coffee Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PlaceSearchViewController" customModule="CoffeeMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +30,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O8I-vx-JqG" secondAttribute="bottom" id="WLX-zk-uaL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dbF-PH-40O"/>
+                    <navigationItem key="navigationItem" title="Coffee Map" id="dbF-PH-40O">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="gNe-ba-lx4"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="O8I-vx-JqG" id="6Ue-Up-zyb"/>
                     </connections>
@@ -59,6 +61,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
