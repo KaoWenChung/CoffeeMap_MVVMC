@@ -13,6 +13,7 @@
 		79242C6628C03ADD00766059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6428C03ADD00766059 /* Main.storyboard */; };
 		79242C6828C03ADF00766059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6728C03ADF00766059 /* Assets.xcassets */; };
 		79242C6B28C03ADF00766059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6928C03ADF00766059 /* LaunchScreen.storyboard */; };
+		7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB1928C03F5000607B77 /* TableViewAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		79242C6728C03ADF00766059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79242C6A28C03ADF00766059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79242C6C28C03ADF00766059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7952AB1928C03F5000607B77 /* TableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,32 @@
 		79242C5D28C03ADD00766059 /* CoffeeMap */ = {
 			isa = PBXGroup;
 			children = (
+				7952AB1828C03F2600607B77 /* Adapter */,
+				7952AB1728C03F1B00607B77 /* View */,
 				79242C5E28C03ADD00766059 /* AppDelegate.swift */,
 				79242C6028C03ADD00766059 /* SceneDelegate.swift */,
-				79242C6228C03ADD00766059 /* PlaceSearchViewController.swift */,
-				79242C6428C03ADD00766059 /* Main.storyboard */,
 				79242C6728C03ADF00766059 /* Assets.xcassets */,
 				79242C6928C03ADF00766059 /* LaunchScreen.storyboard */,
 				79242C6C28C03ADF00766059 /* Info.plist */,
 			);
 			path = CoffeeMap;
+			sourceTree = "<group>";
+		};
+		7952AB1728C03F1B00607B77 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				79242C6228C03ADD00766059 /* PlaceSearchViewController.swift */,
+				79242C6428C03ADD00766059 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7952AB1828C03F2600607B77 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				7952AB1928C03F5000607B77 /* TableViewAdapter.swift */,
+			);
+			path = Adapter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79242C6328C03ADD00766059 /* PlaceSearchViewController.swift in Sources */,
+				7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */,
 				79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */,
 				79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */,
 			);
