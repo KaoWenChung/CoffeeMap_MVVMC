@@ -31,7 +31,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Coffee Map" id="dbF-PH-40O">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="gNe-ba-lx4"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="gNe-ba-lx4">
+                            <connections>
+                                <action selector="reloadData:" destination="BYZ-38-t0r" id="Hrq-Hz-DMP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="O8I-vx-JqG" id="6Ue-Up-zyb"/>

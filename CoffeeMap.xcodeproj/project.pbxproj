@@ -15,6 +15,7 @@
 		79242C6B28C03ADF00766059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6928C03ADF00766059 /* LaunchScreen.storyboard */; };
 		79290E0D28C080CF00439E38 /* PlaceSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79290E0B28C080CF00439E38 /* PlaceSearchTableViewCell.swift */; };
 		79290E0E28C080CF00439E38 /* PlaceSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79290E0C28C080CF00439E38 /* PlaceSearchTableViewCell.xib */; };
+		79290E1428C0943600439E38 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79290E1328C0943600439E38 /* MapKit.framework */; };
 		7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB1928C03F5000607B77 /* TableViewAdapter.swift */; };
 		7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */; };
 		7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */; };
@@ -50,6 +51,7 @@
 		79242C6C28C03ADF00766059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79290E0B28C080CF00439E38 /* PlaceSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchTableViewCell.swift; sourceTree = "<group>"; };
 		79290E0C28C080CF00439E38 /* PlaceSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceSearchTableViewCell.xib; sourceTree = "<group>"; };
+		79290E1328C0943600439E38 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7952AB1928C03F5000607B77 /* TableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
 		7952AB1F28C040CE00607B77 /* CoffeeMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapterTests.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79290E1428C0943600439E38 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +92,7 @@
 				79242C5D28C03ADD00766059 /* CoffeeMap */,
 				7952AB2028C040CE00607B77 /* CoffeeMapTests */,
 				79242C5C28C03ADD00766059 /* Products */,
+				79290E1228C0943600439E38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,6 +130,14 @@
 				79290E0C28C080CF00439E38 /* PlaceSearchTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		79290E1228C0943600439E38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79290E1328C0943600439E38 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7952AB1728C03F1B00607B77 /* View */ = {
