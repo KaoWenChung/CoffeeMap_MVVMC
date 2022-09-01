@@ -129,8 +129,8 @@
 		7952AB2828C0411D00607B77 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */,
 				7952AB3228C0540100607B77 /* BaseViewModel.swift */,
+				7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

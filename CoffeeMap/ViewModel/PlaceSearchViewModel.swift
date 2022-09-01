@@ -7,6 +7,9 @@
 
 import Foundation
 
-class PlaceSearchViewModel {
-//    private(set) var placeList: []
+class PlaceSearchViewModel: BaseViewModel {
+
+    private(set) var placeList: [PlaceSearchCellViewModel] = []
+
+    
 }
