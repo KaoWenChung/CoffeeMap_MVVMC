@@ -16,4 +16,11 @@ class PlaceSearchViewModel: BaseViewModel {
         self.apiService = apiService
     }
 
+    func getPlaceListBy(_ dataModel: GetPlaceResponseModel) -> [PlaceSearchCellViewModel] {
+        var result: [PlaceSearchCellViewModel] = []
+        for item in dataModel.results ?? [] {
+            result.append(PlaceSearchCellViewModel(item))
+        }
+        return result
+    }
 }

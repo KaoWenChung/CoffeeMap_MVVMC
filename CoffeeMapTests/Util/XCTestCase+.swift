@@ -9,7 +9,7 @@ import XCTest
 
 extension XCTestCase {
 
-    func loadStub(name aName: String, extension aExtension: String)-> Data {
+    func loadStub(name aName: String, extension aExtension: String) -> Data {
         let bundle = Bundle(for: type(of: self))
         let url = bundle.url(forResource: aName, withExtension: aExtension)
       return try! Data(contentsOf: url!)
