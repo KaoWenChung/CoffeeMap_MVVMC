@@ -16,6 +16,19 @@ class PlaceSearchViewModel: BaseViewModel {
         self.apiService = apiService
     }
 
+    func fetchData(ll: String, completion: Completion? = nil) {
+        let param: GetPlaceParamModel = GetPlaceParamModel(ll: ll, radius: 200, query: "coffee")
+        apiService.getPlace(param: param) { (result: Result<GetPlaceResponseModel>) in
+            switch result {
+            case .success(let aValue):
+                self.placeList = self.getPlaceListBy(aValue)
+                completion?(.success)
+            case .failure(let error):
+                completion?(.failure(error))
+            }
+        }
+    }
+
     func getPlaceListBy(_ dataModel: GetPlaceResponseModel) -> [PlaceSearchCellViewModel] {
         var result: [PlaceSearchCellViewModel] = []
         for item in dataModel.results ?? [] {

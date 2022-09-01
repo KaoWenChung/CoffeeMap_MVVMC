@@ -18,6 +18,30 @@ class PlaceSearchViewModelTests: XCTestCase {
         XCTAssertEqual(result.last?.title, "Piggy's")
     }
 
+    func testFetchData_london_successeding() throws {
+        let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
+        let sut = PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
+        sut.fetchData(ll: "51.50998,-0.1337") { result in
+            XCTAssertEqual(sut.placeList.count, 10)
+            XCTAssertEqual(sut.placeList.first?.title, "Caffè Concerto")
+            XCTAssertEqual(sut.placeList.last?.title, "Piggy's")
+        }
+    }
+
+    func testFetchData_london_error() throws {
+        let sut = PlaceSearchViewModel(FailingFoursquareRepositoryStub())
+        sut.fetchData(ll: "51.50998,-0.1337") { result in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                XCTAssertEqual(error.message, "Something wrong")
+            }
+            XCTAssertEqual(sut.placeList.count, 0)
+        }
+    }
+
+
     class SuccessdingFoursquareRepositoryStub: FoursquareRepositoryDelegate {
         let response: GetPlaceResponseModel
         init(_ data: GetPlaceResponseModel) {
