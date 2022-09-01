@@ -9,13 +9,13 @@ import XCTest
 @testable import CoffeeMap
 
 class PlaceSearchViewModelTests: XCTestCase {
-    func testgetPlaceListBy_StubLondonData() throws {
+    func testGetPlaceListBy_StubLondonData() throws {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
         let sut = PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
         let result = sut.getPlaceListBy(getplaceDataModel)
         XCTAssertEqual(result.count, 10)
-        XCTAssertEqual(result.first?.title, "Caffè Concerto")
-        XCTAssertEqual(result.last?.title, "Piggy's")
+        XCTAssertEqual(result.first?.name, "Caffè Concerto")
+        XCTAssertEqual(result.last?.name, "Piggy's")
     }
 
     func testFetchData_london_successeding() throws {
@@ -23,8 +23,8 @@ class PlaceSearchViewModelTests: XCTestCase {
         let sut = PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
         sut.fetchData(ll: "51.50998,-0.1337") { result in
             XCTAssertEqual(sut.placeList.count, 10)
-            XCTAssertEqual(sut.placeList.first?.title, "Caffè Concerto")
-            XCTAssertEqual(sut.placeList.last?.title, "Piggy's")
+            XCTAssertEqual(sut.placeList.first?.name, "Caffè Concerto")
+            XCTAssertEqual(sut.placeList.last?.name, "Piggy's")
         }
     }
 
