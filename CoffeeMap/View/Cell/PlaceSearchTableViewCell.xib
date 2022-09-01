@@ -33,7 +33,7 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sT0-9w-EC2">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sT0-9w-EC2">
                         <rect key="frame" x="260.5" y="55.5" width="49.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,7 +55,7 @@
                 <outlet property="distanceLabel" destination="sT0-9w-EC2" id="Io1-au-pQK"/>
                 <outlet property="nameLabel" destination="HW2-qn-meg" id="fdi-h6-KIO"/>
             </connections>
-            <point key="canvasLocation" x="-32" y="-19"/>
+            <point key="canvasLocation" x="-33.333333333333336" y="-19.419642857142858"/>
         </tableViewCell>
     </objects>
 </document>
