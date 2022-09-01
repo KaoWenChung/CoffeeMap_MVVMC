@@ -14,7 +14,18 @@
 		79242C6828C03ADF00766059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6728C03ADF00766059 /* Assets.xcassets */; };
 		79242C6B28C03ADF00766059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6928C03ADF00766059 /* LaunchScreen.storyboard */; };
 		7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB1928C03F5000607B77 /* TableViewAdapter.swift */; };
+		7952AB2228C040CE00607B77 /* CoffeeMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2128C040CE00607B77 /* CoffeeMapTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7952AB2328C040CE00607B77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79242C5328C03ADD00766059 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79242C5A28C03ADD00766059;
+			remoteInfo = CoffeeMap;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		79242C5B28C03ADD00766059 /* CoffeeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,10 +37,19 @@
 		79242C6A28C03ADF00766059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79242C6C28C03ADF00766059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7952AB1928C03F5000607B77 /* TableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
+		7952AB1F28C040CE00607B77 /* CoffeeMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7952AB2128C040CE00607B77 /* CoffeeMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMapTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		79242C5828C03ADD00766059 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7952AB1C28C040CE00607B77 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				79242C5D28C03ADD00766059 /* CoffeeMap */,
+				7952AB2028C040CE00607B77 /* CoffeeMapTests */,
 				79242C5C28C03ADD00766059 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				79242C5B28C03ADD00766059 /* CoffeeMap.app */,
+				7952AB1F28C040CE00607B77 /* CoffeeMapTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,6 +82,7 @@
 			children = (
 				7952AB1828C03F2600607B77 /* Adapter */,
 				7952AB1728C03F1B00607B77 /* View */,
+				7952AB2828C0411D00607B77 /* ViewModel */,
 				79242C5E28C03ADD00766059 /* AppDelegate.swift */,
 				79242C6028C03ADD00766059 /* SceneDelegate.swift */,
 				79242C6728C03ADF00766059 /* Assets.xcassets */,
@@ -86,6 +109,21 @@
 			path = Adapter;
 			sourceTree = "<group>";
 		};
+		7952AB2028C040CE00607B77 /* CoffeeMapTests */ = {
+			isa = PBXGroup;
+			children = (
+				7952AB2128C040CE00607B77 /* CoffeeMapTests.swift */,
+			);
+			path = CoffeeMapTests;
+			sourceTree = "<group>";
+		};
+		7952AB2828C0411D00607B77 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +144,24 @@
 			productReference = 79242C5B28C03ADD00766059 /* CoffeeMap.app */;
 			productType = "com.apple.product-type.application";
 		};
+		7952AB1E28C040CE00607B77 /* CoffeeMapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7952AB2528C040CE00607B77 /* Build configuration list for PBXNativeTarget "CoffeeMapTests" */;
+			buildPhases = (
+				7952AB1B28C040CE00607B77 /* Sources */,
+				7952AB1C28C040CE00607B77 /* Frameworks */,
+				7952AB1D28C040CE00607B77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7952AB2428C040CE00607B77 /* PBXTargetDependency */,
+			);
+			name = CoffeeMapTests;
+			productName = CoffeeMapTests;
+			productReference = 7952AB1F28C040CE00607B77 /* CoffeeMapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -118,6 +174,10 @@
 				TargetAttributes = {
 					79242C5A28C03ADD00766059 = {
 						CreatedOnToolsVersion = 13.2.1;
+					};
+					7952AB1E28C040CE00607B77 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 79242C5A28C03ADD00766059;
 					};
 				};
 			};
@@ -135,6 +195,7 @@
 			projectRoot = "";
 			targets = (
 				79242C5A28C03ADD00766059 /* CoffeeMap */,
+				7952AB1E28C040CE00607B77 /* CoffeeMapTests */,
 			);
 		};
 /* End PBXProject section */
@@ -147,6 +208,13 @@
 				79242C6B28C03ADF00766059 /* LaunchScreen.storyboard in Resources */,
 				79242C6828C03ADF00766059 /* Assets.xcassets in Resources */,
 				79242C6628C03ADD00766059 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7952AB1D28C040CE00607B77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +232,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7952AB1B28C040CE00607B77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7952AB2228C040CE00607B77 /* CoffeeMapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7952AB2428C040CE00607B77 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79242C5A28C03ADD00766059 /* CoffeeMap */;
+			targetProxy = 7952AB2328C040CE00607B77 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		79242C6428C03ADD00766059 /* Main.storyboard */ = {
@@ -358,6 +442,42 @@
 			};
 			name = Release;
 		};
+		7952AB2628C040CE00607B77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7QN4P34VRJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = owenkao.CoffeeMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoffeeMap.app/CoffeeMap";
+			};
+			name = Debug;
+		};
+		7952AB2728C040CE00607B77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7QN4P34VRJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = owenkao.CoffeeMapTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoffeeMap.app/CoffeeMap";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -375,6 +495,15 @@
 			buildConfigurations = (
 				79242C7028C03ADF00766059 /* Debug */,
 				79242C7128C03ADF00766059 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7952AB2528C040CE00607B77 /* Build configuration list for PBXNativeTarget "CoffeeMapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7952AB2628C040CE00607B77 /* Debug */,
+				7952AB2728C040CE00607B77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
