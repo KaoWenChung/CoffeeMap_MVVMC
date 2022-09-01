@@ -9,7 +9,7 @@ import Foundation
 
 class PlaceSearchViewModel: BaseViewModel {
 
-    private(set) var placeList: [PlaceSearchCellViewModel] = []
+    private(set) var placeList: [PlaceSearchTableViewCellRowModel] = []
     let apiService: FoursquareRepositoryDelegate
 
     init(_ apiService: FoursquareRepositoryDelegate) {
@@ -29,10 +29,10 @@ class PlaceSearchViewModel: BaseViewModel {
         }
     }
 
-    func getPlaceListBy(_ dataModel: GetPlaceResponseModel) -> [PlaceSearchCellViewModel] {
-        var result: [PlaceSearchCellViewModel] = []
+    func getPlaceListBy(_ dataModel: GetPlaceResponseModel) -> [PlaceSearchTableViewCellRowModel] {
+        var result: [PlaceSearchTableViewCellRowModel] = []
         for item in dataModel.results ?? [] {
-            result.append(PlaceSearchCellViewModel(item))
+            result.append(PlaceSearchTableViewCellRowModel(item))
         }
         return result
     }

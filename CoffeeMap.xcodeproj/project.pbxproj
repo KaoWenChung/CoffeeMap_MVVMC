@@ -18,7 +18,7 @@
 		7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB1928C03F5000607B77 /* TableViewAdapter.swift */; };
 		7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */; };
 		7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */; };
-		7952AB2D28C04E7100607B77 /* PlaceSearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2C28C04E7100607B77 /* PlaceSearchCellModel.swift */; };
+		7952AB2D28C04E7100607B77 /* PlaceSearchTableViewCellRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2C28C04E7100607B77 /* PlaceSearchTableViewCellRowModel.swift */; };
 		7952AB3128C0509F00607B77 /* GetPlaceDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3028C0509F00607B77 /* GetPlaceDataModel.swift */; };
 		7952AB3328C0540100607B77 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3228C0540100607B77 /* BaseViewModel.swift */; };
 		7952AB3628C0552C00607B77 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3528C0552B00607B77 /* BaseRepository.swift */; };
@@ -54,7 +54,7 @@
 		7952AB1F28C040CE00607B77 /* CoffeeMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapterTests.swift; sourceTree = "<group>"; };
 		7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchViewModel.swift; sourceTree = "<group>"; };
-		7952AB2C28C04E7100607B77 /* PlaceSearchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchCellModel.swift; sourceTree = "<group>"; };
+		7952AB2C28C04E7100607B77 /* PlaceSearchTableViewCellRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchTableViewCellRowModel.swift; sourceTree = "<group>"; };
 		7952AB3028C0509F00607B77 /* GetPlaceDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceDataModel.swift; sourceTree = "<group>"; };
 		7952AB3228C0540100607B77 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		7952AB3528C0552B00607B77 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 		7952AB2B28C04E5200607B77 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7952AB2C28C04E7100607B77 /* PlaceSearchCellModel.swift */,
+				7952AB2C28C04E7100607B77 /* PlaceSearchTableViewCellRowModel.swift */,
 				7952AB3028C0509F00607B77 /* GetPlaceDataModel.swift */,
 			);
 			path = Model;
@@ -313,7 +313,7 @@
 			files = (
 				7952AB3A28C0563D00607B77 /* FoursquareRepository.swift in Sources */,
 				79242C6328C03ADD00766059 /* PlaceSearchViewController.swift in Sources */,
-				7952AB2D28C04E7100607B77 /* PlaceSearchCellModel.swift in Sources */,
+				7952AB2D28C04E7100607B77 /* PlaceSearchTableViewCellRowModel.swift in Sources */,
 				7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */,
 				7952AB3628C0552C00607B77 /* BaseRepository.swift in Sources */,
 				7952AB3D28C05CD400607B77 /* Encodable+.swift in Sources */,

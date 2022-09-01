@@ -13,7 +13,7 @@ class PlaceSearchTableViewCell: UITableViewCell, BaseCellView {
     @IBOutlet weak var distanceLabel: UILabel!
     
     func setupCellView(rowModel: BaseCellRowModel) {
-        guard let rowModel = rowModel as? PlaceSearchCellViewModel else { return }
+        guard let rowModel = rowModel as? PlaceSearchTableViewCellRowModel else { return }
         nameLabel.text = rowModel.name
         addressLabel.text = rowModel.address
         distanceLabel.text = rowModel.distance
