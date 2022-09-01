@@ -14,8 +14,9 @@
 		79242C6828C03ADF00766059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6728C03ADF00766059 /* Assets.xcassets */; };
 		79242C6B28C03ADF00766059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6928C03ADF00766059 /* LaunchScreen.storyboard */; };
 		7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB1928C03F5000607B77 /* TableViewAdapter.swift */; };
-		7952AB2228C040CE00607B77 /* CoffeeMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2128C040CE00607B77 /* CoffeeMapTests.swift */; };
+		7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */; };
 		7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */; };
+		7952AB2D28C04E7100607B77 /* PlaceSearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2C28C04E7100607B77 /* PlaceSearchCellModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +40,9 @@
 		79242C6C28C03ADF00766059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7952AB1928C03F5000607B77 /* TableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
 		7952AB1F28C040CE00607B77 /* CoffeeMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7952AB2128C040CE00607B77 /* CoffeeMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeMapTests.swift; sourceTree = "<group>"; };
+		7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapterTests.swift; sourceTree = "<group>"; };
 		7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchViewModel.swift; sourceTree = "<group>"; };
+		7952AB2C28C04E7100607B77 /* PlaceSearchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchCellModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		79242C5D28C03ADD00766059 /* CoffeeMap */ = {
 			isa = PBXGroup;
 			children = (
+				7952AB2B28C04E5200607B77 /* Model */,
 				7952AB1828C03F2600607B77 /* Adapter */,
 				7952AB1728C03F1B00607B77 /* View */,
 				7952AB2828C0411D00607B77 /* ViewModel */,
@@ -114,7 +117,7 @@
 		7952AB2028C040CE00607B77 /* CoffeeMapTests */ = {
 			isa = PBXGroup;
 			children = (
-				7952AB2128C040CE00607B77 /* CoffeeMapTests.swift */,
+				7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */,
 			);
 			path = CoffeeMapTests;
 			sourceTree = "<group>";
@@ -125,6 +128,14 @@
 				7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7952AB2B28C04E5200607B77 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7952AB2C28C04E7100607B77 /* PlaceSearchCellModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79242C6328C03ADD00766059 /* PlaceSearchViewController.swift in Sources */,
+				7952AB2D28C04E7100607B77 /* PlaceSearchCellModel.swift in Sources */,
 				7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */,
 				79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */,
 				7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */,
@@ -240,7 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7952AB2228C040CE00607B77 /* CoffeeMapTests.swift in Sources */,
+				7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

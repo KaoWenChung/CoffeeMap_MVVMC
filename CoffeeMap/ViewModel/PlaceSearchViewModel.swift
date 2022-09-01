@@ -8,5 +8,5 @@
 import Foundation
 
 class PlaceSearchViewModel {
-    
+//    private(set) var placeList: []
 }

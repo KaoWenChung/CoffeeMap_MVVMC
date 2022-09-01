@@ -8,7 +8,7 @@
 import UIKit
 
 protocol BaseCellRowModel {
-    var cellID: String { get set }
+    var cellID: String { get }
     var cellAction: ((BaseCellRowModel)->())? { get set }
 }
 
