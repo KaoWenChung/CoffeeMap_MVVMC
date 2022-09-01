@@ -31,13 +31,18 @@ class PlaceSearchViewController: UIViewController {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+        
     }
 
     @IBAction func reloadData(_ sender: Any) {
         locationManager.requestLocation()
     }
 
-    private func fetchData(ll: String) {
+    private func fetchData() {
+        guard let location = locationManager.location else { return }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        let ll: String = String(latitude) + "," + String(longitude)
         viewModel.fetchData(ll: ll) { result in
             switch result {
             case .success:
@@ -51,12 +56,7 @@ class PlaceSearchViewController: UIViewController {
 
 extension PlaceSearchViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            let latitude = location.coordinate.latitude
-            let longitude = location.coordinate.longitude
-            let ll: String = String(latitude) + "," + String(longitude)
-            fetchData(ll: ll)
-        }
+        fetchData()
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
