@@ -22,6 +22,9 @@
 		7952AB3628C0552C00607B77 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3528C0552B00607B77 /* BaseRepository.swift */; };
 		7952AB3A28C0563D00607B77 /* FoursquareRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3928C0563D00607B77 /* FoursquareRepository.swift */; };
 		7952AB3D28C05CD400607B77 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3C28C05CD400607B77 /* Encodable+.swift */; };
+		7952AB3F28C0619E00607B77 /* PlaceSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3E28C0619E00607B77 /* PlaceSearchViewModelTests.swift */; };
+		7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB4128C0627A00607B77 /* XCTestCase+.swift */; };
+		7952AB4728C0642E00607B77 /* GetPlace_London.json in Resources */ = {isa = PBXBuildFile; fileRef = 7952AB4628C0642E00607B77 /* GetPlace_London.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		7952AB3528C0552B00607B77 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		7952AB3928C0563D00607B77 /* FoursquareRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareRepository.swift; sourceTree = "<group>"; };
 		7952AB3C28C05CD400607B77 /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
+		7952AB3E28C0619E00607B77 /* PlaceSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchViewModelTests.swift; sourceTree = "<group>"; };
+		7952AB4128C0627A00607B77 /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
+		7952AB4628C0642E00607B77 /* GetPlace_London.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPlace_London.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +135,10 @@
 		7952AB2028C040CE00607B77 /* CoffeeMapTests */ = {
 			isa = PBXGroup;
 			children = (
+				7952AB4028C0625F00607B77 /* Util */,
+				7952AB4328C062FB00607B77 /* Stub */,
 				7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */,
+				7952AB3E28C0619E00607B77 /* PlaceSearchViewModelTests.swift */,
 			);
 			path = CoffeeMapTests;
 			sourceTree = "<group>";
@@ -167,6 +176,22 @@
 				7952AB3C28C05CD400607B77 /* Encodable+.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		7952AB4028C0625F00607B77 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				7952AB4128C0627A00607B77 /* XCTestCase+.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		7952AB4328C062FB00607B77 /* Stub */ = {
+			isa = PBXGroup;
+			children = (
+				7952AB4628C0642E00607B77 /* GetPlace_London.json */,
+			);
+			path = Stub;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7952AB4728C0642E00607B77 /* GetPlace_London.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7952AB3F28C0619E00607B77 /* PlaceSearchViewModelTests.swift in Sources */,
 				7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */,
+				7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

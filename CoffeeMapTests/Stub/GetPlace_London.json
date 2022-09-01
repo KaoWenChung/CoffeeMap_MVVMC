@@ -1,0 +1,496 @@
+{
+    "results": [
+        {
+            "fsq_id": "4b98b921f964a520f94c35e3",
+            "categories": [
+                {
+                    "id": 13034,
+                    "name": "Café",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13236,
+                    "name": "Italian Restaurant",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/italian_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13334,
+                    "name": "Sandwich Restaurant",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/deli_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 39,
+            "geocodes": {
+                "main": {
+                    "latitude": 51.509821,
+                    "longitude": -0.133206
+                },
+                "roof": {
+                    "latitude": 51.509821,
+                    "longitude": -0.133206
+                }
+            },
+            "link": "/v3/places/4b98b921f964a520f94c35e3",
+            "location": {
+                "address": "45 Haymarket",
+                "admin_region": "England",
+                "country": "GB",
+                "formatted_address": "45 Haymarket, London, Greater London, SW1Y 4SE",
+                "locality": "London",
+                "neighborhood": [
+                    "Westminster"
+                ],
+                "post_town": "London",
+                "postcode": "SW1Y 4SE",
+                "region": "Greater London"
+            },
+            "name": "Caffè Concerto",
+            "related_places": {},
+            "timezone": "Europe/London"
+        },
+        {
+            "fsq_id": "4fec52c4e4b00f39063b5bee",
+            "categories": [
+                {
+                    "id": 13035,
+                    "name": "Coffee Shop",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 123,
+            "geocodes": {
+                "main": {
+                    "latitude": 51.510149,
+                    "longitude": -0.135479
+                },
+                "roof": {
+                    "latitude": 51.510149,
+                    "longitude": -0.135479
+                }
+            },
+            "link": "/v3/places/4fec52c4e4b00f39063b5bee",
+            "location": {
+                "address": "54 Regent St",
+                "admin_region": "England",
+                "country": "GB",
+                "formatted_address": "54 Regent St, London, Greater London, W1B 4DY",
+                "locality": "London",
+                "neighborhood": [
+                    "Soho"
+                ],
+                "post_town": "London",
+                "postcode": "W1B 4DY",
+                "region": "Greater London"
+            },
+            "name": "Nespresso Boutique",
+            "related_places": {},
+            "timezone": "Europe/London"
+        },
+        {
+            "fsq_id": "4c3cc4a24bc9a593ab20d371",
+            "categories": [
+                {
+                    "id": 13034,
+                    "name": "Café",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 65,
+            "geocodes": {
+                "main": {
+                    "latitude": 51.509871,
+                    "longitude": -0.134457
+                },
+                "roof": {
+                    "latitude": 51.509871,
+                    "longitude": -0.134457
+                }
+            },
+            "link": "/v3/places/4c3cc4a24bc9a593ab20d371",
+            "location": {
+                "country": "GB",
+                "cross_street": "",
+                "formatted_address": ""
+            },
+            "name": "Cafe Culture",
+            "related_places": {},
+            "timezone": "Europe/London"
+        },
+        {
+            "fsq_id": "5470ccf6498ea81c5ed9a95b",
+            "categories": [
+                {
+                    "id": 13032,
+                    "name": "Cafes, Coffee, and Tea Houses",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 140,
+            "geocodes": {
+                "main": {
+                    "latitude": 51.508545,
+                    "longitude": -0.13389
+                },
+                "roof": {
+                    "latitude": 51.508545,
+                    "longitude": -0.13389
+                }
+            },
+            "link": "/v3/places/5470ccf6498ea81c5ed9a95b",
+            "location": {
+                "address": "13 Regent St St James",
+                "admin_region": "England",
+                "country": "GB",
+                "cross_street": "",
+                "formatted_address": "13 Regent St St James, London, Greater London, SW1Y 4LR",
+                "locality": "London",
+                "neighborhood": [
+                    "Westminster"
+                ],
+                "post_town": "London",
+                "postcode": "SW1Y 4LR",
+                "region": "Greater London"
+            },
+            "name": "Whittard of Chelsea Regent Street St James",
+            "related_places": {},
+            "timezone": "Europe/London"
+        },
+        {
+            "fsq_id": "59412da2f193c001943f7508",
+            "categories": [
+                {
+                    "id": 13034,
+                    "name": "Café",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13065,
+                    "name": "Restaurant",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 82,
+            "geocodes": {
+                "main": {
+                    "latitude": 51.509235,
+                    "longitude": -0.133013
+                },
+                "roof": {
+                    "latitude": 51.509235,
+                    "longitude": -0.133013
+                }
+            },
+            "link": "/v3/places/59412da2f193c001943f7508",
+            "location": {
+                "address": "2a, St. James's Market",
+                "admin_region": "England",
+                "country": "GB",
+                "cross_street": "",
+                "formatted_address": "2a, St. James's Market, London, Greater London, SW1Y 4AH",
+                "locality": "London",
+                "post_town": "London",
+                "postcode": "SW1Y 4AH",
+                "region": "Greater London"
+            },
+            "name": "Urban Tea Rooms",
+            "related_places": {
+                "parent": {
+                    "fsq_id": "4fd4d768e4b07b0662da435e",
+                    "name": "St. James's Market"
+                }
+            },
+            "timezone": "Europe/London"
+        },
+        {
+            "fsq_id": "53334a5d498e210026ea532c",
+            "categories": [
+                {
+                    "id": 13008,
+                    "name": "Champagne Bar",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/winery_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13036,
+                    "name": "Tea Room",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/tearoom_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13065,
+                    "name": "Restaurant",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 163,
+            "geocodes": {
+                "main": {
+                    "latitude": 51.510238,
+                    "longitude": -0.135883
+                },
+                "roof": {
+                    "latitude": 51.510238,
+                    "longitude": -0.135883
+                }
+            },
+            "link": "/v3/places/53334a5d498e210026ea532c",
+            "location": {
+                "address": "68 Regent St",
+                "admin_region": "England",
+                "country": "GB",
+                "cross_street": "",
+                "formatted_address": "68 Regent St, London, Greater London, W1B 4DY",
+                "locality": "London",
+                "neighborhood": [
+                    "St James's"
+                ],
+                "post_town": "London",
+                "postcode": "W1B 4DY",
+                "region": "Greater London"
+            },
+            "name": "The Oscar Wilde Bar",
+            "related_places": {
+                "parent": {
+                    "fsq_id": "509422b4e4b00a7cdd3742af",
+                    "name": "Cafe Royal Hotel"
+                }
+            },
+            "timezone": "Europe/London"
+        },
+        {
+            "fsq_id": "541946bb498e33b85746c233",
+            "categories": [
+                {
+                    "id": 17057,
+                    "name": "Food and Beverage Retail",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/shops/foodanddrink_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 135,
+            "geocodes": {
+                "main": {
+                    "latitude": 51.510885,
+                    "longitude": -0.134757
+                },
+                "roof": {
+                    "latitude": 51.510885,
+                    "longitude": -0.134757
+                }
+            },
+            "link": "/v3/places/541946bb498e33b85746c233",
+            "location": {
+                "address": "5 Denman St",
+                "admin_region": "England",
+                "country": "GB",
+                "cross_street": "",
+                "formatted_address": "5 Denman St, London, Greater London, W1D 7HA",
+                "locality": "London",
+                "post_town": "London",
+                "postcode": "W1D 7HA",
+                "region": "Greater London"
+            },
+            "name": "My Cup of Tea",
+            "related_places": {},
+            "timezone": "Europe/London"
+        },
+        {
+            "fsq_id": "4addf4d4f964a520bb6621e3",
+            "categories": [
+                {
+                    "id": 13032,
+                    "name": "Cafes, Coffee, and Tea Houses",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [
+                {
+                    "id": "2fcf7b70-9c63-0132-6632-3c15c2dde6c8",
+                    "name": "Caffè Nero"
+                }
+            ],
+            "distance": 102,
+            "geocodes": {
+                "main": {
+                    "latitude": 51.509531,
+                    "longitude": -0.132466
+                },
+                "roof": {
+                    "latitude": 51.509531,
+                    "longitude": -0.132466
+                }
+            },
+            "link": "/v3/places/4addf4d4f964a520bb6621e3",
+            "location": {
+                "address": "27 Haymarket",
+                "admin_region": "England",
+                "country": "GB",
+                "cross_street": "Piccadilly Circus",
+                "formatted_address": "27 Haymarket (Piccadilly Circus), London, Greater London, SW1 4EN",
+                "locality": "London",
+                "neighborhood": [
+                    "Westminster"
+                ],
+                "post_town": "London",
+                "postcode": "SW1 4EN",
+                "region": "Greater London"
+            },
+            "name": "Caffè Nero",
+            "related_places": {},
+            "timezone": "Europe/London"
+        },
+        {
+            "fsq_id": "53203ab2498e6a5ca18513d8",
+            "categories": [
+                {
+                    "id": 13034,
+                    "name": "Café",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 170,
+            "geocodes": {
+                "main": {
+                    "latitude": 51.50998,
+                    "longitude": -0.135617
+                }
+            },
+            "link": "/v3/places/53203ab2498e6a5ca18513d8",
+            "location": {
+                "address": "68 Regent St",
+                "admin_region": "England",
+                "country": "GB",
+                "cross_street": "",
+                "formatted_address": "68 Regent St, London, Greater London",
+                "locality": "London",
+                "post_town": "London",
+                "region": "Greater London"
+            },
+            "name": "Cafe Royale",
+            "related_places": {
+                "parent": {
+                    "fsq_id": "50c070d7e4b06f3d184f48ce",
+                    "name": "Hotel Café Royal"
+                }
+            },
+            "timezone": "Europe/London"
+        },
+        {
+            "fsq_id": "4baa0778f964a520ff443ae3",
+            "categories": [
+                {
+                    "id": 13034,
+                    "name": "Café",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13035,
+                    "name": "Coffee Shop",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+                        "suffix": ".png"
+                    }
+                },
+                {
+                    "id": 13064,
+                    "name": "Pizzeria",
+                    "icon": {
+                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/pizza_",
+                        "suffix": ".png"
+                    }
+                }
+            ],
+            "chains": [],
+            "distance": 158,
+            "geocodes": {
+                "main": {
+                    "latitude": 51.509472,
+                    "longitude": -0.136074
+                },
+                "roof": {
+                    "latitude": 51.509472,
+                    "longitude": -0.136074
+                }
+            },
+            "link": "/v3/places/4baa0778f964a520ff443ae3",
+            "location": {
+                "address": "1 Air St",
+                "admin_region": "England",
+                "country": "GB",
+                "cross_street": "",
+                "formatted_address": "1 Air St, London, Greater London, W1J 0AB",
+                "locality": "London",
+                "neighborhood": [
+                    "West Central"
+                ],
+                "post_town": "London",
+                "postcode": "W1J 0AB",
+                "region": "Greater London"
+            },
+            "name": "Piggy's",
+            "related_places": {},
+            "timezone": "Europe/London"
+        }
+    ],
+    "context": {
+        "geo_bounds": {
+            "circle": {
+                "center": {
+                    "latitude": 51.50998,
+                    "longitude": -0.1337
+                },
+                "radius": 200
+            }
+        }
+    }
+}
