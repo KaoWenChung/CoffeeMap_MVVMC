@@ -19,6 +19,7 @@
 		7952AB2D28C04E7100607B77 /* PlaceSearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2C28C04E7100607B77 /* PlaceSearchCellModel.swift */; };
 		7952AB3128C0509F00607B77 /* GetPlaceDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3028C0509F00607B77 /* GetPlaceDataModel.swift */; };
 		7952AB3328C0540100607B77 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3228C0540100607B77 /* BaseViewModel.swift */; };
+		7952AB3628C0552C00607B77 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3528C0552B00607B77 /* BaseRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		7952AB2C28C04E7100607B77 /* PlaceSearchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchCellModel.swift; sourceTree = "<group>"; };
 		7952AB3028C0509F00607B77 /* GetPlaceDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceDataModel.swift; sourceTree = "<group>"; };
 		7952AB3228C0540100607B77 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		7952AB3528C0552B00607B77 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		79242C5D28C03ADD00766059 /* CoffeeMap */ = {
 			isa = PBXGroup;
 			children = (
+				7952AB3428C0551400607B77 /* Repository */,
 				7952AB2B28C04E5200607B77 /* Model */,
 				7952AB1828C03F2600607B77 /* Adapter */,
 				7952AB1728C03F1B00607B77 /* View */,
@@ -142,6 +145,14 @@
 				7952AB3028C0509F00607B77 /* GetPlaceDataModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7952AB3428C0551400607B77 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				7952AB3528C0552B00607B77 /* BaseRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +259,7 @@
 				79242C6328C03ADD00766059 /* PlaceSearchViewController.swift in Sources */,
 				7952AB2D28C04E7100607B77 /* PlaceSearchCellModel.swift in Sources */,
 				7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */,
+				7952AB3628C0552C00607B77 /* BaseRepository.swift in Sources */,
 				79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */,
 				7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */,
 				7952AB3328C0540100607B77 /* BaseViewModel.swift in Sources */,
