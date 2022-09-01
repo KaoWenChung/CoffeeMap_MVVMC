@@ -11,6 +11,7 @@ import CoreLocation
 class PlaceSearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noResultLabel: UILabel!
     private var tableViewAdapter: TableViewAdapter?
     private let viewModel: PlaceSearchViewModel
     var locationManager: LocationManager?
@@ -33,7 +34,11 @@ class PlaceSearchViewController: UIViewController {
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.requestLocation()
-        
+    }
+
+    private func updateNoResultView() {
+        noResultLabel.isHidden = !viewModel.placeList.isEmpty
+        tableView.isHidden = viewModel.placeList.isEmpty
     }
 
     @IBAction func reloadData(_ sender: Any) {
@@ -49,6 +54,7 @@ class PlaceSearchViewController: UIViewController {
             switch result {
             case .success:
                 self.tableViewAdapter?.updateData( self.viewModel.placeList)
+                self.updateNoResultView()
             case .failure(let error):
                 print(error)
             }

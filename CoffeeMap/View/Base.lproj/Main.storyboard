@@ -11,23 +11,32 @@
         <!--Coffee Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PlaceSearchViewController" customModule="CoffeeMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlaceSearchViewController" id="BYZ-38-t0r" customClass="PlaceSearchViewController" customModule="CoffeeMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="O8I-vx-JqG">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="O8I-vx-JqG">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No results, please refresh the page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1FW-UW-M2Q">
+                                <rect key="frame" x="0.0" y="437.5" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="1FW-UW-M2Q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6Nu-ff-s1J"/>
                             <constraint firstItem="O8I-vx-JqG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lrb-hs-eFP"/>
                             <constraint firstItem="O8I-vx-JqG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RW8-bN-wUN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O8I-vx-JqG" secondAttribute="trailing" id="VJx-aH-awU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O8I-vx-JqG" secondAttribute="bottom" id="WLX-zk-uaL"/>
+                            <constraint firstItem="1FW-UW-M2Q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sfn-st-d33"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1FW-UW-M2Q" secondAttribute="trailing" id="zRD-WV-6iE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Coffee Map" id="dbF-PH-40O">
@@ -38,6 +47,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="noResultLabel" destination="1FW-UW-M2Q" id="0kh-wt-FBG"/>
                         <outlet property="tableView" destination="O8I-vx-JqG" id="6Ue-Up-zyb"/>
                     </connections>
                 </viewController>
