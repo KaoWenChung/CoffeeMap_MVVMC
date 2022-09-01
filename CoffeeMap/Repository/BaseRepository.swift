@@ -18,21 +18,28 @@ class BaseRepository {
 
     private let apiKey: String = ""
 
+    private var headers: [String: String] {
+        return [
+            "Accept": "application/json",
+            "Authorization": apiKey
+          ]
+    }
+    
     func get<T: Decodable>(url: URL, completion: @escaping ((Result<T>) -> Void)) {
-        let headers = [
-          "Accept": "application/json",
-          "Authorization": apiKey
-        ]
         
-        let request = NSMutableURLRequest(url: url,
+        
+        let urlRequest = NSMutableURLRequest(url: url,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-        
+        urlRequest.httpMethod = "GET"
+        urlRequest.allHTTPHeaderFields = headers
 
+        request(request: urlRequest as URLRequest, completion: completion)
+    }
+
+    private func request<T: Decodable>(request: URLRequest, completion: @escaping ((Result<T>) -> Void)) {
         let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             // Handle Error
             if let error = error {
                 completion(.failure(CustomError(error.localizedDescription)))
