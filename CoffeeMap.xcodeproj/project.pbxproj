@@ -17,6 +17,7 @@
 		7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */; };
 		7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */; };
 		7952AB2D28C04E7100607B77 /* PlaceSearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2C28C04E7100607B77 /* PlaceSearchCellModel.swift */; };
+		7952AB3128C0509F00607B77 /* GetPlaceDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3028C0509F00607B77 /* GetPlaceDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapterTests.swift; sourceTree = "<group>"; };
 		7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchViewModel.swift; sourceTree = "<group>"; };
 		7952AB2C28C04E7100607B77 /* PlaceSearchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchCellModel.swift; sourceTree = "<group>"; };
+		7952AB3028C0509F00607B77 /* GetPlaceDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				7952AB2C28C04E7100607B77 /* PlaceSearchCellModel.swift */,
+				7952AB3028C0509F00607B77 /* GetPlaceDataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */,
 				7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */,
 				79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */,
+				7952AB3128C0509F00607B77 /* GetPlaceDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
