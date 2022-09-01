@@ -20,16 +20,3 @@ protocol LocationManager {
 
 extension CLLocationManager: LocationManager {}
 
-class MockLocationManager: LocationManager {
-
-    func requestLocation() {}
-    
-    func requestWhenInUseAuthorization() {}
-    
-    var delegate: CLLocationManagerDelegate?
-
-    var location: CLLocation? = CLLocation(
-        latitude: 51.50998,
-        longitude: -0.1337
-    )
-}

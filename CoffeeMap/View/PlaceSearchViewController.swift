@@ -62,6 +62,5 @@ extension PlaceSearchViewController: CLLocationManagerDelegate {
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
-        // Handle failure to get a user’s location
     }
 }

@@ -17,6 +17,7 @@
 		79290E0E28C080CF00439E38 /* PlaceSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79290E0C28C080CF00439E38 /* PlaceSearchTableViewCell.xib */; };
 		79290E1428C0943600439E38 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79290E1328C0943600439E38 /* MapKit.framework */; };
 		79290E1628C0979E00439E38 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79290E1528C0979E00439E38 /* LocationManager.swift */; };
+		79290E1828C09CED00439E38 /* PlaceSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79290E1728C09CED00439E38 /* PlaceSearchViewControllerTests.swift */; };
 		7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB1928C03F5000607B77 /* TableViewAdapter.swift */; };
 		7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */; };
 		7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB2928C041FC00607B77 /* PlaceSearchViewModel.swift */; };
@@ -54,6 +55,7 @@
 		79290E0C28C080CF00439E38 /* PlaceSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceSearchTableViewCell.xib; sourceTree = "<group>"; };
 		79290E1328C0943600439E38 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		79290E1528C0979E00439E38 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		79290E1728C09CED00439E38 /* PlaceSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchViewControllerTests.swift; sourceTree = "<group>"; };
 		7952AB1928C03F5000607B77 /* TableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
 		7952AB1F28C040CE00607B77 /* CoffeeMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoffeeMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapterTests.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				7952AB4328C062FB00607B77 /* Stub */,
 				7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */,
 				7952AB3E28C0619E00607B77 /* PlaceSearchViewModelTests.swift */,
+				79290E1728C09CED00439E38 /* PlaceSearchViewControllerTests.swift */,
 			);
 			path = CoffeeMapTests;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79290E1828C09CED00439E38 /* PlaceSearchViewControllerTests.swift in Sources */,
 				7952AB3F28C0619E00607B77 /* PlaceSearchViewModelTests.swift in Sources */,
 				7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */,
 				7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */,
