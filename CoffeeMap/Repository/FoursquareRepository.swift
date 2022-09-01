@@ -8,12 +8,15 @@
 import Foundation
 
 protocol FoursquareRepositoryDelegate {
+
     func getPlace(param: GetPlaceParamModel, completion: @escaping ((Result<GetPlaceResponseModel>) -> Void))
+
 }
 
 class FoursquareRepository: BaseRepository, FoursquareRepositoryDelegate {
 
     private enum PlacesURL {
+
         case getPlace
         // TODO: get photo
         case getPhoto
@@ -26,9 +29,11 @@ class FoursquareRepository: BaseRepository, FoursquareRepositoryDelegate {
                 return domainPath
             }
         }
+
     }
 
     func getPlace(param: GetPlaceParamModel, completion: @escaping ((Result<GetPlaceResponseModel>) -> Void)) {
+
         let urlStr = PlacesURL.getPlace.urlString()
         guard var urlComponent = URLComponents(string: urlStr) else { return }
         let test: [String: Any]? = param.dictionary

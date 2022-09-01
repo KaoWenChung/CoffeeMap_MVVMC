@@ -6,9 +6,11 @@
 //
 
 struct GetPlaceParamModel: Encodable {
+
     var ll: String?
     var radius: Int?
     var query: String?
+
 }
 
 
