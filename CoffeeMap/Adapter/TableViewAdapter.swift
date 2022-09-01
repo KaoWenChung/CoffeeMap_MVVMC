@@ -45,8 +45,9 @@ class TableViewAdapter: NSObject {
 
 // MARK: - TableViewAdapter UITableViewDataSource
 extension TableViewAdapter: UITableViewDataSource {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
+        // TODO: Because this is a simple project, I gave it a static property
         return 1
     }
 
