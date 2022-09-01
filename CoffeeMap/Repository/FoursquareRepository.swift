@@ -32,16 +32,23 @@ class FoursquareRepository: BaseRepository, FoursquareRepositoryDelegate {
 
     }
 
-    func getPlace(param: GetPlaceParamModel, completion: @escaping ((Result<GetPlaceResponseModel>) -> Void)) {
+    func convertDictionaryToURL(param: GetPlaceParamModel, urlComponent: inout URLComponents) {
 
-        let urlStr = PlacesURL.getPlace.urlString()
-        guard var urlComponent = URLComponents(string: urlStr) else { return }
         let test: [String: Any]? = param.dictionary
         if let test = test {
             urlComponent.addParameters(test)
         }
+
+    }
+
+    func getPlace(param: GetPlaceParamModel, completion: @escaping ((Result<GetPlaceResponseModel>) -> Void)) {
+
+        let urlStr = PlacesURL.getPlace.urlString()
+        guard var urlComponent = URLComponents(string: urlStr) else { return }
+        convertDictionaryToURL(param: param, urlComponent: &urlComponent)
         guard let _url = urlComponent.url else { return }
         get(url: _url, completion: completion)
+
     }
 
 }
