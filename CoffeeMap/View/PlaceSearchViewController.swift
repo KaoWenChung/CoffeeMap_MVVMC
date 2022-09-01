@@ -13,33 +13,35 @@ class PlaceSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var tableViewAdapter: TableViewAdapter?
     private let viewModel: PlaceSearchViewModel
-    let locationManager = CLLocationManager()
+    var locationManager: LocationManager?
 
-    init(_ viewModel: PlaceSearchViewModel) {
+    init(_ viewModel: PlaceSearchViewModel, locationManager: LocationManager) {
         self.viewModel = viewModel
+        self.locationManager = locationManager
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         self.viewModel = PlaceSearchViewModel(FoursquareRepository())
+        locationManager = CLLocationManager()
         super.init(coder: coder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableViewAdapter = .init(tableView, cell: PlaceSearchTableViewCell())
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+        locationManager?.delegate = self
+        locationManager?.requestWhenInUseAuthorization()
+        locationManager?.requestLocation()
         
     }
 
     @IBAction func reloadData(_ sender: Any) {
-        locationManager.requestLocation()
+        locationManager?.requestLocation()
     }
 
     private func fetchData() {
-        guard let location = locationManager.location else { return }
+        guard let location = locationManager?.location else { return }
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         let ll: String = String(latitude) + "," + String(longitude)
