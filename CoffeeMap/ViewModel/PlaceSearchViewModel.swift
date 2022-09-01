@@ -10,6 +10,10 @@ import Foundation
 class PlaceSearchViewModel: BaseViewModel {
 
     private(set) var placeList: [PlaceSearchCellViewModel] = []
+    let apiService: FoursquareRepositoryDelegate
 
-    
+    init(_ apiService: FoursquareRepositoryDelegate) {
+        self.apiService = apiService
+    }
+
 }

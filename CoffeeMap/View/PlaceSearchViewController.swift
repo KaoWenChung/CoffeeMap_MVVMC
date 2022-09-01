@@ -19,7 +19,7 @@ class PlaceSearchViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-        self.viewModel = PlaceSearchViewModel()
+        self.viewModel = PlaceSearchViewModel(FoursquareRepository())
         super.init(coder: coder)
     }
     

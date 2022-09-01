@@ -12,7 +12,7 @@ struct PlaceSearchCellViewModel: BaseCellRowModel {
     
     let title: String
     
-    init(_ title: String) {
-        self.title = title
+    init(_ dataModel: GetPlaceResultModel) {
+        title = dataModel.name ?? ""
     }
 }

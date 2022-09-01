@@ -7,9 +7,9 @@
 
 class BaseViewModel {
 
-    typealias Completion = (_ result: Result) -> Void
+    typealias Completion = (_ result: CompletionResult) -> Void
 
-    enum Result {
+    enum CompletionResult {
         case success
         case failure(CustomError)
     }
