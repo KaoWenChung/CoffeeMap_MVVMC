@@ -11,12 +11,18 @@ struct PlaceSearchTableViewCellRowModel: BaseCellRowModel {
     var cellAction: ((BaseCellRowModel) -> ())?
     
     let name: String
-    let address: String?
+    let address: String
     let distance: String?
     
     init(_ dataModel: GetPlaceResultModel) {
         name = dataModel.name ?? ""
-        address = dataModel.location?.formattedAddress
+        if let location = dataModel.location,
+           let address = location.formattedAddress,
+           !address.isEmpty {
+            self.address = address
+        } else {
+            address = "-"
+        }
         if let distance = dataModel.distance {
             self.distance = distance.description + " meters"
         } else {
