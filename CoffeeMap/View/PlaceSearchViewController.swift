@@ -25,9 +25,19 @@ class PlaceSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        tableViewAdapter = .init(tableView, cell: PlaceSearchTableViewCell())
+        fetchData(ll: "51.50998,-0.1337")
     }
 
-
+    private func fetchData(ll: String) {
+        viewModel.fetchData(ll: ll) { result in
+            switch result {
+            case .success:
+                self.tableViewAdapter?.updateData( self.viewModel.placeList)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
