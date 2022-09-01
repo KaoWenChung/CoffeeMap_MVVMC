@@ -42,15 +42,18 @@ class PlaceSearchViewController: UIViewController {
     }
 
     @IBAction func reloadData(_ sender: Any) {
+        Spinner.shared.showOn(view)
         locationManager?.requestLocation()
     }
 
     private func fetchData() {
         guard let location = locationManager?.location else { return }
+        Spinner.shared.showOn(view)
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         let ll: String = String(latitude) + "," + String(longitude)
         viewModel.fetchData(ll: ll) { result in
+            Spinner.shared.hide()
             switch result {
             case .success:
                 self.tableViewAdapter?.updateData( self.viewModel.placeList)
@@ -64,9 +67,11 @@ class PlaceSearchViewController: UIViewController {
 
 extension PlaceSearchViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        Spinner.shared.hide()
         fetchData()
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        Spinner.shared.hide()
         print(error)
     }
 }
