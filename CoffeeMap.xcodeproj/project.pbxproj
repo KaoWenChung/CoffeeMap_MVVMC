@@ -10,7 +10,6 @@
 		79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C5E28C03ADD00766059 /* AppDelegate.swift */; };
 		79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C6028C03ADD00766059 /* SceneDelegate.swift */; };
 		79242C6328C03ADD00766059 /* PlaceSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C6228C03ADD00766059 /* PlaceSearchViewController.swift */; };
-		79242C6628C03ADD00766059 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6428C03ADD00766059 /* Main.storyboard */; };
 		79242C6828C03ADF00766059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6728C03ADF00766059 /* Assets.xcassets */; };
 		79242C6B28C03ADF00766059 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79242C6928C03ADF00766059 /* LaunchScreen.storyboard */; };
 		79290E0D28C080CF00439E38 /* PlaceSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79290E0B28C080CF00439E38 /* PlaceSearchTableViewCell.swift */; };
@@ -32,6 +31,7 @@
 		7952AB3F28C0619E00607B77 /* PlaceSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3E28C0619E00607B77 /* PlaceSearchViewModelTests.swift */; };
 		7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB4128C0627A00607B77 /* XCTestCase+.swift */; };
 		7952AB4728C0642E00607B77 /* GetPlace_London.json in Resources */ = {isa = PBXBuildFile; fileRef = 7952AB4628C0642E00607B77 /* GetPlace_London.json */; };
+		796EB62028C18E0300F1A01B /* PlaceSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796EB61F28C18E0300F1A01B /* PlaceSearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,6 @@
 		79242C5E28C03ADD00766059 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79242C6028C03ADD00766059 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		79242C6228C03ADD00766059 /* PlaceSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchViewController.swift; sourceTree = "<group>"; };
-		79242C6528C03ADD00766059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79242C6728C03ADF00766059 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79242C6A28C03ADF00766059 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		79242C6C28C03ADF00766059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +72,7 @@
 		7952AB3E28C0619E00607B77 /* PlaceSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchViewModelTests.swift; sourceTree = "<group>"; };
 		7952AB4128C0627A00607B77 /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
 		7952AB4628C0642E00607B77 /* GetPlace_London.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPlace_London.json; sourceTree = "<group>"; };
+		796EB61F28C18E0300F1A01B /* PlaceSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceSearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +153,7 @@
 			children = (
 				79290E0F28C080D300439E38 /* Cell */,
 				79242C6228C03ADD00766059 /* PlaceSearchViewController.swift */,
-				79242C6428C03ADD00766059 /* Main.storyboard */,
+				796EB61F28C18E0300F1A01B /* PlaceSearchViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,8 +315,8 @@
 			files = (
 				79242C6B28C03ADF00766059 /* LaunchScreen.storyboard in Resources */,
 				79242C6828C03ADF00766059 /* Assets.xcassets in Resources */,
-				79242C6628C03ADD00766059 /* Main.storyboard in Resources */,
 				79290E0E28C080CF00439E38 /* PlaceSearchTableViewCell.xib in Resources */,
+				796EB62028C18E0300F1A01B /* PlaceSearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,14 +375,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		79242C6428C03ADD00766059 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				79242C6528C03ADD00766059 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		79242C6928C03ADF00766059 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -520,9 +512,9 @@
 				DEVELOPMENT_TEAM = 7QN4P34VRJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoffeeMap/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to find out your current location in order to find coffee shops";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -548,9 +540,9 @@
 				DEVELOPMENT_TEAM = 7QN4P34VRJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoffeeMap/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need to find out your current location in order to find coffee shops";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

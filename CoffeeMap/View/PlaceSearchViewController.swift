@@ -16,7 +16,7 @@ class PlaceSearchViewController: UIViewController {
     private let viewModel: PlaceSearchViewModel
     var locationManager: LocationManager?
 
-    init(_ viewModel: PlaceSearchViewModel, locationManager: LocationManager) {
+    init(_ viewModel: PlaceSearchViewModel = PlaceSearchViewModel(FoursquareRepository()), locationManager: LocationManager = CLLocationManager()) {
         self.viewModel = viewModel
         self.locationManager = locationManager
         super.init(nibName: nil, bundle: nil)
@@ -30,10 +30,14 @@ class PlaceSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Coffee map"
         tableViewAdapter = .init(tableView, cell: PlaceSearchTableViewCell())
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.requestLocation()
+        
+        let reloadButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: self, action: #selector(reloadData(_:)))
+        navigationItem.rightBarButtonItem = reloadButton
     }
 
     private func updateNoResultView() {
@@ -41,7 +45,7 @@ class PlaceSearchViewController: UIViewController {
         tableView.isHidden = viewModel.placeList.isEmpty
     }
 
-    @IBAction func reloadData(_ sender: Any) {
+    @objc private func reloadData(_ sender: Any) {
         Spinner.shared.showOn(view)
         locationManager?.requestLocation()
     }
