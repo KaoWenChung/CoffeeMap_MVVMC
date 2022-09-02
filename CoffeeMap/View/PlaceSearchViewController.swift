@@ -15,6 +15,7 @@ final class PlaceSearchViewController: UIViewController {
     private var tableViewAdapter: TableViewAdapter?
     private(set) var locationManager: LocationManager?
     private let viewModel: PlaceSearchViewModel
+    private let refreshControl = UIRefreshControl()
 
     init(_ viewModel: PlaceSearchViewModel = PlaceSearchViewModel(FoursquareRepository()), locationManager: LocationManager = CLLocationManager()) {
         self.viewModel = viewModel
@@ -27,6 +28,18 @@ final class PlaceSearchViewController: UIViewController {
         locationManager = CLLocationManager()
         super.init(coder: coder)
     }
+
+    // MARK: 下拉更新
+    private func initRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(onPullReloadDataHandler), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc private func onPullReloadDataHandler() {
+        if refreshControl.isRefreshing {
+            fetchData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +47,7 @@ final class PlaceSearchViewController: UIViewController {
         tableViewAdapter = .init(tableView, cell: PlaceSearchTableViewCell())
         initLocationManager()
         initBarButton()
+        initRefreshControl()
         fetchData()
     }
 
@@ -59,6 +73,7 @@ final class PlaceSearchViewController: UIViewController {
     }
 
     func fetchData(completion: BaseViewModel.Completion? = nil) {
+        refreshControl.endRefreshing()
         guard let location = locationManager?.location else {
             Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
             completion?(.failure(CustomError("Unable to get user's location")))
