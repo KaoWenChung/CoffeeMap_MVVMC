@@ -9,7 +9,7 @@ Users have to provide the location for this app in order to get the coffee venue
 
 ## Instruction
 Please add your Foursquare API Key at
-`~/CoffeeMap/CoffeeMap/Repository/BaseRepository.swift`
+`~/CoffeeMap/CoffeeMap/Repository/BaseRepository.swift`<br/>
 Modify property apiKey in class BaseRepository
 
 ### This project used the following technologies:
