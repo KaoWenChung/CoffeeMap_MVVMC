@@ -6,10 +6,9 @@
 //
 
 struct PlaceSearchTableViewCellRowModel: BaseCellRowModel {
+
     var cellID: String { return "PlaceSearchTableViewCell" }
-    
     var cellAction: ((BaseCellRowModel) -> ())?
-    
     let name: String
     let address: String
     let distance: String?
@@ -29,4 +28,5 @@ struct PlaceSearchTableViewCellRowModel: BaseCellRowModel {
             distance = nil
         }
     }
+
 }

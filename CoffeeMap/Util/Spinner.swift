@@ -8,6 +8,7 @@
 import UIKit
 
 class Spinner {
+
     static let shared = Spinner()
     private init() {}
     
@@ -19,12 +20,10 @@ class Spinner {
         spinner!.style = .medium
         spinner!.hidesWhenStopped = true
         view.addSubview(spinner!)
-        
-        // Define the constraint of spinner
+
         spinner!.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([ spinner!.centerYAnchor.constraint(equalTo: view.centerYAnchor), spinner!.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
         
-        // Start animation
         spinner!.startAnimating()
     }
 
@@ -32,4 +31,5 @@ class Spinner {
         spinner?.stopAnimating()
         spinner?.removeFromSuperview()
     }
+
 }

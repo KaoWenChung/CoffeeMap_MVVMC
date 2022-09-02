@@ -9,6 +9,7 @@ import XCTest
 @testable import CoffeeMap
 
 class TableViewAdapterTests: XCTestCase {
+
     func testTableView_updateData_1cell() {
         let tableView = UITableView()
         let sut: TableViewAdapter = makeSUT(tableView)
@@ -40,8 +41,8 @@ class TableViewAdapterTests: XCTestCase {
     class MockCellModel: BaseCellRowModel {
 
         var cellID: String = "MockBaseCell"
-        
         var cellAction: ((BaseCellRowModel) -> ())?
         
     }
+
 }

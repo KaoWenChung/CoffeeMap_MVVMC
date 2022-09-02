@@ -31,7 +31,6 @@ extension BaseCellView {
 class TableViewAdapter: NSObject {
 
     weak var tableView: UITableView?
-
     private(set) var rowModels: [BaseCellRowModel] = []
 
     init(_ tableView: UITableView, cell: BaseCellView) {

@@ -36,4 +36,5 @@ final class PlaceSearchViewModel: BaseViewModel {
         }
         return result
     }
+
 }

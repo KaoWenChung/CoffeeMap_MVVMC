@@ -16,7 +16,6 @@ protocol FoursquareRepositoryDelegate {
 final class FoursquareRepository: BaseRepository, FoursquareRepositoryDelegate {
 
     private enum PlacesURL {
-
         case getPlace
         // TODO: get photo
         case getPhoto
@@ -29,26 +28,21 @@ final class FoursquareRepository: BaseRepository, FoursquareRepositoryDelegate {
                 return domainPath
             }
         }
-
     }
 
-    func convertDictionaryToURL(param: GetPlaceParamModel, urlComponent: inout URLComponents) {
-
-        let test: [String: Any]? = param.dictionary
-        if let test = test {
-            urlComponent.addParameters(test)
+    func addParam2URLComponent(param: GetPlaceParamModel, urlComponent: inout URLComponents) {
+        let paramDictionary: [String: Any]? = param.dictionary
+        if let _paramDictionary = paramDictionary {
+            urlComponent.addQueryItemsBy(dictionary: _paramDictionary)
         }
-
     }
 
     func getPlace(param: GetPlaceParamModel, completion: @escaping ((Result<GetPlaceResponseModel>) -> Void)) {
-
         let urlStr = PlacesURL.getPlace.urlString()
         guard var urlComponent = URLComponents(string: urlStr) else { return }
-        convertDictionaryToURL(param: param, urlComponent: &urlComponent)
+        addParam2URLComponent(param: param, urlComponent: &urlComponent)
         guard let _url = urlComponent.url else { return }
         get(url: _url, completion: completion)
-
     }
 
 }

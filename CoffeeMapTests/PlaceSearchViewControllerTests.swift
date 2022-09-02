@@ -106,6 +106,7 @@ class PlaceSearchViewControllerTests: XCTestCase {
         var delegate: CLLocationManagerDelegate?
         var location: CLLocation? = nil
     }
+
 }
 
 private extension UITableView {

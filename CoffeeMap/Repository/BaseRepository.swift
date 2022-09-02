@@ -15,7 +15,7 @@ enum Result<Value> {
 }
 
 class BaseRepository {
-
+    // TODO: ADD AUTHENTICATION HERE
     private let apiKey: String = ""
 
     private var headers: [String: String] {
@@ -26,8 +26,6 @@ class BaseRepository {
     }
     
     func get<T: Decodable>(url: URL, completion: @escaping ((Result<T>) -> Void)) {
-        
-        
         let urlRequest = NSMutableURLRequest(url: url,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
@@ -69,10 +67,9 @@ class BaseRepository {
                 completion(.failure(CustomError(error.localizedDescription)))
             }
         })
-
         dataTask.resume()
-
     }
+
 }
 
 
