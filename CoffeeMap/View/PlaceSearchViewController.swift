@@ -61,6 +61,7 @@ final class PlaceSearchViewController: UIViewController {
     func fetchData(completion: BaseViewModel.Completion? = nil) {
         guard let location = locationManager?.location else {
             Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
+            completion?(.failure(CustomError("Unable to get user's location")))
             return
         }
         Spinner.shared.showOn(view)

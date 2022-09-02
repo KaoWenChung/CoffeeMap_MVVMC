@@ -53,15 +53,38 @@ class PlaceSearchViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.distanceLabel.text, "39 meters")
     }
 
+    func testViewDidload_tableViewHasNoCells() throws {
+        let sut = try makeSUTWithoutLocation()
+        let expectation = self.expectation(description: "fetchData")
+        _ = sut.view
+        sut.fetchData() { result in
+            switch result {
+            case .success:
+                XCTFail("Should not fetch any data")
+            case .failure(let error):
+                XCTAssertEqual(error.message, "Unable to get user's location")
+                expectation.fulfill()
+            }
+        }
+        wait(for: [expectation], timeout: 3.0)
+        XCTAssertEqual(sut.tableView.isHidden, true)
+        XCTAssertEqual(sut.noResultLabel.isHidden, false)
+    }
+
     func testViewDidload_requestedAuthorizationFailure() throws {
-        let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
-        let sut = PlaceSearchViewController(PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel)), locationManager: FailingMockLocationManager())
+        let sut = try makeSUTWithoutLocation()
         XCTAssertEqual(sut.locationManager?.location, nil)
     }
 
     private func makeSUTWithLocation() throws -> PlaceSearchViewController {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
         let sut = PlaceSearchViewController(PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel)), locationManager: SuccessdingMockLocationManager())
+        return sut
+    }
+
+    private func makeSUTWithoutLocation() throws -> PlaceSearchViewController {
+        let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
+        let sut = PlaceSearchViewController(PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel)), locationManager: FailingMockLocationManager())
         return sut
     }
 
