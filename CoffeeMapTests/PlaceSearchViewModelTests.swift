@@ -10,10 +10,19 @@ import XCTest
 
 class PlaceSearchViewModelTests: XCTestCase {
 
+    func testGetSortedGetPlaceResult_StubLondonData() throws {
+        let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
+        let sut = PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
+        let result = sut.getSortedGetPlaceResult(getplaceDataModel)
+        XCTAssertEqual(result.count, 10)
+        XCTAssertEqual(result.first?.name, "Caffè Concerto")
+        XCTAssertEqual(result.last?.name, "Cafe Royale")
+    }
+
     func testGetPlaceListBy_StubLondonData() throws {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
         let sut = PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
-        let result = sut.getPlaceListBy(getplaceDataModel)
+        let result = sut.getPlaceListBy(getplaceDataModel.results ?? [])
         XCTAssertEqual(result.count, 10)
         XCTAssertEqual(result.first?.name, "Caffè Concerto")
         XCTAssertEqual(result.last?.name, "Piggy's")
@@ -25,7 +34,7 @@ class PlaceSearchViewModelTests: XCTestCase {
         sut.fetchData(ll: "51.50998,-0.1337") { result in
             XCTAssertEqual(sut.placeList.count, 10)
             XCTAssertEqual(sut.placeList.first?.name, "Caffè Concerto")
-            XCTAssertEqual(sut.placeList.last?.name, "Piggy's")
+            XCTAssertEqual(sut.placeList.last?.name, "Cafe Royale")
         }
     }
 
