@@ -12,13 +12,13 @@ import CoreLocation
 class PlaceSearchViewControllerTests: XCTestCase {
 
     func testViewDidload_requestedAuthorizationSuccessfully() throws {
-        let sut = try makeSUT()
+        let sut = try makeSUTWithLocation()
         XCTAssertEqual(sut.locationManager?.location?.coordinate.longitude, -0.1337)
         XCTAssertEqual(sut.locationManager?.location?.coordinate.latitude, 51.50998)
     }
 
-    func testViewDidload_() throws {
-        let sut = try makeSUT()
+    func testViewDidload_tableViewHasCells() throws {
+        let sut = try makeSUTWithLocation()
         let expectation = self.expectation(description: "fetchData")
         _ = sut.view
         sut.fetchData() { result in
@@ -29,9 +29,28 @@ class PlaceSearchViewControllerTests: XCTestCase {
                 XCTFail("Fetch data fail with error: \(error.message)")
             }
         }
-
         wait(for: [expectation], timeout: 3.0)
         XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 10)
+        XCTAssertEqual(sut.tableView.isHidden, false)
+        XCTAssertEqual(sut.noResultLabel.isHidden, true)
+    }
+
+    func testViewDidload_firstTableViewCell() throws {
+        let sut = try makeSUTWithLocation()
+        let expectation = self.expectation(description: "fetchData")
+        _ = sut.view
+        sut.fetchData() { result in
+            switch result {
+            case .success:
+                expectation.fulfill()
+            case .failure(let error):
+                XCTFail("Fetch data fail with error: \(error.message)")
+            }
+        }
+        wait(for: [expectation], timeout: 3.0)
+        XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.nameLabel.text, "Caffè Concerto")
+        XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.addressLabel.text, "45 Haymarket, London, Greater London, SW1Y 4SE")
+        XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.distanceLabel.text, "39 meters")
     }
 
     func testViewDidload_requestedAuthorizationFailure() throws {
@@ -40,7 +59,7 @@ class PlaceSearchViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.locationManager?.location, nil)
     }
 
-    private func makeSUT() throws -> PlaceSearchViewController {
+    private func makeSUTWithLocation() throws -> PlaceSearchViewController {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
         let sut = PlaceSearchViewController(PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel)), locationManager: SuccessdingMockLocationManager())
         return sut
