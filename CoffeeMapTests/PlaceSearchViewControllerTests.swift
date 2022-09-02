@@ -27,11 +27,8 @@ class PlaceSearchViewControllerTests: XCTestCase {
     class SuccessdingMockLocationManager: LocationManager {
 
         func requestLocation() {}
-        
         func requestWhenInUseAuthorization() {}
-        
         var delegate: CLLocationManagerDelegate?
-
         var location: CLLocation? = CLLocation(
             latitude: 51.50998,
             longitude: -0.1337
@@ -41,11 +38,8 @@ class PlaceSearchViewControllerTests: XCTestCase {
     class FailingMockLocationManager: LocationManager {
 
         func requestLocation() {}
-        
         func requestWhenInUseAuthorization() {}
-        
         var delegate: CLLocationManagerDelegate?
-
         var location: CLLocation? = nil
     }
 }

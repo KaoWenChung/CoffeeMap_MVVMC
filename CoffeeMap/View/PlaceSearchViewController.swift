@@ -8,13 +8,13 @@
 import UIKit
 import CoreLocation
 
-class PlaceSearchViewController: UIViewController {
+final class PlaceSearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultLabel: UILabel!
     private var tableViewAdapter: TableViewAdapter?
+    private(set) var locationManager: LocationManager?
     private let viewModel: PlaceSearchViewModel
-    var locationManager: LocationManager?
 
     init(_ viewModel: PlaceSearchViewModel = PlaceSearchViewModel(FoursquareRepository()), locationManager: LocationManager = CLLocationManager()) {
         self.viewModel = viewModel
@@ -32,10 +32,17 @@ class PlaceSearchViewController: UIViewController {
         super.viewDidLoad()
         title = "Coffee map"
         tableViewAdapter = .init(tableView, cell: PlaceSearchTableViewCell())
+        initLocationManager()
+        initBarButton()
+    }
+
+    private func initLocationManager() {
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.requestLocation()
-        
+    }
+
+    private func initBarButton() {
         let reloadButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: self, action: #selector(reloadData(_:)))
         navigationItem.rightBarButtonItem = reloadButton
     }
@@ -60,13 +67,15 @@ class PlaceSearchViewController: UIViewController {
         let longitude = location.coordinate.longitude
         let ll: String = String(latitude) + "," + String(longitude)
         viewModel.fetchData(ll: ll) { result in
-            Spinner.shared.hide()
-            switch result {
-            case .success:
-                self.tableViewAdapter?.updateData( self.viewModel.placeList)
-                self.updateNoResultView()
-            case .failure(let error):
-                Alert.show(vc: self, title: "Error", message: error.message)
+            DispatchQueue.main.async {
+                Spinner.shared.hide()
+                switch result {
+                case .success:
+                    self.tableViewAdapter?.updateData( self.viewModel.placeList)
+                    self.updateNoResultView()
+                case .failure(let error):
+                    Alert.show(vc: self, title: "Error", message: error.message)
+                }
             }
         }
     }
