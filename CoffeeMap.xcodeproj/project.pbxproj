@@ -32,6 +32,7 @@
 		7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB4128C0627A00607B77 /* XCTestCase+.swift */; };
 		7952AB4728C0642E00607B77 /* GetPlace_London.json in Resources */ = {isa = PBXBuildFile; fileRef = 7952AB4628C0642E00607B77 /* GetPlace_London.json */; };
 		796EB62028C18E0300F1A01B /* PlaceSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796EB61F28C18E0300F1A01B /* PlaceSearchViewController.xib */; };
+		796EB62628C1AF1000F1A01B /* EncodableExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796EB62528C1AF1000F1A01B /* EncodableExtensionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		7952AB4128C0627A00607B77 /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
 		7952AB4628C0642E00607B77 /* GetPlace_London.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPlace_London.json; sourceTree = "<group>"; };
 		796EB61F28C18E0300F1A01B /* PlaceSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceSearchViewController.xib; sourceTree = "<group>"; };
+		796EB62528C1AF1000F1A01B /* EncodableExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtensionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */,
 				7952AB3E28C0619E00607B77 /* PlaceSearchViewModelTests.swift */,
 				79290E1728C09CED00439E38 /* PlaceSearchViewControllerTests.swift */,
+				796EB62528C1AF1000F1A01B /* EncodableExtensionTests.swift */,
 			);
 			path = CoffeeMapTests;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				7952AB3F28C0619E00607B77 /* PlaceSearchViewModelTests.swift in Sources */,
 				7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */,
 				7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */,
+				796EB62628C1AF1000F1A01B /* EncodableExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
