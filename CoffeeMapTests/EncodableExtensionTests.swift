@@ -20,4 +20,10 @@ class EncodableExtensionTests: XCTestCase {
         XCTAssertEqual(result?["query"] as? String, "coffee")
     }
 
+    func testDictionary_noParameters() throws {
+        let sut = GetPlaceParamModel(ll: nil, radius: nil, query: nil)
+        let result = sut.dictionary
+        XCTAssertEqual(result?.count, 0)
+    }
+
 }
