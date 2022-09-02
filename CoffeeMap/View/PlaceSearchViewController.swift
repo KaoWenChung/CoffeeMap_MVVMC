@@ -43,7 +43,7 @@ final class PlaceSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Coffee map"
+        title = "Nearby Cafe List"
         tableViewAdapter = .init(tableView, cell: PlaceSearchTableViewCell())
         initLocationManager()
         initBarButton()
