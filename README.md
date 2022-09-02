@@ -12,7 +12,8 @@ Please add your Foursquare API Key at
 `~/CoffeeMap/CoffeeMap/Repository/BaseRepository.swift`<br/>
 Modify property apiKey in class BaseRepository
 
-### This project used the following technologies:
+### Technologies:
+- Swift
 - MVVM
 - Interface builder(.xib)
 - Dependency Injection
@@ -25,7 +26,7 @@ Modify property apiKey in class BaseRepository
 - feature developing 5 hours 
 - unit test implementing 2 hours
 
-### Features I would like to add and how much time I need:
+### To-Do list of features and time I need:
 - A map page shows user and coffee venue location - 2 hours
 - Use Foursquare API to get coffee venue photos and show them on the table view cell - 2 hours 
 
