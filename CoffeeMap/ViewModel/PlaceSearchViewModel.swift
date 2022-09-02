@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PlaceSearchViewModel: BaseViewModel {
+final class PlaceSearchViewModel: BaseViewModel {
 
     private(set) var placeList: [PlaceSearchTableViewCellRowModel] = []
     let apiService: FoursquareRepositoryDelegate

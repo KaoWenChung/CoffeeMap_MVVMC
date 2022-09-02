@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlaceSearchTableViewCell: UITableViewCell, BaseCellView {
+final class PlaceSearchTableViewCell: UITableViewCell, BaseCellView {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!

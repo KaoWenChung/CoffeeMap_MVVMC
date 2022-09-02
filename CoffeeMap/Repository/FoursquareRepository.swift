@@ -13,7 +13,7 @@ protocol FoursquareRepositoryDelegate {
 
 }
 
-class FoursquareRepository: BaseRepository, FoursquareRepositoryDelegate {
+final class FoursquareRepository: BaseRepository, FoursquareRepositoryDelegate {
 
     private enum PlacesURL {
 
