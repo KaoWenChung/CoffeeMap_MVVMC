@@ -8,18 +8,24 @@
 import UIKit
 
 protocol BaseCellRowModel {
+
     var cellID: String { get }
     var cellAction: ((BaseCellRowModel)->())? { get set }
+
 }
 
 protocol BaseCellView: UITableViewCell {
+
     func setupCellView(rowModel: BaseCellRowModel)
+
 }
 
 extension BaseCellView {
+
     var cellReuseIdentifier: String {
         return "\(type(of: self))"
     }
+
 }
 
 class TableViewAdapter: NSObject {
