@@ -15,7 +15,7 @@ enum Result<Value> {
 }
 
 class BaseRepository {
-    // TODO: ADD AUTHENTICATION HERE
+    // TODO: ADD API KEY HERE
     private let apiKey: String = ""
 
     private var headers: [String: String] {
