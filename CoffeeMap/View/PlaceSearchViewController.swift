@@ -34,6 +34,7 @@ final class PlaceSearchViewController: UIViewController {
         tableViewAdapter = .init(tableView, cell: PlaceSearchTableViewCell())
         initLocationManager()
         initBarButton()
+        fetchData()
     }
 
     private func initLocationManager() {
@@ -57,7 +58,7 @@ final class PlaceSearchViewController: UIViewController {
         locationManager?.requestLocation()
     }
 
-    private func fetchData() {
+    func fetchData(completion: BaseViewModel.Completion? = nil) {
         guard let location = locationManager?.location else {
             Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
             return
@@ -71,10 +72,12 @@ final class PlaceSearchViewController: UIViewController {
                 Spinner.shared.hide()
                 switch result {
                 case .success:
-                    self.tableViewAdapter?.updateData( self.viewModel.placeList)
                     self.updateNoResultView()
+                    self.tableViewAdapter?.updateData( self.viewModel.placeList)
+                    completion?(.success)
                 case .failure(let error):
                     Alert.show(vc: self, title: "Error", message: error.message)
+                    completion?(.failure(error))
                 }
             }
         }
