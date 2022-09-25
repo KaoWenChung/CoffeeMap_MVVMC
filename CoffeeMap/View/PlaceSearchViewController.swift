@@ -29,7 +29,7 @@ final class PlaceSearchViewController: UIViewController {
         super.init(coder: coder)
     }
 
-    // MARK: 下拉更新
+    // MARK: Pull down to update the view
     private func initRefreshControl() {
         refreshControl.addTarget(self, action: #selector(onPullReloadDataHandler), for: .valueChanged)
         tableView.addSubview(refreshControl)
