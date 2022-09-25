@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A728E0BCD1004C5A97 /* BaseViewController.swift */; };
 		219633AA28E0D64E004C5A97 /* PlaceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */; };
-		219633AC28E0D990004C5A97 /* PlaceSearchControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633AB28E0D990004C5A97 /* PlaceSearchControl.swift */; };
 		21BAEBFC28E0671E002616F6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */; };
 		21BAEBFD28E0671E002616F6 /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */; };
 		79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C5E28C03ADD00766059 /* AppDelegate.swift */; };
@@ -53,7 +52,6 @@
 /* Begin PBXFileReference section */
 		219633A728E0BCD1004C5A97 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewModel.swift; sourceTree = "<group>"; };
-		219633AB28E0D990004C5A97 /* PlaceSearchControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchControl.swift; sourceTree = "<group>"; };
 		21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceDetailViewController.swift; path = CoffeeMap/View/PlaceDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceDetailViewController.xib; path = CoffeeMap/View/PlaceDetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		79242C5B28C03ADD00766059 /* CoffeeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,7 +227,6 @@
 				7952AB3C28C05CD400607B77 /* Encodable+.swift */,
 				79290E1928C0AB4D00439E38 /* Spinner.swift */,
 				79290E1B28C0AC3E00439E38 /* Alert.swift */,
-				219633AB28E0D990004C5A97 /* PlaceSearchControl.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -363,7 +360,6 @@
 				7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */,
 				219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */,
 				7952AB3628C0552C00607B77 /* BaseRepository.swift in Sources */,
-				219633AC28E0D990004C5A97 /* PlaceSearchControl.swift in Sources */,
 				219633AA28E0D64E004C5A97 /* PlaceDetailViewModel.swift in Sources */,
 				7952AB3D28C05CD400607B77 /* Encodable+.swift in Sources */,
 				79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */,

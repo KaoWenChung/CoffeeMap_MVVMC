@@ -8,7 +8,7 @@
 import UIKit
 
 class Alert {
-
+    /// It's a simple alert which only show title, message, and a button "OK"
     static func show(vc aVC: UIViewController,
                             title aTitle: String? = nil,
                             message aMessage: String? = nil) {
