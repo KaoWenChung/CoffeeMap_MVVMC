@@ -12,7 +12,7 @@ struct PlaceSearchTableViewCellRowModel: BaseCellRowModel {
     let name: String
     let address: String
     let distance: String?
-    let coordinate: String?
+    let coordinate: (latitude: Double, longitude: Double)?
     
     init(_ dataModel: GetPlaceResultModel, action: ((BaseCellRowModel) -> ())?) {
         name = dataModel.name ?? ""
@@ -29,8 +29,12 @@ struct PlaceSearchTableViewCellRowModel: BaseCellRowModel {
             distance = nil
         }
         cellAction = action
-        if let geocodes = dataModel.geocodes, let coordinate = geocodes.main {
-            self.coordinate = PlaceSearchControl.convertCoordinate(latitude: coordinate.latitude ?? 0, longitude: coordinate.longitude ?? 0)
+        if let geocodes = dataModel.geocodes,
+           let coordinate = geocodes.main,
+           let latitude = coordinate.latitude,
+           let longitude = coordinate.longitude {
+            self.coordinate = (latitude: latitude, longitude: longitude)
+//            PlaceSearchControl.convertCoordinate(latitude: coordinate.latitude ?? 0, longitude: coordinate.longitude ?? 0)
         } else {
             coordinate = nil
         }

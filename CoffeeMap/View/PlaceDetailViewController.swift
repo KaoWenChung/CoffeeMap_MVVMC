@@ -24,6 +24,10 @@ class PlaceDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let annotation = MKPointAnnotation()
+        annotation.title = viewModel.name
+        annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(floatLiteral: viewModel.coordinate?.latitude ?? 0), longitude: CLLocationDegrees(floatLiteral: viewModel.coordinate?.longitude ?? 0))
+        mapView.showAnnotations([annotation], animated: true)
     }
 
 }

@@ -7,11 +7,12 @@
 
 class PlaceDetailViewModel {
 
-    let coordinate: String?
+    let name: String
+    let coordinate: (latitude: Double, longitude: Double)?
     let address: String
 
     init(_ rowModel: PlaceSearchTableViewCellRowModel) {
-
+        name = rowModel.name
         self.coordinate = rowModel.coordinate
         address = rowModel.address
 
