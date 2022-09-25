@@ -72,11 +72,11 @@ final class PlaceSearchViewController: UIViewController {
         locationManager?.requestLocation()
     }
 
-    func fetchData(completion: BaseViewModel.Completion? = nil) {
+    func fetchData() {
         refreshControl.endRefreshing()
         guard let location = locationManager?.location else {
             Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
-            completion?(.failure(CustomError("Unable to get user's location")))
+//            completion?(.failure(CustomError("Unable to get user's location")))
             return
         }
         Spinner.shared.showOn(view)
@@ -89,11 +89,11 @@ final class PlaceSearchViewController: UIViewController {
                 switch result {
                 case .success:
                     self.updateNoResultView()
-                    self.tableViewAdapter?.updateData( self.viewModel.placeList)
-                    completion?(.success)
+//                    self.tableViewAdapter?.updateData( self.viewModel.placeList )
+//                    completion?(.success)
                 case .failure(let error):
                     Alert.show(vc: self, title: "Error", message: error.message)
-                    completion?(.failure(error))
+//                    completion?(.failure(error))
                 }
             }
         }

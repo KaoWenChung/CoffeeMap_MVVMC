@@ -13,7 +13,7 @@ struct PlaceSearchTableViewCellRowModel: BaseCellRowModel {
     let address: String
     let distance: String?
     
-    init(_ dataModel: GetPlaceResultModel) {
+    init(_ dataModel: GetPlaceResultModel, action: ((BaseCellRowModel) -> ())?) {
         name = dataModel.name ?? ""
         if let location = dataModel.location,
            let address = location.formattedAddress,
@@ -27,6 +27,7 @@ struct PlaceSearchTableViewCellRowModel: BaseCellRowModel {
         } else {
             distance = nil
         }
+        cellAction = action
     }
 
 }

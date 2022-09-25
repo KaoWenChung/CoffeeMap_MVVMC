@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class PlaceSearchViewModel: BaseViewModel {
+final class PlaceSearchViewModel {
 
     private(set) var placeList: [PlaceSearchTableViewCellRowModel] = []
     let apiService: FoursquareRepositoryDelegate
@@ -16,18 +16,9 @@ final class PlaceSearchViewModel: BaseViewModel {
         self.apiService = apiService
     }
 
-    func fetchData(ll: String, completion: Completion? = nil) {
+    func fetchData(ll: String, completion: @escaping ((Result<GetPlaceResponseModel>) -> Void)) {
         let param: GetPlaceParamModel = GetPlaceParamModel(ll: ll, radius: 200, query: "coffee")
-        apiService.getPlace(param: param) { (result: Result<GetPlaceResponseModel>) in
-            switch result {
-            case .success(let value):
-                let getPlaceResults = self.getSortedGetPlaceResult(value)
-                self.placeList = self.getPlaceListBy(getPlaceResults)
-                completion?(.success)
-            case .failure(let error):
-                completion?(.failure(error))
-            }
-        }
+        apiService.getPlace(param: param, completion: completion)
     }
 
     func getSortedGetPlaceResult(_ dataModel: GetPlaceResponseModel) -> [GetPlaceResultModel] {
@@ -36,12 +27,12 @@ final class PlaceSearchViewModel: BaseViewModel {
         return sortedData
     }
 
-    func getPlaceListBy(_ dataModel: [GetPlaceResultModel]) -> [PlaceSearchTableViewCellRowModel] {
+    func getPlaceListBy(_ dataModel: [GetPlaceResultModel], cellAction: ((BaseCellRowModel) -> ())?){
         var result: [PlaceSearchTableViewCellRowModel] = []
         for item in dataModel {
-            result.append(PlaceSearchTableViewCellRowModel(item))
+            result.append(PlaceSearchTableViewCellRowModel(item, action: cellAction))
         }
-        return result
+        placeList = result
     }
 
 }
