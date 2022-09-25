@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A728E0BCD1004C5A97 /* BaseViewController.swift */; };
 		21BAEBFC28E0671E002616F6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */; };
 		21BAEBFD28E0671E002616F6 /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */; };
 		79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C5E28C03ADD00766059 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		219633A728E0BCD1004C5A97 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceDetailViewController.swift; path = CoffeeMap/View/PlaceDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceDetailViewController.xib; path = CoffeeMap/View/PlaceDetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		79242C5B28C03ADD00766059 /* CoffeeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +164,7 @@
 				796EB61F28C18E0300F1A01B /* PlaceSearchViewController.xib */,
 				21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */,
 				21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */,
+				219633A728E0BCD1004C5A97 /* BaseViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				79290E1C28C0AC3E00439E38 /* Alert.swift in Sources */,
 				79290E1A28C0AB4D00439E38 /* Spinner.swift in Sources */,
 				7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */,
+				219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */,
 				7952AB3628C0552C00607B77 /* BaseRepository.swift in Sources */,
 				7952AB3D28C05CD400607B77 /* Encodable+.swift in Sources */,
 				79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */,

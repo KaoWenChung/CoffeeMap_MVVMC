@@ -9,7 +9,7 @@ import Foundation
 
 protocol FoursquareRepositoryDelegate {
 
-    func getPlace(param: GetPlaceParamModel, completion: @escaping ((Result<GetPlaceResponseModel>) -> Void))
+    func getPlace(param: GetPlaceParamModel, completion: ((Result<GetPlaceResponseModel>) -> Void)?)
 
 }
 
@@ -37,7 +37,7 @@ final class FoursquareRepository: BaseRepository, FoursquareRepositoryDelegate {
         }
     }
 
-    func getPlace(param: GetPlaceParamModel, completion: @escaping ((Result<GetPlaceResponseModel>) -> Void)) {
+    func getPlace(param: GetPlaceParamModel, completion: ((Result<GetPlaceResponseModel>) -> Void)?) {
         let urlStr = PlacesURL.getPlace.urlString()
         guard var urlComponent = URLComponents(string: urlStr) else { return }
         addParam2URLComponent(param: param, urlComponent: &urlComponent)

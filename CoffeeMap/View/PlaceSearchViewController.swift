@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-final class PlaceSearchViewController: UIViewController {
+final class PlaceSearchViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultLabel: UILabel!
@@ -76,7 +76,6 @@ final class PlaceSearchViewController: UIViewController {
         refreshControl.endRefreshing()
         guard let location = locationManager?.location else {
             Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
-//            completion?(.failure(CustomError("Unable to get user's location")))
             return
         }
         Spinner.shared.showOn(view)
@@ -87,16 +86,23 @@ final class PlaceSearchViewController: UIViewController {
             DispatchQueue.main.async {
                 Spinner.shared.hide()
                 switch result {
-                case .success:
+                case .success(let value):
                     self.updateNoResultView()
-//                    self.tableViewAdapter?.updateData( self.viewModel.placeList )
-//                    completion?(.success)
+                    let sortedValue = self.viewModel.getSortedGetPlaceResult(value)
+                    self.viewModel.getPlaceListBy(sortedValue, cellAction: { cellModel in
+                        self.setCellAction()
+                    })
+                    self.tableViewAdapter?.updateData( self.viewModel.placeList )
                 case .failure(let error):
                     Alert.show(vc: self, title: "Error", message: error.message)
-//                    completion?(.failure(error))
                 }
             }
         }
+    }
+
+    private func setCellAction() {
+        let nextPage = PlaceDetailViewController()
+        self.open(nextPage, animated: true)
     }
 }
 
