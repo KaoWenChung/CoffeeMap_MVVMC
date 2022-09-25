@@ -21,7 +21,7 @@ struct GetPlaceResponseModel: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case context
-        case results = "results"
+        case results
     }
 
 }
@@ -36,11 +36,11 @@ struct GetPlaceResultModel: Decodable {
     let name: String?
 
     enum CodingKeys: String, CodingKey {
-        case distance = "distance"
+        case distance
         case fsqId = "fsq_id"
         case geocodes
         case location
-        case name = "name"
+        case name
     }
 
 }
@@ -59,16 +59,16 @@ struct GetPlaceLocationModel: Decodable {
     let region: String?
 
     enum CodingKeys: String, CodingKey {
-        case address = "address"
+        case address
         case adminRegion = "admin_region"
-        case country = "country"
+        case country
         case crossStreet = "cross_street"
         case formattedAddress = "formatted_address"
-        case locality = "locality"
-        case neighborhood = "neighborhood"
+        case locality
+        case neighborhood
         case postTown = "post_town"
-        case postcode = "postcode"
-        case region = "region"
+        case postcode
+        case region
     }
 
 }
@@ -110,7 +110,7 @@ struct GetPlaceCircleModel: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case center
-        case radius = "radius"
+        case radius
     }
 
 }
@@ -121,8 +121,8 @@ struct GetPlaceCenterModel: Decodable {
     let longitude: Double?
 
     enum CodingKeys: String, CodingKey {
-        case latitude = "latitude"
-        case longitude = "longitude"
+        case latitude
+        case longitude
     }
 
 }
