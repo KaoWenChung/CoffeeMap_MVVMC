@@ -33,7 +33,7 @@ final class FoursquareRepository: BaseRepository, FoursquareRepositoryDelegate {
     func addParam2URLComponent(param: GetPlaceParamModel, urlComponent: inout URLComponents) {
         let paramDictionary: [String: Any]? = param.dictionary
         if let _paramDictionary = paramDictionary {
-            urlComponent.addQueryItemsBy(dictionary: _paramDictionary)
+            urlComponent.setQueryItemsBy(dictionary: _paramDictionary)
         }
     }
 

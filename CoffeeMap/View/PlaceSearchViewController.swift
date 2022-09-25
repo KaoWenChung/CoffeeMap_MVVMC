@@ -72,10 +72,11 @@ final class PlaceSearchViewController: BaseViewController {
         locationManager?.requestLocation()
     }
 
-    func fetchData() {
+    func fetchData(completion: BaseViewModel.Completion? = nil) {
         refreshControl.endRefreshing()
         guard let location = locationManager?.location else {
             Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
+            completion?(.failure(CustomError("Unable to get user's location")))
             return
         }
         Spinner.shared.showOn(view)
@@ -93,8 +94,10 @@ final class PlaceSearchViewController: BaseViewController {
                         self.setCellAction(cellModel)
                     })
                     self.tableViewAdapter?.updateData( self.viewModel.placeList )
+                    completion?(.success)
                 case .failure(let error):
                     Alert.show(vc: self, title: "Error", message: error.message)
+                    completion?(.failure(error))
                 }
             }
         }

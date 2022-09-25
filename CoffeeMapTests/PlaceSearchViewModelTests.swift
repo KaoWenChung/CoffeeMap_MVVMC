@@ -22,25 +22,27 @@ class PlaceSearchViewModelTests: XCTestCase {
     func testGetPlaceListBy_StubLondonData() throws {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
         let sut = PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
-        let result = sut.getPlaceListBy(getplaceDataModel.results ?? [])
-        XCTAssertEqual(result.count, 10)
-        XCTAssertEqual(result.first?.name, "Caffè Concerto")
-        XCTAssertEqual(result.last?.name, "Piggy's")
+        sut.getPlaceListBy(getplaceDataModel.results ?? [], cellAction: nil)
+        XCTAssertEqual(sut.placeList.count, 10)
+        XCTAssertEqual(sut.placeList.first?.name, "Caffè Concerto")
+        XCTAssertEqual(sut.placeList.last?.name, "Piggy's")
     }
 
     func testFetchData_london_successeding() throws {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
         let sut = PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
-        sut.fetchData(ll: "51.50998,-0.1337") { result in
-            XCTAssertEqual(sut.placeList.count, 10)
-            XCTAssertEqual(sut.placeList.first?.name, "Caffè Concerto")
-            XCTAssertEqual(sut.placeList.last?.name, "Cafe Royale")
+        sut.fetchData(coordinate: "51.50998,-0.1337") { result in
+            if case .success(let value) = result {
+                XCTAssertEqual(value.results?.count, 10)
+                XCTAssertEqual(value.results?.first?.name, "Caffè Concerto")
+                XCTAssertEqual(value.results?.last?.name, "Piggy\'s")
+            }
         }
     }
 
     func testFetchData_london_error() throws {
         let sut = PlaceSearchViewModel(FailingFoursquareRepositoryStub())
-        sut.fetchData(ll: "51.50998,-0.1337") { result in
+        sut.fetchData(coordinate: "51.50998,-0.1337") { result in
             switch result {
             case .success:
                 break
@@ -59,16 +61,16 @@ class SuccessdingFoursquareRepositoryStub: FoursquareRepositoryDelegate {
     init(_ data: GetPlaceResponseModel) {
         response = data
     }
-    func getPlace(param: GetPlaceParamModel, completion: @escaping ((Result<GetPlaceResponseModel>) -> Void)) {
-        completion(.success(response))
+    func getPlace(param: GetPlaceParamModel, completion: ((Result<GetPlaceResponseModel>) -> Void)?) {
+        completion?(.success(response))
     }
 
 }
 
 class FailingFoursquareRepositoryStub: FoursquareRepositoryDelegate {
 
-    func getPlace(param: GetPlaceParamModel, completion: @escaping ((Result<GetPlaceResponseModel>) -> Void)) {
-        completion(.failure(CustomError("Something wrong")))
+    func getPlace(param: GetPlaceParamModel, completion: ((Result<GetPlaceResponseModel>) -> Void)?) {
+        completion?(.failure(CustomError("Something wrong")))
     }
 
 }
