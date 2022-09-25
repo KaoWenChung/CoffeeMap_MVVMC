@@ -16,8 +16,8 @@ final class PlaceSearchViewModel {
         self.apiService = apiService
     }
 
-    func fetchData(ll: String, completion: ((Result<GetPlaceResponseModel>) -> Void)?) {
-        let param: GetPlaceParamModel = GetPlaceParamModel(ll: ll, radius: 200, query: "coffee")
+    func fetchData(coordinate: String, completion: ((Result<GetPlaceResponseModel>) -> Void)?) {
+        let param: GetPlaceParamModel = GetPlaceParamModel(ll: coordinate, radius: 200, query: "coffee")
         apiService.getPlace(param: param, completion: completion)
     }
 

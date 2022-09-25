@@ -74,15 +74,16 @@ final class PlaceSearchViewController: BaseViewController {
 
     func fetchData() {
         refreshControl.endRefreshing()
-        guard let location = locationManager?.location else {
-            Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
-            return
-        }
-        Spinner.shared.showOn(view)
-        let latitude = location.coordinate.latitude
-        let longitude = location.coordinate.longitude
-        let ll: String = String(latitude) + "," + String(longitude)
-        viewModel.fetchData(ll: ll) { result in
+//        guard let location = locationManager?.location else {
+//            Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
+//            return
+//        }
+//        Spinner.shared.showOn(view)
+//        let latitude = location.coordinate.latitude
+//        let longitude = location.coordinate.longitude
+//        let ll: String = String(latitude) + "," + String(longitude)
+        let ll = "51.50555419921875,-0.22001533924934946"
+        viewModel.fetchData(coordinate: ll) { result in
             DispatchQueue.main.async {
                 Spinner.shared.hide()
                 switch result {
@@ -90,7 +91,7 @@ final class PlaceSearchViewController: BaseViewController {
                     self.updateNoResultView()
                     let sortedValue = self.viewModel.getSortedGetPlaceResult(value)
                     self.viewModel.getPlaceListBy(sortedValue, cellAction: { cellModel in
-                        self.setCellAction()
+                        self.setCellAction(cellModel)
                     })
                     self.tableViewAdapter?.updateData( self.viewModel.placeList )
                 case .failure(let error):
@@ -100,8 +101,9 @@ final class PlaceSearchViewController: BaseViewController {
         }
     }
 
-    private func setCellAction() {
-        let nextPage = PlaceDetailViewController()
+    private func setCellAction(_ rowModel: BaseCellRowModel) {
+        guard let rowModel = rowModel as? PlaceSearchTableViewCellRowModel else { return }
+        let nextPage = PlaceDetailViewController(PlaceDetailViewModel(rowModel))
         self.open(nextPage, animated: true)
     }
 }

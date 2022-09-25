@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaceDetailViewController" customModule="CoffeeMap" customModuleProvider="target">
             <connections>
+                <outlet property="mapView" destination="SNn-Af-lsW" id="Oeh-vF-quP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
