@@ -161,12 +161,12 @@
 		7952AB1728C03F1B00607B77 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				219633A728E0BCD1004C5A97 /* BaseViewController.swift */,
 				79290E0F28C080D300439E38 /* Cell */,
 				79242C6228C03ADD00766059 /* PlaceSearchViewController.swift */,
 				796EB61F28C18E0300F1A01B /* PlaceSearchViewController.xib */,
 				21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */,
 				21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */,
-				219633A728E0BCD1004C5A97 /* BaseViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

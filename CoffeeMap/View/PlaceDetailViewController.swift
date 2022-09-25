@@ -26,7 +26,6 @@ class PlaceDetailViewController: UIViewController {
         super.viewDidLoad()
         mapView.showsUserLocation = true
         setAnnotation()
-        
     }
 
     private func setAnnotation() {
@@ -51,8 +50,6 @@ class PlaceDetailViewController: UIViewController {
             })
         }
         mapView.showAnnotations([annotation], animated: true)
-        
-        
     }
     
     private func setRoute(_ placemark: MKPlacemark) {
@@ -60,7 +57,7 @@ class PlaceDetailViewController: UIViewController {
 
         directionRequest.source = MKMapItem.forCurrentLocation()
         directionRequest.destination = MKMapItem(placemark: placemark)
-        directionRequest.transportType = MKDirectionsTransportType.automobile
+        directionRequest.transportType = MKDirectionsTransportType.walking
 
         let directions = MKDirections(request: directionRequest)
 
@@ -76,7 +73,7 @@ class PlaceDetailViewController: UIViewController {
 
             let route = routeResponse.routes[0]
             self.mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
-            
+            // show the whole route
             let rect = route.polyline.boundingMapRect
             self.mapView.setRegion(MKCoordinateRegion.init(rect), animated: true)
         }
@@ -86,6 +83,7 @@ class PlaceDetailViewController: UIViewController {
 
 extension PlaceDetailViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor.blue
         renderer.lineWidth = 3.0

@@ -34,7 +34,6 @@ struct PlaceSearchTableViewCellRowModel: BaseCellRowModel {
            let latitude = coordinate.latitude,
            let longitude = coordinate.longitude {
             self.coordinate = (latitude: latitude, longitude: longitude)
-//            PlaceSearchControl.convertCoordinate(latitude: coordinate.latitude ?? 0, longitude: coordinate.longitude ?? 0)
         } else {
             coordinate = nil
         }

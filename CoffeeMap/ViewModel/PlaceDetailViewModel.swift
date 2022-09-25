@@ -15,6 +15,5 @@ class PlaceDetailViewModel {
         name = rowModel.name
         self.coordinate = rowModel.coordinate
         address = rowModel.address
-
     }
 }
