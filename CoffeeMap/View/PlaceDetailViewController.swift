@@ -58,12 +58,10 @@ class PlaceDetailViewController: UIViewController {
     private func setRoute(_ placemark: MKPlacemark) {
         let directionRequest = MKDirections.Request()
 
-        // 設定路徑起始與目的地
         directionRequest.source = MKMapItem.forCurrentLocation()
         directionRequest.destination = MKMapItem(placemark: placemark)
         directionRequest.transportType = MKDirectionsTransportType.automobile
 
-        // 方位計算
         let directions = MKDirections(request: directionRequest)
 
         directions.calculate { (routeResponse, routeError) -> Void in
@@ -78,7 +76,9 @@ class PlaceDetailViewController: UIViewController {
 
             let route = routeResponse.routes[0]
             self.mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
-
+            
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegion.init(rect), animated: true)
         }
     }
     
