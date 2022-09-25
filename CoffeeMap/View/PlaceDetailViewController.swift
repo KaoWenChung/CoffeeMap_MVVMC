@@ -24,10 +24,72 @@ class PlaceDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let annotation = MKPointAnnotation()
-        annotation.title = viewModel.name
-        annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(floatLiteral: viewModel.coordinate?.latitude ?? 0), longitude: CLLocationDegrees(floatLiteral: viewModel.coordinate?.longitude ?? 0))
-        mapView.showAnnotations([annotation], animated: true)
+        mapView.showsUserLocation = true
+        setAnnotation()
+        
     }
 
+    private func setAnnotation() {
+        let annotation = MKPointAnnotation()
+        annotation.title = viewModel.name
+        if let coordinate = viewModel.coordinate {
+            let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(floatLiteral: coordinate.latitude), longitude: CLLocationDegrees(floatLiteral: coordinate.longitude))
+            annotation.coordinate = coordinate
+            setRoute(MKPlacemark(coordinate: coordinate))
+        } else {
+            let geoCoder = CLGeocoder()
+            geoCoder.geocodeAddressString(viewModel.address, completionHandler: { placemarks, error in
+                guard let placemarks = placemarks,
+                      let placemark = placemarks.first,
+                      let location = placemark.location else { return }
+                if let error = error {
+                    print(error)
+                    return
+                }
+                annotation.coordinate = location.coordinate
+                self.setRoute(MKPlacemark(placemark: placemark))
+            })
+        }
+        mapView.showAnnotations([annotation], animated: true)
+        
+        
+    }
+    
+    private func setRoute(_ placemark: MKPlacemark) {
+        let directionRequest = MKDirections.Request()
+
+        // 設定路徑起始與目的地
+        directionRequest.source = MKMapItem.forCurrentLocation()
+        directionRequest.destination = MKMapItem(placemark: placemark)
+        directionRequest.transportType = MKDirectionsTransportType.automobile
+
+        // 方位計算
+        let directions = MKDirections(request: directionRequest)
+
+        directions.calculate { (routeResponse, routeError) -> Void in
+
+            guard let routeResponse = routeResponse else {
+                if let routeError = routeError {
+                    print("Error: \(routeError)")
+                }
+
+                return
+            }
+
+            let route = routeResponse.routes[0]
+            self.mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
+
+        }
+    }
+    
+}
+
+extension PlaceDetailViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 3.0
+        
+        return renderer
+    }
 }
