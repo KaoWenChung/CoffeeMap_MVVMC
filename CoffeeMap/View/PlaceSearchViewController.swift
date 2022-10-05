@@ -12,8 +12,8 @@ final class PlaceSearchViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultLabel: UILabel!
-    private var tableViewAdapter: TableViewAdapter?
     private(set) var locationManager: LocationManager?
+    private var tableViewAdapter: TableViewAdapter?
     private let viewModel: PlaceSearchViewModel
     private let refreshControl = UIRefreshControl()
 
@@ -44,7 +44,7 @@ final class PlaceSearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Nearby Cafe List"
-        tableViewAdapter = .init(tableView, cell: PlaceSearchTableViewCell())
+        tableViewAdapter = .init(tableView)
         initLocationManager()
         initBarButton()
         initRefreshControl()
@@ -90,10 +90,6 @@ final class PlaceSearchViewController: BaseViewController {
                 case .success(let value):
                     self.updateNoResultView()
                     let sortedValue = self.viewModel.getSortedGetPlaceResult(value)
-                    self.viewModel.getPlaceListBy(sortedValue, cellAction: { cellModel in
-                        self.setCellAction(cellModel)
-                    })
-                    self.tableViewAdapter?.updateData( self.viewModel.placeList )
                     completion?(.success)
                 case .failure(let error):
                     Alert.show(vc: self, title: "Error", message: error.message)
@@ -103,11 +99,6 @@ final class PlaceSearchViewController: BaseViewController {
         }
     }
 
-    private func setCellAction(_ rowModel: BaseCellRowModel) {
-        guard let rowModel = rowModel as? PlaceSearchTableViewCellRowModel else { return }
-        let nextPage = PlaceDetailViewController(PlaceDetailViewModel(rowModel))
-        self.open(nextPage, animated: true)
-    }
 }
 
 extension PlaceSearchViewController: CLLocationManagerDelegate {
@@ -122,4 +113,26 @@ extension PlaceSearchViewController: CLLocationManagerDelegate {
         Alert.show(vc: self, title: "Error", message: "Unable to get user's location, please try again")
     }
 
+}
+
+extension PlaceSearchViewController: TableViewAdapterDelegate {
+    func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath) {
+        switch (model, view) {
+        case (let model as PlaceSearchTableViewCellRowModel, let view as PlaceSearchTableViewCell):
+            view.setupView(model)
+            break
+        default:
+            break
+        }
+    }
+    
+    func select(model: AdapterItemModel) {
+        print(model)
+    }
+    
+    func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {
+        return CGSize(width: 120, height: 120)
+    }
+    
+    
 }

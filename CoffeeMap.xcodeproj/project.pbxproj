@@ -12,6 +12,8 @@
 		219633AE28E104C0004C5A97 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633AD28E104C0004C5A97 /* BaseViewModel.swift */; };
 		21AB9BF328EDB84D00A1796B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF228EDB84D00A1796B /* UIView.swift */; };
 		21AB9BF528EDB86500A1796B /* URLComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF428EDB86500A1796B /* URLComponents.swift */; };
+		21AB9BF728EDB9F700A1796B /* AdapterSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF628EDB9F700A1796B /* AdapterSectionModel.swift */; };
+		21AB9BF928EDBB3D00A1796B /* AdapterItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF828EDBB3D00A1796B /* AdapterItemModel.swift */; };
 		21BAEBFC28E0671E002616F6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */; };
 		21BAEBFD28E0671E002616F6 /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */; };
 		79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C5E28C03ADD00766059 /* AppDelegate.swift */; };
@@ -58,6 +60,8 @@
 		219633AD28E104C0004C5A97 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		21AB9BF228EDB84D00A1796B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		21AB9BF428EDB86500A1796B /* URLComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponents.swift; sourceTree = "<group>"; };
+		21AB9BF628EDB9F700A1796B /* AdapterSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterSectionModel.swift; sourceTree = "<group>"; };
+		21AB9BF828EDBB3D00A1796B /* AdapterItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterItemModel.swift; sourceTree = "<group>"; };
 		21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceDetailViewController.swift; path = CoffeeMap/View/PlaceDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceDetailViewController.xib; path = CoffeeMap/View/PlaceDetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		79242C5B28C03ADD00766059 /* CoffeeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				7952AB1928C03F5000607B77 /* TableViewAdapter.swift */,
+				21AB9BF628EDB9F700A1796B /* AdapterSectionModel.swift */,
+				21AB9BF828EDBB3D00A1796B /* AdapterItemModel.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -383,6 +389,8 @@
 				7952AB3D28C05CD400607B77 /* Encodable.swift in Sources */,
 				79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */,
 				7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */,
+				21AB9BF728EDB9F700A1796B /* AdapterSectionModel.swift in Sources */,
+				21AB9BF928EDBB3D00A1796B /* AdapterItemModel.swift in Sources */,
 				7952AB3328C0540100607B77 /* CustomError.swift in Sources */,
 				219633AE28E104C0004C5A97 /* BaseViewModel.swift in Sources */,
 				79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */,

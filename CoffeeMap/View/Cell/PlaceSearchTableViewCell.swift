@@ -7,14 +7,13 @@
 
 import UIKit
 
-final class PlaceSearchTableViewCell: UITableViewCell, BaseCellView {
+final class PlaceSearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
-    func setupCellView(rowModel: BaseCellRowModel) {
-        guard let rowModel = rowModel as? PlaceSearchTableViewCellRowModel else { return }
+    func setupView(_ rowModel: PlaceSearchTableViewCellRowModel) {
         nameLabel.text = rowModel.name
         addressLabel.text = rowModel.address
         distanceLabel.text = rowModel.distance

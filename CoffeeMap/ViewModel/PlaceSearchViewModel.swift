@@ -27,10 +27,10 @@ final class PlaceSearchViewModel {
         return sortedData
     }
 
-    func getPlaceListBy(_ dataModel: [GetPlaceResultModel], cellAction: ((BaseCellRowModel) -> ())?){
+    func getPlaceListBy(_ dataModel: [GetPlaceResultModel]){
         var result: [PlaceSearchTableViewCellRowModel] = []
         for item in dataModel {
-            result.append(PlaceSearchTableViewCellRowModel(item, action: cellAction))
+            result.append(PlaceSearchTableViewCellRowModel(item))
         }
         placeList = result
     }

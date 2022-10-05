@@ -5,16 +5,16 @@
 //  Created by owenkao on 2022/09/01.
 //
 
-struct PlaceSearchTableViewCellRowModel: BaseCellRowModel {
+import UIKit
 
-    var cellID: String { return "PlaceSearchTableViewCell" }
-    var cellAction: ((BaseCellRowModel) -> ())?
+struct PlaceSearchTableViewCellRowModel: AdapterItemModel {
+    var type: UIView.Type { return PlaceSearchTableViewCell.self }
     let name: String
     let address: String
     let distance: String?
     let coordinate: (latitude: Double, longitude: Double)?
     
-    init(_ dataModel: GetPlaceResultModel, action: ((BaseCellRowModel) -> ())?) {
+    init(_ dataModel: GetPlaceResultModel) {
         name = dataModel.name ?? ""
         if let location = dataModel.location,
            let address = location.formattedAddress,
@@ -28,7 +28,6 @@ struct PlaceSearchTableViewCellRowModel: BaseCellRowModel {
         } else {
             distance = nil
         }
-        cellAction = action
         if let geocodes = dataModel.geocodes,
            let coordinate = geocodes.main,
            let latitude = coordinate.latitude,

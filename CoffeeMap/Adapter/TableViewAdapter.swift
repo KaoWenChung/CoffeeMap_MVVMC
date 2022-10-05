@@ -7,42 +7,34 @@
 
 import UIKit
 
-protocol BaseCellRowModel {
+public protocol TableViewAdapterDelegate: AnyObject {
 
-    var cellID: String { get }
-    var cellAction: ((BaseCellRowModel)->())? { get set }
+    /// Apply model to view
+    func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath)
 
-}
+    /// Handle view selection
+    func select(model: AdapterItemModel)
 
-protocol BaseCellView: UITableViewCell {
-
-    func setupCellView(rowModel: BaseCellRowModel)
-
-}
-
-extension BaseCellView {
-
-    var cellReuseIdentifier: String {
-        return "\(type(of: self))"
-    }
+    /// Size the view
+    func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize
 
 }
 
-class TableViewAdapter: NSObject {
+public class TableViewAdapter: NSObject {
 
-    weak var tableView: UITableView?
-    private(set) var rowModels: [BaseCellRowModel] = []
+    public weak var tableView: UITableView?
+    public weak var delegate: TableViewAdapterDelegate?
+    public private(set) var sections: [AdapterSectionModel] = []
 
-    init(_ tableView: UITableView, cell: BaseCellView) {
+    public init(_ tableView: UITableView) {
         super.init()
         self.tableView = tableView
-        self.tableView?.register(UINib(nibName: cell.cellReuseIdentifier, bundle: nil), forCellReuseIdentifier: cell.cellReuseIdentifier)
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
     }
     
-    func updateData(_ rowModels: [BaseCellRowModel]) {
-        self.rowModels = rowModels
+    func updateData(_ sections: [AdapterSectionModel]) {
+        self.sections = sections
         tableView?.reloadData()
     }
 
@@ -51,22 +43,20 @@ class TableViewAdapter: NSObject {
 // MARK: - TableViewAdapter UITableViewDataSource
 extension TableViewAdapter: UITableViewDataSource {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         // TODO: Because this is a simple project, I gave it a fix number
-        return 1
+        return sections.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rowModels.count
+    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections[section].items.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: rowModels[indexPath.row].cellID, for: indexPath)
-        
-        if let cell = cell as? BaseCellView {
-            cell.setupCellView(rowModel: rowModels[indexPath.row])
-        }
+    open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = sections[indexPath.section].items[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: item.type.name, for: indexPath)
+
+        delegate?.configure(model: item, view: cell, indexPath: indexPath)
 
         return cell
     }
@@ -76,10 +66,59 @@ extension TableViewAdapter: UITableViewDataSource {
 // MARK: - TableViewAdapter UITableViewDelegate
 extension TableViewAdapter: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let action = rowModels[indexPath.row].cellAction {
-            action(rowModels[indexPath.row])
-        }
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let item = sections[indexPath.section].items[indexPath.row]
+        delegate?.select(model: item)
+        tableView.deselectRow(at: indexPath, animated: true)
+
+    }
+
+    open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        let item = sections[indexPath.section].items[indexPath.row]
+        let cgSize = delegate?.size(model: item, containerSize: tableView.frame.size)
+        
+        return cgSize?.height ?? 0
+
+    }
+
+    open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+        guard let header = sections[section].header,
+              let cgSize = delegate?.size(model: header, containerSize: tableView.frame.size) else { return 0 }
+
+        return cgSize.height
+
+    }
+
+    open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+
+        guard let footer = sections[section].footer,
+              let cgSize = delegate?.size(model: footer, containerSize: tableView.frame.size) else { return 0 }
+
+        return cgSize.height
+
+    }
+
+    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        guard let header = sections[section].header,
+              let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: header.type.name) else { return nil }
+        delegate?.configure(model: header, view: view, indexPath: IndexPath(row: 0, section: section))
+
+        return view
+
+    }
+
+    public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+
+        guard let footer = sections[section].footer,
+              let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: footer.type.name) else { return nil }
+        delegate?.configure(model: footer, view: view, indexPath: IndexPath(row: 0, section: section))
+
+        return view
+
     }
 
 }
