@@ -8,6 +8,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+
     func open(_ viewController: UIViewController, animated: Bool, completion: (() -> Void)? = nil) {
         DispatchQueue.main.async  {
             viewController.hidesBottomBarWhenPushed = true
@@ -20,4 +21,5 @@ class BaseViewController: UIViewController {
             }
         }
     }
+
 }
