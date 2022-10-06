@@ -7,18 +7,29 @@
 
 import Foundation
 
-final class PlaceSearchViewModel {
+final class PlaceSearchViewModel: BaseViewModel {
 
-    private(set) var placeList: [PlaceSearchTableViewCellRowModel] = []
+    private(set) var placeList: [AdapterSectionModel] = []
     let apiService: FoursquareRepositoryDelegate
 
     init(_ apiService: FoursquareRepositoryDelegate) {
         self.apiService = apiService
     }
 
-    func fetchData(coordinate: String, completion: ((Result<GetPlaceResponseModel>) -> Void)?) {
+    func fetchData(coordinate: String, completion: Completion?) {
         let param: GetPlaceParamModel = GetPlaceParamModel(ll: coordinate, radius: 200, query: "coffee")
-        apiService.getPlace(param: param, completion: completion)
+        apiService.getPlace(param: param) { result in
+            switch result {
+            case .success(let value):
+                if let results = value.results {
+                    self.placeList = [AdapterSectionModel(items: self.getPlaceListBy(results))]
+                }
+                completion?(.success)
+            case .failure(let error):
+                completion?(.failure(error))
+            }
+            
+        }
     }
 
     func getSortedGetPlaceResult(_ dataModel: GetPlaceResponseModel) -> [GetPlaceResultModel] {
@@ -27,12 +38,12 @@ final class PlaceSearchViewModel {
         return sortedData
     }
 
-    func getPlaceListBy(_ dataModel: [GetPlaceResultModel]){
+    func getPlaceListBy(_ dataModel: [GetPlaceResultModel]) -> [PlaceSearchTableViewCellRowModel] {
         var result: [PlaceSearchTableViewCellRowModel] = []
         for item in dataModel {
             result.append(PlaceSearchTableViewCellRowModel(item))
         }
-        placeList = result
+        return result
     }
 
 }

@@ -14,6 +14,7 @@
 		21AB9BF528EDB86500A1796B /* URLComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF428EDB86500A1796B /* URLComponents.swift */; };
 		21AB9BF728EDB9F700A1796B /* AdapterSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF628EDB9F700A1796B /* AdapterSectionModel.swift */; };
 		21AB9BF928EDBB3D00A1796B /* AdapterItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF828EDBB3D00A1796B /* AdapterItemModel.swift */; };
+		21AB9BFB28EDC9B400A1796B /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BFA28EDC9B400A1796B /* RegisterService.swift */; };
 		21BAEBFC28E0671E002616F6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */; };
 		21BAEBFD28E0671E002616F6 /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */; };
 		79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C5E28C03ADD00766059 /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		21AB9BF428EDB86500A1796B /* URLComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponents.swift; sourceTree = "<group>"; };
 		21AB9BF628EDB9F700A1796B /* AdapterSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterSectionModel.swift; sourceTree = "<group>"; };
 		21AB9BF828EDBB3D00A1796B /* AdapterItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterItemModel.swift; sourceTree = "<group>"; };
+		21AB9BFA28EDC9B400A1796B /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceDetailViewController.swift; path = CoffeeMap/View/PlaceDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceDetailViewController.xib; path = CoffeeMap/View/PlaceDetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		79242C5B28C03ADD00766059 /* CoffeeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +199,7 @@
 				7952AB1928C03F5000607B77 /* TableViewAdapter.swift */,
 				21AB9BF628EDB9F700A1796B /* AdapterSectionModel.swift */,
 				21AB9BF828EDBB3D00A1796B /* AdapterItemModel.swift */,
+				21AB9BFA28EDC9B400A1796B /* RegisterService.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				21BAEBFC28E0671E002616F6 /* PlaceDetailViewController.swift in Sources */,
 				79242C6328C03ADD00766059 /* PlaceSearchViewController.swift in Sources */,
 				7952AB2D28C04E7100607B77 /* PlaceSearchTableViewCellRowModel.swift in Sources */,
+				21AB9BFB28EDC9B400A1796B /* RegisterService.swift in Sources */,
 				79290E1C28C0AC3E00439E38 /* Alert.swift in Sources */,
 				79290E1A28C0AB4D00439E38 /* Spinner.swift in Sources */,
 				7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */,

@@ -45,6 +45,7 @@ final class PlaceSearchViewController: BaseViewController {
         super.viewDidLoad()
         title = "Nearby Cafe List"
         tableViewAdapter = .init(tableView)
+        tableViewAdapter?.delegate = self
         initLocationManager()
         initBarButton()
         initRefreshControl()
@@ -87,9 +88,10 @@ final class PlaceSearchViewController: BaseViewController {
             DispatchQueue.main.async {
                 Spinner.shared.hide()
                 switch result {
-                case .success(let value):
+                case .success:
                     self.updateNoResultView()
-                    let sortedValue = self.viewModel.getSortedGetPlaceResult(value)
+                    self.tableViewAdapter?.updateData(self.viewModel.placeList)
+                    self.tableViewAdapter?.register()
                     completion?(.success)
                 case .failure(let error):
                     Alert.show(vc: self, title: "Error", message: error.message)
@@ -116,6 +118,7 @@ extension PlaceSearchViewController: CLLocationManagerDelegate {
 }
 
 extension PlaceSearchViewController: TableViewAdapterDelegate {
+
     func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath) {
         switch (model, view) {
         case (let model as PlaceSearchTableViewCellRowModel, let view as PlaceSearchTableViewCell):
@@ -127,7 +130,11 @@ extension PlaceSearchViewController: TableViewAdapterDelegate {
     }
     
     func select(model: AdapterItemModel) {
-        print(model)
+        if let model = model as? PlaceSearchTableViewCellRowModel {
+            let viewModel = PlaceDetailViewModel(model)
+            open(PlaceDetailViewController(viewModel), animated: true)
+        }
+        
     }
     
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {

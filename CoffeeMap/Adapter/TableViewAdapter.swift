@@ -24,6 +24,7 @@ public class TableViewAdapter: NSObject {
 
     public weak var tableView: UITableView?
     public weak var delegate: TableViewAdapterDelegate?
+    let registerService = TableViewRegistryService()
     public private(set) var sections: [AdapterSectionModel] = []
 
     public init(_ tableView: UITableView) {
@@ -33,9 +34,14 @@ public class TableViewAdapter: NSObject {
         self.tableView?.dataSource = self
     }
     
-    func updateData(_ sections: [AdapterSectionModel]) {
+    open func updateData(_ sections: [AdapterSectionModel]) {
         self.sections = sections
         tableView?.reloadData()
+    }
+
+    /// Register UICollectionViewCell
+    open func register() {
+        registerService.registerIfNeeded(tableView, sections: sections)
     }
 
 }
