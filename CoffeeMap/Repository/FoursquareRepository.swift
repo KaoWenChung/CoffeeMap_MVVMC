@@ -13,7 +13,13 @@ protocol FoursquareRepositoryDelegate {
 
 }
 
-final class FoursquareRepository: BaseRepository, FoursquareRepositoryDelegate {
+final class FoursquareRepository: FoursquareRepositoryDelegate {
+
+    let apiService: APIService
+
+    init(apiService: APIService = URLSessionAPIService()) {
+        self.apiService = apiService
+    }
 
     private enum PlacesURL {
         case getPlace
@@ -42,7 +48,7 @@ final class FoursquareRepository: BaseRepository, FoursquareRepositoryDelegate {
         guard var urlComponent = URLComponents(string: urlStr) else { return }
         addParam2URLComponent(param: param, urlComponent: &urlComponent)
         guard let _url = urlComponent.url else { return }
-        get(url: _url, completion: completion)
+        apiService.get(url: _url, completion: completion)
     }
 
 }

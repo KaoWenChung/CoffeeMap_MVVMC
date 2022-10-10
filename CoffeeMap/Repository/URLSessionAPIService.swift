@@ -7,14 +7,7 @@
 
 import Foundation
 
-enum Result<Value> {
-
-    case success(Value)
-    case failure(CustomError)
-
-}
-
-class BaseRepository {
+struct URLSessionAPIService: APIService {
     // TODO: ADD API KEY HERE
     private let apiKey: String = ""
 
