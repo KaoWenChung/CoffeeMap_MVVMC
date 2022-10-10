@@ -13,14 +13,14 @@ class TableViewAdapterTests: XCTestCase {
     func testTableView_updateData_1cell() {
         let tableView = UITableView()
         let sut: TableViewAdapter = makeSUT(tableView)
-        sut.updateData([MockCellModel()])
+        sut.updateData([AdapterSectionModel(items: [MockCellModel()])])
         XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 0), 1)
     }
 
     func testTableView_updateData_2cell() {
         let tableView = UITableView()
         let sut: TableViewAdapter = makeSUT(tableView)
-        sut.updateData([MockCellModel(), MockCellModel()])
+        sut.updateData([AdapterSectionModel(items: [MockCellModel(), MockCellModel()])])
         XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 0), 2)
     }
 
@@ -28,20 +28,16 @@ class TableViewAdapterTests: XCTestCase {
     /// tableview should be passed in this method because it is a weak type in TableViewAdapter, it means that it would be dealocate immediately
     func makeSUT(_ tableView: UITableView) -> TableViewAdapter {
         let cell = MockBaseCell()
-        let sut: TableViewAdapter = TableViewAdapter(tableView, cell: cell)
+        let sut: TableViewAdapter = TableViewAdapter(tableView)
         return sut
     }
 
-    class MockBaseCell: UITableViewCell, BaseCellView {
+    class MockBaseCell: UITableViewCell {}
 
-        func setupCellView(rowModel: BaseCellRowModel) {}
-
-    }
-
-    class MockCellModel: BaseCellRowModel {
-
-        var cellID: String = "MockBaseCell"
-        var cellAction: ((BaseCellRowModel) -> ())?
+    class MockCellModel: AdapterItemModel {
+        var type: UIView.Type {
+            return MockBaseCell.self
+        }
         
     }
 

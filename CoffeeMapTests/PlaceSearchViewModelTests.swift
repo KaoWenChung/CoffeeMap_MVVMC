@@ -22,22 +22,11 @@ class PlaceSearchViewModelTests: XCTestCase {
     func testGetPlaceListBy_StubLondonData() throws {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
         let sut = PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
-        sut.getPlaceListBy(getplaceDataModel.results ?? [], cellAction: nil)
-        XCTAssertEqual(sut.placeList.count, 10)
-        XCTAssertEqual(sut.placeList.first?.name, "Caffè Concerto")
-        XCTAssertEqual(sut.placeList.last?.name, "Piggy's")
-    }
-
-    func testFetchData_london_successeding() throws {
-        let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
-        let sut = PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
-        sut.fetchData(coordinate: "51.50998,-0.1337") { result in
-            if case .success(let value) = result {
-                XCTAssertEqual(value.results?.count, 10)
-                XCTAssertEqual(value.results?.first?.name, "Caffè Concerto")
-                XCTAssertEqual(value.results?.last?.name, "Piggy\'s")
-            }
-        }
+        let result = sut.getPlaceListBy(getplaceDataModel.results ?? [])
+        XCTAssertEqual(result.count, 10)
+        XCTAssertEqual(result.first?.name, "Caffè Concerto")
+        XCTAssertEqual(result.last?.name, "Piggy's")
+        
     }
 
     func testFetchData_london_error() throws {
