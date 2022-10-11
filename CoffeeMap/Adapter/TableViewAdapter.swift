@@ -24,8 +24,10 @@ public class TableViewAdapter: NSObject {
 
     public weak var tableView: UITableView?
     public weak var delegate: TableViewAdapterDelegate?
-    let registerService = TableViewRegistryService()
     public private(set) var sections: [AdapterSectionModel] = []
+    private var isRegisterAble: Bool = true
+    let registerService = TableViewRegistryService()
+    
 
     public init(_ tableView: UITableView) {
         super.init()
@@ -40,7 +42,9 @@ public class TableViewAdapter: NSObject {
     }
 
     /// Register UICollectionViewCell
-    open func register() {
+    open func register(everytime: Bool = false, _ sections: [AdapterSectionModel]) {
+        guard isRegisterAble else { return }
+        isRegisterAble = everytime
         registerService.registerIfNeeded(tableView, sections: sections)
     }
 

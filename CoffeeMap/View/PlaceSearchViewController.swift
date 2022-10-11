@@ -90,8 +90,8 @@ final class PlaceSearchViewController: BaseViewController {
                 switch result {
                 case .success:
                     self.updateNoResultView()
+                    self.tableViewAdapter?.register(self.viewModel.placeList)
                     self.tableViewAdapter?.updateData(self.viewModel.placeList)
-                    self.tableViewAdapter?.register()
                     completion?(.success)
                 case .failure(let error):
                     Alert.show(vc: self, title: "Error", message: error.message)
