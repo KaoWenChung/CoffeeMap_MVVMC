@@ -10,18 +10,18 @@ Users have to provide the location for this app in order to query the coffee ven
 ## Instruction
 You will need to sign up as a Foursquare developer and create an app in order to use their services. Please see [Foursquare](https://developer.foursquare.com/docs/places-api-getting-started) for more details.<br/>
 Please add your Foursquare API Key at
-`~/CoffeeMap/CoffeeMap/Repository/BaseRepository.swift`<br/>
-Modify property apiKey in class BaseRepository
+`~/CoffeeMap/CoffeeMap/Repository/FoursquareRepository.swift`<br/>
+Modify property apiKey in class FoursquareRepository
 
 ### Technologies:
 - Swift
 - MVVM
 - Interface builder(.xib)
+- Unit tests
 - Dependency Injection
 - Dependency inversion
 - Adapter pattern
-- Unit tests
-- Singleton
+- Singleton pattern
 
 ### Developing time: 9 hours
 - feature design and api testing 30 mins

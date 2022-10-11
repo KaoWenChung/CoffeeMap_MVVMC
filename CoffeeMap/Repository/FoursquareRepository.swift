@@ -15,6 +15,16 @@ protocol FoursquareRepositoryDelegate {
 
 final class FoursquareRepository: FoursquareRepositoryDelegate {
 
+    // TODO: ADD API KEY HERE
+    private let apiKey: String = ""
+
+    private var headers: [String: String] {
+        return [
+            "Accept": "application/json",
+            "Authorization": apiKey
+          ]
+    }
+
     let apiService: APIService
 
     init(apiService: APIService = URLSessionAPIService()) {
@@ -48,7 +58,17 @@ final class FoursquareRepository: FoursquareRepositoryDelegate {
         guard var urlComponent = URLComponents(string: urlStr) else { return }
         addParam2URLComponent(param: param, urlComponent: &urlComponent)
         guard let _url = urlComponent.url else { return }
-        apiService.get(url: _url, completion: completion)
+        get(url: _url, completion: completion)
+    }
+
+    func get<T: Decodable>(url: URL, completion: ((Result<T>) -> Void)?) {
+        let urlRequest = NSMutableURLRequest(url: url,
+                                                cachePolicy: .useProtocolCachePolicy,
+                                            timeoutInterval: 10.0)
+        urlRequest.httpMethod = "GET"
+        urlRequest.allHTTPHeaderFields = headers
+
+        apiService.request(request: urlRequest as URLRequest, completion: completion)
     }
 
 }

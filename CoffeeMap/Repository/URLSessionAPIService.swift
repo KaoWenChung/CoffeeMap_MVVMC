@@ -8,27 +8,8 @@
 import Foundation
 
 struct URLSessionAPIService: APIService {
-    // TODO: ADD API KEY HERE
-    private let apiKey: String = ""
 
-    private var headers: [String: String] {
-        return [
-            "Accept": "application/json",
-            "Authorization": apiKey
-          ]
-    }
-    
-    func get<T: Decodable>(url: URL, completion: ((Result<T>) -> Void)?) {
-        let urlRequest = NSMutableURLRequest(url: url,
-                                                cachePolicy: .useProtocolCachePolicy,
-                                            timeoutInterval: 10.0)
-        urlRequest.httpMethod = "GET"
-        urlRequest.allHTTPHeaderFields = headers
-
-        request(request: urlRequest as URLRequest, completion: completion)
-    }
-
-    private func request<T: Decodable>(request: URLRequest, completion: ((Result<T>) -> Void)?) {
+    func request<T: Decodable>(request: URLRequest, completion: ((Result<T>) -> Void)?) {
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             // Handle Error
