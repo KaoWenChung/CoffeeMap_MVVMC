@@ -18,6 +18,8 @@ Modify property apiKey in class BaseRepository
 - MVVM
 - Interface builder(.xib)
 - Dependency Injection
+- Dependency inversion
+- Adapter pattern
 - Unit tests
 - Singleton
 
