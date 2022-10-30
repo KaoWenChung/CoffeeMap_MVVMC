@@ -65,6 +65,7 @@ final class FoursquareRepository: FoursquareRepositoryDelegate {
         return try await get(url: _url)
     }
 
+    // TODO: Replace to another component
     func get<T: Decodable>(url: URL) async throws -> T {
         let urlRequest = NSMutableURLRequest(url: url,
                                                 cachePolicy: .useProtocolCachePolicy,
