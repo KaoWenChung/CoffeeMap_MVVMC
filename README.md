@@ -17,6 +17,7 @@ Modify property apiKey in class FoursquareRepository
 - Swift
 - MVVM
 - Interface builder(.xib)
+- Concurrency
 - Unit testing
 - Dependency Injection
 - Dependency inversion
