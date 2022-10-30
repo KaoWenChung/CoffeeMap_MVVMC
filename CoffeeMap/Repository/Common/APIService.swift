@@ -9,6 +9,6 @@ import Foundation
 
 protocol APIService {
 
-    func request<T: Decodable>(request: URLRequest, completion: ((Result<T>) -> Void)?)
+    func request<T: Decodable>(request: URLRequest) async throws -> T
 
 }

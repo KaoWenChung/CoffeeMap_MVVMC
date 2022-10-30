@@ -16,19 +16,11 @@ final class PlaceSearchViewModel: BaseViewModel {
         self.apiService = apiService
     }
 
-    func fetchData(coordinate: String, completion: Completion?) {
+    func fetchData(coordinate: String) async throws {
         let param: GetPlaceParamModel = GetPlaceParamModel(ll: coordinate, radius: 200, query: "coffee")
-        apiService.getPlace(param: param) { result in
-            switch result {
-            case .success(let value):
-                if let results = value.results {
-                    self.placeList = [AdapterSectionModel(items: self.getPlaceListBy(results))]
-                }
-                completion?(.success)
-            case .failure(let error):
-                completion?(.failure(error))
-            }
-            
+        let data = try await apiService.getPlace(param: param)
+        if let results = data.results {
+            placeList = [AdapterSectionModel(items: getPlaceListBy(results))]
         }
     }
 

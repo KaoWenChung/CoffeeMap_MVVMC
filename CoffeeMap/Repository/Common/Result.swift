@@ -9,6 +9,6 @@
 enum Result<Value> {
 
     case success(Value)
-    case failure(CustomError)
+    case failure(Error)
 
 }

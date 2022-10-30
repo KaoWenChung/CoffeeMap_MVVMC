@@ -84,21 +84,20 @@ final class PlaceSearchViewController: BaseViewController {
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         let ll: String = String(latitude) + "," + String(longitude)
-        viewModel.fetchData(coordinate: ll) { result in
-            DispatchQueue.main.async {
+        Task.init() {
+            do {
+                try await viewModel.fetchData(coordinate: ll)
                 Spinner.shared.hide()
-                switch result {
-                case .success:
-                    self.updateNoResultView()
-                    self.tableViewAdapter?.register(self.viewModel.placeList)
-                    self.tableViewAdapter?.updateData(self.viewModel.placeList)
-                    completion?(.success)
-                case .failure(let error):
-                    Alert.show(vc: self, title: "Error", message: error.message)
-                    completion?(.failure(error))
-                }
+                updateNoResultView()
+                self.tableViewAdapter?.register(self.viewModel.placeList)
+                self.tableViewAdapter?.updateData(self.viewModel.placeList)
+                completion?(.success)
+            } catch let _ {
+//                Alert.show(vc: self, title: "Error", message: error.message)
+//                completion?(.failure(error))
             }
         }
+        
     }
 
 }

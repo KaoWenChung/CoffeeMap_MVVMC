@@ -9,7 +9,7 @@ import Foundation
 
 protocol FoursquareRepositoryDelegate {
 
-    func getPlace(param: GetPlaceParamModel, completion: ((Result<GetPlaceResponseModel>) -> Void)?)
+    func getPlace(param: GetPlaceParamModel) async throws -> GetPlaceResponseModel
 
 }
 
@@ -53,22 +53,26 @@ final class FoursquareRepository: FoursquareRepositoryDelegate {
         }
     }
 
-    func getPlace(param: GetPlaceParamModel, completion: ((Result<GetPlaceResponseModel>) -> Void)?) {
+    func getPlace(param: GetPlaceParamModel) async throws -> GetPlaceResponseModel {
         let urlStr = PlacesURL.getPlace.urlString()
-        guard var urlComponent = URLComponents(string: urlStr) else { return }
+        guard var urlComponent = URLComponents(string: urlStr) else {
+            throw URLError.invalidURL
+        }
         addParam2URLComponent(param: param, urlComponent: &urlComponent)
-        guard let _url = urlComponent.url else { return }
-        get(url: _url, completion: completion)
+        guard let _url = urlComponent.url else {
+            throw URLError.invalidURL
+        }
+        return try await get(url: _url)
     }
 
-    func get<T: Decodable>(url: URL, completion: ((Result<T>) -> Void)?) {
+    func get<T: Decodable>(url: URL) async throws -> T {
         let urlRequest = NSMutableURLRequest(url: url,
                                                 cachePolicy: .useProtocolCachePolicy,
                                             timeoutInterval: 10.0)
         urlRequest.httpMethod = "GET"
         urlRequest.allHTTPHeaderFields = headers
 
-        apiService.request(request: urlRequest as URLRequest, completion: completion)
+        return try await apiService.request(request: urlRequest as URLRequest)
     }
 
 }
