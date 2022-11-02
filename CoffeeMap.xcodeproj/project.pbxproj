@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		214E721E28F5B4AB0087E39B /* APIServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E721D28F5B4AB0087E39B /* APIServiceType.swift */; };
 		219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A728E0BCD1004C5A97 /* BaseViewController.swift */; };
 		219633AA28E0D64E004C5A97 /* PlaceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */; };
 		219633AE28E104C0004C5A97 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633AD28E104C0004C5A97 /* BaseViewModel.swift */; };
 		21A445CE2912D8EE00986160 /* FoursquareRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A445CD2912D8EE00986160 /* FoursquareRepositoryType.swift */; };
 		21A445D12912DB5900986160 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A445D02912DB5900986160 /* NetworkConfig.swift */; };
+		21A445D32912DE6300986160 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A445D22912DE6300986160 /* NetworkServiceType.swift */; };
+		21A445D62913057600986160 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A445D52913057600986160 /* Endpoint.swift */; };
 		21AB9BF328EDB84D00A1796B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF228EDB84D00A1796B /* UIView.swift */; };
 		21AB9BF528EDB86500A1796B /* URLComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF428EDB86500A1796B /* URLComponents.swift */; };
 		21AB9BF728EDB9F700A1796B /* AdapterSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF628EDB9F700A1796B /* AdapterSectionModel.swift */; };
@@ -59,12 +60,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		214E721D28F5B4AB0087E39B /* APIServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceType.swift; sourceTree = "<group>"; };
 		219633A728E0BCD1004C5A97 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewModel.swift; sourceTree = "<group>"; };
 		219633AD28E104C0004C5A97 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		21A445CD2912D8EE00986160 /* FoursquareRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareRepositoryType.swift; sourceTree = "<group>"; };
 		21A445D02912DB5900986160 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		21A445D22912DE6300986160 /* NetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceType.swift; sourceTree = "<group>"; };
+		21A445D52913057600986160 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		21AB9BF228EDB84D00A1796B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		21AB9BF428EDB86500A1796B /* URLComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponents.swift; sourceTree = "<group>"; };
 		21AB9BF628EDB9F700A1796B /* AdapterSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterSectionModel.swift; sourceTree = "<group>"; };
@@ -125,8 +127,8 @@
 		21A445CC2912D8D600986160 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				214E721D28F5B4AB0087E39B /* APIServiceType.swift */,
 				21A445CD2912D8EE00986160 /* FoursquareRepositoryType.swift */,
+				21A445D22912DE6300986160 /* NetworkServiceType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -134,9 +136,18 @@
 		21A445CF2912DB2700986160 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				21A445D42913056900986160 /* Network */,
 				21A445D02912DB5900986160 /* NetworkConfig.swift */,
 			);
 			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		21A445D42913056900986160 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				21A445D52913057600986160 /* Endpoint.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		21AB9BF128EDB83100A1796B /* Extension */ = {
@@ -408,6 +419,7 @@
 				21BAEBFC28E0671E002616F6 /* PlaceDetailViewController.swift in Sources */,
 				79242C6328C03ADD00766059 /* PlaceSearchViewController.swift in Sources */,
 				7952AB2D28C04E7100607B77 /* PlaceSearchTableViewCellRowModel.swift in Sources */,
+				21A445D32912DE6300986160 /* NetworkServiceType.swift in Sources */,
 				21AB9BFB28EDC9B400A1796B /* RegisterService.swift in Sources */,
 				79290E1C28C0AC3E00439E38 /* Alert.swift in Sources */,
 				79290E1A28C0AB4D00439E38 /* Spinner.swift in Sources */,
@@ -415,6 +427,7 @@
 				219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */,
 				7952AB3628C0552C00607B77 /* NetworkService.swift in Sources */,
 				219633AA28E0D64E004C5A97 /* PlaceDetailViewModel.swift in Sources */,
+				21A445D62913057600986160 /* Endpoint.swift in Sources */,
 				7952AB3D28C05CD400607B77 /* Encodable.swift in Sources */,
 				79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */,
 				7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */,
@@ -423,7 +436,6 @@
 				7952AB3328C0540100607B77 /* CustomError.swift in Sources */,
 				219633AE28E104C0004C5A97 /* BaseViewModel.swift in Sources */,
 				79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */,
-				214E721E28F5B4AB0087E39B /* APIServiceType.swift in Sources */,
 				21A445CE2912D8EE00986160 /* FoursquareRepositoryType.swift in Sources */,
 				7952AB3128C0509F00607B77 /* GetPlaceDataModel.swift in Sources */,
 				79290E0D28C080CF00439E38 /* PlaceSearchTableViewCell.swift in Sources */,

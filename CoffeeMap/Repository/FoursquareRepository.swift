@@ -50,11 +50,11 @@ final class FoursquareRepository: FoursquareRepositoryType {
     func getPlace(param: GetPlaceParamModel) async throws -> GetPlaceResponseModel {
         let urlStr = PlacesURL.getPlace.urlString()
         guard var urlComponent = URLComponents(string: urlStr) else {
-            throw URLError.invalidURL
+            throw NetworkError.invalidURL
         }
         addParam2URLComponent(param: param, urlComponent: &urlComponent)
         guard let _url = urlComponent.url else {
-            throw URLError.invalidURL
+            throw NetworkError.invalidURL
         }
         return try await get(url: _url)
     }

@@ -7,18 +7,80 @@
 
 import Foundation
 
-public enum URLError: Error {
+public enum NetworkError: Error {
+    case error(statusCode: Int, data: Data?)
     case statusCode
     case invalidImage
     case invalidURL
+    case cancelled
+    case notConnected
     case other(Error)
 }
 
-public protocol NetworkCancellable {
-    func cancel()
+extension URLSessionTask: NetworkCancellable {}
+
+public struct NetworkService {
+    private let config: NetworkConfigurableType
+    private let sessionManager: NetworkSessionManagerType
+    private let logger: NetworkErrorLoggerType
+    init(config: NetworkConfigurableType,
+         sessionManager: NetworkSessionManagerType,
+         logger: NetworkErrorLoggerType) {
+        self.config = config
+        self.sessionManager = sessionManager
+        self.logger = logger
+    }
+
+    private func request(request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancellable {
+        let sessionDataTask = sessionManager.request(request) { data, response, requestError in
+            
+            if let requestError = requestError {
+                var error: NetworkError
+                if let response = response as? HTTPURLResponse {
+                    error = .error(statusCode: response.statusCode, data: data)
+                } else {
+                    error = self.resolve(error: requestError)
+                }
+                
+                self.logger.log(error: error)
+                completion(.failure(error))
+            } else {
+                self.logger.log(responseData: data, response: response)
+                completion(.success(data))
+            }
+        }
+    
+        logger.log(request: request)
+
+        return sessionDataTask
+    }
+
+    private func resolve(error: Error) -> NetworkError {
+        let code = URLError.Code(rawValue: (error as NSError).code)
+        switch code {
+        case .notConnectedToInternet: return .notConnected
+        case .cancelled: return .cancelled
+        default: return .other(error)
+        }
+    }
 }
 
-extension URLSessionTask: NetworkCancellable {}
+extension NetworkService: NetworkServiceType {
+    public func request(endpoint: RequestableType, completion: @escaping CompletionHandler) -> NetworkCancellable? {
+        do {
+            let urlRequest = try endpoint.urlRequest(with: config)
+            return request(request: urlRequest, completion: completion)
+        } catch {
+            completion(.failure(.invalidURL))
+            return nil
+        }
+    }
+
+}
+
+protocol APIServiceType {
+    func request<T: Decodable>(request: URLRequest) async throws -> T
+}
 
 struct URLSessionAPIService: APIServiceType {
 
@@ -26,7 +88,7 @@ struct URLSessionAPIService: APIServiceType {
         let (data, response) = try await URLSession.shared.data(for: request)
         guard let httpResponse = response as? HTTPURLResponse,
               httpResponse.statusCode == 200 else {
-            throw URLError.statusCode
+            throw NetworkError.statusCode
         }
         do {
             // Parse the data
@@ -36,41 +98,6 @@ struct URLSessionAPIService: APIServiceType {
         } catch let error {
             throw error
         }
-        /*
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
-            // Handle Error
-            if let error = error {
-//                completion?(.failure(error))
-                throw error
-                print("DataTask error: \(error.localizedDescription)")
-                return
-            }
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                // Handle Empty Response
-//                completion?(.failure(CustomError("Empty Response")))
-                print("Empty Response")
-                return
-            }
-            guard let _data = data else {
-                // Handle Empty Data
-//                completion?(.failure(CustomError("Empty Data")))
-                print("Empty Data")
-                return
-            }
-            do {
-                // Parse the data
-                let deconder = JSONDecoder()
-                let jsonData = try deconder.decode(T.self, from:  _data)
-                DispatchQueue.main.async {
-//                    completion?(.success(jsonData))
-                }
-            } catch let error {
-//                completion?(.failure(CustomError(error.localizedDescription)))
-            }
-        })
-        dataTask.resume()
-        */
     }
 
 }
