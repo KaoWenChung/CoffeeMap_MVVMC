@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		214E721A28F472090087E39B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E721928F472090087E39B /* Result.swift */; };
 		214E721E28F5B4AB0087E39B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214E721D28F5B4AB0087E39B /* APIService.swift */; };
 		219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A728E0BCD1004C5A97 /* BaseViewController.swift */; };
 		219633AA28E0D64E004C5A97 /* PlaceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */; };
@@ -58,7 +57,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		214E721928F472090087E39B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		214E721D28F5B4AB0087E39B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		219633A728E0BCD1004C5A97 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewModel.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 		214E721828F472000087E39B /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				214E721928F472090087E39B /* Result.swift */,
 				214E721D28F5B4AB0087E39B /* APIService.swift */,
 			);
 			path = Common;
@@ -161,7 +158,7 @@
 		79242C5D28C03ADD00766059 /* CoffeeMap */ = {
 			isa = PBXGroup;
 			children = (
-				7952AB3B28C05CBC00607B77 /* Util */,
+				7952AB3B28C05CBC00607B77 /* Utils */,
 				7952AB3428C0551400607B77 /* Repository */,
 				7952AB2B28C04E5200607B77 /* Model */,
 				7952AB1828C03F2600607B77 /* Adapter */,
@@ -260,7 +257,7 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		7952AB3B28C05CBC00607B77 /* Util */ = {
+		7952AB3B28C05CBC00607B77 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				21AB9BF128EDB83100A1796B /* Extension */,
@@ -268,7 +265,7 @@
 				79290E1928C0AB4D00439E38 /* Spinner.swift */,
 				79290E1B28C0AC3E00439E38 /* Alert.swift */,
 			);
-			path = Util;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		7952AB4028C0625F00607B77 /* Util */ = {
@@ -397,7 +394,6 @@
 				21BAEBFC28E0671E002616F6 /* PlaceDetailViewController.swift in Sources */,
 				79242C6328C03ADD00766059 /* PlaceSearchViewController.swift in Sources */,
 				7952AB2D28C04E7100607B77 /* PlaceSearchTableViewCellRowModel.swift in Sources */,
-				214E721A28F472090087E39B /* Result.swift in Sources */,
 				21AB9BFB28EDC9B400A1796B /* RegisterService.swift in Sources */,
 				79290E1C28C0AC3E00439E38 /* Alert.swift in Sources */,
 				79290E1A28C0AB4D00439E38 /* Spinner.swift in Sources */,

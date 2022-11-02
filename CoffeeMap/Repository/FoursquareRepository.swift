@@ -16,7 +16,7 @@ protocol FoursquareRepositoryDelegate {
 final class FoursquareRepository: FoursquareRepositoryDelegate {
 
     // TODO: ADD API KEY HERE
-    private let apiKey: String = ""
+    private let apiKey: String = "fsq3+vy2TXrh5JgEfIC2AM8+3lXVQh61raV0EvpSY6tHX8o="
 
     private var headers: [String: String] {
         return [
