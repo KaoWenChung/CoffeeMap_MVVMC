@@ -7,18 +7,20 @@
 
 import Foundation
 
-enum URLError: Error {
+public enum URLError: Error {
     case statusCode
     case invalidImage
     case invalidURL
     case other(Error)
-    
-    static func map(_ error: Error) -> URLError {
-        return (error as? URLError) ?? .other(error)
-    }
 }
 
-struct URLSessionAPIService: APIService {
+public protocol NetworkCancellable {
+    func cancel()
+}
+
+extension URLSessionTask: NetworkCancellable {}
+
+struct URLSessionAPIService: APIServiceType {
 
     func request<T: Decodable>(request: URLRequest) async throws -> T {
         let (data, response) = try await URLSession.shared.data(for: request)

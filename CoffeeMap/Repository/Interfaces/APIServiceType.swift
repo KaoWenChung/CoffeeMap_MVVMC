@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol APIService {
+protocol APIServiceType {
 
     func request<T: Decodable>(request: URLRequest) async throws -> T
 

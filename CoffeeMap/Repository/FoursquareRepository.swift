@@ -7,13 +7,7 @@
 
 import Foundation
 
-protocol FoursquareRepositoryDelegate {
-
-    func getPlace(param: GetPlaceParamModel) async throws -> GetPlaceResponseModel
-
-}
-
-final class FoursquareRepository: FoursquareRepositoryDelegate {
+final class FoursquareRepository: FoursquareRepositoryType {
 
     // TODO: ADD API KEY HERE
     private let apiKey: String = "fsq3+vy2TXrh5JgEfIC2AM8+3lXVQh61raV0EvpSY6tHX8o="
@@ -25,9 +19,9 @@ final class FoursquareRepository: FoursquareRepositoryDelegate {
           ]
     }
 
-    let apiService: APIService
+    let apiService: APIServiceType
 
-    init(apiService: APIService = URLSessionAPIService()) {
+    init(apiService: APIServiceType = URLSessionAPIService()) {
         self.apiService = apiService
     }
 
