@@ -10,7 +10,7 @@ import Foundation
 final class FoursquareRepository: FoursquareRepositoryType {
 
     // TODO: ADD API KEY HERE
-    private let apiKey: String = "fsq3+vy2TXrh5JgEfIC2AM8+3lXVQh61raV0EvpSY6tHX8o="
+    private let apiKey: String = ""
 
     private var headers: [String: String] {
         return [
