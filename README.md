@@ -18,18 +18,11 @@ Modify property apiKey in class FoursquareRepository
 - MVVM
 - Interface builder(.xib)
 - Concurrency
-- Unit testing
+- Unit testing(Refactoring)
 - Dependency Injection
 - Dependency inversion
 - Adapter pattern
 - Singleton pattern
-
-### Developing time: 9 hours
-- feature design and api testing 30 mins
-- system design 30 mins
-- feature developing 5 hours
-- unit test implementing 2 hours
-- Adapter for table view 1 hour
 
 ### To-Do list of features and time I need:
 - [x] A map page shows user and coffee venue location - 2 hours
