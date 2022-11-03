@@ -75,9 +75,52 @@ extension NetworkService: NetworkServiceType {
             return nil
         }
     }
-
 }
 
+public class NetworkSessionManager: NetworkSessionManagerType {
+    public init() {}
+    public func request(_ request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancellable {
+        let task = URLSession.shared.dataTask(with: request, completionHandler: completion)
+        task.resume()
+        return task
+    }
+}
+
+public final class NetworkErrorLogger: NetworkErrorLoggerType {
+    public func log(request: URLRequest) {
+        print("-----------------")
+        print("request: \(request.url?.description ?? "")")
+        print("headers: \(request.allHTTPHeaderFields ?? [:])")
+        print("method: \(request.httpMethod ?? "")")
+        if let httpBody = request.httpBody {
+            if let result = try? JSONSerialization.jsonObject(with: httpBody) as? [String: AnyObject] {
+                printIfDebug("Body: \(result)")
+            } else if let resultString = String(data: httpBody, encoding: .utf8) {
+                printIfDebug("Body: \(resultString)")
+            }
+        }
+    }
+    
+    public func log(responseData data: Data?, response: URLResponse?) {
+        guard let data else { return }
+        if let dataDict = try? JSONSerialization.jsonObject(with: data) as? [String: AnyObject] {
+            printIfDebug("responseData:\(dataDict)")
+        }
+    }
+    
+    public func log(error: Error) {
+        printIfDebug(error.localizedDescription)
+    }
+    
+}
+
+func printIfDebug(_ content: String) {
+    #if DEBUG
+    print(content)
+    #endif
+}
+
+// MARK: - Legacy code
 protocol APIServiceType {
     func request<T: Decodable>(request: URLRequest) async throws -> T
 }
