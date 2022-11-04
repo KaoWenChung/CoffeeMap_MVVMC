@@ -1,11 +1,11 @@
 //
-//  FoursquareRepositoryType.swift
+//  CafePlacesRepositoryType.swift
 //  CoffeeMap
 //
 //  Created by wyn on 2022/11/2.
 //
 
-protocol FoursquareRepositoryType {
+protocol CafePlacesRepositoryType {
 
     func getPlace(param: GetPlaceParamModel) async throws -> GetPlaceResponseModel
 

@@ -1,5 +1,5 @@
 //
-//  FoursquareRepository.swift
+//  CafePlacesRepository.swift
 //  CoffeeMap
 //
 //  Created by owenkao on 2022/09/01.
@@ -7,14 +7,13 @@
 
 import Foundation
 
-final class FoursquareRepository: FoursquareRepositoryType {
+final class CafePlacesRepository: CafePlacesRepositoryType {
 
     // TODO: ADD API KEY HERE
     private let apiKey: String = ""
 
     private var headers: [String: String] {
         return [
-            "Accept": "application/json",
             "Authorization": apiKey
           ]
     }

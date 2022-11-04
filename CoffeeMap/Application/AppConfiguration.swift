@@ -14,6 +14,7 @@ final class AppConfiguration {
 
     let current: Environment
     private(set) var apiKey: String!
+    private(set) var baseURL: String!
     
     init() {
         #if DEBUG
@@ -22,17 +23,18 @@ final class AppConfiguration {
         current = .release
         #endif
         apiKey = getAPIKey()
+        baseURL = getBaseURL()
     }
     
     private func getAPIKey() -> String {
         #if DEBUG
-        return "" // set api key here
+        return "" // TODO: ADD API KEY HERE
         #elseif RELEASE
         return ""
         #endif
     }
 
-    private func getbaseURL() -> String {
+    private func getBaseURL() -> String {
         #if DEBUG
         return "https://api.foursquare.com"
         #elseif RELEASE

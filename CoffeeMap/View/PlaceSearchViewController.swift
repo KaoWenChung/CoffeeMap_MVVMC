@@ -17,14 +17,14 @@ final class PlaceSearchViewController: BaseViewController {
     private let viewModel: PlaceSearchViewModel
     private let refreshControl = UIRefreshControl()
 
-    init(_ viewModel: PlaceSearchViewModel = PlaceSearchViewModel(FoursquareRepository()), locationManager: LocationManager = CLLocationManager()) {
+    init(_ viewModel: PlaceSearchViewModel = PlaceSearchViewModel(CafePlacesRepository()), locationManager: LocationManager = CLLocationManager()) {
         self.viewModel = viewModel
         self.locationManager = locationManager
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        self.viewModel = PlaceSearchViewModel(FoursquareRepository())
+        self.viewModel = PlaceSearchViewModel(CafePlacesRepository())
         locationManager = CLLocationManager()
         super.init(coder: coder)
     }

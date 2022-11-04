@@ -24,8 +24,8 @@ public struct NetworkService {
     private let sessionManager: NetworkSessionManagerType
     private let logger: NetworkErrorLoggerType
     init(config: NetworkConfigurableType,
-         sessionManager: NetworkSessionManagerType,
-         logger: NetworkErrorLoggerType) {
+         sessionManager: NetworkSessionManagerType = NetworkSessionManager(),
+         logger: NetworkErrorLoggerType = NetworkErrorLogger()) {
         self.config = config
         self.sessionManager = sessionManager
         self.logger = logger
