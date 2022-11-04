@@ -19,6 +19,8 @@ final class PlaceSearchDIContainer {
     }
 
     // MARK: - Repositories
-    func makeCafePlacesRepository() {}
+//    func makeCafePlacesRepository() -> CafePlacesRepositoryType {
+//        
+//    }
     
 }

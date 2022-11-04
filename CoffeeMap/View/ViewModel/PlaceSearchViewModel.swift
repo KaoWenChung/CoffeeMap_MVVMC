@@ -10,9 +10,9 @@ import Foundation
 final class PlaceSearchViewModel: BaseViewModel {
 
     private(set) var placeList: [AdapterSectionModel] = []
-    let apiService: FoursquareRepositoryType
+    let apiService: CafePlacesRepositoryType
 
-    init(_ apiService: FoursquareRepositoryType) {
+    init(_ apiService: CafePlacesRepositoryType) {
         self.apiService = apiService
     }
 

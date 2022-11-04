@@ -7,6 +7,20 @@
 
 import Foundation
 
+final class CafePlacesRepository2 {
+    private let dataTransferService: DataTransferServiceType
+
+    init(dataTransferService: DataTransferServiceType) {
+        self.dataTransferService = dataTransferService
+    }
+}
+
+//extension CafePlacesRepository2: CafePlacesRepositoryType {
+//    func getPlace(param: GetPlaceParamModel) async throws -> GetPlaceResponseModel {
+//        
+//    }
+//}
+
 final class CafePlacesRepository: CafePlacesRepositoryType {
 
     // TODO: ADD API KEY HERE

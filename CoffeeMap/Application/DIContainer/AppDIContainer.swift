@@ -16,7 +16,10 @@ final class AppDIContainer {
                                                 headers: ["Authorization": self.appConfiguration.apiKey])
         let apiDataNetwork = NetworkService(config: config)
         return DataTransferService(networkService: apiDataNetwork)
-    }
+    }()
     
-//    func make
+    func makeCafePlacesRepository() -> PlaceSearchDIContainer {
+        let dependencies = PlaceSearchDIContainer.Dependencies(dataTransferService: apiDataTransferService)
+        return PlaceSearchDIContainer(dependencies: dependencies)
+    }
 }
