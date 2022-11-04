@@ -16,6 +16,7 @@
 		21A445D62913057600986160 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A445D52913057600986160 /* Endpoint.swift */; };
 		21A445D82914590F00986160 /* DataTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A445D72914590E00986160 /* DataTransferService.swift */; };
 		21A445DC29145E0B00986160 /* DataTransferServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A445DB29145E0B00986160 /* DataTransferServiceType.swift */; };
+		21A9FAA429156C570017C07E /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A9FAA329156C570017C07E /* AppConfiguration.swift */; };
 		21AB9BF328EDB84D00A1796B /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF228EDB84D00A1796B /* UIView.swift */; };
 		21AB9BF528EDB86500A1796B /* URLComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF428EDB86500A1796B /* URLComponents.swift */; };
 		21AB9BF728EDB9F700A1796B /* AdapterSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF628EDB9F700A1796B /* AdapterSectionModel.swift */; };
@@ -71,6 +72,7 @@
 		21A445D52913057600986160 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		21A445D72914590E00986160 /* DataTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferService.swift; sourceTree = "<group>"; };
 		21A445DB29145E0B00986160 /* DataTransferServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceType.swift; sourceTree = "<group>"; };
+		21A9FAA329156C570017C07E /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		21AB9BF228EDB84D00A1796B /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		21AB9BF428EDB86500A1796B /* URLComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLComponents.swift; sourceTree = "<group>"; };
 		21AB9BF628EDB9F700A1796B /* AdapterSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterSectionModel.swift; sourceTree = "<group>"; };
@@ -155,6 +157,16 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		21A9FAA2291567790017C07E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				79242C5E28C03ADD00766059 /* AppDelegate.swift */,
+				79242C6028C03ADD00766059 /* SceneDelegate.swift */,
+				21A9FAA329156C570017C07E /* AppConfiguration.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		21AB9BF128EDB83100A1796B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +199,7 @@
 		79242C5D28C03ADD00766059 /* CoffeeMap */ = {
 			isa = PBXGroup;
 			children = (
+				21A9FAA2291567790017C07E /* Application */,
 				21A445CF2912DB2700986160 /* Infrastructure */,
 				7952AB3B28C05CBC00607B77 /* Utils */,
 				7952AB3428C0551400607B77 /* Repository */,
@@ -194,8 +207,6 @@
 				7952AB1828C03F2600607B77 /* Adapter */,
 				7952AB1728C03F1B00607B77 /* View */,
 				7952AB2828C0411D00607B77 /* ViewModel */,
-				79242C5E28C03ADD00766059 /* AppDelegate.swift */,
-				79242C6028C03ADD00766059 /* SceneDelegate.swift */,
 				79242C6728C03ADF00766059 /* Assets.xcassets */,
 				79242C6928C03ADF00766059 /* LaunchScreen.storyboard */,
 				79242C6C28C03ADF00766059 /* Info.plist */,
@@ -438,6 +449,7 @@
 				79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */,
 				21A445D82914590F00986160 /* DataTransferService.swift in Sources */,
 				7952AB2A28C041FC00607B77 /* PlaceSearchViewModel.swift in Sources */,
+				21A9FAA429156C570017C07E /* AppConfiguration.swift in Sources */,
 				21AB9BF728EDB9F700A1796B /* AdapterSectionModel.swift in Sources */,
 				21AB9BF928EDBB3D00A1796B /* AdapterItemModel.swift in Sources */,
 				21A445DC29145E0B00986160 /* DataTransferServiceType.swift in Sources */,
