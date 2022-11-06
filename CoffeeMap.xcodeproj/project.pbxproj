@@ -24,6 +24,7 @@
 		21AB9BFB28EDC9B400A1796B /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BFA28EDC9B400A1796B /* RegisterService.swift */; };
 		21B9EDD12915774C00A2E6B9 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDD02915774C00A2E6B9 /* AppDIContainer.swift */; };
 		21B9EDD329157FBC00A2E6B9 /* PlaceSearchDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDD229157FBC00A2E6B9 /* PlaceSearchDIContainer.swift */; };
+		21B9EDD529187F3C00A2E6B9 /* CancellableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDD429187F3C00A2E6B9 /* CancellableType.swift */; };
 		21BAEBFC28E0671E002616F6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */; };
 		21BAEBFD28E0671E002616F6 /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */; };
 		79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C5E28C03ADD00766059 /* AppDelegate.swift */; };
@@ -82,6 +83,7 @@
 		21AB9BFA28EDC9B400A1796B /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		21B9EDD02915774C00A2E6B9 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		21B9EDD229157FBC00A2E6B9 /* PlaceSearchDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchDIContainer.swift; sourceTree = "<group>"; };
+		21B9EDD429187F3C00A2E6B9 /* CancellableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableType.swift; sourceTree = "<group>"; };
 		21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceDetailViewController.swift; path = CoffeeMap/View/PlaceDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceDetailViewController.xib; path = CoffeeMap/View/PlaceDetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		79242C5B28C03ADD00766059 /* CoffeeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,7 +217,7 @@
 			children = (
 				21A9FAA2291567790017C07E /* Application */,
 				21A445CF2912DB2700986160 /* Infrastructure */,
-				7952AB3B28C05CBC00607B77 /* Utils */,
+				7952AB3B28C05CBC00607B77 /* Common */,
 				7952AB3428C0551400607B77 /* Repository */,
 				7952AB2B28C04E5200607B77 /* Model */,
 				7952AB1728C03F1B00607B77 /* View */,
@@ -312,7 +314,7 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		7952AB3B28C05CBC00607B77 /* Utils */ = {
+		7952AB3B28C05CBC00607B77 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				7952AB1828C03F2600607B77 /* Adapter */,
@@ -320,8 +322,9 @@
 				7952AB3228C0540100607B77 /* CustomError.swift */,
 				79290E1928C0AB4D00439E38 /* Spinner.swift */,
 				79290E1B28C0AC3E00439E38 /* Alert.swift */,
+				21B9EDD429187F3C00A2E6B9 /* CancellableType.swift */,
 			);
-			path = Utils;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		7952AB4028C0625F00607B77 /* Util */ = {
@@ -450,6 +453,7 @@
 				7952AB3A28C0563D00607B77 /* CafePlacesRepository.swift in Sources */,
 				21BAEBFC28E0671E002616F6 /* PlaceDetailViewController.swift in Sources */,
 				79242C6328C03ADD00766059 /* PlaceSearchViewController.swift in Sources */,
+				21B9EDD529187F3C00A2E6B9 /* CancellableType.swift in Sources */,
 				7952AB2D28C04E7100607B77 /* PlaceSearchTableViewCellRowModel.swift in Sources */,
 				21A445D32912DE6300986160 /* NetworkServiceType.swift in Sources */,
 				21AB9BFB28EDC9B400A1796B /* RegisterService.swift in Sources */,

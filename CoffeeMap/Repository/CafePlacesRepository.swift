@@ -15,9 +15,9 @@ final class CafePlacesRepository2 {
     }
 }
 
-//extension CafePlacesRepository2: CafePlacesRepositoryType {
+//extension CafePlacesRepository2: CafePlacesRepository2Type {
 //    func getPlace(param: GetPlaceParamModel) async throws -> GetPlaceResponseModel {
-//        
+//
 //    }
 //}
 
