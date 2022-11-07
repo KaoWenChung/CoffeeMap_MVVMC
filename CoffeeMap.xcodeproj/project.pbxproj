@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C22919BCA400F412BD /* APIEndpoints.swift */; };
 		219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A728E0BCD1004C5A97 /* BaseViewController.swift */; };
 		219633AA28E0D64E004C5A97 /* PlaceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */; };
 		219633AE28E104C0004C5A97 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633AD28E104C0004C5A97 /* BaseViewModel.swift */; };
@@ -25,6 +26,8 @@
 		21B9EDD12915774C00A2E6B9 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDD02915774C00A2E6B9 /* AppDIContainer.swift */; };
 		21B9EDD329157FBC00A2E6B9 /* PlaceSearchDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDD229157FBC00A2E6B9 /* PlaceSearchDIContainer.swift */; };
 		21B9EDD529187F3C00A2E6B9 /* CancellableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDD429187F3C00A2E6B9 /* CancellableType.swift */; };
+		21B9EDD9291951B600A2E6B9 /* SearchCafePlacesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDD8291951B600A2E6B9 /* SearchCafePlacesUseCase.swift */; };
+		21B9EDDC2919556000A2E6B9 /* RepositoryTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDDB2919556000A2E6B9 /* RepositoryTask.swift */; };
 		21BAEBFC28E0671E002616F6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */; };
 		21BAEBFD28E0671E002616F6 /* PlaceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */; };
 		79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C5E28C03ADD00766059 /* AppDelegate.swift */; };
@@ -66,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		214999C22919BCA400F412BD /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		219633A728E0BCD1004C5A97 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewModel.swift; sourceTree = "<group>"; };
 		219633AD28E104C0004C5A97 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 		21B9EDD02915774C00A2E6B9 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		21B9EDD229157FBC00A2E6B9 /* PlaceSearchDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchDIContainer.swift; sourceTree = "<group>"; };
 		21B9EDD429187F3C00A2E6B9 /* CancellableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableType.swift; sourceTree = "<group>"; };
+		21B9EDD8291951B600A2E6B9 /* SearchCafePlacesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCafePlacesUseCase.swift; sourceTree = "<group>"; };
+		21B9EDDB2919556000A2E6B9 /* RepositoryTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTask.swift; sourceTree = "<group>"; };
 		21BAEBFA28E0671E002616F6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlaceDetailViewController.swift; path = CoffeeMap/View/PlaceDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		21BAEBFB28E0671E002616F6 /* PlaceDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlaceDetailViewController.xib; path = CoffeeMap/View/PlaceDetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		79242C5B28C03ADD00766059 /* CoffeeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +142,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		214999C42919BD1600F412BD /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				214999C22919BCA400F412BD /* APIEndpoints.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		21A445CC2912D8D600986160 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +207,30 @@
 			path = DIContainer;
 			sourceTree = "<group>";
 		};
+		21B9EDD62919517A00A2E6B9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				21B9EDD72919518500A2E6B9 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		21B9EDD72919518500A2E6B9 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				21B9EDD8291951B600A2E6B9 /* SearchCafePlacesUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		21B9EDDA2919554C00A2E6B9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				21B9EDDB2919556000A2E6B9 /* RepositoryTask.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		79242C5228C03ADD00766059 = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +253,8 @@
 		79242C5D28C03ADD00766059 /* CoffeeMap */ = {
 			isa = PBXGroup;
 			children = (
+				214999C42919BD1600F412BD /* Data */,
+				21B9EDD62919517A00A2E6B9 /* Domain */,
 				21A9FAA2291567790017C07E /* Application */,
 				21A445CF2912DB2700986160 /* Infrastructure */,
 				7952AB3B28C05CBC00607B77 /* Common */,
@@ -306,6 +346,7 @@
 		7952AB3428C0551400607B77 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				21B9EDDA2919554C00A2E6B9 /* Utils */,
 				21A445CC2912D8D600986160 /* Interfaces */,
 				7952AB3528C0552B00607B77 /* NetworkService.swift */,
 				21A445D72914590E00986160 /* DataTransferService.swift */,
@@ -454,6 +495,7 @@
 				21BAEBFC28E0671E002616F6 /* PlaceDetailViewController.swift in Sources */,
 				79242C6328C03ADD00766059 /* PlaceSearchViewController.swift in Sources */,
 				21B9EDD529187F3C00A2E6B9 /* CancellableType.swift in Sources */,
+				214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */,
 				7952AB2D28C04E7100607B77 /* PlaceSearchTableViewCellRowModel.swift in Sources */,
 				21A445D32912DE6300986160 /* NetworkServiceType.swift in Sources */,
 				21AB9BFB28EDC9B400A1796B /* RegisterService.swift in Sources */,
@@ -461,8 +503,10 @@
 				79290E1A28C0AB4D00439E38 /* Spinner.swift in Sources */,
 				7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */,
 				219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */,
+				21B9EDDC2919556000A2E6B9 /* RepositoryTask.swift in Sources */,
 				7952AB3628C0552C00607B77 /* NetworkService.swift in Sources */,
 				219633AA28E0D64E004C5A97 /* PlaceDetailViewModel.swift in Sources */,
+				21B9EDD9291951B600A2E6B9 /* SearchCafePlacesUseCase.swift in Sources */,
 				21A445D62913057600986160 /* Endpoint.swift in Sources */,
 				7952AB3D28C05CD400607B77 /* Encodable.swift in Sources */,
 				21B9EDD329157FBC00A2E6B9 /* PlaceSearchDIContainer.swift in Sources */,
