@@ -76,15 +76,15 @@ class PlaceSearchViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.locationManager?.location, nil)
     }
 
-    private func makeSUTWithLocation() throws -> PlaceSearchViewController {
+    private func makeSUTWithLocation() throws -> CafeListViewController {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
-        let sut = PlaceSearchViewController(PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel)), locationManager: SuccessdingMockLocationManager())
+        let sut = CafeListViewController(CafeListViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel)), locationManager: SuccessdingMockLocationManager())
         return sut
     }
 
-    private func makeSUTWithoutLocation() throws -> PlaceSearchViewController {
+    private func makeSUTWithoutLocation() throws -> CafeListViewController {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
-        let sut = PlaceSearchViewController(PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel)), locationManager: FailingMockLocationManager())
+        let sut = CafeListViewController(CafeListViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel)), locationManager: FailingMockLocationManager())
         return sut
     }
 

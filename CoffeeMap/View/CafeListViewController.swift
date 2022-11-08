@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CafeListViewController.swift
 //  CoffeeMap
 //
 //  Created by owenkao on 2022/09/01.
@@ -8,16 +8,16 @@
 import UIKit
 import CoreLocation
 
-final class PlaceSearchViewController: BaseViewController {
+final class CafeListViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultLabel: UILabel!
     private(set) var locationManager: LocationManager?
     private var tableViewAdapter: TableViewAdapter?
-    private let viewModel: PlaceSearchViewModel
+    private let viewModel: CafeListViewModel
     private let refreshControl = UIRefreshControl()
 
-    init(_ viewModel: PlaceSearchViewModel, locationManager: LocationManager = CLLocationManager()) {
+    init(_ viewModel: CafeListViewModel, locationManager: LocationManager = CLLocationManager()) {
         self.viewModel = viewModel
         self.locationManager = locationManager
         super.init(nibName: nil, bundle: nil)
@@ -100,7 +100,7 @@ final class PlaceSearchViewController: BaseViewController {
 
 }
 
-extension PlaceSearchViewController: CLLocationManagerDelegate {
+extension CafeListViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         Spinner.shared.hide()
@@ -114,7 +114,7 @@ extension PlaceSearchViewController: CLLocationManagerDelegate {
 
 }
 
-extension PlaceSearchViewController: TableViewAdapterDelegate {
+extension CafeListViewController: TableViewAdapterDelegate {
 
     func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath) {
         switch (model, view) {

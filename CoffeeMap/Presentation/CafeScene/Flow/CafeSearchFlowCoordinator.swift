@@ -8,14 +8,14 @@
 import UIKit
 
 protocol CafeSearchFlowCoordinatorDependenciesType {
-    func makeCafeListViewController() -> PlaceSearchViewController
+    func makeCafeListViewController() -> CafeListViewController
 }
 
 final class CafeSearchFlowCoordinator {
     private weak var navigationController: UINavigationController?
     private let dependencies: CafeSearchFlowCoordinatorDependenciesType
     
-    private weak var cafeListViewController: PlaceSearchViewController?
+    private weak var cafeListViewController: CafeListViewController?
 
     init(navigationController: UINavigationController? = nil,
          dependencies: CafeSearchFlowCoordinatorDependenciesType) {

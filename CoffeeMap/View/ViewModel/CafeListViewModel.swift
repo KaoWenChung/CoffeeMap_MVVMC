@@ -1,21 +1,27 @@
 //
-//  PlaceSearchViewViewModel.swift
+//  CafeListViewModel.swift
 //  CoffeeMap
 //
 //  Created by owenkao on 2022/09/01.
 //
 
-import Foundation
+struct CafeListViewModelActions {
+    let showCafeRoute: (PlaceSearchTableViewCellRowModel) -> Void
+}
 
-final class PlaceSearchViewModel: BaseViewModel {
+final class CafeListViewModel: BaseViewModel {
 
     private let searchCafeUseCase: SearchCafeUseCaseType
+    private let actions: CafeListViewModelActions?
+    
     private(set) var placeList: [AdapterSectionModel] = []
 
     private var cafesLoadTask: CancellableType? { willSet { cafesLoadTask?.cancel() } }
     
-    init(searchCafeUseCase: SearchCafeUseCaseType) {
+    init(searchCafeUseCase: SearchCafeUseCaseType,
+         actions: CafeListViewModelActions? = nil) {
         self.searchCafeUseCase = searchCafeUseCase
+        self.actions = actions
     }
 
     func loadData(cafeQuery: CofeRequestDTO) {

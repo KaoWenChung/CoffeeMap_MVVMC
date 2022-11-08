@@ -12,7 +12,7 @@ class PlaceSearchViewModelTests: XCTestCase {
 
     func testGetSortedGetPlaceResult_StubLondonData() throws {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
-        let sut = PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
+        let sut = CafeListViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
         let result = sut.getSortedGetPlaceResult(getplaceDataModel)
         XCTAssertEqual(result.count, 10)
         XCTAssertEqual(result.first?.name, "Caffè Concerto")
@@ -21,7 +21,7 @@ class PlaceSearchViewModelTests: XCTestCase {
 
     func testGetPlaceListBy_StubLondonData() throws {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
-        let sut = PlaceSearchViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
+        let sut = CafeListViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
         let result = sut.getPlaceListBy(getplaceDataModel.results ?? [])
         XCTAssertEqual(result.count, 10)
         XCTAssertEqual(result.first?.name, "Caffè Concerto")
@@ -30,7 +30,7 @@ class PlaceSearchViewModelTests: XCTestCase {
     }
 
     func testFetchData_london_error() throws {
-        let sut = PlaceSearchViewModel(FailingFoursquareRepositoryStub())
+        let sut = CafeListViewModel(FailingFoursquareRepositoryStub())
         sut.fetchData(coordinate: "51.50998,-0.1337") { result in
             switch result {
             case .success:

@@ -29,12 +29,12 @@ final class PlaceSearchDIContainer {
     }
 
     // MARK: - Cafe Place List
-    func makeCafeListViewController() -> PlaceSearchViewController {
-        return PlaceSearchViewController(makeCafeListViewModel())
+    func makeCafeListViewController() -> CafeListViewController {
+        return CafeListViewController(makeCafeListViewModel())
     }
     
-    func makeCafeListViewModel() -> PlaceSearchViewModel {
-        return PlaceSearchViewModel(searchCafeUseCase: makeSearchCafeUseCase())
+    func makeCafeListViewModel() -> CafeListViewModel {
+        return CafeListViewModel(searchCafeUseCase: makeSearchCafeUseCase())
     }
 
     // MARK: - Flow Coordinators
