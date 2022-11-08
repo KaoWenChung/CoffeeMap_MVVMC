@@ -1,5 +1,5 @@
 //
-//  PlaceSearchDIContainer.swift
+//  CafeSceneDIContainer.swift
 //  CoffeeMap
 //
 //  Created by wyn on 2022/11/4.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PlaceSearchDIContainer {
+final class CafeSceneDIContainer {
 
     struct Dependencies {
         let dataTransferService: DataTransferServiceType
@@ -39,8 +39,9 @@ final class PlaceSearchDIContainer {
 
     // MARK: - Flow Coordinators
     func makeCafeSearchFlowCoordinator(navigationController: UINavigationController) -> CafeSearchFlowCoordinator {
-        return CafeSearchFlowCoordinator(dependencies: self)
+        
+        return CafeSearchFlowCoordinator(navigationController: navigationController, dependencies: self)
     }
 }
 
-extension PlaceSearchDIContainer: CafeSearchFlowCoordinatorDependenciesType {}
+extension CafeSceneDIContainer: CafeSearchFlowCoordinatorDependenciesType {}

@@ -17,7 +17,7 @@ final class CafeSearchFlowCoordinator {
     
     private weak var cafeListViewController: CafeListViewController?
 
-    init(navigationController: UINavigationController? = nil,
+    init(navigationController: UINavigationController,
          dependencies: CafeSearchFlowCoordinatorDependenciesType) {
         self.navigationController = navigationController
         self.dependencies = dependencies

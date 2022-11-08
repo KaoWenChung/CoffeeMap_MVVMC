@@ -10,7 +10,7 @@ import CoreLocation
 @testable import CoffeeMap
 
 class PlaceSearchViewControllerTests: XCTestCase {
-
+/*
     func testViewDidload_requestedAuthorizationSuccessfully() throws {
         let sut = try makeSUTWithLocation()
         XCTAssertEqual(sut.locationManager?.location?.coordinate.longitude, -0.1337)
@@ -87,7 +87,7 @@ class PlaceSearchViewControllerTests: XCTestCase {
         let sut = CafeListViewController(CafeListViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel)), locationManager: FailingMockLocationManager())
         return sut
     }
-
+*/
     class SuccessdingMockLocationManager: LocationManager {
 
         func requestLocation() {}
