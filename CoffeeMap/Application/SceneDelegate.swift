@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UINavigationController(rootViewController: PlaceSearchViewController())
+//            window.rootViewController = UINavigationController(rootViewController: PlaceSearchViewController(PlaceSearchViewModel(searchCafeUseCase: <#T##SearchCafeUseCaseType#>)))
             self.window = window
             window.makeKeyAndVisible()
     }

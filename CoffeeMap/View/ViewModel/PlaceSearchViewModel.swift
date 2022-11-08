@@ -9,18 +9,25 @@ import Foundation
 
 final class PlaceSearchViewModel: BaseViewModel {
 
+    private let searchCafeUseCase: SearchCafeUseCaseType
     private(set) var placeList: [AdapterSectionModel] = []
-    let apiService: CafePlacesRepositoryType
 
-    init(_ apiService: CafePlacesRepositoryType) {
-        self.apiService = apiService
+    private var cafesLoadTask: CancellableType? { willSet { cafesLoadTask?.cancel() } }
+    
+    init(searchCafeUseCase: SearchCafeUseCaseType) {
+        self.searchCafeUseCase = searchCafeUseCase
     }
 
-    func fetchData(coordinate: String) async throws {
-        let param: GetPlaceParamModel = GetPlaceParamModel(ll: coordinate, radius: 200, query: "coffee")
-        let data = try await apiService.getPlace(param: param)
-        if let results = data.results {
-            placeList = [AdapterSectionModel(items: getPlaceListBy(results))]
+    func loadData(cafeQuery: CofeRequestDTO) {
+        cafesLoadTask = searchCafeUseCase.execute(request: cafeQuery) { result in
+            switch result {
+            case .success(let value):
+                if let results = value.results {
+                    self.placeList = [AdapterSectionModel(items: self.getPlaceListBy(results))]
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 

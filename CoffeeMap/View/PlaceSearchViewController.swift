@@ -17,18 +17,16 @@ final class PlaceSearchViewController: BaseViewController {
     private let viewModel: PlaceSearchViewModel
     private let refreshControl = UIRefreshControl()
 
-    init(_ viewModel: PlaceSearchViewModel = PlaceSearchViewModel(CafePlacesRepository()), locationManager: LocationManager = CLLocationManager()) {
+    init(_ viewModel: PlaceSearchViewModel, locationManager: LocationManager = CLLocationManager()) {
         self.viewModel = viewModel
         self.locationManager = locationManager
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
-        self.viewModel = PlaceSearchViewModel(CafePlacesRepository())
-        locationManager = CLLocationManager()
-        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: Pull down to update the view
     private func initRefreshControl() {
         refreshControl.addTarget(self, action: #selector(onPullReloadDataHandler), for: .valueChanged)
@@ -84,19 +82,19 @@ final class PlaceSearchViewController: BaseViewController {
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         let ll: String = String(latitude) + "," + String(longitude)
-        Task.init() {
-            do {
-                try await viewModel.fetchData(coordinate: ll)
-                Spinner.shared.hide()
-                updateNoResultView()
-                self.tableViewAdapter?.register(self.viewModel.placeList)
-                self.tableViewAdapter?.updateData(self.viewModel.placeList)
-                completion?(.success)
-            } catch let _ {
-//                Alert.show(vc: self, title: "Error", message: error.message)
-//                completion?(.failure(error))
-            }
-        }
+//        Task.init() {
+//            do {
+//                try await viewModel.fetchData(coordinate: ll)
+//                Spinner.shared.hide()
+//                updateNoResultView()
+//                self.tableViewAdapter?.register(self.viewModel.placeList)
+//                self.tableViewAdapter?.updateData(self.viewModel.placeList)
+//                completion?(.success)
+//            } catch let _ {
+////                Alert.show(vc: self, title: "Error", message: error.message)
+////                completion?(.failure(error))
+//            }
+//        }
         
     }
 

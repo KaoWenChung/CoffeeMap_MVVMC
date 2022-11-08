@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol SearchCafePlacesUseCaseType {
+protocol SearchCafeUseCaseType {
     func execute(request: CofeRequestDTO, completion: @escaping (Result<GetPlaceResponseModel, Error>) -> Void) -> CancellableType?
 }
 
-final class SearchCafePlacesUseCase: SearchCafePlacesUseCaseType {
+final class SearchCafeUseCase: SearchCafeUseCaseType {
     
     private let cafeRepository: CafePlacesRepository2Type
     

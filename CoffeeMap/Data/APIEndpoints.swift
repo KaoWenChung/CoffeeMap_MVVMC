@@ -16,7 +16,9 @@ struct APIEndpoints {
 }
 
 struct CofeRequestDTO: Encodable {
-    
+    var ll: String?
+    var radius: Int?
+    var query: String?
 }
 
 struct GetPlaceResponseDTO: Decodable {
