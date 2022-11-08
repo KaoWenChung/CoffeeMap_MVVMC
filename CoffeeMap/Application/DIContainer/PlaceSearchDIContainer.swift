@@ -5,7 +5,7 @@
 //  Created by wyn on 2022/11/4.
 //
 
-import Foundation
+import UIKit
 
 final class PlaceSearchDIContainer {
 
@@ -36,5 +36,11 @@ final class PlaceSearchDIContainer {
     func makeCafeListViewModel() -> PlaceSearchViewModel {
         return PlaceSearchViewModel(searchCafeUseCase: makeSearchCafeUseCase())
     }
-    
+
+    // MARK: - Flow Coordinators
+    func makeCafeSearchFlowCoordinator(navigationController: UINavigationController) -> CafeSearchFlowCoordinator {
+        return CafeSearchFlowCoordinator(dependencies: self)
+    }
 }
+
+extension PlaceSearchDIContainer: CafeSearchFlowCoordinatorDependenciesType {}

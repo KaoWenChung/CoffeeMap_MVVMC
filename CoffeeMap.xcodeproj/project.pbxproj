@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C22919BCA400F412BD /* APIEndpoints.swift */; };
 		214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */; };
+		214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */; };
 		219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A728E0BCD1004C5A97 /* BaseViewController.swift */; };
 		219633AA28E0D64E004C5A97 /* PlaceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */; };
 		219633AE28E104C0004C5A97 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633AD28E104C0004C5A97 /* BaseViewModel.swift */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		214999C22919BCA400F412BD /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetPlaceResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
+		214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeSearchFlowCoordinator.swift; sourceTree = "<group>"; };
 		219633A728E0BCD1004C5A97 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewModel.swift; sourceTree = "<group>"; };
 		219633AD28E104C0004C5A97 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -159,6 +161,30 @@
 				214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */,
 			);
 			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		214999C8291AC23D00F412BD /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				214999C9291AC24F00F412BD /* CafeScene */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		214999C9291AC24F00F412BD /* CafeScene */ = {
+			isa = PBXGroup;
+			children = (
+				214999CA291AC26600F412BD /* Flow */,
+			);
+			path = CafeScene;
+			sourceTree = "<group>";
+		};
+		214999CA291AC26600F412BD /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */,
+			);
+			path = Flow;
 			sourceTree = "<group>";
 		};
 		21A445CC2912D8D600986160 /* Interfaces */ = {
@@ -264,6 +290,7 @@
 		79242C5D28C03ADD00766059 /* CoffeeMap */ = {
 			isa = PBXGroup;
 			children = (
+				214999C8291AC23D00F412BD /* Presentation */,
 				214999C42919BD1600F412BD /* Data */,
 				21B9EDD62919517A00A2E6B9 /* Domain */,
 				21A9FAA2291567790017C07E /* Application */,
@@ -517,6 +544,7 @@
 				21B9EDDC2919556000A2E6B9 /* RepositoryTask.swift in Sources */,
 				7952AB3628C0552C00607B77 /* NetworkService.swift in Sources */,
 				219633AA28E0D64E004C5A97 /* PlaceDetailViewModel.swift in Sources */,
+				214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */,
 				21B9EDD9291951B600A2E6B9 /* SearchCafeUseCase.swift in Sources */,
 				21A445D62913057600986160 /* Endpoint.swift in Sources */,
 				7952AB3D28C05CD400607B77 /* Encodable.swift in Sources */,
