@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C22919BCA400F412BD /* APIEndpoints.swift */; };
+		214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */; };
 		219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A728E0BCD1004C5A97 /* BaseViewController.swift */; };
 		219633AA28E0D64E004C5A97 /* PlaceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */; };
 		219633AE28E104C0004C5A97 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633AD28E104C0004C5A97 /* BaseViewModel.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		214999C22919BCA400F412BD /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
+		214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetPlaceResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		219633A728E0BCD1004C5A97 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		219633A928E0D64E004C5A97 /* PlaceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewModel.swift; sourceTree = "<group>"; };
 		219633AD28E104C0004C5A97 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
@@ -145,9 +147,18 @@
 		214999C42919BD1600F412BD /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				214999C5291AB02500F412BD /* DataMapping */,
 				214999C22919BCA400F412BD /* APIEndpoints.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		214999C5291AB02500F412BD /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */,
+			);
+			path = DataMapping;
 			sourceTree = "<group>";
 		};
 		21A445CC2912D8D600986160 /* Interfaces */ = {
@@ -520,6 +531,7 @@
 				7952AB3328C0540100607B77 /* CustomError.swift in Sources */,
 				219633AE28E104C0004C5A97 /* BaseViewModel.swift in Sources */,
 				79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */,
+				214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */,
 				21A445CE2912D8EE00986160 /* CafePlacesRepositoryType.swift in Sources */,
 				7952AB3128C0509F00607B77 /* GetPlaceDataModel.swift in Sources */,
 				79290E0D28C080CF00439E38 /* PlaceSearchTableViewCell.swift in Sources */,

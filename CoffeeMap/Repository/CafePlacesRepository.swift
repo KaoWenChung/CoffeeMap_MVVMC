@@ -19,14 +19,14 @@ extension CafePlacesRepository2: CafePlacesRepository2Type {
     func getPlace(param: CofeRequestDTO, completion: @escaping (Result<GetPlaceResponseModel, Error>) -> Void) -> CancellableType? {
         let task = RepositoryTask()
         let endpoint = APIEndpoints.getCofaPlaces(with: param)
-//        task.networkTask = self.dataTransferService.request(with: endpoint) { result in
-//            switch result {
-//            case .success(let responseDTO):
-//                completion(.success(responseDTO.toDomain()))
-//            case .failure(let error):
-//                completion(.failure(error))
-//            }
-//        }
+        task.networkTask = self.dataTransferService.request(with: endpoint) { result in
+            switch result {
+            case .success(let responseDTO):
+                completion(.success(responseDTO.toDomain()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
         return task
     }
 }

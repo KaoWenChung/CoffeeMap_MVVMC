@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SearchCafePlacesUseCaseType {
-//    func execute(request: CofeRequestDTO, completion: @escaping (Result<GetPlaceResponseModel, Error>) -> Void) -> CancellableType?
+    func execute(request: CofeRequestDTO, completion: @escaping (Result<GetPlaceResponseModel, Error>) -> Void) -> CancellableType?
 }
 
 final class SearchCafePlacesUseCase: SearchCafePlacesUseCaseType {
@@ -19,9 +19,9 @@ final class SearchCafePlacesUseCase: SearchCafePlacesUseCaseType {
         self.cafeRepository = cafeRepository
     }
     
-//    func execute(request: CofeRequestDTO, completion: @escaping (Result<GetPlaceResponseModel, Error>) -> Void) -> CancellableType? {
-//        return cafeRepository.getPlace(param: request, completion: completion)
-//    }
+    func execute(request: CofeRequestDTO, completion: @escaping (Result<GetPlaceResponseModel, Error>) -> Void) -> CancellableType? {
+        return cafeRepository.getPlace(param: request, completion: completion)
+    }
     
     
 }

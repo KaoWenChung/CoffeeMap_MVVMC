@@ -8,7 +8,7 @@
 //import Foundation
 
 struct APIEndpoints {
-    static func getCofaPlaces(with request: CofeRequestDTO) -> Endpoint<GetPlaceResponseModel> {
+    static func getCofaPlaces(with request: CofeRequestDTO) -> Endpoint<GetPlaceResponseDTO> {
         return Endpoint(path: "v3/places/",
                         method: .get,
                         queryParametersEncodable: request)
@@ -19,10 +19,10 @@ struct CofeRequestDTO: Encodable {
     
 }
 
-struct GetPlaceResponseModelDTO: Decodable {
+struct GetPlaceResponseDTO: Decodable {
 
-    let context: GetPlaceContextModelDTO?
-    let results: [GetPlaceResultModelDTO]?
+    let context: GetPlaceContextDTO?
+    let results: [GetPlaceResultsDTO]?
 
     enum CodingKeys: String, CodingKey {
         case context
@@ -31,14 +31,14 @@ struct GetPlaceResponseModelDTO: Decodable {
 
 }
 
-extension GetPlaceResponseModelDTO {
-    struct GetPlaceResultModelDTO: Decodable {
+extension GetPlaceResponseDTO {
+    struct GetPlaceResultsDTO: Decodable {
         /// The calculated distance (in meters) from the provided location (i.e. ll + radius OR near OR ne + sw) in the API call. This field will only be returned by the Place Search endpoint.
         let distance: Int?
         /// A unique identifier for a FSQ Place (formerly known as Venue ID).
         let fsqId: String?
-        let geocodes: GetPlaceGeocodeModelDTO?
-        let location: GetPlaceLocationModelDTO?
+        let geocodes: GetPlaceGeocodeDTO?
+        let location: GetPlaceLocationDTO?
         let name: String?
 
         enum CodingKeys: String, CodingKey {
@@ -51,7 +51,7 @@ extension GetPlaceResponseModelDTO {
 
     }
 
-    struct GetPlaceLocationModelDTO: Decodable {
+    struct GetPlaceLocationDTO: Decodable {
 
         let address: String?
         let adminRegion: String?
@@ -78,10 +78,10 @@ extension GetPlaceResponseModelDTO {
         }
 
     }
-    struct GetPlaceGeocodeModelDTO: Decodable {
+    struct GetPlaceGeocodeDTO: Decodable {
 
-        let main: GetPlaceCenterModelDTO?
-        let roof: GetPlaceCenterModelDTO?
+        let main: GetPlaceCenterDTO?
+        let roof: GetPlaceCenterDTO?
 
         enum CodingKeys: String, CodingKey {
             case main
@@ -90,9 +90,9 @@ extension GetPlaceResponseModelDTO {
 
     }
 
-    struct GetPlaceContextModelDTO: Decodable {
+    struct GetPlaceContextDTO: Decodable {
 
-        let geoBounds: GetPlaceGeoBoundModelDTO?
+        let geoBounds: GetPlaceGeoBoundDTO?
 
         enum CodingKeys: String, CodingKey {
             case geoBounds
@@ -100,18 +100,18 @@ extension GetPlaceResponseModelDTO {
 
     }
 
-    struct GetPlaceGeoBoundModelDTO: Decodable {
+    struct GetPlaceGeoBoundDTO: Decodable {
 
-        let circle: GetPlaceCircleModelDTO?
+        let circle: GetPlaceCircleDTO?
 
         enum CodingKeys: String, CodingKey {
             case circle
         }
 
     }
-    struct GetPlaceCircleModelDTO: Decodable {
+    struct GetPlaceCircleDTO: Decodable {
 
-        let center: GetPlaceCenterModelDTO?
+        let center: GetPlaceCenterDTO?
         let radius: Int?
 
         enum CodingKeys: String, CodingKey {
@@ -121,7 +121,7 @@ extension GetPlaceResponseModelDTO {
 
     }
 
-    struct GetPlaceCenterModelDTO: Decodable {
+    struct GetPlaceCenterDTO: Decodable {
 
         let latitude: Double?
         let longitude: Double?
