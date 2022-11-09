@@ -1,4 +1,4 @@
-# CoffeeMap
+# CoffeeMap (work in progress)
 * Without any third party library.
 This is an app for users to use their location to find coffee venues nearby.
 Users can find coffee venues information on the table view.
@@ -10,15 +10,16 @@ Users have to provide the location for this app in order to query the coffee ven
 ## Instruction
 You will need to sign up as a Foursquare developer and create an app in order to use their services. Please see [Foursquare](https://developer.foursquare.com/docs/places-api-getting-started) for more details.<br/>
 Please add your Foursquare API Key at
-`~/CoffeeMap/CoffeeMap/Repository/FoursquareRepository.swift`<br/>
-Modify property apiKey in class FoursquareRepository
+`~/CoffeeMap/CoffeeMap/Application/AppConfiguration.swift`<br/>
+Modify method getAPIKey in class AppConfiguration
 
 ### Technologies:
 - Swift
 - MVVM
 - Interface builder(.xib)
-- Concurrency
-- Unit testing(Refactoring)
+- Clean Architecture
+- Concurrency(work in progress)
+- Unit testing(work in progress)
 - Dependency Injection
 - Dependency inversion
 - Adapter pattern

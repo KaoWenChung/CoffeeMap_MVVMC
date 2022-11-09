@@ -33,7 +33,6 @@ extension CafePlacesRepository2: CafePlacesRepository2Type {
 
 final class CafePlacesRepository: CafePlacesRepositoryType {
 
-    // TODO: ADD API KEY HERE
     private let apiKey: String = ""
 
     private var headers: [String: String] {
