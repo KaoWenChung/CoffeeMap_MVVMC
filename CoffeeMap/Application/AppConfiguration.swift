@@ -30,7 +30,7 @@ final class AppConfiguration {
         #if DEBUG
         return "" // TODO: ADD API KEY HERE
         #elseif RELEASE
-        return ""
+        return "" // TODO: ADD API KEY HERE
         #endif
     }
 

@@ -9,7 +9,7 @@
 
 struct APIEndpoints {
     static func getCofaPlaces(with request: CofeRequestDTO) -> Endpoint<GetPlaceResponseDTO> {
-        return Endpoint(path: "v3/places/",
+        return Endpoint(path: "v3/places/search",
                         method: .get,
                         queryParametersEncodable: request)
     }
