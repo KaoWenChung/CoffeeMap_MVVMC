@@ -33,7 +33,6 @@ public struct NetworkService {
 
     private func request(request: URLRequest, completion: @escaping CompletionHandler) -> NetworkCancellable {
         let sessionDataTask = sessionManager.request(request) { data, response, requestError in
-            print(request.url)
             if let requestError = requestError {
                 var error: NetworkError
                 if let response = response as? HTTPURLResponse {

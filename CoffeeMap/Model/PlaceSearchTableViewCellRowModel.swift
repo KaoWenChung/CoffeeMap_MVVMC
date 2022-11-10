@@ -14,7 +14,7 @@ struct PlaceSearchTableViewCellRowModel: AdapterItemModel {
     let distance: String?
     let coordinate: (latitude: Double, longitude: Double)?
     
-    init(_ dataModel: GetPlaceResultModel) {
+    init(_ dataModel: GetPlaceResponseDTO.GetPlaceResultsDTO) {
         name = dataModel.name ?? ""
         if let location = dataModel.location,
            let address = location.formattedAddress,

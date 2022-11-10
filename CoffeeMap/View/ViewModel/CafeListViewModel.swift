@@ -28,27 +28,11 @@ final class CafeListViewModel: BaseViewModel {
         cafesLoadTask = searchCafeUseCase?.execute(request: cafeQuery) { result in
             switch result {
             case .success(let value):
-                if let results = value.results {
-                    self.placeList = [AdapterSectionModel(items: self.getPlaceListBy(results))]
-                }
+                self.placeList = [AdapterSectionModel(items: value)]
             case .failure(let error):
                 print(error)
             }
         }
-    }
-
-    func getSortedGetPlaceResult(_ dataModel: GetPlaceResponseModel) -> [GetPlaceResultModel] {
-        guard let results = dataModel.results, !results.isEmpty else { return [] }
-        let sortedData = results.sorted(by: { ($0.distance ?? 0) < ($1.distance ?? 0) })
-        return sortedData
-    }
-
-    func getPlaceListBy(_ dataModel: [GetPlaceResultModel]) -> [PlaceSearchTableViewCellRowModel] {
-        var result: [PlaceSearchTableViewCellRowModel] = []
-        for item in dataModel {
-            result.append(PlaceSearchTableViewCellRowModel(item))
-        }
-        return result
     }
 
 }

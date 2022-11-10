@@ -82,7 +82,7 @@ final class CafeListViewController: BaseViewController {
 //        let latitude = location.coordinate.latitude
 //        let longitude = location.coordinate.longitude
 //        let ll: String = String(latitude) + "," + String(longitude)
-        viewModel.loadData(cafeQuery: CofeRequestDTO(ll: "51.50998,-0.1337"))
+        viewModel.loadData(cafeQuery: CofeRequestDTO(ll: "51.50998,-0.1337", sort: "DISTANCE"))
 //        Task.init() {
 //            do {
 //                try await viewModel.fetchData(coordinate: ll)

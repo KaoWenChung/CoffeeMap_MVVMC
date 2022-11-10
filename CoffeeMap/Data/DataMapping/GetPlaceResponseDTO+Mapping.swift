@@ -4,9 +4,15 @@
 //
 //  Created by wyn on 2022/11/8.
 //
-// TODO: 
+
 extension GetPlaceResponseDTO {
-    func toDomain() -> GetPlaceResponseModel {
-        return .init(context: nil, results: nil)
+    func toDomain() -> [PlaceSearchTableViewCellRowModel] {
+        var result: [PlaceSearchTableViewCellRowModel] = []
+        if let results {
+            for item in results {
+                result.append(PlaceSearchTableViewCellRowModel(item))
+            }
+        }
+        return result
     }
 }
