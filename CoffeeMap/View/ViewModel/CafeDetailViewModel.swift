@@ -1,11 +1,11 @@
 //
-//  PlaceDetailViewModel.swift
+//  CafeDetailViewModel.swift
 //  CoffeeMap
 //
 //  Created by wyn on 2022/9/25.
 //
 
-class PlaceDetailViewModel {
+class CafeDetailViewModel {
 
     let name: String
     let coordinate: (latitude: Double, longitude: Double)?

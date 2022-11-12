@@ -1,5 +1,5 @@
 //
-//  PlaceDetailViewController.swift
+//  CafeDetailViewController.swift
 //  CoffeeMap
 //
 //  Created by wyn on 2022/9/25.
@@ -8,12 +8,12 @@
 import UIKit
 import MapKit
 
-class PlaceDetailViewController: UIViewController {
+class CafeDetailViewController: UIViewController {
 
     @IBOutlet weak private var mapView: MKMapView!
-    private let viewModel: PlaceDetailViewModel
+    private let viewModel: CafeDetailViewModel
 
-    init(_ viewModel: PlaceDetailViewModel) {
+    init(_ viewModel: CafeDetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -81,7 +81,7 @@ class PlaceDetailViewController: UIViewController {
     
 }
 
-extension PlaceDetailViewController: MKMapViewDelegate {
+extension CafeDetailViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         
         let renderer = MKPolylineRenderer(overlay: overlay)

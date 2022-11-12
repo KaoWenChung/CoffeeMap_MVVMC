@@ -129,8 +129,8 @@ extension CafeListViewController: TableViewAdapterDelegate {
     
     func select(model: AdapterItemModel) {
         if let model = model as? PlaceSearchTableViewCellRowModel {
-            let viewModel = PlaceDetailViewModel(model)
-            open(PlaceDetailViewController(viewModel), animated: true)
+            let viewModel = CafeDetailViewModel(model)
+            open(CafeDetailViewController(viewModel), animated: true)
         }
         
     }
