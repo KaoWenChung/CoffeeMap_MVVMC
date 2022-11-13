@@ -119,7 +119,7 @@ extension CafeListViewController: TableViewAdapterDelegate {
 
     func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath) {
         switch (model, view) {
-        case (let model as PlaceSearchTableViewCellRowModel, let view as PlaceSearchTableViewCell):
+        case (let model as CafeListTableViewCellModel, let view as CafeListTableViewCell):
             view.setupView(model)
             break
         default:
@@ -128,7 +128,7 @@ extension CafeListViewController: TableViewAdapterDelegate {
     }
     
     func select(model: AdapterItemModel) {
-        if let model = model as? PlaceSearchTableViewCellRowModel {
+        if let model = model as? CafeListTableViewCellModel {
             let viewModel = CafeDetailViewModel(model)
             open(CafeDetailViewController(viewModel), animated: true)
         }

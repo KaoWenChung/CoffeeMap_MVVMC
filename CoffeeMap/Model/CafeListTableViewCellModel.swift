@@ -7,8 +7,8 @@
 
 import UIKit
 
-struct PlaceSearchTableViewCellRowModel: AdapterItemModel {
-    var type: UIView.Type { return PlaceSearchTableViewCell.self }
+struct CafeListTableViewCellModel: AdapterItemModel {
+    var type: UIView.Type { return CafeListTableViewCell.self }
     let name: String
     let address: String
     let distance: String?

@@ -6,11 +6,11 @@
 //
 
 extension GetPlaceResponseDTO {
-    func toDomain() -> [PlaceSearchTableViewCellRowModel] {
-        var result: [PlaceSearchTableViewCellRowModel] = []
+    func toDomain() -> [CafeListTableViewCellModel] {
+        var result: [CafeListTableViewCellModel] = []
         if let results {
             for item in results {
-                result.append(PlaceSearchTableViewCellRowModel(item))
+                result.append(CafeListTableViewCellModel(item))
             }
         }
         return result

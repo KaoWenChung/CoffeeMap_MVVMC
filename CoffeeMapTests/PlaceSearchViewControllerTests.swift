@@ -111,8 +111,8 @@ class PlaceSearchViewControllerTests: XCTestCase {
 
 private extension UITableView {
 
-    func placeSearchCell(at row: Int) -> PlaceSearchTableViewCell? {
-        return dataSource?.tableView(self, cellForRowAt: IndexPath(row: row, section: 0)) as? PlaceSearchTableViewCell
+    func placeSearchCell(at row: Int) -> CafeListTableViewCell? {
+        return dataSource?.tableView(self, cellForRowAt: IndexPath(row: row, section: 0)) as? CafeListTableViewCell
     }
 
 }

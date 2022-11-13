@@ -6,7 +6,7 @@
 //
 
 struct CafeListViewModelActions {
-    let showCafeRoute: (PlaceSearchTableViewCellRowModel) -> Void
+    let showCafeRoute: (CafeListTableViewCellModel) -> Void
 }
 
 final class CafeListViewModel: BaseViewModel {
