@@ -7,7 +7,7 @@
 
 protocol CafePlacesRepository2Type {
 
-    func getPlace(param: CofeRequestDTO, completion: @escaping (Result<[CafeListTableViewCellModel], Error>) -> Void) -> CancellableType?
+    func getPlace(param: CofeRequestDTO, completion: @escaping (Result<[CafeListTableViewCellModel], Error>) -> Void) async throws -> CancellableType?
 
 }
 

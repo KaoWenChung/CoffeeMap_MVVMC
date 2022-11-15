@@ -28,8 +28,8 @@ public final class DataTransferService {
 }
 
 extension DataTransferService: DataTransferServiceType {
-    public func request<T: Decodable, E: ResponseRequestableType>(with endpoint: E, completion: @escaping CompletionHandler<T>) -> NetworkCancellable? where T : Decodable, T == E.Response, E : ResponseRequestableType {
-        return networkService.request(endpoint: endpoint) { result in
+    public func request<T: Decodable, E: ResponseRequestableType>(with endpoint: E, completion: @escaping CompletionHandler<T>) async throws -> NetworkCancellable? where T : Decodable, T == E.Response, E : ResponseRequestableType {
+        return try await networkService.request(endpoint: endpoint) { result in
             switch result {
             case .success(let data):
                 let result: Result<T, DataTransferError> = self.decode(data: data, decoder: endpoint.responseDecoder)
@@ -46,8 +46,8 @@ extension DataTransferService: DataTransferServiceType {
         }
     }
     
-    public func request<E>(with endpoint: E, completion: @escaping CompletionHandler<Void>) -> NetworkCancellable? where E : ResponseRequestableType, E.Response == () {
-        return networkService.request(endpoint: endpoint) { result in
+    public func request<E>(with endpoint: E, completion: @escaping CompletionHandler<Void>) async throws -> NetworkCancellable? where E : ResponseRequestableType, E.Response == () {
+        return try await networkService.request(endpoint: endpoint) { result in
             switch result {
             case .success:
                 DispatchQueue.main.async {

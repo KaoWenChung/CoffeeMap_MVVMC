@@ -24,15 +24,20 @@ final class CafeListViewModel: BaseViewModel {
         self.actions = actions
     }
 
-    func loadData(cafeQuery: CofeRequestDTO) {
-        cafesLoadTask = searchCafeUseCase?.execute(request: cafeQuery) { result in
-            switch result {
-            case .success(let value):
-                self.placeList = [AdapterSectionModel(items: value)]
-            case .failure(let error):
-                print(error)
+    func loadData(cafeQuery: CofeRequestDTO) async {
+        do {
+            cafesLoadTask = try await searchCafeUseCase?.execute(request: cafeQuery) { result in
+                switch result {
+                case .success(let value):
+                    self.placeList = [AdapterSectionModel(items: value)]
+                case .failure(let error):
+                    print(error)
+                }
             }
+        } catch {
+            
         }
+        
     }
 
 }

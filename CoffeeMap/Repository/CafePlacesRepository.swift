@@ -16,10 +16,10 @@ final class CafePlacesRepository2 {
 }
 
 extension CafePlacesRepository2: CafePlacesRepository2Type {
-    func getPlace(param: CofeRequestDTO, completion: @escaping (Result<[CafeListTableViewCellModel], Error>) -> Void) -> CancellableType? {
+    func getPlace(param: CofeRequestDTO, completion: @escaping (Result<[CafeListTableViewCellModel], Error>) -> Void) async throws -> CancellableType? {
         let task = RepositoryTask()
         let endpoint = APIEndpoints.getCofaPlaces(with: param)
-        task.networkTask = self.dataTransferService.request(with: endpoint) { result in
+        task.networkTask = try await self.dataTransferService.request(with: endpoint) { result in
             switch result {
             case .success(let responseDTO):
                 print(responseDTO)
