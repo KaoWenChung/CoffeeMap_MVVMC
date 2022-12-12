@@ -8,19 +8,19 @@
 import Foundation
 
 protocol SearchCafeUseCaseType {
-    func execute(request: CofeRequestDTO, completion: @escaping (Result<[CafeListTableViewCellModel], Error>) -> Void) async throws -> CancellableType?
+    func execute(request: CofeRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType)
 }
 
 final class SearchCafeUseCase: SearchCafeUseCaseType {
     
-    private let cafeRepository: CafePlacesRepository2Type
+    private let cafeRepository: CafePlacesRepositoryType
     
-    init(cafeRepository: CafePlacesRepository2Type) {
+    init(cafeRepository: CafePlacesRepositoryType) {
         self.cafeRepository = cafeRepository
     }
     
-    func execute(request: CofeRequestDTO, completion: @escaping (Result<[CafeListTableViewCellModel], Error>) -> Void) async throws -> CancellableType? {
-        return try await cafeRepository.getPlace(param: request, completion: completion)
+    func execute(request: CofeRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType) {
+        return try await cafeRepository.getPlace(request: request)
     }
     
     

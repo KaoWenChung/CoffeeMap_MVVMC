@@ -24,7 +24,7 @@ final class CafeSceneDIContainer {
     }
 
     // MARK: - Repositories
-    func makeCafePlacesRepository() -> CafePlacesRepository2Type {
+    func makeCafePlacesRepository() -> CafePlacesRepositoryType {
         return CafePlacesRepository(dataTransferService: dependencies.dataTransferService)
     }
 

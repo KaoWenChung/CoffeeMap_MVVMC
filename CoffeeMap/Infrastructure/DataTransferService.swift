@@ -28,55 +28,44 @@ public final class DataTransferService {
 }
 
 extension DataTransferService: DataTransferServiceType {
-    public func request<T: Decodable, E: ResponseRequestableType>(with endpoint: E, completion: @escaping CompletionHandler<T>) async throws -> NetworkCancellable? where T : Decodable, T == E.Response, E : ResponseRequestableType {
-        return try await networkService.request(endpoint: endpoint) { result in
-            switch result {
-            case .success(let data):
-                let result: Result<T, DataTransferError> = self.decode(data: data, decoder: endpoint.responseDecoder)
-                DispatchQueue.main.async {
-                    completion(result)
-                }
-            case .failure(let error):
-                self.errorLogger.log(error: error)
-                let error = self.resolve(networkError: error)
-                DispatchQueue.main.async {
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
     
-    public func request<E>(with endpoint: E, completion: @escaping CompletionHandler<Void>) async throws -> NetworkCancellable? where E : ResponseRequestableType, E.Response == () {
-        return try await networkService.request(endpoint: endpoint) { result in
-            switch result {
-            case .success:
-                DispatchQueue.main.async {
-                    completion(.success(()))
-                }
-            case .failure(let error):
-                self.errorLogger.log(error: error)
-                let error = self.resolve(networkError: error)
-                DispatchQueue.main.async {
-                    completion(.failure(error))
-                }
-            }
-        }
-    }
-    // MARK: - Private methods
-    private func decode<T: Decodable>(data: Data?, decoder: ResponseDecoderType) -> Result<T, DataTransferError> {
+    public func request<T: Decodable, E: ResponseRequestableType>(with endpoint: E) async throws -> (T, URLTask) where E.Response == T {
         do {
-            guard let data else { return .failure(.noResponse) }
-            let result: T = try decoder.decode(data)
-            return .success(result)
-        } catch {
+            let task = try networkService.request(endpoint: endpoint)
+            let (data, _) = try await task.value
+            let result: T = try decode(data: data, decoder: endpoint.responseDecoder)
+            return (result, task)
+        } catch let error as NetworkError {
             errorLogger.log(error: error)
-            return .failure(.parsing(error))
+            let error = self.resolve(networkError: error)
+            throw error
         }
     }
 
+    public func request<E>(with endpoint: E) async throws -> URLTask where E : ResponseRequestableType, E.Response == Void {
+        do {
+            return try networkService.request(endpoint: endpoint)
+        } catch let error as NetworkError {
+            self.errorLogger.log(error: error)
+            let error = self.resolve(networkError: error)
+            throw error
+        }
+    }
+
+    // MARK: - Private
+    private func decode<T: Decodable>(data: Data, decoder: ResponseDecoderType) throws -> T {
+        do {
+            let result: T = try decoder.decode(data)
+            return result
+        } catch {
+            errorLogger.log(error: error)
+            throw DataTransferError.parsing(error)
+        }
+    }
+    
     private func resolve(networkError error: NetworkError) -> DataTransferError {
-        let resolvedError = errorResolver.resolve(error: error)
-        return resolvedError is NetworkError ? .networkFailure(error) : .resolvedNetworkFailure(error)
+        let resolvedError = self.errorResolver.resolve(error: error)
+        return resolvedError is NetworkError ? .networkFailure(error) : .resolvedNetworkFailure(resolvedError)
     }
 }
 

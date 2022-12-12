@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2106D38829478ECF00321A5D /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106D38729478ECF00321A5D /* Dictionary.swift */; };
 		2106D38A2947905100321A5D /* GetPlaceRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106D3892947905100321A5D /* GetPlaceRequestDTO+Mapping.swift */; };
+		2106D38F2947995100321A5D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106D38E2947995100321A5D /* Observable.swift */; };
 		214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C22919BCA400F412BD /* APIEndpoints.swift */; };
 		214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */; };
 		214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		2106D38729478ECF00321A5D /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		2106D3892947905100321A5D /* GetPlaceRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetPlaceRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
+		2106D38E2947995100321A5D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		214999C22919BCA400F412BD /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetPlaceResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeSearchFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -146,11 +148,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2106D38B2947929E00321A5D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				214999C22919BCA400F412BD /* APIEndpoints.swift */,
+				214999C5291AB02500F412BD /* DataMapping */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2106D38C2947946B00321A5D /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				21A445D22912DE6300986160 /* NetworkServiceType.swift */,
+				21A445DB29145E0B00986160 /* DataTransferServiceType.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		2106D38D2947994000321A5D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2106D38E2947995100321A5D /* Observable.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		214999C42919BD1600F412BD /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				214999C5291AB02500F412BD /* DataMapping */,
-				214999C22919BCA400F412BD /* APIEndpoints.swift */,
+				2106D38B2947929E00321A5D /* Network */,
+				7952AB3428C0551400607B77 /* Repository */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -167,6 +195,7 @@
 		214999C8291AC23D00F412BD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				2106D38D2947994000321A5D /* Utils */,
 				214999C9291AC24F00F412BD /* CafeScene */,
 			);
 			path = Presentation;
@@ -199,8 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				21A445CD2912D8EE00986160 /* CafePlacesRepositoryType.swift */,
-				21A445DB29145E0B00986160 /* DataTransferServiceType.swift */,
-				21A445D22912DE6300986160 /* NetworkServiceType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -208,8 +235,11 @@
 		21A445CF2912DB2700986160 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				2106D38C2947946B00321A5D /* Interface */,
 				21A445D42913056900986160 /* Network */,
 				21A445D02912DB5900986160 /* NetworkConfig.swift */,
+				7952AB3528C0552B00607B77 /* NetworkService.swift */,
+				21A445D72914590E00986160 /* DataTransferService.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -256,6 +286,7 @@
 		21B9EDD62919517A00A2E6B9 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				21A445CC2912D8D600986160 /* Interfaces */,
 				21B9EDD72919518500A2E6B9 /* UseCases */,
 			);
 			path = Domain;
@@ -305,7 +336,6 @@
 				214999C8291AC23D00F412BD /* Presentation */,
 				21B9EDD62919517A00A2E6B9 /* Domain */,
 				21A445CF2912DB2700986160 /* Infrastructure */,
-				7952AB3428C0551400607B77 /* Repository */,
 				7952AB2B28C04E5200607B77 /* Model */,
 				79242C6728C03ADF00766059 /* Assets.xcassets */,
 				79242C6928C03ADF00766059 /* LaunchScreen.storyboard */,
@@ -378,9 +408,6 @@
 			isa = PBXGroup;
 			children = (
 				21B9EDDA2919554C00A2E6B9 /* Utils */,
-				21A445CC2912D8D600986160 /* Interfaces */,
-				7952AB3528C0552B00607B77 /* NetworkService.swift */,
-				21A445D72914590E00986160 /* DataTransferService.swift */,
 				7952AB3928C0563D00607B77 /* CafePlacesRepository.swift */,
 			);
 			path = Repository;
@@ -534,6 +561,7 @@
 				79290E1A28C0AB4D00439E38 /* Spinner.swift in Sources */,
 				7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */,
 				219633A828E0BCD1004C5A97 /* BaseViewController.swift in Sources */,
+				2106D38F2947995100321A5D /* Observable.swift in Sources */,
 				21B9EDDC2919556000A2E6B9 /* RepositoryTask.swift in Sources */,
 				7952AB3628C0552C00607B77 /* NetworkService.swift in Sources */,
 				219633AA28E0D64E004C5A97 /* CafeDetailViewModel.swift in Sources */,

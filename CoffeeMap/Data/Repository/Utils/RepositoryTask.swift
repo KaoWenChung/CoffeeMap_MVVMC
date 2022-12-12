@@ -6,7 +6,7 @@
 //
 
 final class RepositoryTask: CancellableType {
-    var networkTask: NetworkCancellable?
+    var networkTask: URLTask?
     var isCancelled: Bool = false
     
     func cancel() {
@@ -14,3 +14,4 @@ final class RepositoryTask: CancellableType {
         isCancelled = true
     }
 }
+

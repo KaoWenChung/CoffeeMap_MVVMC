@@ -9,6 +9,17 @@ struct CafeListViewModelActions {
     let showCafeRoute: (CafeListTableViewCellModel) -> Void
 }
 
+protocol CafeListViewModelInput {
+    func viewDidLoad()
+    func didLoadNextPage()
+    func didSelectItem(at index: Int)
+}
+
+protocol CafeListViewModelOutput {
+}
+
+protocol CafeListViewModelType: CafeListViewModelInput, CafeListViewModelOutput {}
+
 final class CafeListViewModel {
 
     private let searchCafeUseCase: SearchCafeUseCaseType?
@@ -25,19 +36,6 @@ final class CafeListViewModel {
     }
 
     func loadData(cafeQuery: CofeRequestDTO) async {
-        do {
-            cafesLoadTask = try await searchCafeUseCase?.execute(request: cafeQuery) { result in
-                switch result {
-                case .success(let value):
-                    self.placeList = [AdapterSectionModel(items: value)]
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        } catch {
-            
-        }
-        
     }
 
 }
