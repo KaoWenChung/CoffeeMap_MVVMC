@@ -13,8 +13,8 @@ final class AppDIContainer {
 
     // MARK: - Network
     lazy var apiDataTransferService = {
-        let config = APIDataNetworkConfigurable(baseURL: URL(string: self.appConfiguration.baseURL)!,
-                                                headers: ["Authorization": self.appConfiguration.apiKey])
+        let config = APIDataNetworkConfigurable(baseURL: URL(string: appConfiguration.baseURL)!,
+                                                headers: ["Authorization": appConfiguration.apiKey])
         let apiDataNetwork = NetworkService(config: config)
         return DataTransferService(networkService: apiDataNetwork)
     }()

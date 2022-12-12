@@ -71,7 +71,7 @@ final class CafeListViewController: BaseViewController {
         locationManager?.requestLocation()
     }
 
-    func fetchData(completion: BaseViewModel.Completion? = nil) {
+    func fetchData() {
         refreshControl.endRefreshing()
 //        guard let location = locationManager?.location else {
 //            Alert.show(vc: self, title: "Error", message: "Unable to get user's location")

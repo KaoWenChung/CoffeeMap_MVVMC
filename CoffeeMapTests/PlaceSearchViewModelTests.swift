@@ -12,7 +12,7 @@ class PlaceSearchViewModelTests: XCTestCase {
 
     func testGetSortedGetPlaceResult_StubLondonData() throws {
         let getplaceDataModel: GetPlaceResponseModel = try fetchStubModel(fileName: "GetPlace_London")
-        let sut = CafeListViewModel(SuccessdingFoursquareRepositoryStub(getplaceDataModel))
+        let sut = CafeListViewModel(searchCafeUseCase: SuccessdingFoursquareRepositoryStub(getplaceDataModel))
         let result = sut.getSortedGetPlaceResult(getplaceDataModel)
         XCTAssertEqual(result.count, 10)
         XCTAssertEqual(result.first?.name, "Caffè Concerto")

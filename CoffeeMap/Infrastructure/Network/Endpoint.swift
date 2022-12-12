@@ -119,19 +119,3 @@ extension ResponseRequestableType {
         }
     }
 }
-
-private extension Dictionary {
-    var queryString: String {
-        return self.map { "\($0.key)=\($0.value)" }
-            .joined(separator: "&")
-            .addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) ?? ""
-    }
-}
-
-private extension Encodable {
-    func toDictionary() throws -> [String: Any]? {
-        let data = try JSONEncoder().encode(self)
-        let jsonData = try JSONSerialization.jsonObject(with: data)
-        return jsonData as? [String : Any]
-    }
-}

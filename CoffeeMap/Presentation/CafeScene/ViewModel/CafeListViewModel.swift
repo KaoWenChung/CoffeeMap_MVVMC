@@ -9,7 +9,7 @@ struct CafeListViewModelActions {
     let showCafeRoute: (CafeListTableViewCellModel) -> Void
 }
 
-final class CafeListViewModel: BaseViewModel {
+final class CafeListViewModel {
 
     private let searchCafeUseCase: SearchCafeUseCaseType?
     private let actions: CafeListViewModelActions?

@@ -9,10 +9,9 @@ import Foundation
 
 extension Encodable {
     /// Sweeter: Export object to a dictionary representation
-    var dictionary: [String: Any]? {
-        guard let data = try? JSONEncoder().encode(self) else { return nil }
-        return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] }
+    func toDictionary() throws -> [String: Any]? {
+        let data = try JSONEncoder().encode(self)
+        let jsonData = try JSONSerialization.jsonObject(with: data)
+        return jsonData as? [String : Any]
     }
-
 }
-
