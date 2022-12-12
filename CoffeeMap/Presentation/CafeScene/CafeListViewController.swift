@@ -42,15 +42,24 @@ final class CafeListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Nearby Cafe List"
-//        viewModel.viewDidLoad()
         tableViewAdapter = .init(tableView)
         tableViewAdapter?.delegate = self
+        bind(to: viewModel)
         initLocationManager()
         initBarButton()
         initRefreshControl()
         fetchData()
     }
 
+    private func bind(to viewModel: CafeListViewModelType) {
+        viewModel.placeList.observe(on: self) {[weak self] _ in self?.updateTableView()}
+    }
+
+    private func updateTableView() {
+        tableViewAdapter?.register(viewModel.placeList.value)
+        tableViewAdapter?.updateData(viewModel.placeList.value)
+        updateNoResultView()
+    }
     private func initLocationManager() {
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
@@ -74,35 +83,21 @@ final class CafeListViewController: UIViewController {
 
     func fetchData() {
         refreshControl.endRefreshing()
-//        guard let location = locationManager?.location else {
-//            Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
-//            completion?(.failure(CustomError("Unable to get user's location")))
-//            return
-//        }
+        guard let location = locationManager?.location else {
+            Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
+            return
+        }
+        // Testing latitude and longitude -> "51.50998,-0.1337"
         Spinner.shared.showOn(view)
-//        let latitude = location.coordinate.latitude
-//        let longitude = location.coordinate.longitude
-//        let ll: String = String(latitude) + "," + String(longitude)
-//        Task.init() {
-//            await viewModel.loadData(cafeQuery: CofeRequestDTO(ll: "51.50998,-0.1337", sort: "DISTANCE"))
-//        }
-        
-//        Task.init() {
-//            do {
-//                try await viewModel.fetchData(coordinate: ll)
-//                Spinner.shared.hide()
-//                updateNoResultView()
-//                self.tableViewAdapter?.register(self.viewModel.placeList)
-//                self.tableViewAdapter?.updateData(self.viewModel.placeList)
-//                completion?(.success)
-//            } catch let _ {
-////                Alert.show(vc: self, title: "Error", message: error.message)
-////                completion?(.failure(error))
-//            }
-//        }
-        
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        let ll: String = String(latitude) + "," + String(longitude)
+        Task.init() {
+            await viewModel.fetchData(ll: ll)
+            Spinner.shared.hide()
+            updateNoResultView()
+        }
     }
-
 }
 
 extension CafeListViewController: CLLocationManagerDelegate {

@@ -9,7 +9,7 @@ struct CafeListViewModelActions {
     let showCafeRoute: (CafeListTableViewCellModel) -> Void
 }
 protocol CafeListViewModelInput {
-    func viewDidLoad() async
+    func fetchData(ll: String) async
     func didSelectItem(_ viewModel: CafeListTableViewCellModel)
 }
 
@@ -34,19 +34,16 @@ final class CafeListViewModel: CafeListViewModelType {
         self.actions = actions
     }
 
-    func loadData(cafeQuery: CofeRequestDTO) async {
+}
+extension CafeListViewModel {
+    func fetchData(ll: String) async {
         do {
-            let (value, task) = try await searchCafeUseCase.execute(request: cafeQuery)
-            
+            let (value, task) = try await searchCafeUseCase.execute(request: CofeRequestDTO(ll: ll, sort: "DISTANCE"))
+            placeList.value = [AdapterSectionModel(items: value)]
+            cafesLoadTask = task
         } catch {
             
         }
-    }
-
-}
-
-extension CafeListViewModel {
-    func viewDidLoad() {
     }
 
     func didSelectItem(_ viewModel: CafeListTableViewCellModel) {
