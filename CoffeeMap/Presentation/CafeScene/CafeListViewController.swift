@@ -8,16 +8,16 @@
 import UIKit
 import CoreLocation
 
-final class CafeListViewController: BaseViewController {
+final class CafeListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultLabel: UILabel!
     private(set) var locationManager: LocationManager?
     private var tableViewAdapter: TableViewAdapter?
-    private let viewModel: CafeListViewModel
+    private let viewModel: CafeListViewModelType
     private let refreshControl = UIRefreshControl()
 
-    init(_ viewModel: CafeListViewModel, locationManager: LocationManager = CLLocationManager()) {
+    init(_ viewModel: CafeListViewModelType, locationManager: LocationManager = CLLocationManager()) {
         self.viewModel = viewModel
         self.locationManager = locationManager
         super.init(nibName: nil, bundle: nil)
@@ -42,6 +42,7 @@ final class CafeListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Nearby Cafe List"
+//        viewModel.viewDidLoad()
         tableViewAdapter = .init(tableView)
         tableViewAdapter?.delegate = self
         initLocationManager()
@@ -62,8 +63,8 @@ final class CafeListViewController: BaseViewController {
     }
 
     private func updateNoResultView() {
-        noResultLabel.isHidden = !viewModel.placeList.isEmpty
-        tableView.isHidden = viewModel.placeList.isEmpty
+        noResultLabel.isHidden = !viewModel.placeList.value.isEmpty
+        tableView.isHidden = viewModel.placeList.value.isEmpty
     }
 
     @objc private func reloadData(_ sender: Any) {
@@ -82,9 +83,9 @@ final class CafeListViewController: BaseViewController {
 //        let latitude = location.coordinate.latitude
 //        let longitude = location.coordinate.longitude
 //        let ll: String = String(latitude) + "," + String(longitude)
-        Task.init() {
-            await viewModel.loadData(cafeQuery: CofeRequestDTO(ll: "51.50998,-0.1337", sort: "DISTANCE"))
-        }
+//        Task.init() {
+//            await viewModel.loadData(cafeQuery: CofeRequestDTO(ll: "51.50998,-0.1337", sort: "DISTANCE"))
+//        }
         
 //        Task.init() {
 //            do {
@@ -132,8 +133,7 @@ extension CafeListViewController: TableViewAdapterDelegate {
     
     func select(model: AdapterItemModel) {
         if let model = model as? CafeListTableViewCellModel {
-            let viewModel = CafeDetailViewModel(model)
-            open(CafeDetailViewController(viewModel), animated: true)
+            viewModel.didSelectItem(model)
         }
         
     }
