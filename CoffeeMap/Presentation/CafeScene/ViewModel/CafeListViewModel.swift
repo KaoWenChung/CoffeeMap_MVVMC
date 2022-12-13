@@ -29,7 +29,7 @@ final class CafeListViewModel: CafeListViewModelType {
     private var cafesLoadTask: CancellableType? { willSet { cafesLoadTask?.cancel() } }
     
     init(searchCafeUseCase: SearchCafeUseCaseType,
-         actions: CafeListViewModelActions? = nil) {
+         actions: CafeListViewModelActions?) {
         self.searchCafeUseCase = searchCafeUseCase
         self.actions = actions
     }

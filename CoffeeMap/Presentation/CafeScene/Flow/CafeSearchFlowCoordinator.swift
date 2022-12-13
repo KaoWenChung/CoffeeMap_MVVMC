@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CafeSearchFlowCoordinatorDependenciesType {
-    func makeCafeListViewController() -> CafeListViewController
+    func makeCafeListViewController(actions: CafeListViewModelActions?) -> CafeListViewController
 }
 
 final class CafeSearchFlowCoordinator {
@@ -24,9 +24,14 @@ final class CafeSearchFlowCoordinator {
     }
 
     func start() {
-        let viewController = dependencies.makeCafeListViewController()
+        let actions = CafeListViewModelActions(showCafeRoute: didSelectItem)
+        let viewController = dependencies.makeCafeListViewController(actions: actions)
         navigationController?.pushViewController(viewController, animated: true)
         cafeListViewController = viewController
     }
-}
 
+    private func didSelectItem(_ item: CafeListTableViewCellModel) {
+        let viewModel = CafeDetailViewModel(item)
+        navigationController?.pushViewController(CafeDetailViewController(viewModel), animated: true)
+    }
+}

@@ -29,12 +29,12 @@ final class CafeSceneDIContainer {
     }
 
     // MARK: - Cafe Place List
-    func makeCafeListViewController() -> CafeListViewController {
-        return CafeListViewController(makeCafeListViewModel())
+    func makeCafeListViewController(actions: CafeListViewModelActions?) -> CafeListViewController {
+        return CafeListViewController(makeCafeListViewModel(actions: actions))
     }
     
-    func makeCafeListViewModel() -> CafeListViewModel {
-        return CafeListViewModel(searchCafeUseCase: makeSearchCafeUseCase())
+    func makeCafeListViewModel(actions: CafeListViewModelActions?) -> CafeListViewModel {
+        return CafeListViewModel(searchCafeUseCase: makeSearchCafeUseCase(), actions: actions)
     }
 
     // MARK: - Flow Coordinators

@@ -120,7 +120,6 @@ extension CafeListViewController: TableViewAdapterDelegate {
         switch (model, view) {
         case (let model as CafeListTableViewCellModel, let view as CafeListTableViewCell):
             view.setupView(model)
-            break
         default:
             break
         }
