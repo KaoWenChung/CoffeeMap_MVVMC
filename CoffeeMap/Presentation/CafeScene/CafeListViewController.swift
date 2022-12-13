@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-final class CafeListViewController: UIViewController {
+final class CafeListViewController: UIViewController, Alertable {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultLabel: UILabel!
@@ -84,7 +84,7 @@ final class CafeListViewController: UIViewController {
     func fetchData() {
         refreshControl.endRefreshing()
         guard let location = locationManager?.location else {
-            Alert.show(vc: self, title: "Error", message: "Unable to get user's location")
+            showAlert(title: "Error", message: "Unable to get user's location")
             return
         }
         // Testing latitude and longitude -> "51.50998,-0.1337"
@@ -109,7 +109,7 @@ extension CafeListViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         Spinner.shared.hide()
-        Alert.show(vc: self, title: "Error", message: "Unable to get user's location, please try again")
+        showAlert(title: "Error", message: "Unable to get user's location, please try again")
     }
 
 }
