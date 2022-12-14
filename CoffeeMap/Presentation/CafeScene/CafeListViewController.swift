@@ -53,6 +53,12 @@ final class CafeListViewController: UIViewController, Alertable {
 
     private func bind(to viewModel: CafeListViewModelType) {
         viewModel.placeList.observe(on: self) {[weak self] _ in self?.updateTableView()}
+        viewModel.error.observe(on: self) {[weak self] in self?.showError($0)}
+    }
+
+    private func showError(_ error: String) {
+        guard !error.isEmpty else { return }
+        showAlert(title: viewModel.errorTitle, message: error)
     }
 
     private func updateTableView() {

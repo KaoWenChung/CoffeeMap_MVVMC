@@ -15,6 +15,8 @@ protocol CafeListViewModelInput {
 
 protocol CafeListViewModelOutput {
     var placeList: Observable<[AdapterSectionModel]> { get }
+    var error: Observable<String> { get }
+    var errorTitle: String { get }
 }
 
 protocol CafeListViewModelType: CafeListViewModelInput, CafeListViewModelOutput {}
@@ -24,7 +26,9 @@ final class CafeListViewModel: CafeListViewModelType {
     private let searchCafeUseCase: SearchCafeUseCaseType
     private let actions: CafeListViewModelActions?
     
-    private(set) var placeList: Observable<[AdapterSectionModel]> = Observable([])
+    let placeList: Observable<[AdapterSectionModel]> = Observable([])
+    let error: Observable<String> = Observable("")
+    let errorTitle: String = "Error"
 
     private var cafesLoadTask: CancellableType? { willSet { cafesLoadTask?.cancel() } }
     
@@ -32,6 +36,10 @@ final class CafeListViewModel: CafeListViewModelType {
          actions: CafeListViewModelActions?) {
         self.searchCafeUseCase = searchCafeUseCase
         self.actions = actions
+    }
+
+    private func handle(error: Error) {
+        self.error.value = error.isInternetConnectionError ? "No internet connection" : "Failed loading movies"
     }
 
 }
@@ -42,7 +50,7 @@ extension CafeListViewModel {
             placeList.value = [AdapterSectionModel(items: value)]
             cafesLoadTask = task
         } catch {
-            
+            handle(error: error)
         }
     }
 

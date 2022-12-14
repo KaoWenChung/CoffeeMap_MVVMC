@@ -10,6 +10,7 @@
 		2106D38829478ECF00321A5D /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106D38729478ECF00321A5D /* Dictionary.swift */; };
 		2106D38A2947905100321A5D /* GetPlaceRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106D3892947905100321A5D /* GetPlaceRequestDTO+Mapping.swift */; };
 		2106D38F2947995100321A5D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106D38E2947995100321A5D /* Observable.swift */; };
+		2106D391294A30C500321A5D /* ConnectionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106D390294A30C500321A5D /* ConnectionError.swift */; };
 		214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C22919BCA400F412BD /* APIEndpoints.swift */; };
 		214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */; };
 		214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */; };
@@ -74,6 +75,7 @@
 		2106D38729478ECF00321A5D /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		2106D3892947905100321A5D /* GetPlaceRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetPlaceRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
 		2106D38E2947995100321A5D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		2106D390294A30C500321A5D /* ConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionError.swift; sourceTree = "<group>"; };
 		214999C22919BCA400F412BD /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetPlaceResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeSearchFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 				79290E1928C0AB4D00439E38 /* Spinner.swift */,
 				79290E1B28C0AC3E00439E38 /* Alertable.swift */,
 				21B9EDD429187F3C00A2E6B9 /* CancellableType.swift */,
+				2106D390294A30C500321A5D /* ConnectionError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				2106D38F2947995100321A5D /* Observable.swift in Sources */,
 				21B9EDDC2919556000A2E6B9 /* RepositoryTask.swift in Sources */,
 				7952AB3628C0552C00607B77 /* NetworkService.swift in Sources */,
+				2106D391294A30C500321A5D /* ConnectionError.swift in Sources */,
 				219633AA28E0D64E004C5A97 /* CafeDetailViewModel.swift in Sources */,
 				214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */,
 				21B9EDD9291951B600A2E6B9 /* SearchCafeUseCase.swift in Sources */,
