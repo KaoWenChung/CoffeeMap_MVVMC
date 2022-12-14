@@ -28,7 +28,7 @@ final class CafeListViewModel: CafeListViewModelType {
     
     let placeList: Observable<[AdapterSectionModel]> = Observable([])
     let error: Observable<String> = Observable("")
-    let errorTitle: String = "Error"
+    let errorTitle: String = CommonString.error.text
 
     private var cafesLoadTask: CancellableType? { willSet { cafesLoadTask?.cancel() } }
     
@@ -39,7 +39,7 @@ final class CafeListViewModel: CafeListViewModelType {
     }
 
     private func handle(error: Error) {
-        self.error.value = error.isInternetConnectionError ? "No internet connection" : "Failed loading movies"
+        self.error.value = error.isInternetConnectionError ? ErrorString.noInternet.text : ErrorString.failLoadingCafe.text
     }
 
 }

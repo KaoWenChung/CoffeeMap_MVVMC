@@ -1,0 +1,17 @@
+//
+//  CommonString.swift
+//  CoffeeMap
+//
+//  Created by wyn on 2022/12/14.
+//
+
+enum CommonString: LocallizedStringType {
+    case error
+}
+
+enum ErrorString: LocallizedStringType {
+    /// No internet connection
+    case noInternet
+    /// Failed loading cafe data
+    case failLoadingCafe
+}

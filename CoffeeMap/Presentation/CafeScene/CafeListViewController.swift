@@ -9,7 +9,11 @@ import UIKit
 import CoreLocation
 
 final class CafeListViewController: UIViewController, Alertable {
-    
+
+    enum CafeListViewControllerString: LocallizedStringType {
+        case title
+    }
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultLabel: UILabel!
     private(set) var locationManager: LocationManager?
@@ -41,7 +45,7 @@ final class CafeListViewController: UIViewController, Alertable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Nearby Cafe List"
+        title = CafeListViewControllerString.title.text
         tableViewAdapter = .init(tableView)
         tableViewAdapter?.delegate = self
         bind(to: viewModel)
@@ -90,7 +94,7 @@ final class CafeListViewController: UIViewController, Alertable {
     func fetchData() {
         refreshControl.endRefreshing()
         guard let location = locationManager?.location else {
-            showAlert(title: "Error", message: "Unable to get user's location")
+            showAlert(title: viewModel.errorTitle, message: "Unable to get user's location")
             return
         }
         // Testing latitude and longitude -> "51.50998,-0.1337"
@@ -115,7 +119,7 @@ extension CafeListViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         Spinner.shared.hide()
-        showAlert(title: "Error", message: "Unable to get user's location, please try again")
+        showAlert(title: viewModel.errorTitle, message: "Unable to get user's location, please try again")
     }
 
 }
