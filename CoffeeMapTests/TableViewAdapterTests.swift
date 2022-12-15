@@ -27,7 +27,6 @@ class TableViewAdapterTests: XCTestCase {
     // MARK: - Helper
     /// tableview should be passed in this method because it is a weak type in TableViewAdapter, it means that it would be dealocate immediately
     func makeSUT(_ tableView: UITableView) -> TableViewAdapter {
-        let cell = MockBaseCell()
         let sut: TableViewAdapter = TableViewAdapter(tableView)
         return sut
     }
