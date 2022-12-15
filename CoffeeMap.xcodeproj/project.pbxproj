@@ -14,6 +14,8 @@
 		2106D394294A339400321A5D /* LocallizedStringType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106D393294A339400321A5D /* LocallizedStringType.swift */; };
 		2106D396294A33B300321A5D /* CommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106D395294A33B300321A5D /* CommonString.swift */; };
 		2106D399294A33FE00321A5D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2106D39B294A33FE00321A5D /* Localizable.strings */; };
+		21135558294B7D830039287B /* SearchCafeUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21135557294B7D830039287B /* SearchCafeUseCaseMock.swift */; };
+		2113555D294B7E100039287B /* CancellableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113555C294B7E100039287B /* CancellableMock.swift */; };
 		214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C22919BCA400F412BD /* APIEndpoints.swift */; };
 		214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */; };
 		214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */; };
@@ -82,6 +84,8 @@
 		2106D393294A339400321A5D /* LocallizedStringType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocallizedStringType.swift; sourceTree = "<group>"; };
 		2106D395294A33B300321A5D /* CommonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonString.swift; sourceTree = "<group>"; };
 		2106D39A294A33FE00321A5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21135557294B7D830039287B /* SearchCafeUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCafeUseCaseMock.swift; sourceTree = "<group>"; };
+		2113555C294B7E100039287B /* CancellableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableMock.swift; sourceTree = "<group>"; };
 		214999C22919BCA400F412BD /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetPlaceResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeSearchFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -188,6 +192,46 @@
 				2106D39B294A33FE00321A5D /* Localizable.strings */,
 			);
 			path = Locallized;
+			sourceTree = "<group>";
+		};
+		21135555294B7D6C0039287B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				21135556294B7D730039287B /* Mocks */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		21135556294B7D730039287B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				21135557294B7D830039287B /* SearchCafeUseCaseMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		21135559294B7DF20039287B /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				2113555A294B7DF60039287B /* Network */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		2113555A294B7DF60039287B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				2113555B294B7E040039287B /* Mocks */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		2113555B294B7E040039287B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2113555C294B7E100039287B /* CancellableMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		214999C42919BD1600F412BD /* Data */ = {
@@ -390,6 +434,8 @@
 		7952AB2028C040CE00607B77 /* CoffeeMapTests */ = {
 			isa = PBXGroup;
 			children = (
+				21135559294B7DF20039287B /* Infrastructure */,
+				21135555294B7D6C0039287B /* Domain */,
 				7952AB4028C0625F00607B77 /* Util */,
 				7952AB4328C062FB00607B77 /* Stub */,
 				7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */,
@@ -613,7 +659,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				79290E1828C09CED00439E38 /* PlaceSearchViewControllerTests.swift in Sources */,
+				2113555D294B7E100039287B /* CancellableMock.swift in Sources */,
 				7952AB3F28C0619E00607B77 /* PlaceSearchViewModelTests.swift in Sources */,
+				21135558294B7D830039287B /* SearchCafeUseCaseMock.swift in Sources */,
 				7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */,
 				7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */,
 				796EB62628C1AF1000F1A01B /* EncodableExtensionTests.swift in Sources */,
