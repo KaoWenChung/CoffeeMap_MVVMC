@@ -14,4 +14,6 @@ enum ErrorString: LocallizedStringType {
     case noInternet
     /// Failed loading cafe data
     case failLoadingCafe
+    /// Unable to get user's location
+    case failGetLocation
 }

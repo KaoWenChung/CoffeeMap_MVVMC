@@ -10,3 +10,4 @@
 
 "ErrorString.noInternet" = "No internet connection";
 "ErrorString.failLoadingCafe" = "Failed loading cafe data";
+"ErrorString.failGetLocation" = "Unable to get user's location";
