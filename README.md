@@ -1,4 +1,4 @@
-# CoffeeMap (work in progress)
+# CoffeeMap
 * Without any third party library.
 This is an app for users to use their location to find coffee venues nearby.
 Users can find coffee venues information on the table view.
@@ -19,8 +19,10 @@ Modify method getAPIKey in class AppConfiguration
 - MVVM
 - Interface builder(.xib)
 - Clean Architecture
-- Concurrency(work in progress)
-- Unit testing(work in progress)
+- Concurrency
+- Unit testing
+- Coordinator
+- Observable
 - Dependency Injection
 - Adapter pattern
 - Singleton pattern
@@ -28,5 +30,5 @@ Modify method getAPIKey in class AppConfiguration
 ### To-Do list of features and time I need:
 - [x] A map page shows user and coffee venue location - 2 hours
 - [ ] Unit test for a map page shows user and coffee venue location - 1 hour
-- [ ] Implementing Chain of Responsibility on fetch placemark by coordinate or address - 1 hour
+- [ ] UI testing
 - [ ] Use Foursquare API to get coffee venue photos and show them on the table view cell - 2 hours
