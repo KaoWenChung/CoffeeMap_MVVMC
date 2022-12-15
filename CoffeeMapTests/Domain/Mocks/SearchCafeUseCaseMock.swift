@@ -11,16 +11,16 @@ import XCTest
 final class SearchCafeUseCaseMock: SearchCafeUseCaseType {
     let response: [CafeListTableViewCellModel]
     let error: Error?
-    let expectation: XCTestExpectation
+    let expectation: XCTestExpectation?
     init(response: [CafeListTableViewCellModel],
          error: Error?,
-         expectation: XCTestExpectation) {
+         expectation: XCTestExpectation?) {
         self.response = response
         self.error = error
         self.expectation = expectation
     }
     func execute(request: CofeRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType) {
-        expectation.fulfill()
+        expectation?.fulfill()
         if let error = error {
             throw error
         }
