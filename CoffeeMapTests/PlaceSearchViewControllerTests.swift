@@ -34,23 +34,20 @@ class PlaceSearchViewControllerTests: XCTestCase {
         
     }
 
-//    func testViewDidload_firstTableViewCell() throws {
-//        let sut = try makeSUTWithLocation()
-//        let expectation = self.expectation(description: "fetchData")
-//        _ = sut.view
-//        sut.fetchData() { result in
-//            switch result {
-//            case .success:
-//                expectation.fulfill()
-//            case .failure(let error):
-//                XCTFail("Fetch data fail with error: \(error.message)")
-//            }
-//        }
-//        wait(for: [expectation], timeout: 3.0)
-//        XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.nameLabel.text, "Caffè Concerto")
-//        XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.addressLabel.text, "45 Haymarket, London, Greater London, SW1Y 4SE")
-//        XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.distanceLabel.text, "39 meters")
-//    }
+    func testViewDidload_firstTableViewCell() throws {
+        let location = makeCLLocation()
+        let expectation = self.expectation(description: "fetchData")
+        let sut = try makeSUTWithLocation(location, expectation: expectation)
+        Task.init {
+            await sut.fetchData()
+            DispatchQueue.main.async {
+                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.nameLabel.text, "Caffè Concerto")
+                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.addressLabel.text, "45 Haymarket, London, Greater London, SW1Y 4SE")
+                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.distanceLabel.text, "39 meters")
+            }
+        }
+        wait(for: [expectation], timeout: 1.0)
+    }
 
 //    func testViewDidload_tableViewHasNoCells() throws {
 //        let sut = try makeSUTWithoutLocation()
