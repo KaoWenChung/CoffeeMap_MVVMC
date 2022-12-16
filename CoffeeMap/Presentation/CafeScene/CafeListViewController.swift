@@ -39,7 +39,7 @@ final class CafeListViewController: UIViewController, Alertable {
     
     @objc private func onPullReloadDataHandler() {
         if refreshControl.isRefreshing {
-            fetchData()
+            fetchDataTask()
         }
     }
     
@@ -52,7 +52,7 @@ final class CafeListViewController: UIViewController, Alertable {
         initLocationManager()
         initBarButton()
         initRefreshControl()
-        fetchData()
+        fetchDataTask()
     }
 
     private func bind(to viewModel: CafeListViewModelType) {
@@ -90,8 +90,14 @@ final class CafeListViewController: UIViewController, Alertable {
         Spinner.shared.showOn(view)
         locationManager?.requestLocation()
     }
+    
+    func fetchDataTask() {
+        Task.init {
+            await fetchData()
+        }
+    }
 
-    func fetchData() {
+    func fetchData() async {
         refreshControl.endRefreshing()
         guard let location = locationManager?.location else {
             showAlert(title: viewModel.errorTitle, message: ErrorString.failGetLocation.text)
@@ -102,11 +108,9 @@ final class CafeListViewController: UIViewController, Alertable {
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         let ll: String = String(latitude) + "," + String(longitude)
-        Task.init() {
-            await viewModel.fetchData(ll: ll)
-            Spinner.shared.hide()
-            updateNoResultView()
-        }
+        await viewModel.fetchData(ll: ll)
+        Spinner.shared.hide()
+        updateNoResultView()
     }
 }
 
@@ -114,7 +118,7 @@ extension CafeListViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         Spinner.shared.hide()
-        fetchData()
+        fetchDataTask()
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

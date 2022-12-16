@@ -12,37 +12,27 @@ import CoreLocation
 class PlaceSearchViewControllerTests: XCTestCase {
     
     func testViewDidload_requestedAuthorizationSuccessfully() throws {
-        let latitude = 51.50998
-        let longitude = -0.1337
-        let location = CLLocation(latitude: latitude, longitude: longitude)
+        let location = makeCLLocation()
         let sut = try makeSUTWithLocation(location)
-        XCTAssertEqual(sut.locationManager?.location?.coordinate.longitude, longitude)
-        XCTAssertEqual(sut.locationManager?.location?.coordinate.latitude, latitude)
-        
-        sut.fetchData()
+        XCTAssertEqual(sut.locationManager?.location?.coordinate.longitude, -0.1337)
+        XCTAssertEqual(sut.locationManager?.location?.coordinate.latitude, 51.50998)
     }
 
-//    func testViewDidload_tableViewHasCells() throws {
-//        let latitude = 51.50998
-//        let longitude = -0.1337
-//        let location = CLLocation(latitude: latitude, longitude: longitude)
-//        let sut = try makeSUTWithLocation(location)
-//        let expectation = self.expectation(description: "fetchData")
-//        _ = sut.view
-//        sut.fetchData()
-//        { result in
-//            switch result {
-//            case .success:
-//                expectation.fulfill()
-//            case .failure(let error):
-//                XCTFail("Fetch data fail with error: \(error.message)")
-//            }
-//        }
-//        wait(for: [expectation], timeout: 3.0)
-//        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 10)
-//        XCTAssertEqual(sut.tableView.isHidden, false)
-//        XCTAssertEqual(sut.noResultLabel.isHidden, true)
-//    }
+    func testViewDidload_tableViewHasCells() throws {
+        let location = makeCLLocation()
+        let expectation = self.expectation(description: "fetchData")
+        let sut = try makeSUTWithLocation(location, expectation: expectation)
+        Task.init {
+            await sut.fetchData()
+            DispatchQueue.main.async {
+                XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 10)
+                XCTAssertEqual(sut.tableView.isHidden, false)
+                XCTAssertEqual(sut.noResultLabel.isHidden, true)
+            }
+        }
+        wait(for: [expectation], timeout: 1.0)
+        
+    }
 
 //    func testViewDidload_firstTableViewCell() throws {
 //        let sut = try makeSUTWithLocation()
@@ -84,12 +74,18 @@ class PlaceSearchViewControllerTests: XCTestCase {
         let sut = try makeSUTWithLocation(nil)
         XCTAssertEqual(sut.locationManager?.location, nil)
     }
-
-    private func makeSUTWithLocation(_ location: CLLocation?) throws -> CafeListViewController {
+    // MARK: - Helper
+    private func makeSUTWithLocation(_ location: CLLocation?, expectation: XCTestExpectation? = nil) throws -> CafeListViewController {
         let getplaceDataModel: GetPlaceResponseDTO = try fetchStubModel(fileName: "GetPlace_London")
-        let mockViewModel = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: getplaceDataModel.toDomain(),error: nil, expectation: nil), actions: nil)
+        let mockViewModel = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: getplaceDataModel.toDomain(),error: nil, expectation: expectation), actions: nil)
         let sut = CafeListViewController(mockViewModel, locationManager: LocationManagerMock(location: location))
         return sut
+    }
+    
+    func makeCLLocation() -> CLLocation {
+        let latitude = 51.50998
+        let longitude = -0.1337
+        return CLLocation(latitude: latitude, longitude: longitude)
     }
 
     class LocationManagerMock: LocationManager {
