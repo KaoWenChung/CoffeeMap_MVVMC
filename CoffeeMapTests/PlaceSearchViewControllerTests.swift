@@ -20,8 +20,7 @@ class PlaceSearchViewControllerTests: XCTestCase {
 
     func testViewDidload_tableViewHasCells() throws {
         let location = makeCLLocation()
-        let expectation = self.expectation(description: "fetchData")
-        let sut = try makeSUTWithLocation(location, expectation: expectation)
+        let sut = try makeSUTWithLocation(location)
         Task.init {
             await sut.fetchData()
             DispatchQueue.main.async {
@@ -30,14 +29,11 @@ class PlaceSearchViewControllerTests: XCTestCase {
                 XCTAssertEqual(sut.noResultLabel.isHidden, true)
             }
         }
-        wait(for: [expectation], timeout: 1.0)
-        
     }
 
     func testViewDidload_firstTableViewCell() throws {
         let location = makeCLLocation()
-        let expectation = self.expectation(description: "fetchData")
-        let sut = try makeSUTWithLocation(location, expectation: expectation)
+        let sut = try makeSUTWithLocation(location)
         Task.init {
             await sut.fetchData()
             DispatchQueue.main.async {
@@ -46,7 +42,6 @@ class PlaceSearchViewControllerTests: XCTestCase {
                 XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.distanceLabel.text, "39 meters")
             }
         }
-        wait(for: [expectation], timeout: 1.0)
     }
 
     func testViewDidload_tableViewHasNoCells() throws {
@@ -62,9 +57,9 @@ class PlaceSearchViewControllerTests: XCTestCase {
     }
 
     // MARK: - Helper
-    private func makeSUTWithLocation(_ location: CLLocation?, expectation: XCTestExpectation? = nil) throws -> CafeListViewController {
+    private func makeSUTWithLocation(_ location: CLLocation?) throws -> CafeListViewController {
         let getplaceDataModel: GetPlaceResponseDTO = try fetchStubModel(fileName: "GetPlace_London")
-        let mockViewModel = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: getplaceDataModel.toDomain(),error: nil, expectation: expectation), actions: nil)
+        let mockViewModel = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: getplaceDataModel.toDomain(),error: nil, expectation: nil), actions: nil)
         let sut = CafeListViewController(mockViewModel, locationManager: LocationManagerMock(location: location))
         return sut
     }
@@ -76,7 +71,6 @@ class PlaceSearchViewControllerTests: XCTestCase {
     }
 
     class LocationManagerMock: LocationManager {
-
         func requestLocation() {}
         func requestWhenInUseAuthorization() {}
         var delegate: CLLocationManagerDelegate?
