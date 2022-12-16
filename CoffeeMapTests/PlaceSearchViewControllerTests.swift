@@ -49,28 +49,18 @@ class PlaceSearchViewControllerTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
 
-//    func testViewDidload_tableViewHasNoCells() throws {
-//        let sut = try makeSUTWithoutLocation()
-//        let expectation = self.expectation(description: "fetchData")
-//        _ = sut.view
-//        sut.fetchData() { result in
-//            switch result {
-//            case .success:
-//                XCTFail("Should not fetch any data")
-//            case .failure(let error):
-//                XCTAssertEqual(error.message, "Unable to get user's location")
-//                expectation.fulfill()
-//            }
-//        }
-//        wait(for: [expectation], timeout: 3.0)
-//        XCTAssertEqual(sut.tableView.isHidden, true)
-//        XCTAssertEqual(sut.noResultLabel.isHidden, false)
-//    }
-
-    func testViewDidload_requestedAuthorizationFailure() throws {
+    func testViewDidload_tableViewHasNoCells() throws {
         let sut = try makeSUTWithLocation(nil)
         XCTAssertEqual(sut.locationManager?.location, nil)
+        Task.init {
+            await sut.fetchData()
+            DispatchQueue.main.async {
+                XCTAssertEqual(sut.tableView.isHidden, true)
+                XCTAssertEqual(sut.noResultLabel.isHidden, false)
+            }
+        }
     }
+
     // MARK: - Helper
     private func makeSUTWithLocation(_ location: CLLocation?, expectation: XCTestExpectation? = nil) throws -> CafeListViewController {
         let getplaceDataModel: GetPlaceResponseDTO = try fetchStubModel(fileName: "GetPlace_London")
