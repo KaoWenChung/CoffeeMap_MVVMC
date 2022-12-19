@@ -8,6 +8,9 @@
 import UIKit
 
 struct CafeListTableViewCellModel: AdapterItemModel {
+    enum CafeListTableViewCellString: LocallizedStringType {
+        case meters
+    }
     var type: UIView.Type { return CafeListTableViewCell.self }
     let name: String
     let address: String
@@ -24,7 +27,7 @@ struct CafeListTableViewCellModel: AdapterItemModel {
             address = "-"
         }
         if let distance = dataModel.distance {
-            self.distance = distance.description + " meters"
+            self.distance = distance.description + CafeListTableViewCellString.meters.text
         } else {
             distance = nil
         }

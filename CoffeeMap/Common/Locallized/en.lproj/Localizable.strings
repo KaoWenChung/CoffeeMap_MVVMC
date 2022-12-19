@@ -7,7 +7,12 @@
 */
 
 "CommonString.error" = "ERROR";
+"CommonString.ok" = "OK";
 
 "ErrorString.noInternet" = "No internet connection";
 "ErrorString.failLoadingCafe" = "Failed loading cafe data";
 "ErrorString.failGetLocation" = "Unable to get user's location";
+
+"CafeListTableViewCellString.meters" = " meters";
+
+"CafeListViewControllerString.title" = "Nearby Cafe List";

@@ -16,7 +16,7 @@ public extension Alertable where Self: UIViewController {
                    completion: (()-> Void)? = nil) {
 
         let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
-        let okButton: UIAlertAction = UIAlertAction(title: "OK", style: .default)
+        let okButton: UIAlertAction = UIAlertAction(title: CommonString.ok.text, style: .default)
         alertController.addAction(okButton)
         present(alertController, animated: true, completion: completion)
     }
