@@ -47,6 +47,7 @@ final class CafeListViewController: UIViewController, Alertable {
         super.viewDidLoad()
         title = CafeListViewControllerString.title.text
         tableViewAdapter = .init(tableView)
+        tableViewAdapter?.register(CafeListTableViewCell.self)
         tableViewAdapter?.delegate = self
         bind(to: viewModel)
         initLocationManager()
@@ -66,10 +67,10 @@ final class CafeListViewController: UIViewController, Alertable {
     }
 
     private func updateTableView() {
-        tableViewAdapter?.register(viewModel.placeList.value)
         tableViewAdapter?.updateData(viewModel.placeList.value)
         updateNoResultView()
     }
+
     private func initLocationManager() {
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()

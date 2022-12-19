@@ -41,8 +41,8 @@ public class TableViewAdapter: NSObject {
     }
 
     /// Register UICollectionViewCell
-    open func register(_ sections: [AdapterSectionModel]) {
-        registerService.registerIfNeeded(tableView, sections: sections)
+    open func register(_ item: UITableViewCell.Type) {
+        registerService.registerCell(tableView, cellType: item)
     }
 
 }
