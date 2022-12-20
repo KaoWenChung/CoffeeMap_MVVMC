@@ -21,6 +21,9 @@
 		214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */; };
 		214999CE291AC7B900F412BD /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999CD291AC7B900F412BD /* AppFlowCoordinator.swift */; };
 		219633AA28E0D64E004C5A97 /* CafeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A928E0D64E004C5A97 /* CafeDetailViewModel.swift */; };
+		21A1D7802952805C0061DE76 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1D77F2952805C0061DE76 /* NetworkServiceTests.swift */; };
+		21A1D782295280AD0061DE76 /* NetworkConfigurableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1D781295280AD0061DE76 /* NetworkConfigurableMock.swift */; };
+		21A1D784295280C40061DE76 /* NetworkSessionManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1D783295280C40061DE76 /* NetworkSessionManagerMock.swift */; };
 		21A445CE2912D8EE00986160 /* CafePlacesRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A445CD2912D8EE00986160 /* CafePlacesRepositoryType.swift */; };
 		21A445D12912DB5900986160 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A445D02912DB5900986160 /* NetworkConfig.swift */; };
 		21A445D32912DE6300986160 /* NetworkServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A445D22912DE6300986160 /* NetworkServiceType.swift */; };
@@ -91,6 +94,9 @@
 		214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeSearchFlowCoordinator.swift; sourceTree = "<group>"; };
 		214999CD291AC7B900F412BD /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		219633A928E0D64E004C5A97 /* CafeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailViewModel.swift; sourceTree = "<group>"; };
+		21A1D77F2952805C0061DE76 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		21A1D781295280AD0061DE76 /* NetworkConfigurableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurableMock.swift; sourceTree = "<group>"; };
+		21A1D783295280C40061DE76 /* NetworkSessionManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManagerMock.swift; sourceTree = "<group>"; };
 		21A445CD2912D8EE00986160 /* CafePlacesRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafePlacesRepositoryType.swift; sourceTree = "<group>"; };
 		21A445D02912DB5900986160 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		21A445D22912DE6300986160 /* NetworkServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceType.swift; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				2113555A294B7DF60039287B /* Network */,
+				21A1D77F2952805C0061DE76 /* NetworkServiceTests.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -230,6 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				2113555C294B7E100039287B /* CancellableMock.swift */,
+				21A1D783295280C40061DE76 /* NetworkSessionManagerMock.swift */,
+				21A1D781295280AD0061DE76 /* NetworkConfigurableMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -660,9 +669,12 @@
 			files = (
 				79290E1828C09CED00439E38 /* PlaceSearchViewControllerTests.swift in Sources */,
 				2113555D294B7E100039287B /* CancellableMock.swift in Sources */,
+				21A1D7802952805C0061DE76 /* NetworkServiceTests.swift in Sources */,
+				21A1D782295280AD0061DE76 /* NetworkConfigurableMock.swift in Sources */,
 				7952AB3F28C0619E00607B77 /* PlaceSearchViewModelTests.swift in Sources */,
 				21135558294B7D830039287B /* SearchCafeUseCaseMock.swift in Sources */,
 				7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */,
+				21A1D784295280C40061DE76 /* NetworkSessionManagerMock.swift in Sources */,
 				7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */,
 				796EB62628C1AF1000F1A01B /* EncodableExtensionTests.swift in Sources */,
 			);

@@ -71,7 +71,7 @@ enum RequestGenerationError: Error {
     case components
 }
 
-extension ResponseRequestableType {
+extension RequestableType {
     func url(with networkConfig: NetworkConfigurableType) throws -> URL {
         let baseURL = getBaseURL(networkConfig.baseURL.absoluteString)
         let endpoint = isFullPath ? path : baseURL.appending(path)
