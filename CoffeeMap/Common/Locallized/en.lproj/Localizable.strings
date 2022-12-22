@@ -16,3 +16,5 @@
 "CafeListTableViewCellString.meters" = " meters";
 
 "CafeListViewControllerString.title" = "Nearby Cafe List";
+
+"CafeDetailViewString.routeError" = "Cannot get route, please try again later"

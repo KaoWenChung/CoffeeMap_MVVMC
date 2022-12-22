@@ -8,8 +8,15 @@
 import UIKit
 import MapKit
 
-class CafeDetailViewController: UIViewController {
+final class CafeDetailViewController: UIViewController, Alertable {
 
+    enum Contents {
+        static let visibleEdgeInsets: CGFloat = 100
+        static let renderLineWidth: CGFloat = 3.0
+    }
+    enum CafeDetailViewString: LocallizedStringType {
+        case routeError
+    }
     @IBOutlet weak private var mapView: MKMapView!
     private let viewModel: CafeDetailViewModel
 
@@ -54,28 +61,20 @@ class CafeDetailViewController: UIViewController {
     
     private func setRoute(_ placemark: MKPlacemark) {
         let directionRequest = MKDirections.Request()
-
         directionRequest.source = MKMapItem.forCurrentLocation()
         directionRequest.destination = MKMapItem(placemark: placemark)
         directionRequest.transportType = MKDirectionsTransportType.walking
 
         let directions = MKDirections(request: directionRequest)
-
         directions.calculate { (routeResponse, routeError) -> Void in
-
             guard let routeResponse = routeResponse else {
-                if let routeError = routeError {
-                    print("Error: \(routeError)")
+                if routeError != nil {
+                    self.showAlert(message: CafeDetailViewString.routeError.text)
                 }
-
                 return
             }
-
-            let route = routeResponse.routes[0]
+            guard let route = routeResponse.routes.first else { return }
             self.mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
-            // show the whole route
-            let rect = route.polyline.boundingMapRect
-            self.mapView.setRegion(MKCoordinateRegion.init(rect), animated: true)
         }
     }
     
@@ -86,7 +85,11 @@ extension CafeDetailViewController: MKMapViewDelegate {
         
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor.blue
-        renderer.lineWidth = 3.0
+        renderer.lineWidth = Contents.renderLineWidth
+        
+        // show the whole route
+        let visibleMapRect = mapView.mapRectThatFits(renderer.polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: Contents.visibleEdgeInsets, left: Contents.visibleEdgeInsets, bottom: Contents.visibleEdgeInsets, right: Contents.visibleEdgeInsets))
+        mapView.setRegion(MKCoordinateRegion(visibleMapRect), animated: true)
         
         return renderer
     }
