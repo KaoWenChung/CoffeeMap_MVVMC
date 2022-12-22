@@ -14,6 +14,10 @@ final class CafeListViewController: UIViewController, Alertable {
         case title
     }
 
+    enum Contents {
+        static let tableViewWidthHeight: CGFloat = 120
+    }
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noResultLabel: UILabel!
     private(set) var locationManager: LocationManager?
@@ -78,7 +82,7 @@ final class CafeListViewController: UIViewController, Alertable {
     }
 
     private func initBarButton() {
-        let reloadButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: self, action: #selector(reloadData(_:)))
+        let reloadButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.arrowClockwise), style: .plain, target: self, action: #selector(reloadData(_:)))
         navigationItem.rightBarButtonItem = reloadButton
     }
 
@@ -148,7 +152,7 @@ extension CafeListViewController: TableViewAdapterDelegate {
     }
     
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {
-        return CGSize(width: 120, height: 120)
+        return CGSize(width: Contents.tableViewWidthHeight, height: Contents.tableViewWidthHeight)
     }
     
     
