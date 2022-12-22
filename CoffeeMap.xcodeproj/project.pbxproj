@@ -52,7 +52,7 @@
 		79290E0E28C080CF00439E38 /* CafeListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79290E0C28C080CF00439E38 /* CafeListTableViewCell.xib */; };
 		79290E1428C0943600439E38 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79290E1328C0943600439E38 /* MapKit.framework */; };
 		79290E1628C0979E00439E38 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79290E1528C0979E00439E38 /* LocationManager.swift */; };
-		79290E1828C09CED00439E38 /* PlaceSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79290E1728C09CED00439E38 /* PlaceSearchViewControllerTests.swift */; };
+		79290E1828C09CED00439E38 /* CafeListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79290E1728C09CED00439E38 /* CafeListViewControllerTests.swift */; };
 		79290E1A28C0AB4D00439E38 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79290E1928C0AB4D00439E38 /* Spinner.swift */; };
 		79290E1C28C0AC3E00439E38 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79290E1B28C0AC3E00439E38 /* Alertable.swift */; };
 		7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB1928C03F5000607B77 /* TableViewAdapter.swift */; };
@@ -63,7 +63,7 @@
 		7952AB3628C0552C00607B77 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3528C0552B00607B77 /* NetworkService.swift */; };
 		7952AB3A28C0563D00607B77 /* CafePlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3928C0563D00607B77 /* CafePlacesRepository.swift */; };
 		7952AB3D28C05CD400607B77 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3C28C05CD400607B77 /* Encodable.swift */; };
-		7952AB3F28C0619E00607B77 /* PlaceSearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3E28C0619E00607B77 /* PlaceSearchViewModelTests.swift */; };
+		7952AB3F28C0619E00607B77 /* CafeListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3E28C0619E00607B77 /* CafeListViewModelTests.swift */; };
 		7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB4128C0627A00607B77 /* XCTestCase+.swift */; };
 		7952AB4728C0642E00607B77 /* GetPlace_London.json in Resources */ = {isa = PBXBuildFile; fileRef = 7952AB4628C0642E00607B77 /* GetPlace_London.json */; };
 		796EB62028C18E0300F1A01B /* CafeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796EB61F28C18E0300F1A01B /* CafeListViewController.xib */; };
@@ -128,7 +128,7 @@
 		79290E0C28C080CF00439E38 /* CafeListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CafeListTableViewCell.xib; sourceTree = "<group>"; };
 		79290E1328C0943600439E38 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		79290E1528C0979E00439E38 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		79290E1728C09CED00439E38 /* PlaceSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchViewControllerTests.swift; sourceTree = "<group>"; };
+		79290E1728C09CED00439E38 /* CafeListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeListViewControllerTests.swift; sourceTree = "<group>"; };
 		79290E1928C0AB4D00439E38 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		79290E1B28C0AC3E00439E38 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		7952AB1928C03F5000607B77 /* TableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAdapter.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 		7952AB3528C0552B00607B77 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7952AB3928C0563D00607B77 /* CafePlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafePlacesRepository.swift; sourceTree = "<group>"; };
 		7952AB3C28C05CD400607B77 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
-		7952AB3E28C0619E00607B77 /* PlaceSearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceSearchViewModelTests.swift; sourceTree = "<group>"; };
+		7952AB3E28C0619E00607B77 /* CafeListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeListViewModelTests.swift; sourceTree = "<group>"; };
 		7952AB4128C0627A00607B77 /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
 		7952AB4628C0642E00607B77 /* GetPlace_London.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPlace_London.json; sourceTree = "<group>"; };
 		796EB61F28C18E0300F1A01B /* CafeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CafeListViewController.xib; sourceTree = "<group>"; };
@@ -450,8 +450,8 @@
 				7952AB4028C0625F00607B77 /* Util */,
 				7952AB4328C062FB00607B77 /* Stub */,
 				7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */,
-				7952AB3E28C0619E00607B77 /* PlaceSearchViewModelTests.swift */,
-				79290E1728C09CED00439E38 /* PlaceSearchViewControllerTests.swift */,
+				7952AB3E28C0619E00607B77 /* CafeListViewModelTests.swift */,
+				79290E1728C09CED00439E38 /* CafeListViewControllerTests.swift */,
 				796EB62528C1AF1000F1A01B /* EncodableExtensionTests.swift */,
 			);
 			path = CoffeeMapTests;
@@ -671,11 +671,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79290E1828C09CED00439E38 /* PlaceSearchViewControllerTests.swift in Sources */,
+				79290E1828C09CED00439E38 /* CafeListViewControllerTests.swift in Sources */,
 				2113555D294B7E100039287B /* CancellableMock.swift in Sources */,
 				21A1D7802952805C0061DE76 /* NetworkServiceTests.swift in Sources */,
 				21A1D782295280AD0061DE76 /* NetworkConfigurableMock.swift in Sources */,
-				7952AB3F28C0619E00607B77 /* PlaceSearchViewModelTests.swift in Sources */,
+				7952AB3F28C0619E00607B77 /* CafeListViewModelTests.swift in Sources */,
 				21135558294B7D830039287B /* SearchCafeUseCaseMock.swift in Sources */,
 				7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */,
 				21A1D784295280C40061DE76 /* NetworkSessionManagerMock.swift in Sources */,

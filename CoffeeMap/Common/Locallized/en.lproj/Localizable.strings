@@ -17,4 +17,4 @@
 
 "CafeListViewControllerString.title" = "Nearby Cafe List";
 
-"CafeDetailViewString.routeError" = "Cannot get route, please try again later"
+"CafeDetailViewString.routeError" = "Cannot get route, please try again later";

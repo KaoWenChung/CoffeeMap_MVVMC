@@ -8,7 +8,7 @@
 import XCTest
 @testable import CoffeeMap
 
-class PlaceSearchViewModelTests: XCTestCase {
+class CafeListViewModelTests: XCTestCase {
 
     func testPostListUseCaseWithNetwokError() async {
         let expectation = expectation(description: "Should run error")

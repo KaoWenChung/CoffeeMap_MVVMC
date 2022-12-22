@@ -9,7 +9,7 @@ import XCTest
 import CoreLocation
 @testable import CoffeeMap
 
-class PlaceSearchViewControllerTests: XCTestCase {
+class CafeListViewControllerTests: XCTestCase {
     
     func testViewDidload_requestedAuthorizationSuccessfully() throws {
         let location = makeCLLocation()
