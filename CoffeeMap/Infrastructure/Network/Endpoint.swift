@@ -73,7 +73,7 @@ enum RequestGenerationError: Error {
 
 extension RequestableType {
     func url(with networkConfig: NetworkConfigurableType) throws -> URL {
-        let baseURL = getBaseURL(networkConfig.baseURL.absoluteString)
+        let baseURL = getBaseURL(networkConfig.baseURL?.absoluteString ?? "")
         let endpoint = isFullPath ? path : baseURL.appending(path)
         guard var urlComponents = URLComponents(string: endpoint) else { throw RequestGenerationError.components }
         var urlQueryItems = [URLQueryItem]()

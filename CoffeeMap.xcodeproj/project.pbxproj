@@ -22,12 +22,10 @@
 		214999CE291AC7B900F412BD /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999CD291AC7B900F412BD /* AppFlowCoordinator.swift */; };
 		21569D912954BC44003D84AE /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569D902954BC44003D84AE /* Contents.swift */; };
 		21569D932954BE09003D84AE /* DataTransferServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569D922954BE09003D84AE /* DataTransferServiceTests.swift */; };
-		21569D952955E4D6003D84AE /* CafeDetailRequestDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569D942955E4D6003D84AE /* CafeDetailRequestDTO+Mapping.swift */; };
-		21569D972955E58C003D84AE /* CafeDetailResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569D962955E58C003D84AE /* CafeDetailResponseDTO+Mapping.swift */; };
-		21569D9B2955E868003D84AE /* CafeDetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569D9A2955E868003D84AE /* CafeDetailRepository.swift */; };
-		21569D9D2955EBB5003D84AE /* CafeDetailRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569D9C2955EBB5003D84AE /* CafeDetailRepositoryType.swift */; };
 		21569DA02955F160003D84AE /* CafeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569D9E2955F160003D84AE /* CafeDetailViewController.swift */; };
 		21569DA12955F160003D84AE /* CafeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21569D9F2955F160003D84AE /* CafeDetailViewController.xib */; };
+		21569DA42955F992003D84AE /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA32955F992003D84AE /* ImageRepository.swift */; };
+		21569DA72956027E003D84AE /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA62956027E003D84AE /* ImageCache.swift */; };
 		219633AA28E0D64E004C5A97 /* CafeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A928E0D64E004C5A97 /* CafeDetailViewModel.swift */; };
 		21A1D7802952805C0061DE76 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1D77F2952805C0061DE76 /* NetworkServiceTests.swift */; };
 		21A1D782295280AD0061DE76 /* NetworkConfigurableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1D781295280AD0061DE76 /* NetworkConfigurableMock.swift */; };
@@ -103,12 +101,10 @@
 		214999CD291AC7B900F412BD /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		21569D902954BC44003D84AE /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
 		21569D922954BE09003D84AE /* DataTransferServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceTests.swift; sourceTree = "<group>"; };
-		21569D942955E4D6003D84AE /* CafeDetailRequestDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CafeDetailRequestDTO+Mapping.swift"; sourceTree = "<group>"; };
-		21569D962955E58C003D84AE /* CafeDetailResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CafeDetailResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
-		21569D9A2955E868003D84AE /* CafeDetailRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailRepository.swift; sourceTree = "<group>"; };
-		21569D9C2955EBB5003D84AE /* CafeDetailRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailRepositoryType.swift; sourceTree = "<group>"; };
 		21569D9E2955F160003D84AE /* CafeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailViewController.swift; sourceTree = "<group>"; };
 		21569D9F2955F160003D84AE /* CafeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CafeDetailViewController.xib; sourceTree = "<group>"; };
+		21569DA32955F992003D84AE /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		21569DA62956027E003D84AE /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		219633A928E0D64E004C5A97 /* CafeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailViewModel.swift; sourceTree = "<group>"; };
 		21A1D77F2952805C0061DE76 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		21A1D781295280AD0061DE76 /* NetworkConfigurableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurableMock.swift; sourceTree = "<group>"; };
@@ -263,6 +259,7 @@
 		214999C42919BD1600F412BD /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				21569DA52956026B003D84AE /* Cache */,
 				2106D38B2947929E00321A5D /* Network */,
 				7952AB3428C0551400607B77 /* Repository */,
 			);
@@ -272,7 +269,6 @@
 		214999C5291AB02500F412BD /* DataMapping */ = {
 			isa = PBXGroup;
 			children = (
-				21569D992955E668003D84AE /* CafeDetail */,
 				21569D982955E65C003D84AE /* CafePlace */,
 			);
 			path = DataMapping;
@@ -320,20 +316,18 @@
 			path = CafePlace;
 			sourceTree = "<group>";
 		};
-		21569D992955E668003D84AE /* CafeDetail */ = {
+		21569DA52956026B003D84AE /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				21569D942955E4D6003D84AE /* CafeDetailRequestDTO+Mapping.swift */,
-				21569D962955E58C003D84AE /* CafeDetailResponseDTO+Mapping.swift */,
+				21569DA62956027E003D84AE /* ImageCache.swift */,
 			);
-			path = CafeDetail;
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		21A445CC2912D8D600986160 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
 				21A445CD2912D8EE00986160 /* CafePlacesRepositoryType.swift */,
-				21569D9C2955EBB5003D84AE /* CafeDetailRepositoryType.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -517,7 +511,7 @@
 			children = (
 				21B9EDDA2919554C00A2E6B9 /* Utils */,
 				7952AB3928C0563D00607B77 /* CafePlacesRepository.swift */,
-				21569D9A2955E868003D84AE /* CafeDetailRepository.swift */,
+				21569DA32955F992003D84AE /* ImageRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -666,6 +660,7 @@
 				21BAEBFC28E0671E002616F6 /* CafeMapViewController.swift in Sources */,
 				79242C6328C03ADD00766059 /* CafeListViewController.swift in Sources */,
 				21B9EDD529187F3C00A2E6B9 /* CancellableType.swift in Sources */,
+				21569DA42955F992003D84AE /* ImageRepository.swift in Sources */,
 				2106D396294A33B300321A5D /* CommonString.swift in Sources */,
 				214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */,
 				21569D912954BC44003D84AE /* Contents.swift in Sources */,
@@ -691,15 +686,12 @@
 				21A445D82914590F00986160 /* DataTransferService.swift in Sources */,
 				7952AB2A28C041FC00607B77 /* CafeListViewModel.swift in Sources */,
 				21A9FAA429156C570017C07E /* AppConfiguration.swift in Sources */,
-				21569D9B2955E868003D84AE /* CafeDetailRepository.swift in Sources */,
 				21AB9BF728EDB9F700A1796B /* AdapterSectionModel.swift in Sources */,
 				21AB9BF928EDBB3D00A1796B /* AdapterItemModel.swift in Sources */,
-				21569D972955E58C003D84AE /* CafeDetailResponseDTO+Mapping.swift in Sources */,
 				21A445DC29145E0B00986160 /* DataTransferServiceType.swift in Sources */,
-				21569D952955E4D6003D84AE /* CafeDetailRequestDTO+Mapping.swift in Sources */,
-				21569D9D2955EBB5003D84AE /* CafeDetailRepositoryType.swift in Sources */,
 				214999CE291AC7B900F412BD /* AppFlowCoordinator.swift in Sources */,
 				79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */,
+				21569DA72956027E003D84AE /* ImageCache.swift in Sources */,
 				214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */,
 				21A445CE2912D8EE00986160 /* CafePlacesRepositoryType.swift in Sources */,
 				2106D394294A339400321A5D /* LocallizedStringType.swift in Sources */,

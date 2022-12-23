@@ -5,8 +5,6 @@
 //  Created by owenkao on 2022/09/01.
 //
 
-import Foundation
-
 struct CafePlacesRepository {
     private let dataTransferService: DataTransferServiceType
 

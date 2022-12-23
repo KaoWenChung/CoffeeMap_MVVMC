@@ -15,6 +15,7 @@ struct CafeListTableViewCellModel: AdapterItemModel {
     let name: String
     let address: String
     let distance: String?
+    let iconURL: String?
     let coordinate: (latitude: Double, longitude: Double)?
     
     init(_ dataModel: CafePlaceResponseDTO.GetPlaceResultsDTO) {
@@ -39,6 +40,13 @@ struct CafeListTableViewCellModel: AdapterItemModel {
         } else {
             coordinate = nil
         }
+        if let category = dataModel.categories?.first,
+           let icon = category.icon,
+           let prefix = icon.prefix,
+           let suffix = icon.suffix {
+            iconURL = prefix + "64" + suffix
+        } else {
+            iconURL = nil
+        }
     }
-
 }

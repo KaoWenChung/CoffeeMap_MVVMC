@@ -31,6 +31,7 @@ struct CafePlaceResponseDTO: Decodable {
 
 extension CafePlaceResponseDTO {
     struct GetPlaceResultsDTO: Decodable {
+        let categories : [GetPlaceCategoryDTO]?
         /// The calculated distance (in meters) from the provided location (i.e. ll + radius OR near OR ne + sw) in the API call. This field will only be returned by the Place Search endpoint.
         let distance: Int?
         /// A unique identifier for a FSQ Place (formerly known as Venue ID).
@@ -40,6 +41,7 @@ extension CafePlaceResponseDTO {
         let name: String?
 
         enum CodingKeys: String, CodingKey {
+            case categories
             case distance
             case fsqId = "fsq_id"
             case geocodes
@@ -47,6 +49,28 @@ extension CafePlaceResponseDTO {
             case name
         }
 
+    }
+    
+    struct GetPlaceCategoryDTO: Decodable {
+        let icon: GetPlaceIconDTO?
+        let id: Int?
+        let name: String?
+
+        enum CodingKeys: String, CodingKey {
+            case icon
+            case id
+            case name
+        }
+    }
+
+    struct GetPlaceIconDTO: Decodable {
+        let prefix : String?
+        let suffix : String?
+
+        enum CodingKeys: String, CodingKey {
+            case prefix
+            case suffix
+        }
     }
 
     struct GetPlaceLocationDTO: Decodable {

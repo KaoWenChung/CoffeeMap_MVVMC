@@ -5,7 +5,7 @@
 //  Created by wyn on 2022/11/7.
 //
 
-//import Foundation
+import Foundation
 
 struct APIEndpoints {
     static func getCafePlaces(with request: CafePlaceRequestDTO) -> Endpoint<CafePlaceResponseDTO> {
@@ -13,9 +13,10 @@ struct APIEndpoints {
                         method: .get,
                         queryParametersEncodable: request)
     }
-    static func getCafeDetail(with request: CafeDetailRequestDTO) -> Endpoint<CafeDetailResponseDTO> {
-        return Endpoint(path: "v3/places",
+    static func getImage(path: String) -> Endpoint<Data> {
+        return Endpoint(path: path,
+                        isFullPath: true,
                         method: .get,
-                        queryParametersEncodable: request)
+                        responseDecoder: RawDataResponseDecoder())
     }
 }
