@@ -22,9 +22,3 @@ extension CafeDetailRepository: CafeDetailRepositoryType {
         return (data, task)
     }
 }
-
-protocol CafeDetailRepositoryType {
-
-    func getPlaceDetail(request: CafeDetailRequestDTO) async throws -> (CafeDetailResponseDTO, CancellableType)
-
-}

@@ -32,6 +32,6 @@ final class CafeSearchFlowCoordinator {
 
     private func didSelectItem(_ item: CafeListTableViewCellModel) {
         let viewModel = CafeDetailViewModel(item)
-        navigationController?.pushViewController(CafeDetailViewController(viewModel), animated: true)
+        navigationController?.pushViewController(CafeMapViewController(viewModel), animated: true)
     }
 }
