@@ -7,6 +7,6 @@
 
 protocol CafePlacesRepositoryType {
 
-    func getPlace(request: CofeRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType)
+    func getPlace(request: CafePlaceRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType)
 
 }

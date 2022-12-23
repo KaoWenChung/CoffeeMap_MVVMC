@@ -23,7 +23,7 @@ class CafeListViewModelTests: XCTestCase {
 
     func testGetSortedGetPlaceResult_StubLondonData() async throws {
         let expectation = expectation(description: "Should get data")
-        let getplaceDataModel: GetPlaceResponseDTO = try fetchStubModel(fileName: "GetPlace_London")
+        let getplaceDataModel: CafePlaceResponseDTO = try fetchStubModel(fileName: "GetPlace_London")
         
         let sut = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: getplaceDataModel.toDomain(),error: nil, expectation: expectation), actions: nil)
         

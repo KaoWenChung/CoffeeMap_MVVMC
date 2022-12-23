@@ -5,7 +5,7 @@
 //  Created by wyn on 2022/12/12.
 //
 
-struct CofeRequestDTO: Encodable {
+struct CafePlaceRequestDTO: Encodable {
     var ll: String?
     var radius: Int?
     var query: String?

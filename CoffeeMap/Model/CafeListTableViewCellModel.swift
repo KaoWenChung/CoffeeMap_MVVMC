@@ -17,7 +17,7 @@ struct CafeListTableViewCellModel: AdapterItemModel {
     let distance: String?
     let coordinate: (latitude: Double, longitude: Double)?
     
-    init(_ dataModel: GetPlaceResponseDTO.GetPlaceResultsDTO) {
+    init(_ dataModel: CafePlaceResponseDTO.GetPlaceResultsDTO) {
         name = dataModel.name ?? ""
         if let location = dataModel.location,
            let address = location.formattedAddress,

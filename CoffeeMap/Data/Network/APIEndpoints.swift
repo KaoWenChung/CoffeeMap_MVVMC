@@ -8,8 +8,13 @@
 //import Foundation
 
 struct APIEndpoints {
-    static func getCofaPlaces(with request: CofeRequestDTO) -> Endpoint<GetPlaceResponseDTO> {
+    static func getCafePlaces(with request: CafePlaceRequestDTO) -> Endpoint<CafePlaceResponseDTO> {
         return Endpoint(path: "v3/places/search",
+                        method: .get,
+                        queryParametersEncodable: request)
+    }
+    static func getCafeDetail(with request: CafeDetailRequestDTO) -> Endpoint<CafeDetailResponseDTO> {
+        return Endpoint(path: "v3/places",
                         method: .get,
                         queryParametersEncodable: request)
     }

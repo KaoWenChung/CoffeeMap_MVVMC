@@ -5,7 +5,7 @@
 //  Created by wyn on 2022/11/8.
 //
 
-extension GetPlaceResponseDTO {
+extension CafePlaceResponseDTO {
     func toDomain() -> [CafeListTableViewCellModel] {
         var result: [CafeListTableViewCellModel] = []
         if let results {
@@ -17,7 +17,7 @@ extension GetPlaceResponseDTO {
     }
 }
 
-struct GetPlaceResponseDTO: Decodable {
+struct CafePlaceResponseDTO: Decodable {
 
     let context: GetPlaceContextDTO?
     let results: [GetPlaceResultsDTO]?
@@ -29,7 +29,7 @@ struct GetPlaceResponseDTO: Decodable {
 
 }
 
-extension GetPlaceResponseDTO {
+extension CafePlaceResponseDTO {
     struct GetPlaceResultsDTO: Decodable {
         /// The calculated distance (in meters) from the provided location (i.e. ll + radius OR near OR ne + sw) in the API call. This field will only be returned by the Place Search endpoint.
         let distance: Int?

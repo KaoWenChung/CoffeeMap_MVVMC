@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CafePlacesRepository {
+struct CafePlacesRepository {
     private let dataTransferService: DataTransferServiceType
 
     init(dataTransferService: DataTransferServiceType) {
@@ -16,9 +16,9 @@ final class CafePlacesRepository {
 }
 
 extension CafePlacesRepository: CafePlacesRepositoryType {
-    func getPlace(request: CofeRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType) {
+    func getPlace(request: CafePlaceRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType) {
         let task = RepositoryTask()
-        let endpoint = APIEndpoints.getCofaPlaces(with: request)
+        let endpoint = APIEndpoints.getCafePlaces(with: request)
         let (data, taskCancellable) = try await dataTransferService.request(with: endpoint)
         task.networkTask = taskCancellable
         return (data.toDomain(), task)

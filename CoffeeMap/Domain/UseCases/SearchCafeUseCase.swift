@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SearchCafeUseCaseType {
-    func execute(request: CofeRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType)
+    func execute(request: CafePlaceRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType)
 }
 
 final class SearchCafeUseCase: SearchCafeUseCaseType {
@@ -19,7 +19,7 @@ final class SearchCafeUseCase: SearchCafeUseCaseType {
         self.cafeRepository = cafeRepository
     }
     
-    func execute(request: CofeRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType) {
+    func execute(request: CafePlaceRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType) {
         return try await cafeRepository.getPlace(request: request)
     }
     

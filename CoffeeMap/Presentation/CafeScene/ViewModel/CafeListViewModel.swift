@@ -46,7 +46,7 @@ final class CafeListViewModel: CafeListViewModelType {
 extension CafeListViewModel {
     func fetchData(ll: String) async {
         do {
-            let (value, task) = try await searchCafeUseCase.execute(request: CofeRequestDTO(ll: ll, sort: "DISTANCE"))
+            let (value, task) = try await searchCafeUseCase.execute(request: CafePlaceRequestDTO(ll: ll, sort: "DISTANCE"))
             placeList.value = [AdapterSectionModel(items: value)]
             cafesLoadTask = task
         } catch {

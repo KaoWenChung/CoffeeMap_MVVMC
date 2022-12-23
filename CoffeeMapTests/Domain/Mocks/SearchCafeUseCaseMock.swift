@@ -19,7 +19,7 @@ final class SearchCafeUseCaseMock: SearchCafeUseCaseType {
         self.error = error
         self.expectation = expectation
     }
-    func execute(request: CofeRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType) {
+    func execute(request: CafePlaceRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType) {
         expectation?.fulfill()
         if let error = error {
             throw error
