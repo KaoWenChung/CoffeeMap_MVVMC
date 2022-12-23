@@ -26,6 +26,7 @@
 		21569DA12955F160003D84AE /* CafeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21569D9F2955F160003D84AE /* CafeDetailViewController.xib */; };
 		21569DA42955F992003D84AE /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA32955F992003D84AE /* ImageRepository.swift */; };
 		21569DA72956027E003D84AE /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA62956027E003D84AE /* ImageCache.swift */; };
+		21569DA929560E6F003D84AE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA829560E6F003D84AE /* UIImageView.swift */; };
 		219633AA28E0D64E004C5A97 /* CafeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A928E0D64E004C5A97 /* CafeDetailViewModel.swift */; };
 		21A1D7802952805C0061DE76 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1D77F2952805C0061DE76 /* NetworkServiceTests.swift */; };
 		21A1D782295280AD0061DE76 /* NetworkConfigurableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1D781295280AD0061DE76 /* NetworkConfigurableMock.swift */; };
@@ -105,6 +106,7 @@
 		21569D9F2955F160003D84AE /* CafeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CafeDetailViewController.xib; sourceTree = "<group>"; };
 		21569DA32955F992003D84AE /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		21569DA62956027E003D84AE /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		21569DA829560E6F003D84AE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		219633A928E0D64E004C5A97 /* CafeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailViewModel.swift; sourceTree = "<group>"; };
 		21A1D77F2952805C0061DE76 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		21A1D781295280AD0061DE76 /* NetworkConfigurableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurableMock.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				21AB9BF228EDB84D00A1796B /* UIView.swift */,
 				7952AB3C28C05CD400607B77 /* Encodable.swift */,
 				2106D38729478ECF00321A5D /* Dictionary.swift */,
+				21569DA829560E6F003D84AE /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				2106D391294A30C500321A5D /* ConnectionError.swift in Sources */,
 				219633AA28E0D64E004C5A97 /* CafeDetailViewModel.swift in Sources */,
 				214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */,
+				21569DA929560E6F003D84AE /* UIImageView.swift in Sources */,
 				21B9EDD9291951B600A2E6B9 /* SearchCafeUseCase.swift in Sources */,
 				21A445D62913057600986160 /* Endpoint.swift in Sources */,
 				7952AB3D28C05CD400607B77 /* Encodable.swift in Sources */,

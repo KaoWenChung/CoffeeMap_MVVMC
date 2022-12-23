@@ -23,11 +23,14 @@ final class CafeListViewController: UIViewController, Alertable {
     private(set) var locationManager: LocationManager?
     private var tableViewAdapter: TableViewAdapter?
     private let viewModel: CafeListViewModelType
+    private let imageRepository: ImageRepositoryType
     private let refreshControl = UIRefreshControl()
 
-    init(_ viewModel: CafeListViewModelType, locationManager: LocationManager = CLLocationManager()) {
+    init(_ viewModel: CafeListViewModelType, locationManager: LocationManager = CLLocationManager(),
+         imageRepository: ImageRepositoryType) {
         self.viewModel = viewModel
         self.locationManager = locationManager
+        self.imageRepository = imageRepository
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -138,7 +141,7 @@ extension CafeListViewController: TableViewAdapterDelegate {
     func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath) {
         switch (model, view) {
         case (let model as CafeListTableViewCellModel, let view as CafeListTableViewCell):
-            view.setupView(model)
+            view.setupView(model, imageRepository: imageRepository)
         default:
             break
         }

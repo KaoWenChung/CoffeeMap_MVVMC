@@ -30,7 +30,9 @@ final class AppDIContainer {
 
     // MARK: - DIContainers of scenes
     func makeCafeSceneDIContainer() -> CafeSceneDIContainer {
-        let dependencies = CafeSceneDIContainer.Dependencies(dataTransferService: apiDataTransferService)
+        let dependencies = CafeSceneDIContainer.Dependencies(dataTransferService: apiDataTransferService,
+                                                             imageDataTransferService: imageDataTransferService,
+                                                             imageCache: imageCache)
         return CafeSceneDIContainer(dependencies: dependencies)
     }
 

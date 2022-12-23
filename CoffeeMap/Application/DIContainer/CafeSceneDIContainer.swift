@@ -11,6 +11,8 @@ final class CafeSceneDIContainer {
 
     struct Dependencies {
         let dataTransferService: DataTransferServiceType
+        let imageDataTransferService: DataTransferServiceType
+        let imageCache: ImageCacheType
     }
     private let dependencies: Dependencies
 
@@ -27,10 +29,14 @@ final class CafeSceneDIContainer {
     func makeCafePlacesRepository() -> CafePlacesRepositoryType {
         return CafePlacesRepository(dataTransferService: dependencies.dataTransferService)
     }
+    
+    func makeImagesRepository() -> ImageRepositoryType {
+        return ImageRepository(dataTransferService: dependencies.imageDataTransferService, imageCache: dependencies.imageCache)
+    }
 
     // MARK: - Cafe Place List
     func makeCafeListViewController(actions: CafeListViewModelActions?) -> CafeListViewController {
-        return CafeListViewController(makeCafeListViewModel(actions: actions))
+        return CafeListViewController(makeCafeListViewModel(actions: actions), imageRepository: makeImagesRepository())
     }
     
     func makeCafeListViewModel(actions: CafeListViewModelActions?) -> CafeListViewModel {
