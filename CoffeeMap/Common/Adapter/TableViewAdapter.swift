@@ -8,16 +8,12 @@
 import UIKit
 
 public protocol TableViewAdapterDelegate: AnyObject {
-
     /// Apply model to view
     func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath)
-
     /// Handle view selection
     func select(model: AdapterItemModel)
-
     /// Size the view
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize
-
 }
 
 public class TableViewAdapter: NSObject {
@@ -27,7 +23,6 @@ public class TableViewAdapter: NSObject {
     public private(set) var sections: [AdapterSectionModel] = []
     let registerService = TableViewRegistryService()
     
-
     public init(_ tableView: UITableView) {
         super.init()
         self.tableView = tableView
@@ -51,7 +46,6 @@ public class TableViewAdapter: NSObject {
 extension TableViewAdapter: UITableViewDataSource {
     
     open func numberOfSections(in tableView: UITableView) -> Int {
-        // TODO: Because this is a simple project, I gave it a fix number
         return sections.count
     }
 

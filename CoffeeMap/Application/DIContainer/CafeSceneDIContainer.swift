@@ -21,8 +21,8 @@ final class CafeSceneDIContainer {
     }
 
     // MARK: - UseCase
-    func makeSearchCafeUseCase() -> SearchCafeUseCaseType {
-        return SearchCafeUseCase(cafeRepository: makeCafePlacesRepository())
+    func makeSearchCafeListUseCase() -> SearchCafeListUseCaseType {
+        return SearchCafeListUseCase(cafeRepository: makeCafePlacesRepository())
     }
 
     // MARK: - Repositories
@@ -40,7 +40,7 @@ final class CafeSceneDIContainer {
     }
     
     func makeCafeListViewModel(actions: CafeListViewModelActions?) -> CafeListViewModel {
-        return CafeListViewModel(searchCafeUseCase: makeSearchCafeUseCase(), actions: actions)
+        return CafeListViewModel(searchCafeUseCase: makeSearchCafeListUseCase(), actions: actions)
     }
 
     // MARK: - Flow Coordinators

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CafeListTableViewCell: UITableViewCell {
+final class CafeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -24,7 +24,7 @@ final class CafeListTableViewCell: UITableViewCell {
         iconImageView.image = nil
     }
 
-    func setupView(_ rowModel: CafeListTableViewCellModel, imageRepository: ImageRepositoryType) {
+    func setupView(_ rowModel: CafeTableViewCellModel, imageRepository: ImageRepositoryType) {
         nameLabel.text = rowModel.name
         addressLabel.text = rowModel.address
         distanceLabel.text = rowModel.distance

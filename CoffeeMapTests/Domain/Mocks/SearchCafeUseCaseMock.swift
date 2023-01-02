@@ -8,18 +8,18 @@
 import XCTest
 @testable import CoffeeMap
 
-final class SearchCafeUseCaseMock: SearchCafeUseCaseType {
-    let response: [CafeListTableViewCellModel]
+final class SearchCafeUseCaseMock: SearchCafeListUseCaseType {
+    let response: [CafeTableViewCellModel]
     let error: Error?
     let expectation: XCTestExpectation?
-    init(response: [CafeListTableViewCellModel],
+    init(response: [CafeTableViewCellModel],
          error: Error?,
          expectation: XCTestExpectation?) {
         self.response = response
         self.error = error
         self.expectation = expectation
     }
-    func execute(request: CafePlaceRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType) {
+    func execute(request: CafePlaceRequestDTO) async throws -> ([CafeTableViewCellModel], CancellableType) {
         expectation?.fulfill()
         if let error = error {
             throw error

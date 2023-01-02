@@ -13,6 +13,12 @@ struct APIEndpoints {
                         method: .get,
                         queryParametersEncodable: request)
     }
+
+    static func getCafePhotos(with request: CafePhotosRequestDTO) -> Endpoint<[CafePhotosResponseDTO]> {
+        return Endpoint(path: "v3/places/\(request.fsqId)/photos",
+                        method: .get)
+    }
+
     static func getImage(path: String) -> Endpoint<Data> {
         return Endpoint(path: path,
                         isFullPath: true,

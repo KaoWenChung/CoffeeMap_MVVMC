@@ -30,7 +30,7 @@ class CafeListViewModelTests: XCTestCase {
         await sut.fetchData(ll: "51.50998,-0.1337")
         let items = sut.placeList.value.first?.items
 
-        if let items = items as? [CafeListTableViewCellModel] {
+        if let items = items as? [CafeTableViewCellModel] {
             XCTAssertEqual(items.count, 10)
             XCTAssertEqual(items.first?.name, "Caffè Concerto")
             XCTAssertEqual(items.last?.name, "Piggy's")

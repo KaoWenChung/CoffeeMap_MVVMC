@@ -6,11 +6,11 @@
 //
 
 struct CafeListViewModelActions {
-    let showCafeRoute: (CafeListTableViewCellModel) -> Void
+    let showCafeRoute: (CafeTableViewCellModel) -> Void
 }
 protocol CafeListViewModelInput {
     func fetchData(ll: String) async
-    func didSelectItem(_ viewModel: CafeListTableViewCellModel)
+    func didSelectItem(_ viewModel: CafeTableViewCellModel)
 }
 
 protocol CafeListViewModelOutput {
@@ -23,7 +23,7 @@ protocol CafeListViewModelType: CafeListViewModelInput, CafeListViewModelOutput 
 
 final class CafeListViewModel: CafeListViewModelType {
 
-    private let searchCafeUseCase: SearchCafeUseCaseType
+    private let searchCafeUseCase: SearchCafeListUseCaseType
     private let actions: CafeListViewModelActions?
     
     let placeList: Observable<[AdapterSectionModel]> = Observable([])
@@ -32,7 +32,7 @@ final class CafeListViewModel: CafeListViewModelType {
 
     private var cafesLoadTask: CancellableType? { willSet { cafesLoadTask?.cancel() } }
     
-    init(searchCafeUseCase: SearchCafeUseCaseType,
+    init(searchCafeUseCase: SearchCafeListUseCaseType,
          actions: CafeListViewModelActions?) {
         self.searchCafeUseCase = searchCafeUseCase
         self.actions = actions
@@ -54,7 +54,7 @@ extension CafeListViewModel {
         }
     }
 
-    func didSelectItem(_ viewModel: CafeListTableViewCellModel) {
+    func didSelectItem(_ viewModel: CafeTableViewCellModel) {
         actions?.showCafeRoute(viewModel)
     }
 }

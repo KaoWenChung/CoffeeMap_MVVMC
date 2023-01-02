@@ -11,7 +11,7 @@ class CafeDetailViewModel {
     let coordinate: (latitude: Double, longitude: Double)?
     let address: String
 
-    init(_ rowModel: CafeListTableViewCellModel) {
+    init(_ rowModel: CafeTableViewCellModel) {
         name = rowModel.name
         self.coordinate = rowModel.coordinate
         address = rowModel.address

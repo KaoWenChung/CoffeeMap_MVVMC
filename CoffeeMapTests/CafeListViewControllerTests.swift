@@ -84,8 +84,8 @@ class CafeListViewControllerTests: XCTestCase {
 
 private extension UITableView {
 
-    func placeSearchCell(at row: Int) -> CafeListTableViewCell? {
-        return dataSource?.tableView(self, cellForRowAt: IndexPath(row: row, section: 0)) as? CafeListTableViewCell
+    func placeSearchCell(at row: Int) -> CafeTableViewCell? {
+        return dataSource?.tableView(self, cellForRowAt: IndexPath(row: row, section: 0)) as? CafeTableViewCell
     }
 
 }

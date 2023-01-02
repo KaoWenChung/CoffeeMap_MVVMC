@@ -7,18 +7,19 @@
 
 import UIKit
 
-struct CafeListTableViewCellModel: AdapterItemModel {
+struct CafeTableViewCellModel: AdapterItemModel {
     enum CafeListTableViewCellString: LocallizedStringType {
         case meters
     }
-    var type: UIView.Type { return CafeListTableViewCell.self }
+    var type: UIView.Type { return CafeTableViewCell.self }
     let name: String
     let address: String
     let distance: String?
     let iconURL: String?
     let coordinate: (latitude: Double, longitude: Double)?
+    let photo: [CafePhotoModel]
     
-    init(_ dataModel: CafePlaceResponseDTO.GetPlaceResultsDTO) {
+    init(_ dataModel: CafePlaceResponseDTO.GetPlaceResultsDTO, photoModel: [CafePhotoModel]) {
         name = dataModel.name ?? ""
         if let location = dataModel.location,
            let address = location.formattedAddress,
@@ -48,5 +49,6 @@ struct CafeListTableViewCellModel: AdapterItemModel {
         } else {
             iconURL = nil
         }
+        self.photo = photoModel
     }
 }

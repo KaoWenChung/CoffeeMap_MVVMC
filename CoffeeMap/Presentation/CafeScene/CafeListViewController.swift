@@ -54,7 +54,7 @@ final class CafeListViewController: UIViewController, Alertable {
         super.viewDidLoad()
         title = CafeListViewControllerString.title.text
         tableViewAdapter = .init(tableView)
-        tableViewAdapter?.register(CafeListTableViewCell.self)
+        tableViewAdapter?.register(CafeTableViewCell.self)
         tableViewAdapter?.delegate = self
         bind(to: viewModel)
         initLocationManager()
@@ -140,7 +140,7 @@ extension CafeListViewController: TableViewAdapterDelegate {
 
     func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath) {
         switch (model, view) {
-        case (let model as CafeListTableViewCellModel, let view as CafeListTableViewCell):
+        case (let model as CafeTableViewCellModel, let view as CafeTableViewCell):
             view.setupView(model, imageRepository: imageRepository)
         default:
             break
@@ -148,7 +148,7 @@ extension CafeListViewController: TableViewAdapterDelegate {
     }
     
     func select(model: AdapterItemModel) {
-        if let model = model as? CafeListTableViewCellModel {
+        if let model = model as? CafeTableViewCellModel {
             viewModel.didSelectItem(model)
         }
         

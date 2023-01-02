@@ -14,11 +14,19 @@ struct CafePlacesRepository {
 }
 
 extension CafePlacesRepository: CafePlacesRepositoryType {
-    func getPlace(request: CafePlaceRequestDTO) async throws -> ([CafeListTableViewCellModel], CancellableType) {
+    func getPlace(request: CafePlaceRequestDTO) async throws -> (CafePlaceResponseDTO, CancellableType) {
         let task = RepositoryTask()
         let endpoint = APIEndpoints.getCafePlaces(with: request)
         let (data, taskCancellable) = try await dataTransferService.request(with: endpoint)
         task.networkTask = taskCancellable
-        return (data.toDomain(), task)
+        return (data, task)
+    }
+
+    func getPhotos(request: CafePhotosRequestDTO) async throws -> ([CafePhotoModel]) {
+        let task = RepositoryTask()
+        let endpoint = APIEndpoints.getCafePhotos(with: request)
+        let (data, taskCancellable) = try await dataTransferService.request(with: endpoint)
+        task.networkTask = taskCancellable
+        return data.toDomain()
     }
 }
