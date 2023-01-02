@@ -41,10 +41,9 @@ struct CafeTableViewCellModel: AdapterItemModel {
         } else {
             coordinate = nil
         }
-        if let category = dataModel.categories?.first,
-           let icon = category.icon,
-           let prefix = icon.prefix,
-           let suffix = icon.suffix {
+        if let photo = photoModel.first,
+           let prefix = photo.prefix,
+           let suffix = photo.suffix {
             iconURL = prefix + "64" + suffix
         } else {
             iconURL = nil

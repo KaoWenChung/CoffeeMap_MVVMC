@@ -33,6 +33,4 @@ final class SearchCafeListUseCase: SearchCafeListUseCaseType {
         }
         return (cafeCellModels, task)
     }
-    
-    
 }
