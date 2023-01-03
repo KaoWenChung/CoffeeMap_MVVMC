@@ -25,8 +25,6 @@
 		214999CE291AC7B900F412BD /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999CD291AC7B900F412BD /* AppFlowCoordinator.swift */; };
 		21569D912954BC44003D84AE /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569D902954BC44003D84AE /* Contents.swift */; };
 		21569D932954BE09003D84AE /* DataTransferServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569D922954BE09003D84AE /* DataTransferServiceTests.swift */; };
-		21569DA02955F160003D84AE /* CafeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569D9E2955F160003D84AE /* CafeDetailViewController.swift */; };
-		21569DA12955F160003D84AE /* CafeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21569D9F2955F160003D84AE /* CafeDetailViewController.xib */; };
 		21569DA42955F992003D84AE /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA32955F992003D84AE /* ImageRepository.swift */; };
 		21569DA72956027E003D84AE /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA62956027E003D84AE /* ImageCache.swift */; };
 		21569DA929560E6F003D84AE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA829560E6F003D84AE /* UIImageView.swift */; };
@@ -108,8 +106,6 @@
 		214999CD291AC7B900F412BD /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		21569D902954BC44003D84AE /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
 		21569D922954BE09003D84AE /* DataTransferServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTransferServiceTests.swift; sourceTree = "<group>"; };
-		21569D9E2955F160003D84AE /* CafeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailViewController.swift; sourceTree = "<group>"; };
-		21569D9F2955F160003D84AE /* CafeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CafeDetailViewController.xib; sourceTree = "<group>"; };
 		21569DA32955F992003D84AE /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		21569DA62956027E003D84AE /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		21569DA829560E6F003D84AE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
@@ -309,8 +305,6 @@
 				79290E0F28C080D300439E38 /* Cell */,
 				79242C6228C03ADD00766059 /* CafeListViewController.swift */,
 				796EB61F28C18E0300F1A01B /* CafeListViewController.xib */,
-				21569D9E2955F160003D84AE /* CafeDetailViewController.swift */,
-				21569D9F2955F160003D84AE /* CafeDetailViewController.xib */,
 				21BAEBFA28E0671E002616F6 /* CafeMapViewController.swift */,
 				21BAEBFB28E0671E002616F6 /* CafeMapViewController.xib */,
 			);
@@ -650,7 +644,6 @@
 			files = (
 				21BAEBFD28E0671E002616F6 /* CafeMapViewController.xib in Resources */,
 				2106D399294A33FE00321A5D /* Localizable.strings in Resources */,
-				21569DA12955F160003D84AE /* CafeDetailViewController.xib in Resources */,
 				79242C6B28C03ADF00766059 /* LaunchScreen.storyboard in Resources */,
 				79242C6828C03ADF00766059 /* Assets.xcassets in Resources */,
 				79290E0E28C080CF00439E38 /* CafeTableViewCell.xib in Resources */,
@@ -702,7 +695,6 @@
 				21B9EDD9291951B600A2E6B9 /* SearchCafeListUseCase.swift in Sources */,
 				21A445D62913057600986160 /* Endpoint.swift in Sources */,
 				7952AB3D28C05CD400607B77 /* Encodable.swift in Sources */,
-				21569DA02955F160003D84AE /* CafeDetailViewController.swift in Sources */,
 				21B9EDD329157FBC00A2E6B9 /* CafeSceneDIContainer.swift in Sources */,
 				2103D840296343CA00EEF30B /* CafePhotosResponseDTO+Mapping.swift in Sources */,
 				79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */,

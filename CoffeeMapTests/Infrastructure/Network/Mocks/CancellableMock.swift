@@ -7,6 +7,6 @@
 
 @testable import CoffeeMap
 
-class CancellableMock: CancellableType {
+final class CancellableMock: CancellableType {
     func cancel() {}
 }

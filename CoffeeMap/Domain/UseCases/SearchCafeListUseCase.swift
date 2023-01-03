@@ -18,7 +18,7 @@ final class SearchCafeListUseCase: SearchCafeListUseCaseType {
     init(cafeRepository: CafePlacesRepositoryType) {
         self.cafeRepository = cafeRepository
     }
-    
+    // It's going to fetch the cafe list to get their fsqID and then use them to fetch cafe photos of every each cafe entity 
     func execute(request: CafePlaceRequestDTO) async throws -> ([CafeTableViewCellModel], CancellableType) {
         let (cafeList, task) = try await cafeRepository.getPlace(request: request)
         var cafeCellModels: [CafeTableViewCellModel] = []

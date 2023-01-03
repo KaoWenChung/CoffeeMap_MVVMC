@@ -26,6 +26,9 @@ Modify method getAPIKey in class AppConfiguration
 - Unit testing
   - Implement dependency injection and mock dependencies to improve the testability of code.
 
+### Image Cache
+- Implement image cache by NSCache
+
 ### Technologies:
 - Swift
 - MVVM
@@ -37,6 +40,7 @@ Modify method getAPIKey in class AppConfiguration
 - Unit testing
 - Coordinator
 - Observable
+- Image Cache (NSCache)
 - Dependency Injection
 - Adapter pattern (TableViewAdapter)
 - Singleton pattern (Spinner)
@@ -44,4 +48,4 @@ Modify method getAPIKey in class AppConfiguration
 ### To-Do list of features and time I need:
 - [x] A map page shows the user and coffee venue location
 - [ ] UI testing
-- [ ] Use Foursquare API to get coffee venue photos and show them on the table view cell - 2 hours
+- [x] Use Foursquare API to get coffee venue photos and show them on the table view cell - 2 hours
