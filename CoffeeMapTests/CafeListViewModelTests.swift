@@ -24,9 +24,11 @@ class CafeListViewModelTests: XCTestCase {
     func testGetSortedGetPlaceResult_StubLondonData() async throws {
         let expectation = expectation(description: "Should get data")
         let getplaceDataModel: CafePlaceResponseDTO = try fetchStubModel(fileName: "GetPlace_London")
-        
-        let sut = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: getplaceDataModel.toDomain(),error: nil, expectation: expectation), actions: nil)
-        
+        var response: [CafeTableViewCellModel] = []
+        for result in getplaceDataModel.results ?? [] {
+            response.append(CafeTableViewCellModel(result, photoModel: []))
+        }
+        let sut = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: response, error: nil, expectation: expectation), actions: nil)
         await sut.fetchData(ll: "51.50998,-0.1337")
         let items = sut.placeList.value.first?.items
 

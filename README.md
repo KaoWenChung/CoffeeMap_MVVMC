@@ -25,7 +25,6 @@ Modify method getAPIKey in class AppConfiguration
 ### Test Implementation
 - Unit testing
   - Implement dependency injection and mock dependencies to improve the testability of code.
-
 ### Image Cache
 - Implement image cache by NSCache
 

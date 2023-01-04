@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ImageRepositoryType {
-    func fetchImage(with imagePath: String) async throws -> (UIImage?, CancellableType?)
+    func fetchImage(with imagePath: String) async throws -> UIImage?
 }
 
 struct ImageRepository {
@@ -23,16 +23,14 @@ struct ImageRepository {
 }
 
 extension ImageRepository: ImageRepositoryType {
-    func fetchImage(with imagePath: String) async throws -> (UIImage?, CancellableType?) {
+    func fetchImage(with imagePath: String) async throws -> UIImage? {
         let endpoint = APIEndpoints.getImage(path: imagePath)
         if let image = imageCache[imagePath] {
-            return (image, nil)
+            return image
         }
-        let task = RepositoryTask()
-        let (data, taskCancellable) = try await dataTransferService.request(with: endpoint)
-        task.networkTask = taskCancellable
+        let data = try await dataTransferService.request(with: endpoint)
         let imageResult = UIImage(data:data)
         self.imageCache.insertImage(imageResult, for: imagePath)
-        return (imageResult, task)
+        return imageResult
     }
 }

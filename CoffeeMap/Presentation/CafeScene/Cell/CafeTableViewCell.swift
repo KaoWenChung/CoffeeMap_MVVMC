@@ -28,8 +28,12 @@ final class CafeTableViewCell: UITableViewCell {
         nameLabel.text = rowModel.name
         addressLabel.text = rowModel.address
         distanceLabel.text = rowModel.distance
+        let task = Task {
+            await iconImageView.downloaded(imageLoader: imageRepository, from: rowModel.iconURL)
+        }
+        imageLoadTask = task
         Task.init {
-            imageLoadTask = await iconImageView.downloaded(imageLoader: imageRepository, from: rowModel.iconURL)
+            await task.value
         }
     }
 }

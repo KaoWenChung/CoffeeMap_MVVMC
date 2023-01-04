@@ -8,3 +8,5 @@
 public protocol CancellableType {
     func cancel()
 }
+
+extension Task: CancellableType {}

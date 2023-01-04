@@ -45,13 +45,16 @@ final class CafeListViewModel: CafeListViewModelType {
 }
 extension CafeListViewModel {
     func fetchData(ll: String) async {
-        do {
-            let (value, task) = try await searchCafeUseCase.execute(request: CafePlaceRequestDTO(ll: ll, sort: "DISTANCE"))
-            placeList.value = [AdapterSectionModel(items: value)]
-            cafesLoadTask = task
-        } catch {
-            handle(error: error)
+        let task = Task {
+            do {
+                let value = try await searchCafeUseCase.execute(request: CafePlaceRequestDTO(ll: ll, sort: "DISTANCE"))
+                placeList.value = [AdapterSectionModel(items: value)]
+            } catch {
+                handle(error: error)
+            }
         }
+        cafesLoadTask = task
+        await task.value
     }
 
     func didSelectItem(_ viewModel: CafeTableViewCellModel) {

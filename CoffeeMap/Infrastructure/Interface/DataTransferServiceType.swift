@@ -9,8 +9,8 @@ import Foundation
 
 public protocol DataTransferServiceType {
     
-    func request<T: Decodable, E: ResponseRequestableType>(with endpoint: E) async throws -> (T, URLTask) where E.Response == T
-    func request<E: ResponseRequestableType>(with endpoint: E) async throws -> URLTask where E.Response == Void
+    func request<T: Decodable, E: ResponseRequestableType>(with endpoint: E) async throws -> T where E.Response == T
+    func request<E: ResponseRequestableType>(with endpoint: E) async throws where E.Response == Void
 }
 
 public protocol DataTransferErrorResolverType {

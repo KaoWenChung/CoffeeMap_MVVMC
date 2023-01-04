@@ -7,7 +7,7 @@
 
 protocol CafePlacesRepositoryType {
 
-    func getPlace(request: CafePlaceRequestDTO) async throws -> (CafePlaceResponseDTO, CancellableType)
+    func getPlace(request: CafePlaceRequestDTO) async throws -> CafePlaceResponseDTO
     func getPhotos(request: CafePhotosRequestDTO) async throws -> [CafePhotoModel]
 
 }

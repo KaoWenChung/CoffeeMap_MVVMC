@@ -9,7 +9,7 @@ import Foundation
 @testable import CoffeeMap
 
 struct NetworkConfigurableMock: NetworkConfigurableType {
-    var baseURL: URL = URL(string: "https://mock.testing.com")!
+    var baseURL: URL? = URL(string: "https://mock.testing.com")
     var headers: [String: String] = [:]
     var queryParameters: [String: String] = [:]
 }

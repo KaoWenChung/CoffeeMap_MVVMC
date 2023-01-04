@@ -59,8 +59,12 @@ class CafeListViewControllerTests: XCTestCase {
     // MARK: - Helper
     private func makeSUTWithLocation(_ location: CLLocation?) throws -> CafeListViewController {
         let getplaceDataModel: CafePlaceResponseDTO = try fetchStubModel(fileName: "GetPlace_London")
-        let mockViewModel = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: getplaceDataModel.toDomain(),error: nil, expectation: nil), actions: nil)
-        let sut = CafeListViewController(mockViewModel, locationManager: LocationManagerMock(location: location))
+        var response: [CafeTableViewCellModel] = []
+        for result in getplaceDataModel.results ?? [] {
+            response.append(CafeTableViewCellModel(result, photoModel: []))
+        }
+        let mockViewModel = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: response, error: nil, expectation: nil), actions: nil)
+        let sut = CafeListViewController(mockViewModel, locationManager: LocationManagerMock(location: location), imageRepository: ImageRepositoryMock(response: nil, error: nil, expectation: nil))
         return sut
     }
     

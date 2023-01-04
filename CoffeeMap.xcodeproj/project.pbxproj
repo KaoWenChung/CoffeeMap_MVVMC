@@ -18,7 +18,7 @@
 		2106D396294A33B300321A5D /* CommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2106D395294A33B300321A5D /* CommonString.swift */; };
 		2106D399294A33FE00321A5D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2106D39B294A33FE00321A5D /* Localizable.strings */; };
 		21135558294B7D830039287B /* SearchCafeUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21135557294B7D830039287B /* SearchCafeUseCaseMock.swift */; };
-		2113555D294B7E100039287B /* CancellableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113555C294B7E100039287B /* CancellableMock.swift */; };
+		2113555D294B7E100039287B /* ImageRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113555C294B7E100039287B /* ImageRepositoryMock.swift */; };
 		214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C22919BCA400F412BD /* APIEndpoints.swift */; };
 		214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */; };
 		214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */; };
@@ -29,6 +29,7 @@
 		21569DA72956027E003D84AE /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA62956027E003D84AE /* ImageCache.swift */; };
 		21569DA929560E6F003D84AE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA829560E6F003D84AE /* UIImageView.swift */; };
 		219633AA28E0D64E004C5A97 /* CafeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A928E0D64E004C5A97 /* CafeDetailViewModel.swift */; };
+		219892772965BB7F0096C4B7 /* CancellableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219892762965BB7F0096C4B7 /* CancellableType.swift */; };
 		21A1D7802952805C0061DE76 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1D77F2952805C0061DE76 /* NetworkServiceTests.swift */; };
 		21A1D782295280AD0061DE76 /* NetworkConfigurableMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1D781295280AD0061DE76 /* NetworkConfigurableMock.swift */; };
 		21A1D784295280C40061DE76 /* NetworkSessionManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1D783295280C40061DE76 /* NetworkSessionManagerMock.swift */; };
@@ -44,9 +45,7 @@
 		21AB9BF928EDBB3D00A1796B /* AdapterItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21AB9BF828EDBB3D00A1796B /* AdapterItemModel.swift */; };
 		21B9EDD12915774C00A2E6B9 /* AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDD02915774C00A2E6B9 /* AppDIContainer.swift */; };
 		21B9EDD329157FBC00A2E6B9 /* CafeSceneDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDD229157FBC00A2E6B9 /* CafeSceneDIContainer.swift */; };
-		21B9EDD529187F3C00A2E6B9 /* CancellableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDD429187F3C00A2E6B9 /* CancellableType.swift */; };
 		21B9EDD9291951B600A2E6B9 /* SearchCafeListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDD8291951B600A2E6B9 /* SearchCafeListUseCase.swift */; };
-		21B9EDDC2919556000A2E6B9 /* RepositoryTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9EDDB2919556000A2E6B9 /* RepositoryTask.swift */; };
 		21BAEBFC28E0671E002616F6 /* CafeMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BAEBFA28E0671E002616F6 /* CafeMapViewController.swift */; };
 		21BAEBFD28E0671E002616F6 /* CafeMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BAEBFB28E0671E002616F6 /* CafeMapViewController.xib */; };
 		21C5F3322951097C003CEBAE /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C5F3312951097C003CEBAE /* RegisterService.swift */; };
@@ -99,7 +98,7 @@
 		2106D395294A33B300321A5D /* CommonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonString.swift; sourceTree = "<group>"; };
 		2106D39A294A33FE00321A5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21135557294B7D830039287B /* SearchCafeUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCafeUseCaseMock.swift; sourceTree = "<group>"; };
-		2113555C294B7E100039287B /* CancellableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableMock.swift; sourceTree = "<group>"; };
+		2113555C294B7E100039287B /* ImageRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoryMock.swift; sourceTree = "<group>"; };
 		214999C22919BCA400F412BD /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetPlaceResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeSearchFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		21569DA62956027E003D84AE /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		21569DA829560E6F003D84AE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		219633A928E0D64E004C5A97 /* CafeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailViewModel.swift; sourceTree = "<group>"; };
+		219892762965BB7F0096C4B7 /* CancellableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancellableType.swift; sourceTree = "<group>"; };
 		21A1D77F2952805C0061DE76 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		21A1D781295280AD0061DE76 /* NetworkConfigurableMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurableMock.swift; sourceTree = "<group>"; };
 		21A1D783295280C40061DE76 /* NetworkSessionManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionManagerMock.swift; sourceTree = "<group>"; };
@@ -125,9 +125,7 @@
 		21AB9BF828EDBB3D00A1796B /* AdapterItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdapterItemModel.swift; sourceTree = "<group>"; };
 		21B9EDD02915774C00A2E6B9 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		21B9EDD229157FBC00A2E6B9 /* CafeSceneDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeSceneDIContainer.swift; sourceTree = "<group>"; };
-		21B9EDD429187F3C00A2E6B9 /* CancellableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableType.swift; sourceTree = "<group>"; };
 		21B9EDD8291951B600A2E6B9 /* SearchCafeListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCafeListUseCase.swift; sourceTree = "<group>"; };
-		21B9EDDB2919556000A2E6B9 /* RepositoryTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTask.swift; sourceTree = "<group>"; };
 		21BAEBFA28E0671E002616F6 /* CafeMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CafeMapViewController.swift; path = CoffeeMap/Presentation/CafeScene/CafeMapViewController.swift; sourceTree = SOURCE_ROOT; };
 		21BAEBFB28E0671E002616F6 /* CafeMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CafeMapViewController.xib; path = CoffeeMap/Presentation/CafeScene/CafeMapViewController.xib; sourceTree = SOURCE_ROOT; };
 		21C5F3312951097C003CEBAE /* RegisterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
@@ -262,7 +260,7 @@
 		2113555B294B7E040039287B /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				2113555C294B7E100039287B /* CancellableMock.swift */,
+				2113555C294B7E100039287B /* ImageRepositoryMock.swift */,
 				21A1D783295280C40061DE76 /* NetworkSessionManagerMock.swift */,
 				21A1D781295280AD0061DE76 /* NetworkConfigurableMock.swift */,
 			);
@@ -416,7 +414,6 @@
 		21B9EDDA2919554C00A2E6B9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				21B9EDDB2919556000A2E6B9 /* RepositoryTask.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -537,8 +534,8 @@
 				7952AB1828C03F2600607B77 /* Adapter */,
 				21AB9BF128EDB83100A1796B /* Extension */,
 				79290E1928C0AB4D00439E38 /* Spinner.swift */,
+				219892762965BB7F0096C4B7 /* CancellableType.swift */,
 				79290E1B28C0AC3E00439E38 /* Alertable.swift */,
-				21B9EDD429187F3C00A2E6B9 /* CancellableType.swift */,
 				2106D390294A30C500321A5D /* ConnectionError.swift */,
 				21569D902954BC44003D84AE /* Contents.swift */,
 			);
@@ -672,7 +669,6 @@
 				7952AB3A28C0563D00607B77 /* CafePlacesRepository.swift in Sources */,
 				21BAEBFC28E0671E002616F6 /* CafeMapViewController.swift in Sources */,
 				79242C6328C03ADD00766059 /* CafeListViewController.swift in Sources */,
-				21B9EDD529187F3C00A2E6B9 /* CancellableType.swift in Sources */,
 				21569DA42955F992003D84AE /* ImageRepository.swift in Sources */,
 				2106D396294A33B300321A5D /* CommonString.swift in Sources */,
 				214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */,
@@ -686,12 +682,12 @@
 				79290E1A28C0AB4D00439E38 /* Spinner.swift in Sources */,
 				7952AB1A28C03F5000607B77 /* TableViewAdapter.swift in Sources */,
 				2106D38F2947995100321A5D /* Observable.swift in Sources */,
-				21B9EDDC2919556000A2E6B9 /* RepositoryTask.swift in Sources */,
 				7952AB3628C0552C00607B77 /* NetworkService.swift in Sources */,
 				2106D391294A30C500321A5D /* ConnectionError.swift in Sources */,
 				219633AA28E0D64E004C5A97 /* CafeDetailViewModel.swift in Sources */,
 				214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */,
 				21569DA929560E6F003D84AE /* UIImageView.swift in Sources */,
+				219892772965BB7F0096C4B7 /* CancellableType.swift in Sources */,
 				21B9EDD9291951B600A2E6B9 /* SearchCafeListUseCase.swift in Sources */,
 				21A445D62913057600986160 /* Endpoint.swift in Sources */,
 				7952AB3D28C05CD400607B77 /* Encodable.swift in Sources */,
@@ -723,7 +719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79290E1828C09CED00439E38 /* CafeListViewControllerTests.swift in Sources */,
-				2113555D294B7E100039287B /* CancellableMock.swift in Sources */,
+				2113555D294B7E100039287B /* ImageRepositoryMock.swift in Sources */,
 				21A1D7802952805C0061DE76 /* NetworkServiceTests.swift in Sources */,
 				21A1D782295280AD0061DE76 /* NetworkConfigurableMock.swift in Sources */,
 				7952AB3F28C0619E00607B77 /* CafeListViewModelTests.swift in Sources */,
