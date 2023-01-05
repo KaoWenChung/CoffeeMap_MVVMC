@@ -23,7 +23,7 @@ final class DataTransferServiceTests: XCTestCase {
         Task.init {
             do {
                 let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
-                let value = try await sut.request(with: mockEndpoint)
+                let value: MockResponseData = try await sut.request(with: mockEndpoint)
                 XCTAssertEqual(value.name, "Mike")
                 expectation.fulfill()
             } catch {
@@ -41,7 +41,7 @@ final class DataTransferServiceTests: XCTestCase {
         Task.init {
             do {
                 let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
-                let _ = try await sut.request(with: mockEndpoint)
+                let _: MockResponseData = try await sut.request(with: mockEndpoint)
                 XCTFail("Should not successfully decode data")
             } catch {
                 expectation.fulfill()
