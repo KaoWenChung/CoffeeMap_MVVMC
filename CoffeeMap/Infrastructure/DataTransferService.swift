@@ -42,6 +42,19 @@ extension DataTransferService: DataTransferServiceType {
         }
     }
 
+    public func request<T: Decodable, E: ResponseRequestableType>(with endpoint: E) async throws -> (T, URLResponse) where E.Response == T {
+        do {
+            let task = try networkService.request(endpoint: endpoint)
+            let (data, response) = try await task.value
+            let result: T = try decode(data: data, decoder: endpoint.responseDecoder)
+            return (result, response)
+        } catch let error as NetworkError {
+            errorLogger.log(error: error)
+            let error = self.resolve(networkError: error)
+            throw error
+        }
+    }
+
     public func request<E>(with endpoint: E) async throws where E : ResponseRequestableType, E.Response == Void {
         do {
             try networkService.request(endpoint: endpoint)

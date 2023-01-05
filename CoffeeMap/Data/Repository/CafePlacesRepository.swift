@@ -5,6 +5,8 @@
 //  Created by owenkao on 2022/09/01.
 //
 
+import Foundation
+
 struct CafePlacesRepository {
     private let dataTransferService: DataTransferServiceType
 
@@ -14,15 +16,35 @@ struct CafePlacesRepository {
 }
 
 extension CafePlacesRepository: CafePlacesRepositoryType {
-    func getPlace(request: CafePlaceRequestDTO) async throws -> CafePlaceResponseDTO {
+    private enum Content {
+        static let link = "Link"
+        static let lowerRange = "cursor="
+        static let upperRange = "&sort"
+    }
+    func getPlace(request: CafePlaceRequestDTO) async throws -> CafePlaceResponse {
         let endpoint = APIEndpoints.getCafePlaces(with: request)
-        let data = try await dataTransferService.request(with: endpoint)
-        return data
+        let (data, response) = try await dataTransferService.request(with: endpoint)
+        let cursor = getNextPageFromHeaders(response: response as? HTTPURLResponse)
+        return CafePlaceResponse(cursor: cursor, response: data)
     }
 
     func getPhotos(request: CafePhotosRequestDTO) async throws -> [CafePhotoModel] {
         let endpoint = APIEndpoints.getCafePhotos(with: request)
-        let data = try await dataTransferService.request(with: endpoint)
+        let data: [CafePhotosResponseDTO] = try await dataTransferService.request(with: endpoint)
         return data.toDomain()
+    }
+
+    // MARK: - Pagination
+    private func getNextPageFromHeaders(response: HTTPURLResponse?) -> String? {
+        if let linkHeader = response?.allHeaderFields[Content.link] as? String {
+            /* looks like:
+             <https://api.foursquare.com/v3/places/search?ll=51.50998%2C-0.1337&cursor=c3I6MTA&sort=DISTANCE>; rel="next"
+             */
+            if let leftRange = linkHeader.range(of: Content.lowerRange), let rightRange = linkHeader.range(of: Content.upperRange) {
+                let substring = linkHeader[leftRange.upperBound..<rightRange.lowerBound]
+                return String(substring)
+            }
+        }
+        return nil
     }
 }

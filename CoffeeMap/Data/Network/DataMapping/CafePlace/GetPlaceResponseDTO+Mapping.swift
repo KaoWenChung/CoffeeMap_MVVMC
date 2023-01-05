@@ -5,6 +5,11 @@
 //  Created by wyn on 2022/11/8.
 //
 
+struct CafePlaceResponse {
+    let cursor: String?
+    let response: CafePlaceResponseDTO
+}
+
 struct CafePlaceResponseDTO: Decodable {
 
     let context: GetPlaceContextDTO?

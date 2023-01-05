@@ -22,7 +22,7 @@ final class SearchCafeListUseCase: SearchCafeListUseCaseType {
     func execute(request: CafePlaceRequestDTO) async throws -> [CafeTableViewCellModel] {
         let cafeList = try await cafeRepository.getPlace(request: request)
         var cafeCellModels: [CafeTableViewCellModel] = []
-        if let results = cafeList.results {
+        if let results = cafeList.response.results {
             for result in results {
                 if let id = result.fsqId {
                     let cafePhotoModel = try await cafeRepository.getPhotos(request: CafePhotosRequestDTO(fsqId: id))

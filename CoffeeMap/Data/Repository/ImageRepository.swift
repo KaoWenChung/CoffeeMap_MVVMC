@@ -28,8 +28,8 @@ extension ImageRepository: ImageRepositoryType {
         if let image = imageCache[imagePath] {
             return image
         }
-        let data = try await dataTransferService.request(with: endpoint)
-        let imageResult = UIImage(data:data)
+        let data: Data = try await dataTransferService.request(with: endpoint)
+        let imageResult = UIImage(data: data)
         self.imageCache.insertImage(imageResult, for: imagePath)
         return imageResult
     }
