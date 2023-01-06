@@ -63,6 +63,22 @@ final class CafeListViewController: UIViewController, Alertable {
         fetchDataTask()
     }
 
+    func fetchData() async {
+        refreshControl.endRefreshing()
+        guard let location = locationManager?.location else {
+            showAlert(title: viewModel.errorTitle, message: ErrorString.failGetLocation.text)
+            return
+        }
+        // Testing latitude and longitude -> "51.50998,-0.1337"
+        Spinner.shared.showOn(view)
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        let ll: String = String(latitude) + "," + String(longitude)
+        await viewModel.fetchDataBy(ll: ll)
+        Spinner.shared.hide()
+        updateNoResultView()
+    }
+    // MARK: - Private functions
     private func bind(to viewModel: CafeListViewModelType) {
         viewModel.placeList.observe(on: self) {[weak self] _ in self?.updateTableView()}
         viewModel.error.observe(on: self) {[weak self] in self?.showError($0)}
@@ -99,26 +115,18 @@ final class CafeListViewController: UIViewController, Alertable {
         locationManager?.requestLocation()
     }
     
-    func fetchDataTask() {
+    private func fetchDataTask() {
         Task.init {
             await fetchData()
         }
     }
 
-    func fetchData() async {
-        refreshControl.endRefreshing()
-        guard let location = locationManager?.location else {
-            showAlert(title: viewModel.errorTitle, message: ErrorString.failGetLocation.text)
-            return
+    private func loadNextPage() {
+        Task.init {
+            Spinner.shared.showOn(self.view)
+            await viewModel.didLoadNextPage()
+            Spinner.shared.hide()
         }
-        // Testing latitude and longitude -> "51.50998,-0.1337"
-        Spinner.shared.showOn(view)
-        let latitude = location.coordinate.latitude
-        let longitude = location.coordinate.longitude
-        let ll: String = String(latitude) + "," + String(longitude)
-        await viewModel.fetchDataBy(ll: ll)
-        Spinner.shared.hide()
-        updateNoResultView()
     }
 }
 
@@ -146,9 +154,7 @@ extension CafeListViewController: TableViewAdapterDelegate {
             break
         }
         if indexPath.row == viewModel.placeList.value.count - 1 {
-            Task.init {
-                await viewModel.didLoadNextPage()
-            }
+            loadNextPage()
         }
     }
     
