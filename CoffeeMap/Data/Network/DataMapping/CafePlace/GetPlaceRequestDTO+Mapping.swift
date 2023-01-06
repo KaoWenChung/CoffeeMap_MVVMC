@@ -5,12 +5,13 @@
 //  Created by wyn on 2022/12/12.
 //
 
-struct CafePlaceRequestDTO: Encodable {
+class CafePlaceRequestDTO: Encodable {
     var ll: String?
     var radius: Int?
     var query: String?
     var sort: String?
     var openNow: Bool?
+    var cursor: String?
 
     enum CodingKeys: String, CodingKey {
         case ll
@@ -18,5 +19,6 @@ struct CafePlaceRequestDTO: Encodable {
         case query
         case sort
         case openNow = "open_now"
+        case cursor
     }
 }

@@ -19,8 +19,9 @@ extension CafePlacesRepository: CafePlacesRepositoryType {
     private enum Content {
         static let link = "Link"
         static let lowerRange = "cursor="
-        static let upperRange = "&sort"
+        static let upperRange = ">"
     }
+
     func getPlace(request: CafePlaceRequestDTO) async throws -> CafePlaceResponse {
         let endpoint = APIEndpoints.getCafePlaces(with: request)
         let (data, response) = try await dataTransferService.request(with: endpoint)
@@ -41,7 +42,10 @@ extension CafePlacesRepository: CafePlacesRepositoryType {
              <https://api.foursquare.com/v3/places/search?ll=51.50998%2C-0.1337&cursor=c3I6MTA&sort=DISTANCE>; rel="next"
              */
             if let leftRange = linkHeader.range(of: Content.lowerRange), let rightRange = linkHeader.range(of: Content.upperRange) {
-                let substring = linkHeader[leftRange.upperBound..<rightRange.lowerBound]
+                var substring = linkHeader[leftRange.upperBound..<rightRange.lowerBound]
+                if let index = substring.firstIndex(of: "&") {
+                    substring.removeSubrange(index...)
+                }
                 return String(substring)
             }
         }

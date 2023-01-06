@@ -13,9 +13,9 @@ class CafeListViewModelTests: XCTestCase {
     func testPostListUseCaseWithNetwokError() async {
         let expectation = expectation(description: "Should run error")
         let error = NetworkError.notConnected
-        let sut = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: [],error: error, expectation: expectation), actions: nil)
+        let sut = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(cafeListModel: CafeListModel(cursor: nil, cafeList: []),error: error, expectation: expectation), actions: nil)
         let ll = "0,0"
-        await sut.fetchData(ll: ll)
+        await sut.fetchDataBy(ll: ll)
         
         wait(for: [expectation], timeout: 0.1)
         XCTAssertNotNil(sut.error)
@@ -28,17 +28,13 @@ class CafeListViewModelTests: XCTestCase {
         for result in getplaceDataModel.results ?? [] {
             response.append(CafeTableViewCellModel(result, photoModel: []))
         }
-        let sut = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: response, error: nil, expectation: expectation), actions: nil)
-        await sut.fetchData(ll: "51.50998,-0.1337")
-        let items = sut.placeList.value.first?.items
-
-        if let items = items as? [CafeTableViewCellModel] {
-            XCTAssertEqual(items.count, 10)
-            XCTAssertEqual(items.first?.name, "Caffè Concerto")
-            XCTAssertEqual(items.last?.name, "Piggy's")
-        } else {
-            XCTFail("Should not happen")
-        }
+        let cafelistModel = CafeListModel(cursor: nil, cafeList: response)
+        let sut = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(cafeListModel: cafelistModel, error: nil, expectation: expectation), actions: nil)
+        await sut.fetchDataBy(ll: "51.50998,-0.1337")
+        let items = sut.placeList.value
+        XCTAssertEqual(items.count, 10)
+        XCTAssertEqual(items.first?.name, "Caffè Concerto")
+        XCTAssertEqual(items.last?.name, "Piggy's")
         wait(for: [expectation], timeout: 0.1)
     }
 

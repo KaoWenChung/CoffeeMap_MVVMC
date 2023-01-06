@@ -63,7 +63,8 @@ class CafeListViewControllerTests: XCTestCase {
         for result in getplaceDataModel.results ?? [] {
             response.append(CafeTableViewCellModel(result, photoModel: []))
         }
-        let mockViewModel = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(response: response, error: nil, expectation: nil), actions: nil)
+        let cafeListModel = CafeListModel(cursor: nil, cafeList: response)
+        let mockViewModel = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(cafeListModel: cafeListModel, error: nil, expectation: nil), actions: nil)
         let sut = CafeListViewController(mockViewModel, locationManager: LocationManagerMock(location: location), imageRepository: ImageRepositoryMock(response: nil, error: nil, expectation: nil))
         return sut
     }

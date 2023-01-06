@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct CafeListModel {
+    let cursor: String?
+    let cafeList: [CafeTableViewCellModel]
+}
+
 struct CafeTableViewCellModel: AdapterItemModel {
     enum CafeListTableViewCellString: LocallizedStringType {
         case meters

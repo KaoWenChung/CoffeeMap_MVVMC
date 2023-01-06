@@ -116,7 +116,7 @@ final class CafeListViewController: UIViewController, Alertable {
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         let ll: String = String(latitude) + "," + String(longitude)
-        await viewModel.fetchData(ll: ll)
+        await viewModel.fetchDataBy(ll: ll)
         Spinner.shared.hide()
         updateNoResultView()
     }
@@ -144,6 +144,11 @@ extension CafeListViewController: TableViewAdapterDelegate {
             view.setupView(model, imageRepository: imageRepository)
         default:
             break
+        }
+        if indexPath.row == viewModel.placeList.value.count - 1 {
+            Task.init {
+                await viewModel.didLoadNextPage()
+            }
         }
     }
     
