@@ -30,6 +30,11 @@ public class TableViewAdapter: NSObject {
         self.tableView?.dataSource = self
     }
     
+    open func updateData(_ cells: [AdapterItemModel]) {
+        self.sections = [AdapterSectionModel(items: cells)]
+        tableView?.reloadData()
+    }
+
     open func updateData(_ sections: [AdapterSectionModel]) {
         self.sections = sections
         tableView?.reloadData()
