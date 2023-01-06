@@ -7,4 +7,5 @@
 
 enum ImageContents {
     static let arrowClockwise = "arrow.clockwise"
+    static let noImage = "noImage"
 }

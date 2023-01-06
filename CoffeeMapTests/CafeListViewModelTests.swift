@@ -15,7 +15,7 @@ class CafeListViewModelTests: XCTestCase {
         let error = NetworkError.notConnected
         let sut = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(cafeListModel: CafeListModel(cursor: nil, cafeList: []),error: error, expectation: expectation), actions: nil)
         let ll = "0,0"
-        await sut.fetchDataBy(ll: ll)
+        await sut.fetchDataBy(latitudeLongitude: ll)
         
         wait(for: [expectation], timeout: 0.1)
         XCTAssertNotNil(sut.error)
@@ -30,7 +30,7 @@ class CafeListViewModelTests: XCTestCase {
         }
         let cafelistModel = CafeListModel(cursor: nil, cafeList: response)
         let sut = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(cafeListModel: cafelistModel, error: nil, expectation: expectation), actions: nil)
-        await sut.fetchDataBy(ll: "51.50998,-0.1337")
+        await sut.fetchDataBy(latitudeLongitude: "51.50998,-0.1337")
         let items = sut.placeList.value
         XCTAssertEqual(items.count, 10)
         XCTAssertEqual(items.first?.name, "Caffè Concerto")

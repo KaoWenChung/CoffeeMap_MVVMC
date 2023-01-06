@@ -10,7 +10,7 @@ struct CafeListViewModelActions {
     
 }
 protocol CafeListViewModelInput {
-    func fetchDataBy(ll: String) async
+    func fetchDataBy(latitudeLongitude: String) async
     func didLoadNextPage() async
     func didSelectItem(_ viewModel: CafeTableViewCellModel)
 }
@@ -74,8 +74,9 @@ final class CafeListViewModel: CafeListViewModelType {
 }
 
 extension CafeListViewModel {
-    func fetchDataBy(ll: String) async {
-        query.ll = ll
+    func fetchDataBy(latitudeLongitude: String) async {
+        query.ll = latitudeLongitude
+        // TODO: Add a sort feature to change this property
         query.sort = "DISTANCE"
         await fetchData()
     }

@@ -63,7 +63,7 @@ final class CafeListViewController: UIViewController, Alertable {
         fetchDataTask()
     }
 
-    func fetchData() async {
+    func fetchDataByLocation() async {
         refreshControl.endRefreshing()
         guard let location = locationManager?.location else {
             showAlert(title: viewModel.errorTitle, message: ErrorString.failGetLocation.text)
@@ -73,8 +73,8 @@ final class CafeListViewController: UIViewController, Alertable {
         Spinner.shared.showOn(view)
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
-        let ll: String = String(latitude) + "," + String(longitude)
-        await viewModel.fetchDataBy(ll: ll)
+        let latitudeLongitude: String = String(latitude) + "," + String(longitude)
+        await viewModel.fetchDataBy(latitudeLongitude: latitudeLongitude)
         Spinner.shared.hide()
         updateNoResultView()
     }
@@ -117,7 +117,7 @@ final class CafeListViewController: UIViewController, Alertable {
     
     private func fetchDataTask() {
         Task.init {
-            await fetchData()
+            await fetchDataByLocation()
         }
     }
 

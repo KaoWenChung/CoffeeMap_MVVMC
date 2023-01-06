@@ -11,7 +11,7 @@ extension UIImageView {
     /// Download image by URL
     func downloaded(imageLoader: ImageRepositoryType,
                     from url: String?,
-                    placeholderImage: String = "noImage",
+                    placeholderImage: String = ImageContents.noImage,
                     contentMode mode: ContentMode = .scaleAspectFit) async {
         contentMode = mode
         image = UIImage(named: placeholderImage)

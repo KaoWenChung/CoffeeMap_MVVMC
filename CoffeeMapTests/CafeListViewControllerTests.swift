@@ -22,7 +22,7 @@ class CafeListViewControllerTests: XCTestCase {
         let location = makeCLLocation()
         let sut = try makeSUTWithLocation(location)
         Task.init {
-            await sut.fetchData()
+            await sut.fetchDataByLocation()
             DispatchQueue.main.async {
                 XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 10)
                 XCTAssertEqual(sut.tableView.isHidden, false)
@@ -35,7 +35,7 @@ class CafeListViewControllerTests: XCTestCase {
         let location = makeCLLocation()
         let sut = try makeSUTWithLocation(location)
         Task.init {
-            await sut.fetchData()
+            await sut.fetchDataByLocation()
             DispatchQueue.main.async {
                 XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.nameLabel.text, "Caffè Concerto")
                 XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.addressLabel.text, "45 Haymarket, London, Greater London, SW1Y 4SE")
@@ -48,7 +48,7 @@ class CafeListViewControllerTests: XCTestCase {
         let sut = try makeSUTWithLocation(nil)
         XCTAssertEqual(sut.locationManager?.location, nil)
         Task.init {
-            await sut.fetchData()
+            await sut.fetchDataByLocation()
             DispatchQueue.main.async {
                 XCTAssertEqual(sut.tableView.isHidden, true)
                 XCTAssertEqual(sut.noResultLabel.isHidden, false)
