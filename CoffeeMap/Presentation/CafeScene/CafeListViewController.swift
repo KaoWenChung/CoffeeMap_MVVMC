@@ -66,7 +66,7 @@ final class CafeListViewController: UIViewController, Alertable {
     func fetchDataByLocation() async {
         refreshControl.endRefreshing()
         guard let location = locationManager?.location else {
-            showAlert(title: viewModel.errorTitle, message: ErrorString.failGetLocation.text)
+            showAlert(style: .alert, title: viewModel.errorTitle, message: ErrorString.failGetLocation.text)
             return
         }
         // Testing latitude and longitude -> "51.50998,-0.1337"
@@ -86,7 +86,7 @@ final class CafeListViewController: UIViewController, Alertable {
 
     private func showError(_ error: String) {
         guard !error.isEmpty else { return }
-        showAlert(title: viewModel.errorTitle, message: error)
+        showAlert(style: .alert, title: viewModel.errorTitle, message: error)
     }
 
     private func updateTableView() {
@@ -101,8 +101,9 @@ final class CafeListViewController: UIViewController, Alertable {
     }
 
     private func initBarButton() {
-        let reloadButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.arrowClockwise), style: .plain, target: self, action: #selector(reloadData(_:)))
-        navigationItem.rightBarButtonItem = reloadButton
+        let reloadButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.arrowClockwise), style: .plain, target: self, action: #selector(reloadData))
+        let sortButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.sort), style: .plain, target: self, action: #selector(sortList))
+        navigationItem.rightBarButtonItems = [reloadButton, sortButton]
     }
 
     private func updateNoResultView() {
@@ -110,9 +111,13 @@ final class CafeListViewController: UIViewController, Alertable {
         tableView.isHidden = viewModel.placeList.value.isEmpty
     }
 
-    @objc private func reloadData(_ sender: Any) {
+    @objc private func reloadData() {
         Spinner.shared.showOn(view)
         locationManager?.requestLocation()
+    }
+
+    @objc private func sortList() {
+        
     }
     
     private func fetchDataTask() {
@@ -139,7 +144,7 @@ extension CafeListViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         Spinner.shared.hide()
-        showAlert(title: viewModel.errorTitle, message: ErrorString.failGetLocation.text)
+        showAlert(style: .alert, title: viewModel.errorTitle, message: ErrorString.failGetLocation.text)
     }
 
 }

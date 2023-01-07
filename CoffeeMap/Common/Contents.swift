@@ -8,4 +8,5 @@
 enum ImageContents {
     static let arrowClockwise = "arrow.clockwise"
     static let noImage = "noImage"
+    static let sort = "line.3.horizontal.decrease.circle"
 }
