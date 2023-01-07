@@ -69,7 +69,7 @@ final class CafeMapViewController: UIViewController, Alertable {
         directions.calculate { (routeResponse, routeError) -> Void in
             guard let routeResponse = routeResponse else {
                 if routeError != nil {
-                    self.showAlert(style: .alert, message: CafeMapViewString.routeError.text)
+                    self.showAlert(style: .alert, message: CafeMapViewString.routeError.text, cancel: CommonString.ok.text)
                 }
                 return
             }

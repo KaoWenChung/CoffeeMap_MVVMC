@@ -12,6 +12,7 @@ final class CafeListViewController: UIViewController, Alertable {
 
     enum CafeListViewControllerString: LocallizedStringType {
         case title
+        case sortTitle
     }
 
     enum Contents {
@@ -46,6 +47,7 @@ final class CafeListViewController: UIViewController, Alertable {
     
     @objc private func onPullReloadDataHandler() {
         if refreshControl.isRefreshing {
+            viewModel.refreshQuery()
             fetchDataTask()
         }
     }
@@ -66,7 +68,7 @@ final class CafeListViewController: UIViewController, Alertable {
     func fetchDataByLocation() async {
         refreshControl.endRefreshing()
         guard let location = locationManager?.location else {
-            showAlert(style: .alert, title: viewModel.errorTitle, message: ErrorString.failGetLocation.text)
+            showAlert(style: .alert, title: viewModel.errorTitle, message: ErrorString.failGetLocation.text, cancel: CommonString.ok.text)
             return
         }
         // Testing latitude and longitude -> "51.50998,-0.1337"
@@ -86,7 +88,7 @@ final class CafeListViewController: UIViewController, Alertable {
 
     private func showError(_ error: String) {
         guard !error.isEmpty else { return }
-        showAlert(style: .alert, title: viewModel.errorTitle, message: error)
+        showAlert(style: .alert, title: viewModel.errorTitle, message: error, cancel: CommonString.ok.text)
     }
 
     private func updateTableView() {
@@ -101,7 +103,7 @@ final class CafeListViewController: UIViewController, Alertable {
     }
 
     private func initBarButton() {
-        let reloadButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.arrowClockwise), style: .plain, target: self, action: #selector(reloadData))
+        let reloadButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.arrowClockwise), style: .plain, target: self, action: #selector(refreashAll))
         let sortButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.sort), style: .plain, target: self, action: #selector(sortList))
         navigationItem.rightBarButtonItems = [reloadButton, sortButton]
     }
@@ -111,15 +113,30 @@ final class CafeListViewController: UIViewController, Alertable {
         tableView.isHidden = viewModel.placeList.value.isEmpty
     }
 
-    @objc private func reloadData() {
+    @objc private func refreashAll() {
         Spinner.shared.showOn(view)
+        viewModel.refreshQuery()
         locationManager?.requestLocation()
     }
 
     @objc private func sortList() {
-        
+        let buttons: [AlertAction.Button] = [
+            AlertAction.Button.default(CafeListViewModel.SortType.distance.rawValue),
+            AlertAction.Button.default(CafeListViewModel.SortType.popularity.rawValue)]
+        showAlert(style: .actionSheet, title: CafeListViewControllerString.sortTitle.text,cancel: CommonString.cancel.text, others: buttons) { action in
+            if let value = CafeListViewModel.SortType.init(rawValue: action.title) {
+                self.didSortList(value)
+            }
+        }
     }
     
+    private func didSortList(_ sort: CafeListViewModel.SortType) {
+        Spinner.shared.showOn(view)
+        Task.init {
+            await viewModel.didSortList(sort)
+            Spinner.shared.hide()
+        }
+    }
     private func fetchDataTask() {
         Task.init {
             await fetchDataByLocation()
@@ -144,7 +161,7 @@ extension CafeListViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         Spinner.shared.hide()
-        showAlert(style: .alert, title: viewModel.errorTitle, message: ErrorString.failGetLocation.text)
+        showAlert(style: .alert, title: viewModel.errorTitle, message: ErrorString.failGetLocation.text, cancel: CommonString.ok.text)
     }
 
 }

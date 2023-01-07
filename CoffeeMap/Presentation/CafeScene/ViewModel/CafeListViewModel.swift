@@ -13,6 +13,8 @@ protocol CafeListViewModelInput {
     func fetchDataBy(latitudeLongitude: String) async
     func didLoadNextPage() async
     func didSelectItem(_ viewModel: CafeTableViewCellModel)
+    func didSortList(_ sort: CafeListViewModel.SortType) async
+    func refreshQuery()
 }
 
 protocol CafeListViewModelOutput {
@@ -29,6 +31,11 @@ final class CafeListViewModel: CafeListViewModelType {
         case loading
         case hasNextPage
         case lastPage
+    }
+
+    enum SortType: String {
+        case distance = "DISTANCE"
+        case popularity = "POPULARITY"
     }
 
     private let searchCafeUseCase: SearchCafeListUseCaseType
@@ -76,8 +83,6 @@ final class CafeListViewModel: CafeListViewModelType {
 extension CafeListViewModel {
     func fetchDataBy(latitudeLongitude: String) async {
         query.ll = latitudeLongitude
-        // TODO: Add a sort feature to change this property
-        query.sort = "DISTANCE"
         await fetchData()
     }
 
@@ -88,5 +93,17 @@ extension CafeListViewModel {
     func didLoadNextPage() async {
         if nextPageStatus == .lastPage { return }
         await fetchData()
+    }
+
+    func didSortList(_ sort: SortType) async {
+        query.sort = sort.rawValue
+        refreshQuery()
+        await fetchData()
+    }
+    
+    func refreshQuery() {
+        placeList.value.removeAll()
+        nextPageStatus = .loading
+        query.cursor = nil
     }
 }
