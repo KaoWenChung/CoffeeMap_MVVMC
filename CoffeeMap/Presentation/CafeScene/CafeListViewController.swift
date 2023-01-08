@@ -137,6 +137,7 @@ final class CafeListViewController: UIViewController, Alertable {
             Spinner.shared.hide()
         }
     }
+
     private func fetchDataTask() {
         Task.init {
             await fetchDataByLocation()
@@ -153,7 +154,6 @@ final class CafeListViewController: UIViewController, Alertable {
 }
 
 extension CafeListViewController: CLLocationManagerDelegate {
-
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         Spinner.shared.hide()
         fetchDataTask()
@@ -163,11 +163,9 @@ extension CafeListViewController: CLLocationManagerDelegate {
         Spinner.shared.hide()
         showAlert(style: .alert, title: viewModel.errorTitle, message: ErrorString.failGetLocation.text, cancel: CommonString.ok.text)
     }
-
 }
 
 extension CafeListViewController: TableViewAdapterDelegate {
-
     func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath) {
         switch (model, view) {
         case (let model as CafeTableViewCellModel, let view as CafeTableViewCell):
@@ -175,6 +173,7 @@ extension CafeListViewController: TableViewAdapterDelegate {
         default:
             break
         }
+        // Pagination
         if indexPath.row == viewModel.placeList.value.count - 1 {
             loadNextPage()
         }
@@ -184,12 +183,9 @@ extension CafeListViewController: TableViewAdapterDelegate {
         if let model = model as? CafeTableViewCellModel {
             viewModel.didSelectItem(model)
         }
-        
     }
     
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {
         return CGSize(width: Contents.tableViewWidthHeight, height: Contents.tableViewWidthHeight)
     }
-    
-    
 }

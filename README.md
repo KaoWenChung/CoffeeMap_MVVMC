@@ -20,6 +20,8 @@ Modify method getAPIKey in class AppConfiguration
 - Implement a button to refresh the cafe venue list
 ### API Data Fetching
 - Get cafe list by GET API https://api.foursquare.com/v3/places/search
+  - Pagination by cursor
+  - Sort the list by distance or popularity
 ### Localized Content
 - Used Protocol Oriented Programming with enumeration to define and use localized strings.
 ### Test Implementation
@@ -30,21 +32,15 @@ Modify method getAPIKey in class AppConfiguration
 
 ### Technologies:
 - Swift
-- MVVM
+- MVVM + Coordinator
 - Interface builder(.xib)
 - Clean Architecture
 - POP (protocol LocallizedStringType)
 - OOP
-- Concurrency
+- Concurrency (await async)
 - Unit testing
-- Coordinator
 - Observable
 - Image Cache (NSCache)
 - Dependency Injection
 - Adapter pattern (TableViewAdapter)
 - Singleton pattern (Spinner)
-
-### To-Do list of features and time I need:
-- [x] A map page shows the user and coffee venue location
-- [ ] UI testing
-- [x] Use Foursquare API to get coffee venue photos and show them on the table view cell - 2 hours
