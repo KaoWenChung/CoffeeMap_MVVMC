@@ -9,7 +9,6 @@ import XCTest
 @testable import CoffeeMap
 
 class EncodableExtensionTests: XCTestCase {
-
     func testDictionary_londonParameters() throws {
         let sut = GetPlaceParamModel(ll: "51.50998,-0.1337", radius: 200, query: "coffee")
         let result = try sut.toDictionary()
@@ -24,5 +23,4 @@ class EncodableExtensionTests: XCTestCase {
         let result = try sut.toDictionary()
         XCTAssertEqual(result?.count, 0)
     }
-
 }

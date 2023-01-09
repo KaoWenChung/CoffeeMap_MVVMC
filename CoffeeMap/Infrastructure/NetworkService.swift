@@ -18,11 +18,9 @@ public enum NetworkError: Error {
 }
 
 public struct NetworkService {
-    
     private let config: NetworkConfigurableType
     private let sessionManager: NetworkSessionManagerType
     private let logger: NetworkErrorLoggerType
-    
     public init(config: NetworkConfigurableType,
                 sessionManager: NetworkSessionManagerType = NetworkSessionManager(),
                 logger: NetworkErrorLoggerType = NetworkErrorLogger()) {

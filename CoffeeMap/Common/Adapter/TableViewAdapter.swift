@@ -17,7 +17,6 @@ public protocol TableViewAdapterDelegate: AnyObject {
 }
 
 public class TableViewAdapter: NSObject {
-
     public weak var tableView: UITableView?
     public weak var delegate: TableViewAdapterDelegate?
     public private(set) var sections: [AdapterSectionModel] = []
@@ -44,12 +43,10 @@ public class TableViewAdapter: NSObject {
     open func register(_ item: UITableViewCell.Type) {
         registerService.registerCell(tableView, cellType: item)
     }
-
 }
 
 // MARK: - TableViewAdapter UITableViewDataSource
 extension TableViewAdapter: UITableViewDataSource {
-    
     open func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
@@ -66,66 +63,50 @@ extension TableViewAdapter: UITableViewDataSource {
 
         return cell
     }
-
 }
 
 // MARK: - TableViewAdapter UITableViewDelegate
 extension TableViewAdapter: UITableViewDelegate {
-
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         let item = sections[indexPath.section].items[indexPath.row]
         delegate?.select(model: item)
         tableView.deselectRow(at: indexPath, animated: true)
-
     }
 
     open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-
         let item = sections[indexPath.section].items[indexPath.row]
         let cgSize = delegate?.size(model: item, containerSize: tableView.frame.size)
         
         return cgSize?.height ?? 0
-
     }
 
     open func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
         guard let header = sections[section].header,
               let cgSize = delegate?.size(model: header, containerSize: tableView.frame.size) else { return 0 }
 
         return cgSize.height
-
     }
 
     open func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-
         guard let footer = sections[section].footer,
               let cgSize = delegate?.size(model: footer, containerSize: tableView.frame.size) else { return 0 }
 
         return cgSize.height
-
     }
 
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-
         guard let header = sections[section].header,
               let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: header.type.name) else { return nil }
         delegate?.configure(model: header, view: view, indexPath: IndexPath(row: 0, section: section))
 
         return view
-
     }
 
     public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-
         guard let footer = sections[section].footer,
               let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: footer.type.name) else { return nil }
         delegate?.configure(model: footer, view: view, indexPath: IndexPath(row: 0, section: section))
 
         return view
-
     }
-
 }
-

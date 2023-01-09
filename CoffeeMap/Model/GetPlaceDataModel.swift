@@ -6,16 +6,13 @@
 //
 
 struct GetPlaceParamModel: Encodable {
-
     var ll: String?
     var radius: Int?
     var query: String?
-
 }
 
 
 struct GetPlaceResponseModel: Decodable {
-
     let context: GetPlaceContextModel?
     let results: [GetPlaceResultModel]?
 
@@ -23,7 +20,6 @@ struct GetPlaceResponseModel: Decodable {
         case context
         case results
     }
-
 }
 
 struct GetPlaceResultModel: Decodable {
@@ -42,11 +38,9 @@ struct GetPlaceResultModel: Decodable {
         case location
         case name
     }
-
 }
 
 struct GetPlaceLocationModel: Decodable {
-
     let address: String?
     let adminRegion: String?
     let country: String?
@@ -70,10 +64,9 @@ struct GetPlaceLocationModel: Decodable {
         case postcode
         case region
     }
-
 }
-struct GetPlaceGeocodeModel: Decodable {
 
+struct GetPlaceGeocodeModel: Decodable {
     let main: GetPlaceCenterModel?
     let roof: GetPlaceCenterModel?
 
@@ -81,30 +74,24 @@ struct GetPlaceGeocodeModel: Decodable {
         case main
         case roof
     }
-
 }
 
 struct GetPlaceContextModel: Decodable {
-
     let geoBounds: GetPlaceGeoBoundModel?
 
     enum CodingKeys: String, CodingKey {
         case geoBounds
     }
-
 }
 
 struct GetPlaceGeoBoundModel: Decodable {
-
     let circle: GetPlaceCircleModel?
 
     enum CodingKeys: String, CodingKey {
         case circle
     }
-
 }
 struct GetPlaceCircleModel: Decodable {
-
     let center: GetPlaceCenterModel?
     let radius: Int?
 
@@ -112,11 +99,9 @@ struct GetPlaceCircleModel: Decodable {
         case center
         case radius
     }
-
 }
 
 struct GetPlaceCenterModel: Decodable {
-
     let latitude: Double?
     let longitude: Double?
 
@@ -124,6 +109,5 @@ struct GetPlaceCenterModel: Decodable {
         case latitude
         case longitude
     }
-
 }
 

@@ -11,19 +11,19 @@ You will need to sign up as a Foursquare developer and create an app in order to
 Please add your Foursquare API Key at
 `~/CoffeeMap/CoffeeMap/Application/AppConfiguration.swift`<br/>
 Or search by keyword "// TODO: ADD API KEY HERE" in the project. <br/>
-Modify method getAPIKey in class AppConfiguration
+Modify the method getAPIKey in the class AppConfiguration
 
 ## Features
 ### UI Implementation
 - Implement a list to show cafe venue information
-  - select one item from the cafe list will show the map and the route between the user and the cafe venue
+  - select one item from the cafe list to see a map and and the route between the user and the cafe venue
 - Implement a button to refresh the cafe venue list
 ### API Data Fetching
 - Get cafe list by GET API https://api.foursquare.com/v3/places/search
   - Pagination by cursor
   - Sort the list by distance or popularity
 ### Localized Content
-- Used Protocol Oriented Programming with enumeration to define and use localized strings.
+- Used Extension protocol with enumeration to define and use localized strings.
 ### Test Implementation
 - Unit testing
   - Implement dependency injection and mock dependencies to improve the testability of code.

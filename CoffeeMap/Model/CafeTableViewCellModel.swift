@@ -16,6 +16,9 @@ struct CafeTableViewCellModel: AdapterItemModel {
     enum CafeListTableViewCellString: LocallizedStringType {
         case meters
     }
+    enum Content {
+        static let imageSize: String = "64"
+    }
     var type: UIView.Type { return CafeTableViewCell.self }
     let name: String
     let address: String
@@ -49,7 +52,7 @@ struct CafeTableViewCellModel: AdapterItemModel {
         if let photo = photoModel.first,
            let prefix = photo.prefix,
            let suffix = photo.suffix {
-            iconURL = prefix + "64" + suffix
+            iconURL = prefix + Content.imageSize + suffix
         } else {
             iconURL = nil
         }

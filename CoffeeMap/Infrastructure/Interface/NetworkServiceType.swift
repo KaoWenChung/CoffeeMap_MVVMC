@@ -14,7 +14,6 @@ public protocol NetworkServiceType {
 
 public protocol NetworkSessionManagerType {
     typealias DataResponse = (Data, URLResponse)
-    
     func request(_ request: URLRequest) async throws -> DataResponse
 }
 

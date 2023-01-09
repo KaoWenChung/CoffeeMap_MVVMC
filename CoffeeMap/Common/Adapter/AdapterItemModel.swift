@@ -8,7 +8,5 @@
 import UIKit
 
 public protocol AdapterItemModel {
-
     var type: UIView.Type { get }
-
 }
