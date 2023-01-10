@@ -9,6 +9,7 @@ import UIKit
 
 final class ImageRotatorView: UIView {
     @IBOutlet weak private var imageCollectionView: UICollectionView!
+    @IBOutlet weak private var countLabel: UILabel!
     init() {
         super.init(frame: .zero)
     }
