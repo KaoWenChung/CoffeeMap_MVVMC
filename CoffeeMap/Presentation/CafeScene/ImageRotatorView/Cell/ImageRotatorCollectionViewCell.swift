@@ -19,10 +19,10 @@ final class ImageRotatorCollectionViewCell: UICollectionViewCell {
         imageView.image = nil
     }
 
-    func setupView(time: String, imageURL: String, imageRepository: ImageRepositoryType) {
-        timeLabel.text = time
+    func setupView(model: ImageRotatorCollectionCellViewModel, imageRepository: ImageRepositoryType) {
+        timeLabel.text = model.date
         let task = Task {
-            await imageView.downloaded(imageLoader: imageRepository, from: imageURL)
+            await imageView.downloaded(imageLoader: imageRepository, from: model.imageURL)
         }
         imageLoadTask = task
         Task.init {

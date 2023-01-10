@@ -43,6 +43,16 @@ final class CafeSceneDIContainer {
         return CafeListViewModel(searchCafeUseCase: makeSearchCafeListUseCase(), actions: actions)
     }
 
+    // MARK: - Cafe Detail
+    func makeCafeDetailViewController(cellModel: CafeTableViewCellModel, actions: CafeDetailViewModelActions) -> CafeDetailViewController {
+        let viewModel = makeCafeDetailViewModel(cellModel: cellModel, actions: actions)
+        return CafeDetailViewController(viewModel, imageRepository: makeImagesRepository())
+    }
+
+    func makeCafeDetailViewModel(cellModel: CafeTableViewCellModel, actions: CafeDetailViewModelActions) -> CafeDetailViewModel {
+        return CafeDetailViewModel(cellModel, actions: actions)
+    }
+
     // MARK: - Flow Coordinators
     func makeCafeSearchFlowCoordinator(navigationController: UINavigationController) -> CafeSearchFlowCoordinator {
         

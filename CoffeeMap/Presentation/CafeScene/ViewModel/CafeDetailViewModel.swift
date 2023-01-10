@@ -20,6 +20,7 @@ protocol CafeDetailViewModelType: CafeDetailViewModelInput, CafeDetailViewModelO
 struct CafeDetailViewModel {
     let title: String
     let address: String
+    let imageCellViewModels: [ImageRotatorCollectionCellViewModel]
     let photos: [CafePhotoModel]
     private let actions: CafeDetailViewModelActions
 
@@ -27,10 +28,23 @@ struct CafeDetailViewModel {
         self.title = cellModel.name
         self.address = cellModel.address
         self.photos = cellModel.photos
+        self.imageCellViewModels = cellModel.photos.toImageRotatorColls()
         self.actions = actions
     }
 }
 
 extension CafeDetailViewModel: CafeDetailViewModelType {
     
+}
+
+extension CafePhotoModel {
+    func toImageRotatorColl() -> ImageRotatorCollectionCellViewModel {
+        ImageRotatorCollectionCellViewModel(self)
+    }
+}
+
+extension Array where Element == CafePhotoModel {
+    func toImageRotatorColls() -> [ImageRotatorCollectionCellViewModel] {
+        map { $0.toImageRotatorColl() }
+    }
 }

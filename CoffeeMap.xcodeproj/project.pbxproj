@@ -58,6 +58,7 @@
 		21C1F4A2296DC00F00FCF813 /* ImageRotatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1F4A0296DC00F00FCF813 /* ImageRotatorCollectionViewCell.swift */; };
 		21C1F4A3296DC00F00FCF813 /* ImageRotatorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C1F4A1296DC00F00FCF813 /* ImageRotatorCollectionViewCell.xib */; };
 		21C1F4A6296DC7EF00FCF813 /* CafeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1F4A5296DC7EF00FCF813 /* CafeDetailViewModel.swift */; };
+		21C1F4A8296DCC0F00FCF813 /* BaseXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1F4A7296DCC0F00FCF813 /* BaseXibView.swift */; };
 		21C5F3322951097C003CEBAE /* TableViewRegistryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C5F3312951097C003CEBAE /* TableViewRegistryService.swift */; };
 		79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C5E28C03ADD00766059 /* AppDelegate.swift */; };
 		79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C6028C03ADD00766059 /* SceneDelegate.swift */; };
@@ -148,6 +149,7 @@
 		21C1F4A0296DC00F00FCF813 /* ImageRotatorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorCollectionViewCell.swift; sourceTree = "<group>"; };
 		21C1F4A1296DC00F00FCF813 /* ImageRotatorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageRotatorCollectionViewCell.xib; sourceTree = "<group>"; };
 		21C1F4A5296DC7EF00FCF813 /* CafeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailViewModel.swift; sourceTree = "<group>"; };
+		21C1F4A7296DCC0F00FCF813 /* BaseXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseXibView.swift; sourceTree = "<group>"; };
 		21C5F3312951097C003CEBAE /* TableViewRegistryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewRegistryService.swift; sourceTree = "<group>"; };
 		79242C5B28C03ADD00766059 /* CoffeeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79242C5E28C03ADD00766059 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -600,6 +602,7 @@
 				79290E1B28C0AC3E00439E38 /* Alertable.swift */,
 				2106D390294A30C500321A5D /* ConnectionError.swift */,
 				21569D902954BC44003D84AE /* Contents.swift */,
+				21C1F4A7296DCC0F00FCF813 /* BaseXibView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -733,6 +736,7 @@
 				2106D38829478ECF00321A5D /* Dictionary.swift in Sources */,
 				21C1F49D296DB66700FCF813 /* TableCollectionViewAdapterDelegate.swift in Sources */,
 				21AB9BF328EDB84D00A1796B /* UIView.swift in Sources */,
+				21C1F4A8296DCC0F00FCF813 /* BaseXibView.swift in Sources */,
 				21C1F49B296DB2C300FCF813 /* CollectionViewAdapter.swift in Sources */,
 				21C1F491296DAF2E00FCF813 /* CafeDetailViewController.swift in Sources */,
 				7952AB3A28C0563D00607B77 /* CafePlacesRepository.swift in Sources */,
