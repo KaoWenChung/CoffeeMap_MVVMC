@@ -4,13 +4,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CafeDetailViewController" customModule="CoffeeMap" customModuleProvider="target">
             <connections>
+                <outlet property="addressLabel" destination="UeY-o8-0EN" id="QVL-NW-9rF"/>
+                <outlet property="imageRotatorView" destination="Eb8-e6-WBn" id="h3X-oL-pAq"/>
+                <outlet property="titleLabel" destination="EVa-wH-kyk" id="BPY-6B-3Av"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +21,47 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-e6-WBn" customClass="ImageRotatorView" customModule="CoffeeMap" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="160" id="iHj-N8-FCp"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YGz-Ok-daA">
+                    <rect key="frame" x="24" y="184" width="327" height="91"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVa-wH-kyk">
+                            <rect key="frame" x="0.0" y="0.0" width="327" height="20.333333333333332"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeY-o8-0EN">
+                            <rect key="frame" x="0.0" y="28.333333333333343" width="327" height="20.333333333333329"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWe-mG-Eec">
+                            <rect key="frame" x="0.0" y="56.666666666666657" width="327" height="34.333333333333343"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Show the router"/>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="YGz-Ok-daA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="M3w-Qm-unC"/>
+                <constraint firstItem="Eb8-e6-WBn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="N4v-jJ-Gxa"/>
+                <constraint firstItem="Eb8-e6-WBn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Tm3-Sl-ecw"/>
+                <constraint firstAttribute="trailing" secondItem="YGz-Ok-daA" secondAttribute="trailing" constant="24" id="c3z-rF-Vss"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YGz-Ok-daA" secondAttribute="bottom" id="mdT-fU-2H7"/>
+                <constraint firstAttribute="trailing" secondItem="Eb8-e6-WBn" secondAttribute="trailing" id="ugq-0A-FcH"/>
+                <constraint firstItem="YGz-Ok-daA" firstAttribute="top" secondItem="Eb8-e6-WBn" secondAttribute="bottom" constant="24" id="uo8-vi-QuL"/>
+            </constraints>
             <point key="canvasLocation" x="108" y="21"/>
         </view>
     </objects>

@@ -2,18 +2,35 @@
 //  CafeDetailViewModel.swift
 //  CoffeeMap
 //
-//  Created by wyn on 2022/9/25.
+//  Created by wyn on 2023/1/10.
 //
 
-class CafeDetailViewModel {
+struct CafeDetailViewModelActions {
+    let showCafeRoute: (CafeTableViewCellModel) -> Void
+}
 
-    let name: String
-    let coordinate: (latitude: Double, longitude: Double)?
+protocol CafeDetailViewModelInput {
+}
+
+protocol CafeDetailViewModelOutput {
+}
+
+protocol CafeDetailViewModelType: CafeDetailViewModelInput, CafeDetailViewModelOutput {}
+
+struct CafeDetailViewModel {
+    let title: String
     let address: String
+    let photos: [CafePhotoModel]
+    private let actions: CafeDetailViewModelActions
 
-    init(_ rowModel: CafeTableViewCellModel) {
-        name = rowModel.name
-        self.coordinate = rowModel.coordinate
-        address = rowModel.address
+    init(_ cellModel: CafeTableViewCellModel, actions: CafeDetailViewModelActions) {
+        self.title = cellModel.name
+        self.address = cellModel.address
+        self.photos = cellModel.photos
+        self.actions = actions
     }
+}
+
+extension CafeDetailViewModel: CafeDetailViewModelType {
+    
 }

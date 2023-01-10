@@ -24,14 +24,20 @@ final class CafeSearchFlowCoordinator {
     }
 
     func start() {
-        let actions = CafeListViewModelActions(showCafeRoute: didSelectItem)
+        let actions = CafeListViewModelActions(showCafeDetail: didSelectItem)
         let viewController = dependencies.makeCafeListViewController(actions: actions)
         navigationController?.pushViewController(viewController, animated: true)
         cafeListViewController = viewController
     }
 
     private func didSelectItem(_ item: CafeTableViewCellModel) {
-        let viewModel = CafeDetailViewModel(item)
+        let action = CafeDetailViewModelActions(showCafeRoute: didSelectRouter)
+        let viewModel = CafeDetailViewModel(item, actions: action)
+        navigationController?.pushViewController(CafeDetailViewController(viewModel), animated: true)
+    }
+
+    private func didSelectRouter(_ item: CafeTableViewCellModel) {
+        let viewModel = CafeMapViewModel(item)
         navigationController?.pushViewController(CafeMapViewController(viewModel), animated: true)
     }
 }

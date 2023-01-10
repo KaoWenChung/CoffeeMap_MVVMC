@@ -6,7 +6,7 @@
 //
 
 struct CafeListViewModelActions {
-    let showCafeRoute: (CafeTableViewCellModel) -> Void
+    let showCafeDetail: (CafeTableViewCellModel) -> Void
     
 }
 protocol CafeListViewModelInput {
@@ -87,7 +87,7 @@ extension CafeListViewModel {
     }
 
     func didSelectItem(_ viewModel: CafeTableViewCellModel) {
-        actions?.showCafeRoute(viewModel)
+        actions?.showCafeDetail(viewModel)
     }
     
     func didLoadNextPage() async {

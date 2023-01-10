@@ -18,9 +18,9 @@ final class CafeMapViewController: UIViewController, Alertable {
         case routeError
     }
     @IBOutlet weak private var mapView: MKMapView!
-    private let viewModel: CafeDetailViewModel
+    private let viewModel: CafeMapViewModel
 
-    init(_ viewModel: CafeDetailViewModel) {
+    init(_ viewModel: CafeMapViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }

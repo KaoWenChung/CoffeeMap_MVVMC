@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageRotatorCollectionViewCell: UICollectionViewCell {
+final class ImageRotatorCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var timeLabel: UILabel!
