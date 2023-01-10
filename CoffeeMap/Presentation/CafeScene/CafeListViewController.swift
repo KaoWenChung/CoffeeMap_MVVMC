@@ -165,7 +165,7 @@ extension CafeListViewController: CLLocationManagerDelegate {
     }
 }
 
-extension CafeListViewController: TableViewAdapterDelegate {
+extension CafeListViewController: TableCollectionViewAdapterDelegate {
     func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath) {
         switch (model, view) {
         case (let model as CafeTableViewCellModel, let view as CafeTableViewCell):

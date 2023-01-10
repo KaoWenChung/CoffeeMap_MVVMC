@@ -7,18 +7,9 @@
 
 import UIKit
 
-public protocol TableViewAdapterDelegate: AnyObject {
-    /// Apply model to view
-    func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath)
-    /// Handle view selection
-    func select(model: AdapterItemModel)
-    /// Size the view
-    func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize
-}
-
 public class TableViewAdapter: NSObject {
     public weak var tableView: UITableView?
-    public weak var delegate: TableViewAdapterDelegate?
+    public weak var delegate: TableCollectionViewAdapterDelegate?
     public private(set) var sections: [AdapterSectionModel] = []
     let registerService = TableViewRegistryService()
     
@@ -39,7 +30,7 @@ public class TableViewAdapter: NSObject {
         tableView?.reloadData()
     }
 
-    /// Register UICollectionViewCell
+    /// Register UITableViewCell
     open func register(_ item: UITableViewCell.Type) {
         registerService.registerCell(tableView, cellType: item)
     }
