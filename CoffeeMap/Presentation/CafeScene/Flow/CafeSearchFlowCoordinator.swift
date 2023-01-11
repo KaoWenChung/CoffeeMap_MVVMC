@@ -39,6 +39,8 @@ final class CafeSearchFlowCoordinator {
 
     private func didSelectRouter(_ item: CafeTableViewCellModel) {
         let viewModel = CafeMapViewModel(item)
+        // Dismiss CafeDetailViewController
+        navigationController?.dismiss(animated: true)
         navigationController?.pushViewController(CafeMapViewController(viewModel), animated: true)
     }
 }

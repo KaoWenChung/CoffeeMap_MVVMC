@@ -19,35 +19,38 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-e6-WBn" customClass="ImageRotatorView" customModule="CoffeeMap" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="300"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="160" id="iHj-N8-FCp"/>
+                        <constraint firstAttribute="height" constant="300" id="iHj-N8-FCp"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YGz-Ok-daA">
-                    <rect key="frame" x="24" y="184" width="327" height="91"/>
+                    <rect key="frame" x="24" y="324" width="342" height="91"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVa-wH-kyk">
-                            <rect key="frame" x="0.0" y="0.0" width="327" height="20.333333333333332"/>
+                            <rect key="frame" x="0.0" y="0.0" width="342" height="20.333333333333332"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeY-o8-0EN">
-                            <rect key="frame" x="0.0" y="28.333333333333343" width="327" height="20.333333333333329"/>
+                            <rect key="frame" x="0.0" y="28.333333333333314" width="342" height="20.333333333333329"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWe-mG-Eec">
-                            <rect key="frame" x="0.0" y="56.666666666666657" width="327" height="34.333333333333343"/>
+                            <rect key="frame" x="0.0" y="56.666666666666686" width="342" height="34.333333333333343"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Show the router"/>
+                            <connections>
+                                <action selector="didSelectShowRouterBtn" destination="-1" eventType="touchUpInside" id="yej-gA-j4J"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

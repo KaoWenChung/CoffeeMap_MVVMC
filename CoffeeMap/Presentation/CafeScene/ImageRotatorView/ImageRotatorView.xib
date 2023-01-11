@@ -23,7 +23,7 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Agi-J7-4fW">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="228"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EEj-GB-f2h">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="EEj-GB-f2h">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -31,7 +31,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH6-lV-FaJ">
-                    <rect key="frame" x="356" y="183" width="34" height="21"/>
+                    <rect key="frame" x="190" y="183" width="34" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -40,10 +40,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="UH6-lV-FaJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0Hz-GZ-Tv0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="UH6-lV-FaJ" secondAttribute="bottom" constant="24" id="0l9-XK-Zdu"/>
                 <constraint firstItem="Agi-J7-4fW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7j4-aq-chi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Agi-J7-4fW" secondAttribute="bottom" id="NTT-Ue-j24"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UH6-lV-FaJ" secondAttribute="trailing" constant="24" id="UMW-sH-QST"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Agi-J7-4fW" secondAttribute="trailing" id="nqB-bA-wUl"/>
                 <constraint firstItem="Agi-J7-4fW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="uRQ-B9-sYC"/>
             </constraints>

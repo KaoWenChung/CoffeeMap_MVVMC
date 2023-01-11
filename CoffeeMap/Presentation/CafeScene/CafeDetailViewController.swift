@@ -32,5 +32,9 @@ final class CafeDetailViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    @IBAction private func didSelectShowRouterBtn() {
+        viewModel.didSelectShowRouterBtn()
+    }
     
 }

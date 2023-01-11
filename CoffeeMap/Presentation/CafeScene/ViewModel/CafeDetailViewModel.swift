@@ -10,6 +10,7 @@ struct CafeDetailViewModelActions {
 }
 
 protocol CafeDetailViewModelInput {
+    func didSelectShowRouterBtn()
 }
 
 protocol CafeDetailViewModelOutput {
@@ -22,6 +23,7 @@ struct CafeDetailViewModel {
     let address: String
     let imageCellViewModels: [ImageRotatorCollectionCellViewModel]
     let photos: [CafePhotoModel]
+    private let cellModel: CafeTableViewCellModel
     private let actions: CafeDetailViewModelActions
 
     init(_ cellModel: CafeTableViewCellModel, actions: CafeDetailViewModelActions) {
@@ -30,11 +32,14 @@ struct CafeDetailViewModel {
         self.photos = cellModel.photos
         self.imageCellViewModels = cellModel.photos.toImageRotatorColls()
         self.actions = actions
+        self.cellModel = cellModel
     }
 }
 
 extension CafeDetailViewModel: CafeDetailViewModelType {
-    
+    func didSelectShowRouterBtn() {
+        actions.showCafeRoute(cellModel)
+    }
 }
 
 extension CafePhotoModel {

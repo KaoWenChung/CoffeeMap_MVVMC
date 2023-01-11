@@ -21,8 +21,12 @@ final class ImageRotatorCollectionViewCell: UICollectionViewCell {
 
     func setupView(model: ImageRotatorCollectionCellViewModel, imageRepository: ImageRepositoryType) {
         timeLabel.text = model.date
+        guard let prefix = model.prefix, let suffix = model.suffix else { return }
+        let height: Int = Int(frame.height)
+        let width: Int = Int(frame.width)
+        let imageURL = prefix + String(width) + "x" + String(height) + suffix
         let task = Task {
-            await imageView.downloaded(imageLoader: imageRepository, from: model.imageURL)
+            await imageView.downloaded(imageLoader: imageRepository, from: imageURL)
         }
         imageLoadTask = task
         Task.init {

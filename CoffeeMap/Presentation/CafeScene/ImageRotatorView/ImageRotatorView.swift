@@ -49,24 +49,20 @@ extension ImageRotatorView: TableCollectionViewAdapterDelegate {
     }
     
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        let width = frame.width
+        let height = frame.height
+        return CGSize(width: width, height: height)
     }
 }
 
 struct ImageRotatorCollectionCellViewModel: AdapterItemModel {
-    enum Content {
-        static let imageSize: String = "64"
-    }
     var type: UIView.Type { return ImageRotatorCollectionViewCell.self }
-    let imageURL: String
+    let prefix: String?
+    let suffix: String?
     let date: String?
     init(_ photoModel: CafePhotoModel) {
-        if let prefix = photoModel.prefix,
-           let suffix = photoModel.suffix {
-            imageURL = prefix + Content.imageSize + suffix
-        } else {
-            imageURL = ""
-        }
+        prefix = photoModel.prefix
+        suffix = photoModel.suffix
         self.date = photoModel.createdAt
     }
 }
