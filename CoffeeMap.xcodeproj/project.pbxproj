@@ -60,6 +60,9 @@
 		21C1F4A6296DC7EF00FCF813 /* CafeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1F4A5296DC7EF00FCF813 /* CafeDetailViewModel.swift */; };
 		21C1F4A8296DCC0F00FCF813 /* BaseXibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C1F4A7296DCC0F00FCF813 /* BaseXibView.swift */; };
 		21C5F3322951097C003CEBAE /* TableViewRegistryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C5F3312951097C003CEBAE /* TableViewRegistryService.swift */; };
+		21F76544296F183300403B49 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F76543296F183300403B49 /* Date.swift */; };
+		21F76546296F194200403B49 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F76545296F194200403B49 /* String.swift */; };
+		21F76548296F1CA900403B49 /* ImageRotatorCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F76547296F1CA900403B49 /* ImageRotatorCollectionCellViewModel.swift */; };
 		79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C5E28C03ADD00766059 /* AppDelegate.swift */; };
 		79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C6028C03ADD00766059 /* SceneDelegate.swift */; };
 		79242C6328C03ADD00766059 /* CafeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C6228C03ADD00766059 /* CafeListViewController.swift */; };
@@ -151,6 +154,9 @@
 		21C1F4A5296DC7EF00FCF813 /* CafeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeDetailViewModel.swift; sourceTree = "<group>"; };
 		21C1F4A7296DCC0F00FCF813 /* BaseXibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseXibView.swift; sourceTree = "<group>"; };
 		21C5F3312951097C003CEBAE /* TableViewRegistryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewRegistryService.swift; sourceTree = "<group>"; };
+		21F76543296F183300403B49 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		21F76545296F194200403B49 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		21F76547296F1CA900403B49 /* ImageRotatorCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		79242C5B28C03ADD00766059 /* CoffeeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79242C5E28C03ADD00766059 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79242C6028C03ADD00766059 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -402,7 +408,9 @@
 		21AB9BF128EDB83100A1796B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				21F76543296F183300403B49 /* Date.swift */,
 				21AB9BF228EDB84D00A1796B /* UIView.swift */,
+				21F76545296F194200403B49 /* String.swift */,
 				7952AB3C28C05CD400607B77 /* Encodable.swift */,
 				2106D38729478ECF00321A5D /* Dictionary.swift */,
 				21569DA829560E6F003D84AE /* UIImageView.swift */,
@@ -566,6 +574,7 @@
 				7952AB2928C041FC00607B77 /* CafeListViewModel.swift */,
 				219633A928E0D64E004C5A97 /* CafeMapViewModel.swift */,
 				21C1F4A5296DC7EF00FCF813 /* CafeDetailViewModel.swift */,
+				21F76547296F1CA900403B49 /* ImageRotatorCollectionCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -731,6 +740,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F76546296F194200403B49 /* String.swift in Sources */,
 				21C1F4A2296DC00F00FCF813 /* ImageRotatorCollectionViewCell.swift in Sources */,
 				21B9EDD12915774C00A2E6B9 /* AppDIContainer.swift in Sources */,
 				2106D38829478ECF00321A5D /* Dictionary.swift in Sources */,
@@ -743,10 +753,12 @@
 				21BAEBFC28E0671E002616F6 /* CafeMapViewController.swift in Sources */,
 				79242C6328C03ADD00766059 /* CafeListViewController.swift in Sources */,
 				21569DA42955F992003D84AE /* ImageRepository.swift in Sources */,
+				21F76548296F1CA900403B49 /* ImageRotatorCollectionCellViewModel.swift in Sources */,
 				2106D396294A33B300321A5D /* CommonString.swift in Sources */,
 				21C1F49F296DB7FE00FCF813 /* CollectionViewRegistryService.swift in Sources */,
 				214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */,
 				21569D912954BC44003D84AE /* Contents.swift in Sources */,
+				21F76544296F183300403B49 /* Date.swift in Sources */,
 				7952AB2D28C04E7100607B77 /* CafeTableViewCellModel.swift in Sources */,
 				21A445D32912DE6300986160 /* NetworkServiceType.swift in Sources */,
 				2106D38A2947905100321A5D /* GetPlaceRequestDTO+Mapping.swift in Sources */,

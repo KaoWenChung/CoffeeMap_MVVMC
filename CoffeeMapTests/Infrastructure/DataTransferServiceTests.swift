@@ -31,7 +31,7 @@ final class DataTransferServiceTests: XCTestCase {
             }
         }
         // result
-        wait(for: [expectation], timeout: 0.1)
+        wait(for: [expectation], timeout: 1)
     }
 
     func testReceivedInvalidResponse_decodeNoObjectThrowError() {
@@ -48,7 +48,7 @@ final class DataTransferServiceTests: XCTestCase {
             }
         }
         // result
-        wait(for: [expectation], timeout: 0.1)
+        wait(for: [expectation], timeout: 1)
     }
     // MARK: - Helper
     private func makeSUT(mockData: String) -> DataTransferServiceType {

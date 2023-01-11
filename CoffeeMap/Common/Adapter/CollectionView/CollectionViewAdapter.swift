@@ -7,9 +7,14 @@
 
 import UIKit
 
+public protocol CollectionViewDidScrollDelegate: AnyObject {
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
+}
+
 public class CollectionViewAdapter: NSObject {
     public weak var collectionView: UICollectionView?
     public weak var delegate: TableCollectionViewAdapterDelegate?
+    public weak var didScrollDelegate: CollectionViewDidScrollDelegate?
     public private(set) var sections: [AdapterSectionModel] = []
     let registerService = CollectionViewRegistryService()
     
@@ -63,6 +68,9 @@ extension CollectionViewAdapter: UICollectionViewDelegate {
         let item = sections[indexPath.section].items[indexPath.row]
         delegate?.select(model: item)
         collectionView.deselectItem(at: indexPath, animated: true)
+    }
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        didScrollDelegate?.scrollViewDidScroll(scrollView)
     }
 }
 // MARK: - UICollectionViewDelegateFlowLayout

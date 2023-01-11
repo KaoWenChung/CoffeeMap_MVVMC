@@ -13,6 +13,7 @@ final class ImageRotatorView: BaseXibView {
 
     private var imageRepository: ImageRepositoryType?
     private var collectionViewAdapter: CollectionViewAdapter?
+    private var viewModel: ImageRotatorViewModel?
 
     init() {
         super.init(frame: .zero)
@@ -26,10 +27,19 @@ final class ImageRotatorView: BaseXibView {
         collectionViewAdapter = .init(imageCollectionView)
         collectionViewAdapter?.register(ImageRotatorCollectionViewCell.self)
         collectionViewAdapter?.delegate = self
+        collectionViewAdapter?.didScrollDelegate = self
     }
     func setup(_ data: [ImageRotatorCollectionCellViewModel], imageRepository: ImageRepositoryType) {
+        viewModel = ImageRotatorViewModel(imageCells: data)
         collectionViewAdapter?.updateData(data)
         self.imageRepository = imageRepository
+        countLabel.text = "1/\(data.count)"
+    }
+}
+struct ImageRotatorViewModel {
+    let imageCells: [ImageRotatorCollectionCellViewModel]
+    init(imageCells: [ImageRotatorCollectionCellViewModel]) {
+        self.imageCells = imageCells
     }
 }
 
@@ -45,7 +55,7 @@ extension ImageRotatorView: TableCollectionViewAdapterDelegate {
     }
     
     func select(model: AdapterItemModel) {
-        
+        // TODO: Image Viewer
     }
     
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {
@@ -55,14 +65,9 @@ extension ImageRotatorView: TableCollectionViewAdapterDelegate {
     }
 }
 
-struct ImageRotatorCollectionCellViewModel: AdapterItemModel {
-    var type: UIView.Type { return ImageRotatorCollectionViewCell.self }
-    let prefix: String?
-    let suffix: String?
-    let date: String?
-    init(_ photoModel: CafePhotoModel) {
-        prefix = photoModel.prefix
-        suffix = photoModel.suffix
-        self.date = photoModel.createdAt
+extension ImageRotatorView: CollectionViewDidScrollDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetPage = Int(scrollView.contentOffset.x / frame.width)
+        countLabel.text = "\(offsetPage + 1)/\(viewModel?.imageCells.count ?? 0)"
     }
 }

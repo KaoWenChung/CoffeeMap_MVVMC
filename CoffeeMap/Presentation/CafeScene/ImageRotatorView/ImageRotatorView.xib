@@ -31,9 +31,9 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH6-lV-FaJ">
-                    <rect key="frame" x="190" y="183" width="34" height="21"/>
+                    <rect key="frame" x="190" y="195" width="34" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -41,7 +41,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="UH6-lV-FaJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="0Hz-GZ-Tv0"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="UH6-lV-FaJ" secondAttribute="bottom" constant="24" id="0l9-XK-Zdu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="UH6-lV-FaJ" secondAttribute="bottom" constant="12" id="0l9-XK-Zdu"/>
                 <constraint firstItem="Agi-J7-4fW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7j4-aq-chi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Agi-J7-4fW" secondAttribute="bottom" id="NTT-Ue-j24"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Agi-J7-4fW" secondAttribute="trailing" id="nqB-bA-wUl"/>
