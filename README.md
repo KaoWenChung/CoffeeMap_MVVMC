@@ -15,13 +15,14 @@ Modify the method getAPIKey in the class AppConfiguration
 
 ## Features
 ### UI Implementation
-- Implement a list to show cafe venue information
-  - select one item from the cafe list to see a map and and the route between the user and the cafe venue
-- Implement a button to refresh the cafe venue list
+- Implement CafeListView to display a list of cafe venues
+- Implement CafeDetailView to present the detail of the cafe venue including images
+- Implement CafeMapView to present the route between the user and the cafe venue
 ### API Data Fetching
 - Get cafe list by GET API https://api.foursquare.com/v3/places/search
-  - Pagination by cursor
+  - Pagination by the cursor
   - Sort the list by distance or popularity
+- Get cafe venues' images by GET API https://api.foursquare.com/v3/places/{fsqId}/photos
 ### Localized Content
 - Used Extension protocol with enumeration to define and use localized strings.
 ### Test Implementation
@@ -37,6 +38,7 @@ Modify the method getAPIKey in the class AppConfiguration
 - Clean Architecture
 - POP (protocol LocallizedStringType)
 - OOP
+- MapKit
 - Concurrency (await async)
 - Unit testing
 - Observable
