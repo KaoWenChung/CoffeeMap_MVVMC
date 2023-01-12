@@ -8,12 +8,11 @@
 import UIKit
 
 final class CafeDetailViewController: UIViewController {
-
     @IBOutlet weak private var imageRotatorView: ImageRotatorView!
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var addressLabel: UILabel!
 
-    private let viewModel: CafeDetailViewModel
+    private let viewModel: CafeDetailViewModelType
     private let imageRepository: ImageRepositoryType
 
     override func viewDidLoad() {
@@ -36,5 +35,4 @@ final class CafeDetailViewController: UIViewController {
     @IBAction private func didSelectShowRouterBtn() {
         viewModel.didSelectShowRouterBtn()
     }
-    
 }

@@ -14,6 +14,9 @@ protocol CafeDetailViewModelInput {
 }
 
 protocol CafeDetailViewModelOutput {
+    var title: String { get }
+    var address: String { get }
+    var imageCellViewModels: [ImageRotatorCollectionCellViewModel] { get }
 }
 
 protocol CafeDetailViewModelType: CafeDetailViewModelInput, CafeDetailViewModelOutput {}

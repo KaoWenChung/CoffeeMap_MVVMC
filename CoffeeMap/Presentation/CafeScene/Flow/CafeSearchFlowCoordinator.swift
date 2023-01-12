@@ -41,6 +41,6 @@ final class CafeSearchFlowCoordinator {
         let viewModel = CafeMapViewModel(item)
         // Dismiss CafeDetailViewController
         navigationController?.dismiss(animated: true)
-        navigationController?.pushViewController(CafeMapViewController(viewModel), animated: true)
+        navigationController?.pushViewController(CafeMapViewController(viewModel), animated: false)
     }
 }

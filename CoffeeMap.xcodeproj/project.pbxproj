@@ -326,8 +326,8 @@
 		214999C9291AC24F00F412BD /* CafeScene */ = {
 			isa = PBXGroup;
 			children = (
-				21C1F493296DAF5600FCF813 /* ImageRotatorView */,
 				214999CA291AC26600F412BD /* Flow */,
+				21C1F493296DAF5600FCF813 /* ImageRotatorView */,
 				7952AB2828C0411D00607B77 /* ViewModel */,
 				79290E0F28C080D300439E38 /* Cell */,
 				79242C6228C03ADD00766059 /* CafeListViewController.swift */,
