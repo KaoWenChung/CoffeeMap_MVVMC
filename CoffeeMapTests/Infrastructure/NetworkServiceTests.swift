@@ -40,7 +40,7 @@ class NetworkServiceTests: XCTestCase {
     }
 
     func test_whenMockDataPassed_shouldReturnProperResponse() async {
-        //given
+        // given
         let config = NetworkConfigurableMock()
 
         let expectedResponseData = "Response data".data(using: .utf8)!
@@ -50,7 +50,7 @@ class NetworkServiceTests: XCTestCase {
                                                        expectation: self.expectation(description: "Should return correct data"))
         let sut = NetworkService(config: config,
                                  sessionManager: sessionManager)
-        //when
+        // when
         do {
             let result = try sut.request(endpoint: EndpointMock(path: "http://mock.test.com", method: .get))
             let (data, _) = try await result.value

@@ -16,36 +16,32 @@ private struct MockResponseData: Decodable {
 // MARK: - Tests
 final class DataTransferServiceTests: XCTestCase {
 
-    func testReceivedValidJSONResponse_decodeResponseToObject() {
+    func testReceivedValidJSONResponse_decodeResponseToObject() async {
         let expectation = expectation(description: "should decode response to object")
         let sut = makeSUT(mockData: #"{"name": "Mike"}"#)
         // when
-        Task.init {
-            do {
-                let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
-                let value: MockResponseData = try await sut.request(with: mockEndpoint)
-                XCTAssertEqual(value.name, "Mike")
-                expectation.fulfill()
-            } catch {
-                XCTFail("Decoding mock object failure")
-            }
+        do {
+            let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
+            let value: MockResponseData = try await sut.request(with: mockEndpoint)
+            XCTAssertEqual(value.name, "Mike")
+            expectation.fulfill()
+        } catch {
+            XCTFail("Decoding mock object failure")
         }
         // result
         wait(for: [expectation], timeout: 1)
     }
 
-    func testReceivedInvalidResponse_decodeNoObjectThrowError() {
+    func testReceivedInvalidResponse_decodeNoObjectThrowError() async {
         let expectation = expectation(description: "Should throw error of network")
         let sut = makeSUT(mockData: #"{"gender": "man"}"#)
         // when
-        Task.init {
-            do {
-                let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
-                let _: MockResponseData = try await sut.request(with: mockEndpoint)
-                XCTFail("Should not successfully decode data")
-            } catch {
-                expectation.fulfill()
-            }
+        do {
+            let mockEndpoint = Endpoint<MockResponseData>(path: "https://mock.endpoint.com", method: .get)
+            let _: MockResponseData = try await sut.request(with: mockEndpoint)
+            XCTFail("Should not successfully decode data")
+        } catch {
+            expectation.fulfill()
         }
         // result
         wait(for: [expectation], timeout: 1)
