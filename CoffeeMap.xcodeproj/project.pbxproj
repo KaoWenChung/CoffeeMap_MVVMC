@@ -64,6 +64,7 @@
 		21F76546296F194200403B49 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F76545296F194200403B49 /* String.swift */; };
 		21F76548296F1CA900403B49 /* ImageRotatorCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F76547296F1CA900403B49 /* ImageRotatorCollectionCellViewModel.swift */; };
 		21F7654C2970712900403B49 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F7654B2970712900403B49 /* DateTests.swift */; };
+		21F7654E2970786E00403B49 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F7654D2970786E00403B49 /* String.swift */; };
 		79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C5E28C03ADD00766059 /* AppDelegate.swift */; };
 		79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C6028C03ADD00766059 /* SceneDelegate.swift */; };
 		79242C6328C03ADD00766059 /* CafeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C6228C03ADD00766059 /* CafeListViewController.swift */; };
@@ -159,6 +160,7 @@
 		21F76545296F194200403B49 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		21F76547296F1CA900403B49 /* ImageRotatorCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		21F7654B2970712900403B49 /* DateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
+		21F7654D2970786E00403B49 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		79242C5B28C03ADD00766059 /* CoffeeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79242C5E28C03ADD00766059 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79242C6028C03ADD00766059 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 			isa = PBXGroup;
 			children = (
 				21F7654B2970712900403B49 /* DateTests.swift */,
+				21F7654D2970786E00403B49 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79290E1828C09CED00439E38 /* CafeListViewControllerTests.swift in Sources */,
+				21F7654E2970786E00403B49 /* String.swift in Sources */,
 				2113555D294B7E100039287B /* ImageRepositoryMock.swift in Sources */,
 				21A1D7802952805C0061DE76 /* NetworkServiceTests.swift in Sources */,
 				21A1D782295280AD0061DE76 /* NetworkConfigurableMock.swift in Sources */,
