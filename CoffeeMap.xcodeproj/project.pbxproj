@@ -19,6 +19,9 @@
 		2106D399294A33FE00321A5D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2106D39B294A33FE00321A5D /* Localizable.strings */; };
 		21135558294B7D830039287B /* SearchCafeUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21135557294B7D830039287B /* SearchCafeUseCaseMock.swift */; };
 		2113555D294B7E100039287B /* ImageRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113555C294B7E100039287B /* ImageRepositoryMock.swift */; };
+		2135C419297205E6006A4339 /* ImageRotatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */; };
+		2135C41C29720C52006A4339 /* ImageRotatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */; };
+		2135C41E29720D5D006A4339 /* GetImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 2135C41D29720D5D006A4339 /* GetImage.json */; };
 		214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C22919BCA400F412BD /* APIEndpoints.swift */; };
 		214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */; };
 		214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */; };
@@ -115,6 +118,9 @@
 		2106D39A294A33FE00321A5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21135557294B7D830039287B /* SearchCafeUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCafeUseCaseMock.swift; sourceTree = "<group>"; };
 		2113555C294B7E100039287B /* ImageRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoryMock.swift; sourceTree = "<group>"; };
+		2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewModel.swift; sourceTree = "<group>"; };
+		2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewTests.swift; sourceTree = "<group>"; };
+		2135C41D29720D5D006A4339 /* GetImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetImage.json; sourceTree = "<group>"; };
 		214999C22919BCA400F412BD /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetPlaceResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
 		214999CB291AC27500F412BD /* CafeSearchFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeSearchFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -299,6 +305,14 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		2135C41A297205F9006A4339 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		214999C42919BD1600F412BD /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +472,7 @@
 		21C1F493296DAF5600FCF813 /* ImageRotatorView */ = {
 			isa = PBXGroup;
 			children = (
+				2135C41A297205F9006A4339 /* ViewModel */,
 				21C1F4A4296DC01400FCF813 /* Cell */,
 				21C1F494296DAFD100FCF813 /* ImageRotatorView.swift */,
 				21C1F496296DAFD800FCF813 /* ImageRotatorView.xib */,
@@ -583,6 +598,7 @@
 				7952AB4028C0625F00607B77 /* Util */,
 				7952AB4328C062FB00607B77 /* Stub */,
 				7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */,
+				2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */,
 				7952AB3E28C0619E00607B77 /* CafeListViewModelTests.swift */,
 				79290E1728C09CED00439E38 /* CafeListViewControllerTests.swift */,
 				796EB62528C1AF1000F1A01B /* EncodableExtensionTests.swift */,
@@ -650,6 +666,7 @@
 			isa = PBXGroup;
 			children = (
 				7952AB4628C0642E00607B77 /* GetPlace_London.json */,
+				2135C41D29720D5D006A4339 /* GetImage.json */,
 			);
 			path = Stub;
 			sourceTree = "<group>";
@@ -751,6 +768,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2135C41E29720D5D006A4339 /* GetImage.json in Resources */,
 				7952AB4728C0642E00607B77 /* GetPlace_London.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,6 +812,7 @@
 				7952AB3628C0552C00607B77 /* NetworkService.swift in Sources */,
 				2106D391294A30C500321A5D /* ConnectionError.swift in Sources */,
 				219633AA28E0D64E004C5A97 /* CafeMapViewModel.swift in Sources */,
+				2135C419297205E6006A4339 /* ImageRotatorViewModel.swift in Sources */,
 				214999CC291AC27500F412BD /* CafeSearchFlowCoordinator.swift in Sources */,
 				21569DA929560E6F003D84AE /* UIImageView.swift in Sources */,
 				219892772965BB7F0096C4B7 /* CancellableType.swift in Sources */,
@@ -832,6 +851,7 @@
 				21F7654E2970786E00403B49 /* String.swift in Sources */,
 				2113555D294B7E100039287B /* ImageRepositoryMock.swift in Sources */,
 				21A1D7802952805C0061DE76 /* NetworkServiceTests.swift in Sources */,
+				2135C41C29720C52006A4339 /* ImageRotatorViewTests.swift in Sources */,
 				21A1D782295280AD0061DE76 /* NetworkConfigurableMock.swift in Sources */,
 				7952AB3F28C0619E00607B77 /* CafeListViewModelTests.swift in Sources */,
 				21135558294B7D830039287B /* SearchCafeUseCaseMock.swift in Sources */,

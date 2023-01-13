@@ -11,7 +11,7 @@ final class Spinner {
     static let shared = Spinner()
     private init() {}
     
-    var spinner: UIActivityIndicatorView?
+    private var spinner: UIActivityIndicatorView?
 
     func showOn(_ view: UIView) {
         hide()

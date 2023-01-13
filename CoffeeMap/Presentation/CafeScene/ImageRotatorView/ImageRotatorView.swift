@@ -8,8 +8,8 @@
 import UIKit
 
 final class ImageRotatorView: BaseXibView {
-    @IBOutlet weak private var imageCollectionView: UICollectionView!
-    @IBOutlet weak private var countLabel: UILabel!
+    @IBOutlet weak private(set) var imageCollectionView: UICollectionView!
+    @IBOutlet weak private(set) var countLabel: UILabel!
 
     private var imageRepository: ImageRepositoryType?
     private var collectionViewAdapter: CollectionViewAdapter?
@@ -36,12 +36,7 @@ final class ImageRotatorView: BaseXibView {
         countLabel.text = "1/\(data.count)"
     }
 }
-struct ImageRotatorViewModel {
-    let imageCells: [ImageRotatorCollectionCellViewModel]
-    init(imageCells: [ImageRotatorCollectionCellViewModel]) {
-        self.imageCells = imageCells
-    }
-}
+
 
 extension ImageRotatorView: TableCollectionViewAdapterDelegate {
     func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath) {
@@ -66,6 +61,7 @@ extension ImageRotatorView: TableCollectionViewAdapterDelegate {
 }
 
 extension ImageRotatorView: CollectionViewDidScrollDelegate {
+    // Show index of images
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetPage = Int(scrollView.contentOffset.x / frame.width)
         countLabel.text = "\(offsetPage + 1)/\(viewModel?.imageCells.count ?? 0)"
