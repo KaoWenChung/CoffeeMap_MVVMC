@@ -31,6 +31,7 @@
 		21569DA42955F992003D84AE /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA32955F992003D84AE /* ImageRepository.swift */; };
 		21569DA72956027E003D84AE /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA62956027E003D84AE /* ImageCache.swift */; };
 		21569DA929560E6F003D84AE /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21569DA829560E6F003D84AE /* UIImageView.swift */; };
+		21723E00297305D400306D34 /* LocallizedStringTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21723DFF297305D400306D34 /* LocallizedStringTypeTests.swift */; };
 		219633AA28E0D64E004C5A97 /* CafeMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219633A928E0D64E004C5A97 /* CafeMapViewModel.swift */; };
 		219892772965BB7F0096C4B7 /* CancellableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219892762965BB7F0096C4B7 /* CancellableType.swift */; };
 		21A1D7802952805C0061DE76 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A1D77F2952805C0061DE76 /* NetworkServiceTests.swift */; };
@@ -130,6 +131,7 @@
 		21569DA32955F992003D84AE /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		21569DA62956027E003D84AE /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		21569DA829560E6F003D84AE /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		21723DFF297305D400306D34 /* LocallizedStringTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocallizedStringTypeTests.swift; sourceTree = "<group>"; };
 		219633A928E0D64E004C5A97 /* CafeMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeMapViewModel.swift; sourceTree = "<group>"; };
 		219892762965BB7F0096C4B7 /* CancellableType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CancellableType.swift; sourceTree = "<group>"; };
 		21A1D77F2952805C0061DE76 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 			isa = PBXGroup;
 			children = (
 				21F7654A2970711E00403B49 /* Extension */,
+				21723DFF297305D400306D34 /* LocallizedStringTypeTests.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				7952AB3F28C0619E00607B77 /* CafeListViewModelTests.swift in Sources */,
 				21135558294B7D830039287B /* SearchCafeUseCaseMock.swift in Sources */,
 				7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */,
+				21723E00297305D400306D34 /* LocallizedStringTypeTests.swift in Sources */,
 				21F7654C2970712900403B49 /* DateTests.swift in Sources */,
 				21A1D784295280C40061DE76 /* NetworkSessionManagerMock.swift in Sources */,
 				7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */,
