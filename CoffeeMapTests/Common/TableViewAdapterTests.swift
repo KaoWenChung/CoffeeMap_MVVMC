@@ -9,19 +9,26 @@ import XCTest
 @testable import CoffeeMap
 
 class TableViewAdapterTests: XCTestCase {
-
-    func testTableView_updateData_1cell() {
+    func testTableView_updateData_1Section1Cell() {
         let tableView = UITableView()
         let sut: TableViewAdapter = makeSUT(tableView)
         sut.updateData([AdapterSectionModel(items: [MockCellModel()])])
         XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 0), 1)
     }
 
-    func testTableView_updateData_2cell() {
+    func testTableView_updateData_1Section2Cells() {
         let tableView = UITableView()
         let sut: TableViewAdapter = makeSUT(tableView)
         sut.updateData([AdapterSectionModel(items: [MockCellModel(), MockCellModel()])])
         XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 0), 2)
+    }
+
+    func testTableView_updateData_2Section1CellAnd2Cells() {
+        let tableView = UITableView()
+        let sut: TableViewAdapter = makeSUT(tableView)
+        sut.updateData([AdapterSectionModel(items: [MockCellModel()]), AdapterSectionModel(items: [MockCellModel(), MockCellModel()])])
+        XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 0), 1)
+        XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 1), 2)
     }
 
     // MARK: - Helper
@@ -37,7 +44,5 @@ class TableViewAdapterTests: XCTestCase {
         var type: UIView.Type {
             return MockBaseCell.self
         }
-        
     }
-
 }
