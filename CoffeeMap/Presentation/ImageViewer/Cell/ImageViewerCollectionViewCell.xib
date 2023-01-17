@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tfJ-Cy-rgb" customClass="ImageViewerCollectionViewCell" customModule="CoffeeMap" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="5" translatesAutoresizingMaskIntoConstraints="NO" id="p7X-LO-F7P">
+                        <rect key="frame" x="0.0" y="47" width="50" height="3"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="vGX-BI-Ilv">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="3"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="vGX-BI-Ilv" firstAttribute="height" secondItem="p7X-LO-F7P" secondAttribute="height" id="07h-UT-PEL"/>
+                            <constraint firstAttribute="trailing" secondItem="vGX-BI-Ilv" secondAttribute="trailing" id="8wA-5R-hfm"/>
+                            <constraint firstItem="vGX-BI-Ilv" firstAttribute="top" secondItem="p7X-LO-F7P" secondAttribute="top" id="GRx-0F-QOg"/>
+                            <constraint firstAttribute="bottom" secondItem="vGX-BI-Ilv" secondAttribute="bottom" id="TnO-R2-mKa"/>
+                            <constraint firstItem="vGX-BI-Ilv" firstAttribute="width" secondItem="p7X-LO-F7P" secondAttribute="width" id="pVC-EB-6DN"/>
+                            <constraint firstItem="vGX-BI-Ilv" firstAttribute="leading" secondItem="p7X-LO-F7P" secondAttribute="leading" id="wBA-Oo-Ais"/>
+                        </constraints>
+                    </scrollView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ugt-P9-flq"/>
+            <constraints>
+                <constraint firstItem="ugt-P9-flq" firstAttribute="bottom" secondItem="p7X-LO-F7P" secondAttribute="bottom" id="880-Eg-DNl"/>
+                <constraint firstItem="ugt-P9-flq" firstAttribute="trailing" secondItem="p7X-LO-F7P" secondAttribute="trailing" id="IhZ-fr-ALT"/>
+                <constraint firstItem="ugt-P9-flq" firstAttribute="top" secondItem="p7X-LO-F7P" secondAttribute="top" id="aX4-Im-pkz"/>
+                <constraint firstItem="p7X-LO-F7P" firstAttribute="leading" secondItem="ugt-P9-flq" secondAttribute="leading" id="hog-CY-nwb"/>
+            </constraints>
+            <connections>
+                <outlet property="imageView" destination="vGX-BI-Ilv" id="S0p-2o-rnm"/>
+                <outlet property="scrollView" destination="p7X-LO-F7P" id="Sbn-lf-R7z"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="144"/>
+        </collectionViewCell>
+    </objects>
+</document>

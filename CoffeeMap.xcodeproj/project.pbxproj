@@ -19,6 +19,11 @@
 		2106D399294A33FE00321A5D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2106D39B294A33FE00321A5D /* Localizable.strings */; };
 		21135558294B7D830039287B /* SearchCafeUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21135557294B7D830039287B /* SearchCafeUseCaseMock.swift */; };
 		2113555D294B7E100039287B /* ImageRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2113555C294B7E100039287B /* ImageRepositoryMock.swift */; };
+		212BB4DB2977084F00E1D51E /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212BB4D92977084F00E1D51E /* ImageViewerViewController.swift */; };
+		212BB4DC2977084F00E1D51E /* ImageViewerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212BB4DA2977084F00E1D51E /* ImageViewerViewController.xib */; };
+		212BB4E0297708DB00E1D51E /* ImageViwerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212BB4DF297708DB00E1D51E /* ImageViwerViewModel.swift */; };
+		212BB4E429770A5700E1D51E /* ImageViewerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212BB4E229770A5700E1D51E /* ImageViewerCollectionViewCell.swift */; };
+		212BB4E529770A5700E1D51E /* ImageViewerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212BB4E329770A5700E1D51E /* ImageViewerCollectionViewCell.xib */; };
 		2135C419297205E6006A4339 /* ImageRotatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */; };
 		2135C41C29720C52006A4339 /* ImageRotatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */; };
 		2135C41E29720D5D006A4339 /* GetImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 2135C41D29720D5D006A4339 /* GetImage.json */; };
@@ -121,6 +126,11 @@
 		2106D39A294A33FE00321A5D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21135557294B7D830039287B /* SearchCafeUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCafeUseCaseMock.swift; sourceTree = "<group>"; };
 		2113555C294B7E100039287B /* ImageRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepositoryMock.swift; sourceTree = "<group>"; };
+		212BB4D92977084F00E1D51E /* ImageViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
+		212BB4DA2977084F00E1D51E /* ImageViewerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewerViewController.xib; sourceTree = "<group>"; };
+		212BB4DF297708DB00E1D51E /* ImageViwerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViwerViewModel.swift; sourceTree = "<group>"; };
+		212BB4E229770A5700E1D51E /* ImageViewerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerCollectionViewCell.swift; sourceTree = "<group>"; };
+		212BB4E329770A5700E1D51E /* ImageViewerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewModel.swift; sourceTree = "<group>"; };
 		2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewTests.swift; sourceTree = "<group>"; };
 		2135C41D29720D5D006A4339 /* GetImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetImage.json; sourceTree = "<group>"; };
@@ -311,6 +321,34 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		212BB4DD2977086400E1D51E /* ImageViewer */ = {
+			isa = PBXGroup;
+			children = (
+				212BB4E129770A3B00E1D51E /* Cell */,
+				212BB4DE297708CE00E1D51E /* ViewModel */,
+				212BB4D92977084F00E1D51E /* ImageViewerViewController.swift */,
+				212BB4DA2977084F00E1D51E /* ImageViewerViewController.xib */,
+			);
+			path = ImageViewer;
+			sourceTree = "<group>";
+		};
+		212BB4DE297708CE00E1D51E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				212BB4DF297708DB00E1D51E /* ImageViwerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		212BB4E129770A3B00E1D51E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				212BB4E229770A5700E1D51E /* ImageViewerCollectionViewCell.swift */,
+				212BB4E329770A5700E1D51E /* ImageViewerCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		2135C41A297205F9006A4339 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +379,7 @@
 		214999C8291AC23D00F412BD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				212BB4DD2977086400E1D51E /* ImageViewer */,
 				2106D38D2947994000321A5D /* Utils */,
 				214999C9291AC24F00F412BD /* CafeScene */,
 			);
@@ -763,6 +802,8 @@
 			files = (
 				21BAEBFD28E0671E002616F6 /* CafeMapViewController.xib in Resources */,
 				2106D399294A33FE00321A5D /* Localizable.strings in Resources */,
+				212BB4E529770A5700E1D51E /* ImageViewerCollectionViewCell.xib in Resources */,
+				212BB4DC2977084F00E1D51E /* ImageViewerViewController.xib in Resources */,
 				21C1F492296DAF2E00FCF813 /* CafeDetailViewController.xib in Resources */,
 				21C1F4A3296DC00F00FCF813 /* ImageRotatorCollectionViewCell.xib in Resources */,
 				79242C6B28C03ADF00766059 /* LaunchScreen.storyboard in Resources */,
@@ -799,6 +840,7 @@
 				21C1F49B296DB2C300FCF813 /* CollectionViewAdapter.swift in Sources */,
 				21C1F491296DAF2E00FCF813 /* CafeDetailViewController.swift in Sources */,
 				7952AB3A28C0563D00607B77 /* CafePlacesRepository.swift in Sources */,
+				212BB4E0297708DB00E1D51E /* ImageViwerViewModel.swift in Sources */,
 				21BAEBFC28E0671E002616F6 /* CafeMapViewController.swift in Sources */,
 				79242C6328C03ADD00766059 /* CafeListViewController.swift in Sources */,
 				21569DA42955F992003D84AE /* ImageRepository.swift in Sources */,
@@ -810,6 +852,7 @@
 				21F76544296F183300403B49 /* Date.swift in Sources */,
 				7952AB2D28C04E7100607B77 /* CafeTableViewCellModel.swift in Sources */,
 				21A445D32912DE6300986160 /* NetworkServiceType.swift in Sources */,
+				212BB4E429770A5700E1D51E /* ImageViewerCollectionViewCell.swift in Sources */,
 				2106D38A2947905100321A5D /* GetPlaceRequestDTO+Mapping.swift in Sources */,
 				21C5F3322951097C003CEBAE /* TableViewRegistryService.swift in Sources */,
 				21C1F4A6296DC7EF00FCF813 /* CafeDetailViewModel.swift in Sources */,
@@ -843,6 +886,7 @@
 				21569DA72956027E003D84AE /* ImageCache.swift in Sources */,
 				214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */,
 				2103D8422963667400EEF30B /* CafePhotoModel.swift in Sources */,
+				212BB4DB2977084F00E1D51E /* ImageViewerViewController.swift in Sources */,
 				21A445CE2912D8EE00986160 /* CafePlacesRepositoryType.swift in Sources */,
 				2106D394294A339400321A5D /* LocallizedStringType.swift in Sources */,
 				7952AB3128C0509F00607B77 /* GetPlaceDataModel.swift in Sources */,
