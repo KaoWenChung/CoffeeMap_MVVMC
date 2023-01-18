@@ -24,6 +24,7 @@
 		212BB4E0297708DB00E1D51E /* ImageViwerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212BB4DF297708DB00E1D51E /* ImageViwerViewModel.swift */; };
 		212BB4E429770A5700E1D51E /* ImageViewerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212BB4E229770A5700E1D51E /* ImageViewerCollectionViewCell.swift */; };
 		212BB4E529770A5700E1D51E /* ImageViewerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212BB4E329770A5700E1D51E /* ImageViewerCollectionViewCell.xib */; };
+		212BB4E829780A6400E1D51E /* ImageRotatorCollectionCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212BB4E729780A6400E1D51E /* ImageRotatorCollectionCellViewModelTests.swift */; };
 		2135C419297205E6006A4339 /* ImageRotatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */; };
 		2135C41C29720C52006A4339 /* ImageRotatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */; };
 		2135C41E29720D5D006A4339 /* GetImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 2135C41D29720D5D006A4339 /* GetImage.json */; };
@@ -131,6 +132,7 @@
 		212BB4DF297708DB00E1D51E /* ImageViwerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViwerViewModel.swift; sourceTree = "<group>"; };
 		212BB4E229770A5700E1D51E /* ImageViewerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerCollectionViewCell.swift; sourceTree = "<group>"; };
 		212BB4E329770A5700E1D51E /* ImageViewerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewerCollectionViewCell.xib; sourceTree = "<group>"; };
+		212BB4E729780A6400E1D51E /* ImageRotatorCollectionCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorCollectionCellViewModelTests.swift; sourceTree = "<group>"; };
 		2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewModel.swift; sourceTree = "<group>"; };
 		2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewTests.swift; sourceTree = "<group>"; };
 		2135C41D29720D5D006A4339 /* GetImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetImage.json; sourceTree = "<group>"; };
@@ -347,6 +349,17 @@
 				212BB4E329770A5700E1D51E /* ImageViewerCollectionViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		212BB4E629780A4600E1D51E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				212BB4E729780A6400E1D51E /* ImageRotatorCollectionCellViewModelTests.swift */,
+				7952AB3E28C0619E00607B77 /* CafeListViewModelTests.swift */,
+				2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */,
+				79290E1728C09CED00439E38 /* CafeListViewControllerTests.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		2135C41A297205F9006A4339 /* ViewModel */ = {
@@ -646,9 +659,7 @@
 				21135555294B7D6C0039287B /* Domain */,
 				7952AB4028C0625F00607B77 /* Util */,
 				7952AB4328C062FB00607B77 /* Stub */,
-				2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */,
-				7952AB3E28C0619E00607B77 /* CafeListViewModelTests.swift */,
-				79290E1728C09CED00439E38 /* CafeListViewControllerTests.swift */,
+				212BB4E629780A4600E1D51E /* Presentation */,
 				796EB62528C1AF1000F1A01B /* EncodableExtensionTests.swift */,
 			);
 			path = CoffeeMapTests;
@@ -914,6 +925,7 @@
 				21F7654C2970712900403B49 /* DateTests.swift in Sources */,
 				21A1D784295280C40061DE76 /* NetworkSessionManagerMock.swift in Sources */,
 				7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */,
+				212BB4E829780A6400E1D51E /* ImageRotatorCollectionCellViewModelTests.swift in Sources */,
 				21468CCA297414A100649FE2 /* CollectionViewAdapterTests.swift in Sources */,
 				796EB62628C1AF1000F1A01B /* EncodableExtensionTests.swift in Sources */,
 				21569D932954BE09003D84AE /* DataTransferServiceTests.swift in Sources */,

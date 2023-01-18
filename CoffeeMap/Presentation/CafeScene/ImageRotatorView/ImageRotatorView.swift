@@ -50,7 +50,8 @@ extension ImageRotatorView: TableCollectionViewAdapterDelegate {
     }
     
     func select(model: AdapterItemModel) {
-        // TODO: Image Viewer
+//        let viewModel = ImageViewerViewModel(imageUrlList: viewModel., page: <#T##Int#>, pastImageRect: <#T##CGRect?#>)
+//        let imageViewer: ImageViewerViewController.ini
     }
     
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {
