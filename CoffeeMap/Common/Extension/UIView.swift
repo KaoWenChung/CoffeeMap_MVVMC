@@ -12,5 +12,8 @@ extension UIView {
     static var name: String {
         return String(describing: self)
     }
-    
+
+    var globalFrame :CGRect? {
+        return self.superview?.convert(self.frame, to: nil)
+    }
 }

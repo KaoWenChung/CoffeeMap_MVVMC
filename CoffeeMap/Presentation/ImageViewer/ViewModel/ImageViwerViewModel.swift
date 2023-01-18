@@ -7,8 +7,8 @@
 
 import CoreFoundation
 
-protocol ImageViwerViewModelType {
-    var imageUrlList: [String] { get }
+protocol ImageViewerViewModelType {
+    var imageUrlList: [ImageViewerCollectionCellViewModel] { get }
     var pastImageRect: CGRect? { get }
     var isShowButtons: Bool { get }
     var page: Int { get }
@@ -18,17 +18,17 @@ protocol ImageViwerViewModelType {
     func toggleDismiss()
 }
 
-final class ImageViewerViewModel: ImageViwerViewModelType {
+final class ImageViewerViewModel: ImageViewerViewModelType {
     private(set) var isShowButtons: Bool = true
     private(set) var page: Int = 0
     private(set) var isDismiss: Bool = false
     let pastImageRect: CGRect?
-    let imageUrlList: [String]
+    let imageUrlList: [ImageViewerCollectionCellViewModel]
 
     init(imageUrlList: [String],
          page: Int,
          pastImageRect: CGRect?) {
-        self.imageUrlList = imageUrlList
+        self.imageUrlList = imageUrlList.map { ImageViewerCollectionCellViewModel.init(imageURL: $0) }
         self.page = page
         self.pastImageRect = pastImageRect
     }
@@ -36,7 +36,7 @@ final class ImageViewerViewModel: ImageViwerViewModelType {
     init(imageRotatorCells: [ImageRotatorCollectionCellViewModel],
          page: Int,
          pastImageRect: CGRect?) {
-        self.imageUrlList = imageRotatorCells.map { $0.getOriginalImage() }
+        self.imageUrlList = imageRotatorCells.map { ImageViewerCollectionCellViewModel(imageURL: $0.getOriginalImage()) }
         self.page = page
         self.pastImageRect = pastImageRect
     }

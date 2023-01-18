@@ -25,6 +25,7 @@
 		212BB4E429770A5700E1D51E /* ImageViewerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212BB4E229770A5700E1D51E /* ImageViewerCollectionViewCell.swift */; };
 		212BB4E529770A5700E1D51E /* ImageViewerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212BB4E329770A5700E1D51E /* ImageViewerCollectionViewCell.xib */; };
 		212BB4E829780A6400E1D51E /* ImageRotatorCollectionCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212BB4E729780A6400E1D51E /* ImageRotatorCollectionCellViewModelTests.swift */; };
+		212BB4EA29783AA900E1D51E /* ImageViewerCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212BB4E929783AA900E1D51E /* ImageViewerCollectionCellViewModel.swift */; };
 		2135C419297205E6006A4339 /* ImageRotatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */; };
 		2135C41C29720C52006A4339 /* ImageRotatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */; };
 		2135C41E29720D5D006A4339 /* GetImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 2135C41D29720D5D006A4339 /* GetImage.json */; };
@@ -133,6 +134,7 @@
 		212BB4E229770A5700E1D51E /* ImageViewerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerCollectionViewCell.swift; sourceTree = "<group>"; };
 		212BB4E329770A5700E1D51E /* ImageViewerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewerCollectionViewCell.xib; sourceTree = "<group>"; };
 		212BB4E729780A6400E1D51E /* ImageRotatorCollectionCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorCollectionCellViewModelTests.swift; sourceTree = "<group>"; };
+		212BB4E929783AA900E1D51E /* ImageViewerCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewModel.swift; sourceTree = "<group>"; };
 		2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewTests.swift; sourceTree = "<group>"; };
 		2135C41D29720D5D006A4339 /* GetImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetImage.json; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 		212BB4E129770A3B00E1D51E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				212BB4E929783AA900E1D51E /* ImageViewerCollectionCellViewModel.swift */,
 				212BB4E229770A5700E1D51E /* ImageViewerCollectionViewCell.swift */,
 				212BB4E329770A5700E1D51E /* ImageViewerCollectionViewCell.xib */,
 			);
@@ -898,6 +901,7 @@
 				214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */,
 				2103D8422963667400EEF30B /* CafePhotoModel.swift in Sources */,
 				212BB4DB2977084F00E1D51E /* ImageViewerViewController.swift in Sources */,
+				212BB4EA29783AA900E1D51E /* ImageViewerCollectionCellViewModel.swift in Sources */,
 				21A445CE2912D8EE00986160 /* CafePlacesRepositoryType.swift in Sources */,
 				2106D394294A339400321A5D /* LocallizedStringType.swift in Sources */,
 				7952AB3128C0509F00607B77 /* GetPlaceDataModel.swift in Sources */,

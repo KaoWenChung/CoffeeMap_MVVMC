@@ -10,6 +10,7 @@ import UIKit
 protocol CafeSearchFlowCoordinatorDependenciesType {
     func makeCafeListViewController(actions: CafeListViewModelActions?) -> CafeListViewController
     func makeCafeDetailViewController(cellModel: CafeTableViewCellModel, actions: CafeDetailViewModelActions) -> CafeDetailViewController
+    func makeImageViewerViewController(_ viewModel: ImageRotatorViewModel) -> ImageViewerViewController
 }
 
 final class CafeSearchFlowCoordinator {
@@ -32,9 +33,9 @@ final class CafeSearchFlowCoordinator {
     }
 
     private func didSelectItem(_ item: CafeTableViewCellModel) {
-        let actions = CafeDetailViewModelActions(showCafeRoute: didSelectRouter)
+        let actions = CafeDetailViewModelActions(showCafeRoute: didSelectRouter, didSelectImage: didSelectImage)
         let viewController = dependencies.makeCafeDetailViewController(cellModel: item, actions: actions)
-        navigationController?.present(viewController, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     private func didSelectRouter(_ item: CafeTableViewCellModel) {
@@ -42,5 +43,10 @@ final class CafeSearchFlowCoordinator {
         // Dismiss CafeDetailViewController
         navigationController?.dismiss(animated: true)
         navigationController?.pushViewController(CafeMapViewController(viewModel), animated: false)
+    }
+
+    private func didSelectImage(_ viewModel: ImageRotatorViewModel) {
+        let viewController = dependencies.makeImageViewerViewController(viewModel)
+        navigationController?.present(viewController, animated: true)
     }
 }

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ImageRotatorViewDelegate: AnyObject {
+    func didSelectImage(_ viewModel: ImageRotatorViewModel)
+}
+
 final class ImageRotatorView: BaseXibView {
     @IBOutlet weak private(set) var imageCollectionView: UICollectionView!
     @IBOutlet weak private(set) var countLabel: UILabel!
@@ -14,6 +18,8 @@ final class ImageRotatorView: BaseXibView {
     private var imageRepository: ImageRepositoryType?
     private var collectionViewAdapter: CollectionViewAdapter?
     private var viewModel: ImageRotatorViewModel?
+
+    weak var delegate: ImageRotatorViewDelegate?
 
     init() {
         super.init(frame: .zero)
@@ -50,8 +56,8 @@ extension ImageRotatorView: TableCollectionViewAdapterDelegate {
     }
     
     func select(model: AdapterItemModel) {
-//        let viewModel = ImageViewerViewModel(imageUrlList: viewModel., page: <#T##Int#>, pastImageRect: <#T##CGRect?#>)
-//        let imageViewer: ImageViewerViewController.ini
+        guard let viewModel else { return }
+        delegate?.didSelectImage(viewModel)
     }
     
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {
@@ -65,6 +71,7 @@ extension ImageRotatorView: CollectionViewDidScrollDelegate {
     // Show index of images
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetPage = Int(scrollView.contentOffset.x / frame.width)
+        viewModel?.page = offsetPage
         countLabel.text = "\(offsetPage + 1)/\(viewModel?.imageCells.count ?? 0)"
     }
 }

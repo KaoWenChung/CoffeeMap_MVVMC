@@ -20,6 +20,7 @@ final class CafeDetailViewController: UIViewController {
         titleLabel.text = viewModel.title
         addressLabel.text = viewModel.address
         imageRotatorView.setup(viewModel.imageCellViewModels, imageRepository: imageRepository)
+        imageRotatorView.delegate = self
     }
     
     init(_ viewModel: CafeDetailViewModel, imageRepository: ImageRepositoryType) {
@@ -34,5 +35,11 @@ final class CafeDetailViewController: UIViewController {
 
     @IBAction private func didSelectShowRouterBtn() {
         viewModel.didSelectShowRouterBtn()
+    }
+}
+
+extension CafeDetailViewController: ImageRotatorViewDelegate {
+    func didSelectImage(_ viewModel: ImageRotatorViewModel) {
+        self.viewModel.didSelectImage(viewModel)
     }
 }

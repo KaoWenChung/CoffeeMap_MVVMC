@@ -53,6 +53,15 @@ final class CafeSceneDIContainer {
         return CafeDetailViewModel(cellModel, actions: actions)
     }
 
+    // MARK: Image Viewer
+    func makeImageViewerViewController(_ viewModel: ImageRotatorViewModel) -> ImageViewerViewController {
+        ImageViewerViewController(viewModel: makeImageViewerViewModel(viewModel), imageRepository: makeImagesRepository())
+    }
+
+    func makeImageViewerViewModel(_ viewModel: ImageRotatorViewModel) -> ImageViewerViewModel {
+        ImageViewerViewModel(imageRotatorCells: viewModel.imageCells, page: viewModel.page, pastImageRect: nil)
+    }
+
     // MARK: - Flow Coordinators
     func makeCafeSearchFlowCoordinator(navigationController: UINavigationController) -> CafeSearchFlowCoordinator {
         

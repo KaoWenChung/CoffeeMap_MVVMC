@@ -7,10 +7,12 @@
 
 struct CafeDetailViewModelActions {
     let showCafeRoute: (CafeTableViewCellModel) -> Void
+    let didSelectImage: (ImageRotatorViewModel) -> Void
 }
 
 protocol CafeDetailViewModelInput {
     func didSelectShowRouterBtn()
+    func didSelectImage(_ viewModel:ImageRotatorViewModel)
 }
 
 protocol CafeDetailViewModelOutput {
@@ -42,6 +44,10 @@ struct CafeDetailViewModel {
 extension CafeDetailViewModel: CafeDetailViewModelType {
     func didSelectShowRouterBtn() {
         actions.showCafeRoute(cellModel)
+    }
+
+    func didSelectImage(_ viewModel: ImageRotatorViewModel) {
+        actions.didSelectImage(viewModel)
     }
 }
 

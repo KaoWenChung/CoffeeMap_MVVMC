@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ImageViewerViewControllerDelegate: AnyObject {
+    func didDissmissedView(stopAtIndex index: Int)
+}
+
 final class ImageViewerViewController: UIViewController {
     @IBOutlet weak private var collectionView: UICollectionView!
     @IBOutlet weak private var closeButton: UIButton!
@@ -14,17 +18,17 @@ final class ImageViewerViewController: UIViewController {
     @IBOutlet weak private var leftButton: UIButton!
     @IBOutlet weak private var rightButton: UIButton!
     @IBOutlet weak private var bottomView: UIView!
-    private let viewModel: ImageViwerViewModelType
+    private let viewModel: ImageViewerViewModelType
     
     private var imageRepository: ImageRepositoryType?
     private var collectionViewAdapter: CollectionViewAdapter?
     
-    var completion: ((_ aIndex: Int) -> Void)? = nil
+    weak var delegate: ImageViewerViewControllerDelegate?
     
-    init(viewModel: ImageViwerViewModelType, imageRepository: ImageRepositoryType) {
+    init(viewModel: ImageViewerViewModelType, imageRepository: ImageRepositoryType) {
         self.viewModel = viewModel
         self.imageRepository = imageRepository
-        super.init()
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -37,8 +41,9 @@ final class ImageViewerViewController: UIViewController {
     }
     private func initAdapter() {
         collectionViewAdapter = .init(collectionView)
-        collectionViewAdapter?.register(ImageRotatorCollectionViewCell.self)
+        collectionViewAdapter?.register(ImageViewerCollectionViewCell.self)
         collectionViewAdapter?.delegate = self
+        collectionViewAdapter?.updateData(viewModel.imageUrlList)
     }
 
     private func setView2Past() {
@@ -91,7 +96,7 @@ final class ImageViewerViewController: UIViewController {
         delayClose()
     }
     private func delayClose() {
-        completion?(viewModel.page)
+        delegate?.didDissmissedView(stopAtIndex: viewModel.page)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
             self.dismiss(animated: false)
         }
@@ -131,9 +136,9 @@ extension ImageViewerViewController: ImageViewerCollectionViewCellDelegate {
 extension ImageViewerViewController: TableCollectionViewAdapterDelegate {
     func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath) {
         switch (model, view) {
-        case (let model as ImageRotatorCollectionCellViewModel, let view as ImageViewerCollectionViewCell):
+        case (let model as ImageViewerCollectionCellViewModel, let view as ImageViewerCollectionViewCell):
             guard let imageRepository else { return }
-            view.setImage(viewModel.imageUrlList[indexPath.row])
+            view.setImage(model, imageRepository: imageRepository)
             view.delegate = self
         default:
             break
