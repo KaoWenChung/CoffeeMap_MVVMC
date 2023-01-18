@@ -39,6 +39,10 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Inc-F0-dvX"/>
+                        <outlet property="delegate" destination="-1" id="HwW-md-Ouw"/>
+                    </connections>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBk-jK-1xF">
                     <rect key="frame" x="0.0" y="47" width="50" height="50"/>
@@ -71,7 +75,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="arrow.right.circle.fill" catalog="system"/>
                             <connections>
-                                <action selector="tapArrowBtnsHandler:" destination="-1" eventType="touchUpInside" id="oEN-I0-d4E"/>
+                                <action selector="onChangedPageButton:" destination="-1" eventType="touchUpInside" id="e6j-gD-KKT"/>
                             </connections>
                         </button>
                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axT-bV-EwC">
@@ -84,7 +88,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" image="arrow.backward.circle.fill" catalog="system"/>
                             <connections>
-                                <action selector="tapArrowBtnsHandler:" destination="-1" eventType="touchUpInside" id="rlv-ep-a1Q"/>
+                                <action selector="onChangedPageButton:" destination="-1" eventType="touchUpInside" id="YLV-9f-zq6"/>
                             </connections>
                         </button>
                     </subviews>

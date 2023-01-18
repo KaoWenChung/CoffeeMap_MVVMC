@@ -47,6 +47,7 @@ final class CafeSearchFlowCoordinator {
 
     private func didSelectImage(_ viewModel: ImageRotatorViewModel) {
         let viewController = dependencies.makeImageViewerViewController(viewModel)
+        viewController.modalPresentationStyle = .fullScreen
         navigationController?.present(viewController, animated: true)
     }
 }

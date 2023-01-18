@@ -7,14 +7,20 @@
 
 import UIKit
 
-public protocol CollectionViewDidScrollDelegate: AnyObject {
-    func scrollViewDidScroll(_ scrollView: UIScrollView)
+public protocol CollectionAdapterDidEndDeceleratingDelegate: AnyObject {
+    func didEndDecelerating(_ scrollView: UIScrollView)
+}
+
+public protocol CollectionAdapterDidEndScrollingAnimationDelegate: AnyObject {
+    func didEndScrollingAnimation(_ scrollView: UIScrollView)
 }
 
 public class CollectionViewAdapter: NSObject {
     public weak var collectionView: UICollectionView?
     public weak var delegate: TableCollectionViewAdapterDelegate?
-    public weak var didScrollDelegate: CollectionViewDidScrollDelegate?
+    public weak var didEndDeceleratingDelegate: CollectionAdapterDidEndDeceleratingDelegate?
+    public weak var didEndScrollingAnimationDelegate: CollectionAdapterDidEndScrollingAnimationDelegate?
+    
     public private(set) var sections: [AdapterSectionModel] = []
     let registerService = CollectionViewRegistryService()
     
@@ -69,8 +75,13 @@ extension CollectionViewAdapter: UICollectionViewDelegate {
         delegate?.select(model: item)
         collectionView.deselectItem(at: indexPath, animated: true)
     }
+
     open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        didScrollDelegate?.scrollViewDidScroll(scrollView)
+        didEndDeceleratingDelegate?.didEndDecelerating(scrollView)
+    }
+
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        didEndScrollingAnimationDelegate?.didEndScrollingAnimation(scrollView)
     }
 }
 // MARK: - UICollectionViewDelegateFlowLayout

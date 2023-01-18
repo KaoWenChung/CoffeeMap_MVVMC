@@ -12,6 +12,15 @@ protocol ImageViewerViewControllerDelegate: AnyObject {
 }
 
 final class ImageViewerViewController: UIViewController {
+    enum Content {
+        static let previousPageButtonTag = 0
+        static let previousPage = -1
+        static let nextPage = 1
+        static let scrollBufferSpace: CGFloat = 50
+        static let fadeoutRange: ClosedRange<CGFloat> = 30...80
+        static let turnOffRange: PartialRangeFrom<CGFloat> = 80...
+        static let alphaToMinus = 1.6
+    }
     @IBOutlet weak private var collectionView: UICollectionView!
     @IBOutlet weak private var closeButton: UIButton!
     @IBOutlet weak private var pageLabel: UILabel!
@@ -39,21 +48,7 @@ final class ImageViewerViewController: UIViewController {
         super.viewDidLoad()
         initAdapter()
     }
-    private func initAdapter() {
-        collectionViewAdapter = .init(collectionView)
-        collectionViewAdapter?.register(ImageViewerCollectionViewCell.self)
-        collectionViewAdapter?.delegate = self
-        collectionViewAdapter?.updateData(viewModel.imageUrlList)
-    }
-
-    private func setView2Past() {
-        if let frame = viewModel.pastImageRect {
-            let viewHeight: CGFloat = collectionView.frame.size.height
-            let safeAreaSpacing: CGFloat = collectionView.safeAreaInsets.top
-            let imageMidAnchor: CGFloat = frame.midY
-            collectionView.transform = CGAffineTransform(translationX: 0, y: -(((viewHeight + safeAreaSpacing) / 2) - imageMidAnchor))
-        }
-    }
+    // MARK: IBAction functions
     @IBAction private func tapRecognizer(_ sender: Any) {
         viewModel.toggleShowButtons()
         UIView.animate(withDuration: 0.2) {
@@ -61,13 +56,7 @@ final class ImageViewerViewController: UIViewController {
             self.bottomView.alpha = self.viewModel.isShowButtons ? 1 : 0
         }
     }
-    private func updateBottomView() {
-        let newPage = Int(collectionView.contentOffset.x / collectionView.frame.size.width) + 1
-        viewModel.setPage(newPage)
-        leftButton.isHidden = viewModel.page == 1
-        rightButton.isHidden = viewModel.page == viewModel.imageUrlList.count
-        pageLabel.text = viewModel.page.description + "/ " + viewModel.imageUrlList.count.description
-    }
+
     @IBAction private func clickCloseHandler() {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
             let cell: ImageViewerCollectionViewCell? = self.collectionView.cellForItem(at: IndexPath(row: self.viewModel.page - 1, section: 0)) as? ImageViewerCollectionViewCell
@@ -77,15 +66,45 @@ final class ImageViewerViewController: UIViewController {
         }
         delayClose()
     }
-    @IBAction private func tapArrowBtnsHandler(_ sender: UIButton) {
-        let row2Scroll: Int = (viewModel.page - 1) + (sender.tag == 0 ? -1 : 1)
+
+    @IBAction private func onChangedPageButton(_ sender: UIButton) {
+        let offset = sender.tag == Content.previousPageButtonTag ? Content.previousPage : Content.nextPage
+        let row2Scroll: Int = (viewModel.page - 1) + offset
         guard row2Scroll >= 0, row2Scroll < viewModel.imageUrlList.count else { return }
         scrollTo(row2Scroll)
+        viewModel.setPage(viewModel.page + offset)
     }
+    // MARK: Private functions
+    private func initAdapter() {
+        collectionViewAdapter = .init(collectionView)
+        collectionViewAdapter?.register(ImageViewerCollectionViewCell.self)
+        collectionViewAdapter?.delegate = self
+        collectionViewAdapter?.didEndDeceleratingDelegate = self
+        collectionViewAdapter?.didEndScrollingAnimationDelegate = self
+        collectionViewAdapter?.updateData(viewModel.imageUrlList)
+    }
+
+    private func setView2Past() {
+        guard let frame = viewModel.pastImageRect else { return }
+        let viewHeight: CGFloat = collectionView.frame.size.height
+        let safeAreaSpacing: CGFloat = collectionView.safeAreaInsets.top
+        let imageMidAnchor: CGFloat = frame.midY
+        collectionView.transform = CGAffineTransform(translationX: 0, y: -(((viewHeight + safeAreaSpacing) / 2) - imageMidAnchor))
+    }
+
+    private func updateBottomView() {
+        let newPage = Int(collectionView.contentOffset.x / collectionView.frame.size.width) + 1
+        viewModel.setPage(newPage)
+        leftButton.isHidden = viewModel.page == 1
+        rightButton.isHidden = viewModel.page == viewModel.imageUrlList.count
+        pageLabel.text = viewModel.page.description + "/ " + viewModel.imageUrlList.count.description
+    }
+
     private func scrollTo(_ aRow: Int, animated aAnimated: Bool = true) {
         let indexPath = IndexPath(row: aRow, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: aAnimated)
     }
+
     private func runExitAnimation(isUp: Bool, _ aBgAlpha: CGFloat = 1) {
         view.backgroundColor = .black.withAlphaComponent(aBgAlpha)
         let transformY: CGFloat = isUp ? view.frame.height : -view.frame.height
@@ -95,6 +114,7 @@ final class ImageViewerViewController: UIViewController {
         }
         delayClose()
     }
+
     private func delayClose() {
         delegate?.didDissmissedView(stopAtIndex: viewModel.page)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
@@ -103,12 +123,14 @@ final class ImageViewerViewController: UIViewController {
     }
 }
 
-extension ImageViewerViewController: UICollectionViewDelegateFlowLayout {
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+extension ImageViewerViewController: CollectionAdapterDidEndDeceleratingDelegate {
+    func didEndDecelerating(_ scrollView: UIScrollView) {
         updateBottomView()
     }
+}
 
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+extension ImageViewerViewController: CollectionAdapterDidEndScrollingAnimationDelegate {
+    func didEndScrollingAnimation(_ scrollView: UIScrollView) {
         updateBottomView()
     }
 }
@@ -118,11 +140,13 @@ extension ImageViewerViewController: ImageViewerCollectionViewCellDelegate {
         guard !viewModel.isDismiss else { return }
         var alpha: CGFloat = 0
         let asbOffset: CGFloat = abs(aOffset)
-        let valueToMinus = asbOffset / 50
+        let valueToMinus = asbOffset / Content.scrollBufferSpace
         switch asbOffset {
-        case 30...80: // Fade out
-            alpha = 1.6 - valueToMinus
-        case 80...: // turn off
+        // Fade out
+        case Content.fadeoutRange:
+            alpha = Content.alphaToMinus - valueToMinus
+        // turn off
+        case Content.turnOffRange:
             viewModel.toggleDismiss()
             runExitAnimation(isUp: aOffset < 0, alpha)
             return
@@ -145,9 +169,7 @@ extension ImageViewerViewController: TableCollectionViewAdapterDelegate {
         }
     }
     
-    func select(model: AdapterItemModel) {
-        print("doing nothing")
-    }
+    func select(model: AdapterItemModel) {}
     
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {
         let _width : CGFloat = collectionView.frame.size.width

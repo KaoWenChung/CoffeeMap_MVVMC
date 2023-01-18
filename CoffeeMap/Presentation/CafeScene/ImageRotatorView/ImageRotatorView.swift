@@ -33,7 +33,7 @@ final class ImageRotatorView: BaseXibView {
         collectionViewAdapter = .init(imageCollectionView)
         collectionViewAdapter?.register(ImageRotatorCollectionViewCell.self)
         collectionViewAdapter?.delegate = self
-        collectionViewAdapter?.didScrollDelegate = self
+        collectionViewAdapter?.didEndDeceleratingDelegate = self
     }
     func setup(_ data: [ImageRotatorCollectionCellViewModel], imageRepository: ImageRepositoryType) {
         viewModel = ImageRotatorViewModel(imageCells: data)
@@ -67,9 +67,9 @@ extension ImageRotatorView: TableCollectionViewAdapterDelegate {
     }
 }
 
-extension ImageRotatorView: CollectionViewDidScrollDelegate {
+extension ImageRotatorView: CollectionAdapterDidEndDeceleratingDelegate {
     // Show index of images
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func didEndDecelerating(_ scrollView: UIScrollView) {
         let offsetPage = Int(scrollView.contentOffset.x / frame.width)
         viewModel?.page = offsetPage
         countLabel.text = "\(offsetPage + 1)/\(viewModel?.imageCells.count ?? 0)"
