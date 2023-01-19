@@ -162,7 +162,7 @@ extension ImageViewerViewController: TableCollectionViewAdapterDelegate {
         switch (model, view) {
         case (let model as ImageViewerCollectionCellViewModel, let view as ImageViewerCollectionViewCell):
             guard let imageRepository else { return }
-            view.setImage(model, imageRepository: imageRepository)
+            view.setupView(model, imageRepository: imageRepository)
             view.delegate = self
         default:
             break

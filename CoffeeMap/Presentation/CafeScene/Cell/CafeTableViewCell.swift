@@ -32,8 +32,5 @@ final class CafeTableViewCell: UITableViewCell {
             await iconImageView.downloaded(imageLoader: imageRepository, from: rowModel.iconURL)
         }
         imageLoadTask = task
-        Task.init {
-            await task.value
-        }
     }
 }

@@ -12,14 +12,18 @@ protocol ImageViewerCollectionViewCellDelegate: AnyObject {
 }
 
 final class ImageViewerCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var scrollView: UIScrollView!
 
     weak var delegate: ImageViewerCollectionViewCellDelegate?
 
     private var imageLoadTask: CancellableType?
 
-    func setImage(_ model: ImageViewerCollectionCellViewModel, imageRepository: ImageRepositoryType) {
+    override func prepareForReuse() {
+        imageLoadTask?.cancel()
+    }
+
+    func setupView(_ model: ImageViewerCollectionCellViewModel, imageRepository: ImageRepositoryType) {
         scrollView.delegate = self
         scrollView.zoomScale = 1
         // Update image
@@ -27,10 +31,8 @@ final class ImageViewerCollectionViewCell: UICollectionViewCell {
             await imageView.downloaded(imageLoader: imageRepository, from: model.imageURL)
         }
         imageLoadTask = task
-        Task.init {
-            await task.value
-        }
     }
+
     func zoomOut() {
         scrollView.zoomScale = 1
     }

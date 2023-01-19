@@ -13,7 +13,7 @@ extension UIView {
         return String(describing: self)
     }
 
-    var globalFrame :CGRect? {
+    var globalFrame: CGRect? {
         return self.superview?.convert(self.frame, to: nil)
     }
 }

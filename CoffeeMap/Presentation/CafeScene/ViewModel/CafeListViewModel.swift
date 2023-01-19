@@ -59,31 +59,35 @@ final class CafeListViewModel: CafeListViewModelType {
         self.error.value = error.isInternetConnectionError ? ErrorString.noInternet.text : ErrorString.failLoadingCafe.text
     }
 
-    private func fetchData() async {
+    private func executeSearchCafeUseCase() async throws {
+        let value = try await searchCafeUseCase.execute(request: query)
+        placeList.value.append(contentsOf: value.cafeList)
+        if let cursor = value.cursor {
+            nextPageStatus = .hasNextPage
+            query.cursor = cursor
+        } else {
+            nextPageStatus = .lastPage
+            query.cursor = nil
+        }
+    }
+    
+    private func setupDataTask() async {
         let task = Task {
             do {
-                let value = try await searchCafeUseCase.execute(request: query)
-                placeList.value.append(contentsOf: value.cafeList)
-                if let cursor = value.cursor {
-                    nextPageStatus = .hasNextPage
-                    query.cursor = cursor
-                } else {
-                    nextPageStatus = .lastPage
-                    query.cursor = nil
-                }
+                try await executeSearchCafeUseCase()
             } catch {
                 handle(error: error)
             }
         }
-        cafesLoadTask = task
         await task.value
+        cafesLoadTask = task
     }
 }
 
 extension CafeListViewModel {
     func fetchDataBy(latitudeLongitude: String) async {
         query.ll = latitudeLongitude
-        await fetchData()
+        await setupDataTask()
     }
 
     func didSelectItem(_ viewModel: CafeTableViewCellModel) {
@@ -92,13 +96,13 @@ extension CafeListViewModel {
     
     func didLoadNextPage() async {
         if nextPageStatus == .lastPage { return }
-        await fetchData()
+        await setupDataTask()
     }
 
     func didSortList(_ sort: SortType) async {
         query.sort = sort.rawValue
         refreshQuery()
-        await fetchData()
+        await setupDataTask()
     }
     
     func refreshQuery() {

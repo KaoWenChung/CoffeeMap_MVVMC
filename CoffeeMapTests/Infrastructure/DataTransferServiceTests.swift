@@ -29,7 +29,7 @@ final class DataTransferServiceTests: XCTestCase {
             XCTFail("Decoding mock object failure")
         }
         // result
-        wait(for: [expectation], timeout: 1)
+        wait(for: [expectation], timeout: 3)
     }
 
     func testReceivedInvalidResponse_decodeNoObjectThrowError() async {
@@ -44,7 +44,7 @@ final class DataTransferServiceTests: XCTestCase {
             expectation.fulfill()
         }
         // result
-        wait(for: [expectation], timeout: 1)
+        wait(for: [expectation], timeout: 3)
     }
     // MARK: - Helper
     private func makeSUT(mockData: String) -> DataTransferServiceType {

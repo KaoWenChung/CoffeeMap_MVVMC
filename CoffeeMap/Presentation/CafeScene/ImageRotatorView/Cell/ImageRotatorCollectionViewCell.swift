@@ -28,8 +28,5 @@ final class ImageRotatorCollectionViewCell: UICollectionViewCell {
             await imageView.downloaded(imageLoader: imageRepository, from: imageURL)
         }
         imageLoadTask = task
-        Task.init {
-            await task.value
-        }
     }
 }

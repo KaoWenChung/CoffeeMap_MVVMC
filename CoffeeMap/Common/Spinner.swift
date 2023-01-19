@@ -16,7 +16,7 @@ final class Spinner {
     func showOn(_ view: UIView) {
         hide()
         spinner = UIActivityIndicatorView()
-        spinner!.style = .medium
+        spinner!.style = .large
         spinner!.hidesWhenStopped = true
         view.addSubview(spinner!)
 
