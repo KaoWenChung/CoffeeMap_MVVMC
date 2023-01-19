@@ -1,6 +1,6 @@
 # CoffeeMap
 * Without any third-party library.
-This is an app for users to use their location to find coffee venues nearby.
+This app allows users to use their location to find coffee venues nearby.
 Users can find coffee venue information on the table view.
 
 ## Requirement
@@ -15,9 +15,10 @@ Modify the method getAPIKey in the class AppConfiguration
 
 ## Features
 ### UI Implementation
-- Implement CafeListView to display a list of cafe venues
-- Implement CafeDetailView to present the detail of the cafe venue including images
-- Implement CafeMapView to present the route between the user and the cafe venue
+- CafeListView: Present a list of cafe venues
+- CafeDetailView: Present the detail of the cafe venue including images
+- ImageViewer: A view that focuses on the pictures, users can zoom in for the detail of the photographs.
+- CafeMapView: Present the route between the user and the cafe venue
 ### API Data Fetching
 - Get cafe list by GET API https://api.foursquare.com/v3/places/search
   - Pagination by the cursor
