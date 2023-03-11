@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CafeDetailViewController" customModule="CoffeeMap" customModuleProvider="target">
             <connections>
                 <outlet property="addressLabel" destination="UeY-o8-0EN" id="QVL-NW-9rF"/>
+                <outlet property="descriptionLabel" destination="OUE-hs-1mH" id="2nH-yQ-LKU"/>
                 <outlet property="imageRotatorView" destination="Eb8-e6-WBn" id="h3X-oL-pAq"/>
                 <outlet property="titleLabel" destination="EVa-wH-kyk" id="BPY-6B-3Av"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -30,7 +31,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YGz-Ok-daA">
-                    <rect key="frame" x="24" y="324" width="342" height="91"/>
+                    <rect key="frame" x="24" y="324" width="342" height="119.33333333333331"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVa-wH-kyk">
                             <rect key="frame" x="0.0" y="0.0" width="342" height="20.333333333333332"/>
@@ -38,8 +39,14 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="89w-US-uOx">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUE-hs-1mH" userLabel="description">
                             <rect key="frame" x="0.0" y="28.333333333333314" width="342" height="20.333333333333329"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="89w-US-uOx">
+                            <rect key="frame" x="0.0" y="56.666666666666693" width="342" height="20.333333333333336"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="mappin.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JcP-yV-ANx">
                                     <rect key="frame" x="0.0" y="0.99999999999999822" width="19.666666666666668" height="19"/>
@@ -54,7 +61,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePg-1Q-4w0">
-                            <rect key="frame" x="0.0" y="56.666666666666686" width="342" height="34.333333333333343"/>
+                            <rect key="frame" x="0.0" y="85" width="342" height="34.333333333333343"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Show the route on a map"/>
                             <connections>

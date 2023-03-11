@@ -11,6 +11,7 @@ final class CafeDetailViewController: UIViewController {
     @IBOutlet weak private var imageRotatorView: ImageRotatorView!
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var addressLabel: UILabel!
+    @IBOutlet weak private var descriptionLabel: UILabel!
 
     private let viewModel: CafeDetailViewModelType
     private let imageRepository: ImageRepositoryType
