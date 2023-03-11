@@ -21,6 +21,15 @@ final class CafeDetailViewController: UIViewController {
         addressLabel.text = viewModel.address
         imageRotatorView.setup(viewModel.imageCellViewModels, imageRepository: imageRepository)
         imageRotatorView.delegate = self
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.backgroundColor = .clear
     }
     
     init(_ viewModel: CafeDetailViewModel, imageRepository: ImageRepositoryType) {

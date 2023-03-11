@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-e6-WBn" customClass="ImageRotatorView" customModule="CoffeeMap" customModuleProvider="target">
+                <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-e6-WBn" customClass="ImageRotatorView" customModule="CoffeeMap" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="390" height="300"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -64,7 +64,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="YGz-Ok-daA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="24" id="M3w-Qm-unC"/>
                 <constraint firstItem="Eb8-e6-WBn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="N4v-jJ-Gxa"/>

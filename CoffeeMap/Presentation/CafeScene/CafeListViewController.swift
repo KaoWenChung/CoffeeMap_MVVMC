@@ -71,7 +71,6 @@ final class CafeListViewController: UIViewController, Alertable {
             showAlert(style: .alert, title: viewModel.errorTitle, message: ErrorString.failGetLocation.text, cancel: CommonString.ok.text)
             return
         }
-        // Testing latitude and longitude -> "51.50998,-0.1337"
         Spinner.shared.showOn(view)
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
@@ -106,6 +105,7 @@ final class CafeListViewController: UIViewController, Alertable {
         let reloadButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.arrowClockwise), style: .plain, target: self, action: #selector(refreashAll))
         let sortButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.sort), style: .plain, target: self, action: #selector(sortList))
         navigationItem.rightBarButtonItems = [reloadButton, sortButton]
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     private func updateNoResultView() {
