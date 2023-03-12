@@ -27,10 +27,9 @@ struct CafeTableViewCellModel: AdapterItemModel {
     let coordinate: (latitude: Double, longitude: Double)?
     let photos: [CafePhotoModel]
     
-    init(_ dataModel: CafePlaceResponseDTO.GetPlaceResultsDTO, photoModel: [CafePhotoModel]) {
+    init(_ dataModel: Cafe, photoModel: [CafePhotoModel]) {
         name = dataModel.name ?? ""
-        if let location = dataModel.location,
-           let address = location.formattedAddress,
+        if let address = dataModel.formattedAddress,
            !address.isEmpty {
             self.address = address
         } else {
@@ -41,10 +40,8 @@ struct CafeTableViewCellModel: AdapterItemModel {
         } else {
             distance = nil
         }
-        if let geocodes = dataModel.geocodes,
-           let coordinate = geocodes.main,
-           let latitude = coordinate.latitude,
-           let longitude = coordinate.longitude {
+        if let latitude = dataModel.latitude,
+           let longitude = dataModel.longitude {
             self.coordinate = (latitude: latitude, longitude: longitude)
         } else {
             coordinate = nil

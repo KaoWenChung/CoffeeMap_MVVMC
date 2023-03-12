@@ -26,7 +26,7 @@ final class SearchCafeListUseCase: SearchCafeListUseCaseType {
             for result in results {
                 if let id = result.fsqId {
                     let cafePhotoModel = try await cafeRepository.getPhotos(request: CafePhotosRequestDTO(fsqId: id))
-                    cafeCellModels.append(CafeTableViewCellModel(result, photoModel: cafePhotoModel))
+                    cafeCellModels.append(CafeTableViewCellModel(result.toEntity(), photoModel: cafePhotoModel))
                 }
             }
         }

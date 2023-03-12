@@ -11,39 +11,34 @@ struct CafePlaceResponse {
 }
 
 struct CafePlaceResponseDTO: Decodable {
-
-    let context: GetPlaceContextDTO?
-    let results: [GetPlaceResultsDTO]?
+    let results: [GetPlaceResultDTO]?
 
     enum CodingKeys: String, CodingKey {
-        case context
         case results
     }
-
 }
 
-extension CafePlaceResponseDTO {
-    struct GetPlaceResultsDTO: Decodable {
-        let categories : [GetPlaceCategoryDTO]?
-        /// The calculated distance (in meters) from the provided location (i.e. ll + radius OR near OR ne + sw) in the API call. This field will only be returned by the Place Search endpoint.
-        let distance: Int?
-        /// A unique identifier for a FSQ Place (formerly known as Venue ID).
-        let fsqId: String?
-        let geocodes: GetPlaceGeocodeDTO?
-        let location: GetPlaceLocationDTO?
-        let name: String?
+struct GetPlaceResultDTO: Decodable {
+    let categories : [GetPlaceCategoryDTO]?
+    /// The calculated distance (in meters) from the provided location (i.e. ll + radius OR near OR ne + sw) in the API call. This field will only be returned by the Place Search endpoint.
+    let distance: Int?
+    /// A unique identifier for a FSQ Place (formerly known as Venue ID).
+    let fsqId: String?
+    let geocodes: GetPlaceGeocodeDTO?
+    let location: GetPlaceLocationDTO?
+    let name: String?
 
-        enum CodingKeys: String, CodingKey {
-            case categories
-            case distance
-            case fsqId = "fsq_id"
-            case geocodes
-            case location
-            case name
-        }
-
+    enum CodingKeys: String, CodingKey {
+        case categories
+        case distance
+        case fsqId = "fsq_id"
+        case geocodes
+        case location
+        case name
     }
-    
+}
+
+extension GetPlaceResultDTO {
     struct GetPlaceCategoryDTO: Decodable {
         let icon: GetPlaceIconDTO?
         let id: Int?
@@ -105,16 +100,6 @@ extension CafePlaceResponseDTO {
 
     }
 
-    struct GetPlaceContextDTO: Decodable {
-
-        let geoBounds: GetPlaceGeoBoundDTO?
-
-        enum CodingKeys: String, CodingKey {
-            case geoBounds
-        }
-
-    }
-
     struct GetPlaceGeoBoundDTO: Decodable {
 
         let circle: GetPlaceCircleDTO?
@@ -145,6 +130,16 @@ extension CafePlaceResponseDTO {
             case latitude
             case longitude
         }
+    }
+}
 
+extension GetPlaceResultDTO {
+    func toEntity() -> Cafe {
+        Cafe(distance: distance,
+             fsqId: fsqId,
+             name: name,
+             formattedAddress: location?.formattedAddress,
+             latitude: geocodes?.main?.latitude,
+             longitude: geocodes?.main?.longitude)
     }
 }
