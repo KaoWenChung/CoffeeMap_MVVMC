@@ -24,6 +24,7 @@ struct GetPlaceResultDTO: Decodable {
     let distance: Int?
     /// A unique identifier for a FSQ Place (formerly known as Venue ID).
     let fsqId: String?
+    let description: String?
     let geocodes: GetPlaceGeocodeDTO?
     let location: GetPlaceLocationDTO?
     let name: String?
@@ -32,6 +33,7 @@ struct GetPlaceResultDTO: Decodable {
         case categories
         case distance
         case fsqId = "fsq_id"
+        case description
         case geocodes
         case location
         case name
@@ -140,6 +142,7 @@ extension GetPlaceResultDTO {
              name: name,
              formattedAddress: location?.formattedAddress,
              latitude: geocodes?.main?.latitude,
-             longitude: geocodes?.main?.longitude)
+             longitude: geocodes?.main?.longitude,
+             description: description)
     }
 }

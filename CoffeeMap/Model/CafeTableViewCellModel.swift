@@ -24,24 +24,25 @@ struct CafeTableViewCellModel: AdapterItemModel {
     let address: String
     let distance: String?
     let iconURL: String?
+    let description: String?
     let coordinate: (latitude: Double, longitude: Double)?
     let photos: [CafePhotoModel]
     
-    init(_ dataModel: Cafe, photoModel: [CafePhotoModel]) {
-        name = dataModel.name ?? ""
-        if let address = dataModel.formattedAddress,
+    init(_ cafe: Cafe, photoModel: [CafePhotoModel]) {
+        name = cafe.name ?? ""
+        if let address = cafe.formattedAddress,
            !address.isEmpty {
             self.address = address
         } else {
             address = "-"
         }
-        if let distance = dataModel.distance {
+        if let distance = cafe.distance {
             self.distance = distance.description + CafeListTableViewCellString.meters.text
         } else {
             distance = nil
         }
-        if let latitude = dataModel.latitude,
-           let longitude = dataModel.longitude {
+        if let latitude = cafe.latitude,
+           let longitude = cafe.longitude {
             self.coordinate = (latitude: latitude, longitude: longitude)
         } else {
             coordinate = nil
@@ -54,5 +55,6 @@ struct CafeTableViewCellModel: AdapterItemModel {
             iconURL = nil
         }
         self.photos = photoModel
+        self.description = cafe.description
     }
 }

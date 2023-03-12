@@ -18,15 +18,14 @@ final class CafeDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = viewModel.title
-        addressLabel.text = viewModel.address
+        initView()
         imageRotatorView.setup(viewModel.imageCellViewModels, imageRepository: imageRepository)
         imageRotatorView.delegate = self
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
@@ -41,6 +40,16 @@ final class CafeDetailViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func initView() {
+        titleLabel.text = viewModel.title
+        addressLabel.text = viewModel.address
+        if let description = viewModel.description {
+            descriptionLabel.text = description
+        } else {
+            descriptionLabel.isHidden = true
+        }
     }
 
     @IBAction private func didSelectShowRouterBtn() {

@@ -18,6 +18,7 @@ protocol CafeDetailViewModelInput {
 protocol CafeDetailViewModelOutput {
     var title: String { get }
     var address: String { get }
+    var description: String? { get }
     var imageCellViewModels: [ImageRotatorCollectionCellViewModel] { get }
 }
 
@@ -26,18 +27,20 @@ protocol CafeDetailViewModelType: CafeDetailViewModelInput, CafeDetailViewModelO
 struct CafeDetailViewModel {
     let title: String
     let address: String
+    let description: String?
     let imageCellViewModels: [ImageRotatorCollectionCellViewModel]
     let photos: [CafePhotoModel]
     private let cellModel: CafeTableViewCellModel
     private let actions: CafeDetailViewModelActions
 
     init(_ cellModel: CafeTableViewCellModel, actions: CafeDetailViewModelActions) {
-        self.title = cellModel.name
-        self.address = cellModel.address
-        self.photos = cellModel.photos
-        self.imageCellViewModels = cellModel.photos.toImageRotatorColls()
+        title = cellModel.name
+        address = cellModel.address
+        photos = cellModel.photos
+        imageCellViewModels = cellModel.photos.toImageRotatorColls()
         self.actions = actions
         self.cellModel = cellModel
+        description = cellModel.description
     }
 }
 
