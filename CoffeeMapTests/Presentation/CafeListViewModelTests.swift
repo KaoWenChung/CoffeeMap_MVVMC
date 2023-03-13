@@ -29,7 +29,10 @@ final class CafeListViewModelTests: XCTestCase {
     func testGetSortedGetPlaceResult_StubLondonData() async throws {
         // given
         let expectation = expectation(description: "Should get data")
-        let getplaceDataModel: CafePlaceResponseDTO = try fetchStubModel(fileName: "GetPlace_London")
+        let getplaceDataModel = CafePlaceResponseDTO.stub(results: [
+            GetPlaceResultDTO.stub(name: "Mock 1"),
+            GetPlaceResultDTO.stub(name: "Mock 2")]
+        )
         var response: [CafeTableViewCellModel] = []
         for result in getplaceDataModel.results ?? [] {
             response.append(CafeTableViewCellModel(result.toEntity(), photoModel: []))
@@ -43,9 +46,9 @@ final class CafeListViewModelTests: XCTestCase {
         await sut.fetchDataBy(latitudeLongitude: "51.50998,-0.1337")
         let items = sut.placeList.value
         // then
-        XCTAssertEqual(items.count, 10)
-        XCTAssertEqual(items.first?.name, "Caffè Concerto")
-        XCTAssertEqual(items.last?.name, "Piggy's")
+        XCTAssertEqual(items.count, 2)
+        XCTAssertEqual(items.first?.name, "Mock 1")
+        XCTAssertEqual(items.last?.name, "Mock 2")
         wait(for: [expectation], timeout: 0.1)
     }
 }

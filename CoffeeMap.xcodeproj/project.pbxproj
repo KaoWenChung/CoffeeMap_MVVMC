@@ -29,7 +29,9 @@
 		2135C419297205E6006A4339 /* ImageRotatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */; };
 		2135C41C29720C52006A4339 /* ImageRotatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */; };
 		2135C41E29720D5D006A4339 /* GetImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 2135C41D29720D5D006A4339 /* GetImage.json */; };
-		213DF41629BF5C6000E7E45E /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DF41529BF5C6000E7E45E /* XCTestCase+.swift */; };
+		213DF41829BF6C5E00E7E45E /* CafePlaceResponseDTO+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DF41729BF6C5E00E7E45E /* CafePlaceResponseDTO+Stub.swift */; };
+		213DF41A29BF6C9B00E7E45E /* GetPlaceResultDTO_Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DF41929BF6C9B00E7E45E /* GetPlaceResultDTO_Stub.swift */; };
+		213DF41C29BF6E9700E7E45E /* CafePhotosResponseDTO+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DF41B29BF6E9700E7E45E /* CafePhotosResponseDTO+Stub.swift */; };
 		21468CCA297414A100649FE2 /* CollectionViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21468CC9297414A100649FE2 /* CollectionViewAdapterTests.swift */; };
 		214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C22919BCA400F412BD /* APIEndpoints.swift */; };
 		214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */; };
@@ -139,7 +141,9 @@
 		2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewModel.swift; sourceTree = "<group>"; };
 		2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewTests.swift; sourceTree = "<group>"; };
 		2135C41D29720D5D006A4339 /* GetImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetImage.json; sourceTree = "<group>"; };
-		213DF41529BF5C6000E7E45E /* XCTestCase+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
+		213DF41729BF6C5E00E7E45E /* CafePlaceResponseDTO+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CafePlaceResponseDTO+Stub.swift"; sourceTree = "<group>"; };
+		213DF41929BF6C9B00E7E45E /* GetPlaceResultDTO_Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceResultDTO_Stub.swift; sourceTree = "<group>"; };
+		213DF41B29BF6E9700E7E45E /* CafePhotosResponseDTO+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CafePhotosResponseDTO+Stub.swift"; sourceTree = "<group>"; };
 		21468CC9297414A100649FE2 /* CollectionViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAdapterTests.swift; sourceTree = "<group>"; };
 		214999C22919BCA400F412BD /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetPlaceResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
@@ -584,7 +588,6 @@
 			children = (
 				21F7654A2970711E00403B49 /* Extension */,
 				21723DFF297305D400306D34 /* LocallizedStringTypeTests.swift */,
-				213DF41529BF5C6000E7E45E /* XCTestCase+.swift */,
 				7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */,
 				21468CC9297414A100649FE2 /* CollectionViewAdapterTests.swift */,
 			);
@@ -673,7 +676,7 @@
 				21135559294B7DF20039287B /* Infrastructure */,
 				21135555294B7D6C0039287B /* Domain */,
 				7952AB4028C0625F00607B77 /* Util */,
-				7952AB4328C062FB00607B77 /* Stub */,
+				7952AB4328C062FB00607B77 /* Mock+Stub */,
 				212BB4E629780A4600E1D51E /* Presentation */,
 				796EB62528C1AF1000F1A01B /* EncodableExtensionTests.swift */,
 			);
@@ -735,13 +738,16 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		7952AB4328C062FB00607B77 /* Stub */ = {
+		7952AB4328C062FB00607B77 /* Mock+Stub */ = {
 			isa = PBXGroup;
 			children = (
 				7952AB4628C0642E00607B77 /* GetPlace_London.json */,
 				2135C41D29720D5D006A4339 /* GetImage.json */,
+				213DF41729BF6C5E00E7E45E /* CafePlaceResponseDTO+Stub.swift */,
+				213DF41929BF6C9B00E7E45E /* GetPlaceResultDTO_Stub.swift */,
+				213DF41B29BF6E9700E7E45E /* CafePhotosResponseDTO+Stub.swift */,
 			);
-			path = Stub;
+			path = "Mock+Stub";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -950,15 +956,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				213DF41C29BF6E9700E7E45E /* CafePhotosResponseDTO+Stub.swift in Sources */,
 				79290E1828C09CED00439E38 /* CafeListViewControllerTests.swift in Sources */,
 				21723E0229740EAD00306D34 /* DictionaryTests.swift in Sources */,
 				21F7654E2970786E00403B49 /* String.swift in Sources */,
+				213DF41A29BF6C9B00E7E45E /* GetPlaceResultDTO_Stub.swift in Sources */,
 				2113555D294B7E100039287B /* ImageRepositoryMock.swift in Sources */,
 				21A1D7802952805C0061DE76 /* NetworkServiceTests.swift in Sources */,
 				2135C41C29720C52006A4339 /* ImageRotatorViewTests.swift in Sources */,
 				21A1D782295280AD0061DE76 /* NetworkConfigurableMock.swift in Sources */,
+				213DF41829BF6C5E00E7E45E /* CafePlaceResponseDTO+Stub.swift in Sources */,
 				7952AB3F28C0619E00607B77 /* CafeListViewModelTests.swift in Sources */,
-				213DF41629BF5C6000E7E45E /* XCTestCase+.swift in Sources */,
 				21135558294B7D830039287B /* SearchCafeUseCaseMock.swift in Sources */,
 				7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */,
 				21723E00297305D400306D34 /* LocallizedStringTypeTests.swift in Sources */,

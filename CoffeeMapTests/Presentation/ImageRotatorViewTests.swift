@@ -11,12 +11,15 @@ import CoreLocation
 
 final class ImageRotatorViewTests: XCTestCase {
     func testSetupView() throws {
-        let getImageDataModel: [CafePhotosResponseDTO] = try fetchStubModel(fileName: "GetImage")
+        let getImageDataModel: [CafePhotosResponseDTO] = [
+            CafePhotosResponseDTO.stub(),
+            CafePhotosResponseDTO.stub()
+        ]
         let cafePhotoModels = getImageDataModel.toDomain()
         let imageCellModels = cafePhotoModels.toImageRotatorColls()
         let sut = ImageRotatorView()
         sut.setup(imageCellModels, imageRepository: ImageRepositoryMock(response: nil, error: nil, expectation: nil))
-        XCTAssertEqual(sut.countLabel.text, "1/10")
-        XCTAssertEqual(sut.imageCollectionView.numberOfItems(inSection: 0), 10)
+        XCTAssertEqual(sut.countLabel.text, "1/2")
+        XCTAssertEqual(sut.imageCollectionView.numberOfItems(inSection: 0), 2)
     }
 }

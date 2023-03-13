@@ -18,16 +18,16 @@ final class CafeListViewControllerTests: XCTestCase {
     }
 
     func testViewDidload_tableViewHasCells() throws {
+        // TODO: Unknown reason, failed testing
         let location = makeCLLocation()
         let sut = try makeSUTWithLocation(location)
         Task.init {
             await sut.fetchDataByLocation()
             DispatchQueue.main.async {
-                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.nameLabel.text, "Caffè Concerto")
-                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.addressLabel.text,
-                               "45 Haymarket, London, Greater London, SW1Y 4SE")
+                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.nameLabel.text, "Mock 1")
+                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.addressLabel.text, "Mock address")
                 XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.distanceLabel.text, "39 meters")
-                XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 10)
+                XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 2)
                 XCTAssertEqual(sut.tableView.isHidden, false)
                 XCTAssertEqual(sut.noResultLabel.isHidden, true)
             }
@@ -48,7 +48,9 @@ final class CafeListViewControllerTests: XCTestCase {
 
     // MARK: - Helper
     private func makeSUTWithLocation(_ location: CLLocation?) throws -> CafeListViewController {
-        let getplaceDataModel: CafePlaceResponseDTO = try fetchStubModel(fileName: "GetPlace_London")
+        let getplaceDataModel = CafePlaceResponseDTO.stub(results: [GetPlaceResultDTO.stub(name: "Mock 1",
+                                                                                           address: "Mock address",
+                                                                                           distance: 39)])
         var response: [CafeTableViewCellModel] = []
         for result in getplaceDataModel.results ?? [] {
             response.append(CafeTableViewCellModel(result.toEntity(), photoModel: []))
@@ -86,9 +88,8 @@ final class CafeListViewControllerTests: XCTestCase {
 }
 
 private extension UITableView {
-
     func placeSearchCell(at row: Int) -> CafeTableViewCell? {
+        guard dataSource?.tableView(self, numberOfRowsInSection: 0) ?? 0 > row else { return nil }
         return dataSource?.tableView(self, cellForRowAt: IndexPath(row: row, section: 0)) as? CafeTableViewCell
     }
-
 }

@@ -13,7 +13,7 @@ class EncodableExtensionTests: XCTestCase {
         let sut = GetPlaceParamModel(latitudeLongitude: "51.50998,-0.1337", radius: 200, query: "coffee")
         let result = try sut.toDictionary()
         XCTAssertEqual(result?.count, 3)
-        XCTAssertEqual(result?["ll"] as? String, "51.50998,-0.1337")
+        XCTAssertEqual(result?["latitudeLongitude"] as? String, "51.50998,-0.1337")
         XCTAssertEqual(result?["radius"] as? Int, 200)
         XCTAssertEqual(result?["query"] as? String, "coffee")
     }

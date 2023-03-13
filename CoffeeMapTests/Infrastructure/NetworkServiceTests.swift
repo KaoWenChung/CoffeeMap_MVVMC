@@ -9,9 +9,7 @@ import XCTest
 @testable import CoffeeMap
 
 class NetworkServiceTests: XCTestCase {
-
     private struct EndpointMock: RequestableType {
-
         var path: String
         var isFullPath: Bool = false
         var method: HTTPMethod
