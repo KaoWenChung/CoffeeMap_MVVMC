@@ -24,7 +24,8 @@ final class CafeListViewControllerTests: XCTestCase {
             await sut.fetchDataByLocation()
             DispatchQueue.main.async {
                 XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.nameLabel.text, "Caffè Concerto")
-                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.addressLabel.text, "45 Haymarket, London, Greater London, SW1Y 4SE")
+                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.addressLabel.text,
+                               "45 Haymarket, London, Greater London, SW1Y 4SE")
                 XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.distanceLabel.text, "39 meters")
                 XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 10)
                 XCTAssertEqual(sut.tableView.isHidden, false)
@@ -50,14 +51,22 @@ final class CafeListViewControllerTests: XCTestCase {
         let getplaceDataModel: CafePlaceResponseDTO = try fetchStubModel(fileName: "GetPlace_London")
         var response: [CafeTableViewCellModel] = []
         for result in getplaceDataModel.results ?? [] {
-            response.append(CafeTableViewCellModel(result, photoModel: []))
+            response.append(CafeTableViewCellModel(result.toEntity(), photoModel: []))
         }
         let cafeListModel = CafeListModel(cursor: nil, cafeList: response)
-        let mockViewModel = CafeListViewModel(searchCafeUseCase: SearchCafeUseCaseMock(cafeListModel: cafeListModel, error: nil, expectation: nil), actions: nil)
-        let sut = CafeListViewController(mockViewModel, locationManager: LocationManagerMock(location: location), imageRepository: ImageRepositoryMock(response: nil, error: nil, expectation: nil))
+        let searchCafeUseCase = SearchCafeUseCaseMock(cafeListModel: cafeListModel,
+                                                      error: nil,
+                                                      expectation: nil)
+        let mockViewModel = CafeListViewModel(searchCafeUseCase: searchCafeUseCase,
+                                              actions: nil)
+        let sut = CafeListViewController(mockViewModel,
+                                         locationManager: LocationManagerMock(location: location),
+                                         imageRepository: ImageRepositoryMock(response: nil,
+                                                                              error: nil,
+                                                                              expectation: nil))
         return sut
     }
-    
+
     func makeCLLocation() -> CLLocation {
         let latitude = 51.50998
         let longitude = -0.1337

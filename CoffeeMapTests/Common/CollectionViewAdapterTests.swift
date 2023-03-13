@@ -24,12 +24,14 @@ class CollectionViewAdapterTests: XCTestCase {
         sut.updateData([AdapterSectionModel(items: [MockCellModel(), MockCellModel()])])
         XCTAssertEqual(sut.collectionView?.numberOfItems(inSection: 0), 2)
     }
-    
+
     func testCollectionView_updateData_2Section1CellAnd2Cells() {
         let layout = UICollectionViewLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         let sut: CollectionViewAdapter = CollectionViewAdapter(collectionView)
-        sut.updateData([AdapterSectionModel(items: [MockCellModel()]), AdapterSectionModel(items: [MockCellModel(), MockCellModel()])])
+        sut.updateData([AdapterSectionModel(items: [MockCellModel()]),
+                        AdapterSectionModel(items: [MockCellModel(),
+                                                    MockCellModel()])])
         XCTAssertEqual(sut.collectionView?.numberOfItems(inSection: 0), 1)
         XCTAssertEqual(sut.collectionView?.numberOfItems(inSection: 1), 2)
     }

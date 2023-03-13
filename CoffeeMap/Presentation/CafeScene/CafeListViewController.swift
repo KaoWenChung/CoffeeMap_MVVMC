@@ -34,24 +34,24 @@ final class CafeListViewController: UIViewController, Alertable {
         self.imageRepository = imageRepository
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: Pull down to update the view
     private func initRefreshControl() {
         refreshControl.addTarget(self, action: #selector(onPullReloadDataHandler), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }
-    
+
     @objc private func onPullReloadDataHandler() {
         if refreshControl.isRefreshing {
             viewModel.refreshQuery()
             fetchDataTask()
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = CafeListViewControllerString.title.text
@@ -68,7 +68,10 @@ final class CafeListViewController: UIViewController, Alertable {
     func fetchDataByLocation() async {
         refreshControl.endRefreshing()
         guard let location = locationManager?.location else {
-            showAlert(style: .alert, title: viewModel.errorTitle, message: ErrorString.failGetLocation.text, cancel: CommonString.ok.text)
+            showAlert(style: .alert,
+                      title: viewModel.errorTitle,
+                      message: ErrorString.failGetLocation.text,
+                      cancel: CommonString.confirm.text)
             return
         }
         Spinner.shared.showOn(view)
@@ -87,7 +90,7 @@ final class CafeListViewController: UIViewController, Alertable {
 
     private func showError(_ error: String) {
         guard !error.isEmpty else { return }
-        showAlert(style: .alert, title: viewModel.errorTitle, message: error, cancel: CommonString.ok.text)
+        showAlert(style: .alert, title: viewModel.errorTitle, message: error, cancel: CommonString.confirm.text)
     }
 
     private func updateTableView() {
@@ -102,8 +105,14 @@ final class CafeListViewController: UIViewController, Alertable {
     }
 
     private func initBarButton() {
-        let reloadButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.arrowClockwise), style: .plain, target: self, action: #selector(refreashAll))
-        let sortButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.sort), style: .plain, target: self, action: #selector(sortList))
+        let reloadButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.arrowClockwise),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(refreashAll))
+        let sortButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(systemName: ImageContents.sort),
+                                                          style: .plain,
+                                                          target: self,
+                                                          action: #selector(sortList))
         navigationItem.rightBarButtonItems = [reloadButton, sortButton]
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
@@ -123,13 +132,16 @@ final class CafeListViewController: UIViewController, Alertable {
         let buttons: [AlertAction.Button] = [
             AlertAction.Button.default(CafeListViewModel.SortType.distance.rawValue),
             AlertAction.Button.default(CafeListViewModel.SortType.popularity.rawValue)]
-        showAlert(style: .actionSheet, title: CafeListViewControllerString.sortTitle.text,cancel: CommonString.cancel.text, others: buttons) { action in
+        showAlert(style: .actionSheet,
+                  title: CafeListViewControllerString.sortTitle.text,
+                  cancel: CommonString.cancel.text,
+                  others: buttons) { action in
             if let value = CafeListViewModel.SortType.init(rawValue: action.title) {
                 self.didSortList(value)
             }
         }
     }
-    
+
     private func didSortList(_ sort: CafeListViewModel.SortType) {
         Spinner.shared.showOn(view)
         Task.init {
@@ -161,7 +173,10 @@ extension CafeListViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         Spinner.shared.hide()
-        showAlert(style: .alert, title: viewModel.errorTitle, message: ErrorString.failGetLocation.text, cancel: CommonString.ok.text)
+        showAlert(style: .alert,
+                  title: viewModel.errorTitle,
+                  message: ErrorString.failGetLocation.text,
+                  cancel: CommonString.confirm.text)
     }
 }
 
@@ -178,13 +193,13 @@ extension CafeListViewController: TableCollectionViewAdapterDelegate {
             loadNextPage()
         }
     }
-    
+
     func select(model: AdapterItemModel) {
         if let model = model as? CafeTableViewCellModel {
             viewModel.didSelectItem(model)
         }
     }
-    
+
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {
         return CGSize(width: Contents.tableViewWidthHeight, height: Contents.tableViewWidthHeight)
     }

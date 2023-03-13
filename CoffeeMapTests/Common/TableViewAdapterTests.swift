@@ -26,13 +26,15 @@ class TableViewAdapterTests: XCTestCase {
     func testTableView_updateData_2Section1CellAnd2Cells() {
         let tableView = UITableView()
         let sut: TableViewAdapter = makeSUT(tableView)
-        sut.updateData([AdapterSectionModel(items: [MockCellModel()]), AdapterSectionModel(items: [MockCellModel(), MockCellModel()])])
+        sut.updateData([AdapterSectionModel(items: [MockCellModel()]),
+                        AdapterSectionModel(items: [MockCellModel(), MockCellModel()])])
         XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 0), 1)
         XCTAssertEqual(sut.tableView?.numberOfRows(inSection: 1), 2)
     }
 
     // MARK: - Helper
-    /// tableview should be passed in this method because it is a weak type in TableViewAdapter, it means that it would be dealocate immediately
+    /// tableview should be passed in this method because it is a weak type in TableViewAdapter,
+    /// it means that it would be dealocate immediately
     func makeSUT(_ tableView: UITableView) -> TableViewAdapter {
         let sut: TableViewAdapter = TableViewAdapter(tableView)
         return sut

@@ -6,11 +6,10 @@
 //
 
 struct GetPlaceParamModel: Encodable {
-    var ll: String?
+    var latitudeLongitude: String?
     var radius: Int?
     var query: String?
 }
-
 
 struct GetPlaceResponseModel: Decodable {
     let context: GetPlaceContextModel?
@@ -23,7 +22,8 @@ struct GetPlaceResponseModel: Decodable {
 }
 
 struct GetPlaceResultModel: Decodable {
-    /// The calculated distance (in meters) from the provided location (i.e. ll + radius OR near OR ne + sw) in the API call. This field will only be returned by the Place Search endpoint.
+    /// The distance (in meters) from the provided location (i.e. ll + radius OR near OR ne + sw) in the API call.
+    /// This field will only be returned by the Place Search endpoint.
     let distance: Int?
     /// A unique identifier for a FSQ Place (formerly known as Venue ID).
     let fsqId: String?
@@ -110,4 +110,3 @@ struct GetPlaceCenterModel: Decodable {
         case longitude
     }
 }
-

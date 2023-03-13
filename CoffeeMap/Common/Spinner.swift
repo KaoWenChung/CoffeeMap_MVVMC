@@ -10,7 +10,7 @@ import UIKit
 final class Spinner {
     static let shared = Spinner()
     private init() {}
-    
+
     private var spinner: UIActivityIndicatorView?
 
     func showOn(_ view: UIView) {
@@ -21,8 +21,9 @@ final class Spinner {
         view.addSubview(spinner!)
 
         spinner!.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([ spinner!.centerYAnchor.constraint(equalTo: view.centerYAnchor), spinner!.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
-        
+        NSLayoutConstraint.activate([spinner!.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                                     spinner!.centerXAnchor.constraint(equalTo: view.centerXAnchor)])
+
         spinner!.startAnimating()
     }
 

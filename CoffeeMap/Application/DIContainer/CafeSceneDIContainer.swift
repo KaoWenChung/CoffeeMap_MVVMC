@@ -29,44 +29,50 @@ final class CafeSceneDIContainer {
     func makeCafePlacesRepository() -> CafePlacesRepositoryType {
         return CafePlacesRepository(dataTransferService: dependencies.dataTransferService)
     }
-    
+
     func makeImagesRepository() -> ImageRepositoryType {
-        return ImageRepository(dataTransferService: dependencies.imageDataTransferService, imageCache: dependencies.imageCache)
+        return ImageRepository(dataTransferService: dependencies.imageDataTransferService,
+                               imageCache: dependencies.imageCache)
     }
 
     // MARK: - Cafe Place List
     func makeCafeListViewController(actions: CafeListViewModelActions?) -> CafeListViewController {
-        return CafeListViewController(makeCafeListViewModel(actions: actions), imageRepository: makeImagesRepository())
+        return CafeListViewController(makeCafeListViewModel(actions: actions),
+                                      imageRepository: makeImagesRepository())
     }
-    
+
     func makeCafeListViewModel(actions: CafeListViewModelActions?) -> CafeListViewModel {
-        return CafeListViewModel(searchCafeUseCase: makeSearchCafeListUseCase(), actions: actions)
+        return CafeListViewModel(searchCafeUseCase: makeSearchCafeListUseCase(),
+                                 actions: actions)
     }
 
     // MARK: - Cafe Detail
-    func makeCafeDetailViewController(cellModel: CafeTableViewCellModel, actions: CafeDetailViewModelActions) -> CafeDetailViewController {
+    func makeCafeDetailViewController(cellModel: CafeTableViewCellModel,
+                                      actions: CafeDetailViewModelActions) -> CafeDetailViewController {
         let viewModel = makeCafeDetailViewModel(cellModel: cellModel, actions: actions)
         return CafeDetailViewController(viewModel, imageRepository: makeImagesRepository())
     }
 
-    func makeCafeDetailViewModel(cellModel: CafeTableViewCellModel, actions: CafeDetailViewModelActions) -> CafeDetailViewModel {
+    func makeCafeDetailViewModel(cellModel: CafeTableViewCellModel,
+                                 actions: CafeDetailViewModelActions) -> CafeDetailViewModel {
         return CafeDetailViewModel(cellModel, actions: actions)
     }
 
     // MARK: Image Viewer
     func makeImageViewerViewController(_ viewModel: ImageRotatorViewModel) -> ImageViewerViewController {
-        ImageViewerViewController(viewModel: makeImageViewerViewModel(viewModel), imageRepository: makeImagesRepository())
+        ImageViewerViewController(viewModel: makeImageViewerViewModel(viewModel),
+                                  imageRepository: makeImagesRepository())
     }
 
     func makeImageViewerViewModel(_ viewModel: ImageRotatorViewModel) -> ImageViewerViewModel {
-        ImageViewerViewModel(imageRotatorCells: viewModel.imageCells, page: viewModel.page, pastImageRect: nil)
+        ImageViewerViewModel(imageRotatorCells: viewModel.imageCells,
+                             page: viewModel.page, pastImageRect: nil)
     }
 
     // MARK: - Flow Coordinators
     func makeCafeSearchFlowCoordinator(navigationController: UINavigationController) -> CafeSearchFlowCoordinator {
-        
-        return CafeSearchFlowCoordinator(navigationController: navigationController, dependencies: self)
+        CafeSearchFlowCoordinator(navigationController: navigationController, dependencies: self)
     }
 }
 
-extension CafeSceneDIContainer: CafeSearchFlowCoordinatorDependenciesType {}
+extension CafeSceneDIContainer: CafeSearchFlowCoordinatorDependency {}

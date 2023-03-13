@@ -5,7 +5,6 @@
 //  Created by wyn on 2022/10/5.
 //
 
-
 /// Section
 public struct AdapterSectionModel {
     /// Rows
@@ -18,6 +17,4 @@ public struct AdapterSectionModel {
         self.header = header
         self.footer = footer
     }
-
 }
-

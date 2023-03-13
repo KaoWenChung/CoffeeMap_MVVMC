@@ -51,9 +51,12 @@ final class DataTransferServiceTests: XCTestCase {
         // given
         let mockConfig = NetworkConfigurableMock()
         let mockData = mockData.data(using: .utf8)
-        let mockSessionManager = NetworkSessionManagerMock(response: HTTPURLResponse(), data: mockData!, error: nil, expectation: nil)
+        let mockSessionManager = NetworkSessionManagerMock(response: HTTPURLResponse(),
+                                                           data: mockData!,
+                                                           error: nil,
+                                                           expectation: nil)
         let networkService = NetworkService(config: mockConfig, sessionManager: mockSessionManager)
-        
+
         return DataTransferService(networkService: networkService)
     }
 }

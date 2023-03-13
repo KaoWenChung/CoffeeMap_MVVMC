@@ -12,7 +12,7 @@ struct CafeDetailViewModelActions {
 
 protocol CafeDetailViewModelInput {
     func didSelectShowRouterBtn()
-    func didSelectImage(_ viewModel:ImageRotatorViewModel)
+    func didSelectImage(_ viewModel: ImageRotatorViewModel)
 }
 
 protocol CafeDetailViewModelOutput {

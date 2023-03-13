@@ -18,13 +18,13 @@ final class AppDIContainer {
         let apiDataNetwork = NetworkService(config: config)
         return DataTransferService(networkService: apiDataNetwork)
     }()
-    
+
     lazy var imageDataTransferService = {
         let config = APIDataNetworkConfigurable()
         let imagesDataNetwork = NetworkService(config: config)
         return DataTransferService(networkService: imagesDataNetwork)
     }()
-    
+
     // MARK: - Cache
     let imageCache = ImageCache()
 

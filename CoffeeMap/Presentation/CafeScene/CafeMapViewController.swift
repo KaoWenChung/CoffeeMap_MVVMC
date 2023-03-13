@@ -9,14 +9,15 @@ import UIKit
 import MapKit
 
 final class CafeMapViewController: UIViewController, Alertable {
-
     enum Contents {
         static let visibleEdgeInsets: CGFloat = 100
         static let renderLineWidth: CGFloat = 3.0
     }
+
     enum CafeMapViewString: LocallizedStringType {
         case routeError
     }
+
     @IBOutlet weak private var mapView: MKMapView!
     private let viewModel: CafeMapViewModel
 
@@ -24,7 +25,7 @@ final class CafeMapViewController: UIViewController, Alertable {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -39,7 +40,8 @@ final class CafeMapViewController: UIViewController, Alertable {
         let annotation = MKPointAnnotation()
         annotation.title = viewModel.name
         if let coordinate = viewModel.coordinate {
-            let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(floatLiteral: coordinate.latitude), longitude: CLLocationDegrees(floatLiteral: coordinate.longitude))
+            let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(floatLiteral: coordinate.latitude),
+                                                    longitude: CLLocationDegrees(floatLiteral: coordinate.longitude))
             annotation.coordinate = coordinate
             setRoute(MKPlacemark(coordinate: coordinate))
         } else {
@@ -58,7 +60,7 @@ final class CafeMapViewController: UIViewController, Alertable {
         }
         mapView.showAnnotations([annotation], animated: true)
     }
-    
+
     private func setRoute(_ placemark: MKPlacemark) {
         let directionRequest = MKDirections.Request()
         directionRequest.source = MKMapItem.forCurrentLocation()
@@ -69,7 +71,9 @@ final class CafeMapViewController: UIViewController, Alertable {
         directions.calculate { (routeResponse, routeError) -> Void in
             guard let routeResponse = routeResponse else {
                 if routeError != nil {
-                    self.showAlert(style: .alert, message: CafeMapViewString.routeError.text, cancel: CommonString.ok.text)
+                    self.showAlert(style: .alert,
+                                   message: CafeMapViewString.routeError.text,
+                                   cancel: CommonString.confirm.text)
                 }
                 return
             }
@@ -77,20 +81,22 @@ final class CafeMapViewController: UIViewController, Alertable {
             self.mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
         }
     }
-    
 }
 
 extension CafeMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor.blue
         renderer.lineWidth = Contents.renderLineWidth
-        
+
         // show the whole route
-        let visibleMapRect = mapView.mapRectThatFits(renderer.polyline.boundingMapRect, edgePadding: UIEdgeInsets(top: Contents.visibleEdgeInsets, left: Contents.visibleEdgeInsets, bottom: Contents.visibleEdgeInsets, right: Contents.visibleEdgeInsets))
+        let visibleMapRect = mapView.mapRectThatFits(renderer.polyline.boundingMapRect,
+                                                     edgePadding: UIEdgeInsets(top: Contents.visibleEdgeInsets,
+                                                                               left: Contents.visibleEdgeInsets,
+                                                                               bottom: Contents.visibleEdgeInsets,
+                                                                               right: Contents.visibleEdgeInsets))
         mapView.setRegion(MKCoordinateRegion(visibleMapRect), animated: true)
-        
+
         return renderer
     }
 }

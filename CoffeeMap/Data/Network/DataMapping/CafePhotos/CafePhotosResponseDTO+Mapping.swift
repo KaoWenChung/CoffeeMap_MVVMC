@@ -13,7 +13,7 @@ struct CafePhotosResponseDTO: Codable {
     let prefix: String?
     let suffix: String?
     let width: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case classifications
         case createdAt = "created_at"

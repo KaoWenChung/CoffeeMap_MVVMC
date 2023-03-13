@@ -12,14 +12,14 @@ public class TableViewAdapter: NSObject {
     public weak var delegate: TableCollectionViewAdapterDelegate?
     public private(set) var sections: [AdapterSectionModel] = []
     let registerService = TableViewRegistryService()
-    
+
     public init(_ tableView: UITableView) {
         super.init()
         self.tableView = tableView
         self.tableView?.delegate = self
         self.tableView?.dataSource = self
     }
-    
+
     open func updateData(_ cells: [AdapterItemModel]) {
         self.sections = [AdapterSectionModel(items: cells)]
         tableView?.reloadData()
@@ -67,7 +67,7 @@ extension TableViewAdapter: UITableViewDelegate {
     open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         let item = sections[indexPath.section].items[indexPath.row]
         let cgSize = delegate?.size(model: item, containerSize: tableView.frame.size)
-        
+
         return cgSize?.height ?? 0
     }
 

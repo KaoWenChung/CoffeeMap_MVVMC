@@ -7,30 +7,30 @@
 
 import UIKit
 
-public protocol CollectionAdapterDidEndDeceleratingDelegate: AnyObject {
+public protocol CollectionAdapterDecelerateDelegate: AnyObject {
     func didEndDecelerating(_ scrollView: UIScrollView)
 }
 
-public protocol CollectionAdapterDidEndScrollingAnimationDelegate: AnyObject {
+public protocol CollectionAdapterScrollDelegate: AnyObject {
     func didEndScrollingAnimation(_ scrollView: UIScrollView)
 }
 
 public class CollectionViewAdapter: NSObject {
     public weak var collectionView: UICollectionView?
     public weak var delegate: TableCollectionViewAdapterDelegate?
-    public weak var didEndDeceleratingDelegate: CollectionAdapterDidEndDeceleratingDelegate?
-    public weak var didEndScrollingAnimationDelegate: CollectionAdapterDidEndScrollingAnimationDelegate?
-    
+    public weak var didEndDeceleratingDelegate: CollectionAdapterDecelerateDelegate?
+    public weak var didEndScrollingAnimationDelegate: CollectionAdapterScrollDelegate?
+
     public private(set) var sections: [AdapterSectionModel] = []
     let registerService = CollectionViewRegistryService()
-    
+
     public init(_ collectionView: UICollectionView) {
         super.init()
         self.collectionView = collectionView
         self.collectionView?.delegate = self
         self.collectionView?.dataSource = self
     }
-    
+
     open func updateData(_ cells: [AdapterItemModel]) {
         self.sections = [AdapterSectionModel(items: cells)]
         collectionView?.reloadData()
@@ -57,8 +57,9 @@ extension CollectionViewAdapter: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return sections[section].items.count
     }
-    
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = sections[indexPath.section].items[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: item.type.name, for: indexPath)
 

@@ -7,8 +7,8 @@
 
 struct CafeListViewModelActions {
     let showCafeDetail: (CafeTableViewCellModel) -> Void
-    
 }
+
 protocol CafeListViewModelInput {
     func fetchDataBy(latitudeLongitude: String) async
     func didLoadNextPage() async
@@ -56,7 +56,8 @@ final class CafeListViewModel: CafeListViewModelType {
     }
 
     private func handle(error: Error) {
-        self.error.value = error.isInternetConnectionError ? ErrorString.noInternet.text : ErrorString.failLoadingCafe.text
+        self.error.value = error.isInternetConnectionError
+        ? ErrorString.noInternet.text : ErrorString.failLoadingCafe.text
     }
 
     private func executeSearchCafeUseCase() async throws {
@@ -70,7 +71,7 @@ final class CafeListViewModel: CafeListViewModelType {
             query.cursor = nil
         }
     }
-    
+
     private func setupDataTask() async {
         let task = Task {
             do {
@@ -86,14 +87,14 @@ final class CafeListViewModel: CafeListViewModelType {
 
 extension CafeListViewModel {
     func fetchDataBy(latitudeLongitude: String) async {
-        query.ll = latitudeLongitude
+        query.latitudeLongitude = latitudeLongitude
         await setupDataTask()
     }
 
     func didSelectItem(_ viewModel: CafeTableViewCellModel) {
         actions?.showCafeDetail(viewModel)
     }
-    
+
     func didLoadNextPage() async {
         if nextPageStatus == .lastPage { return }
         await setupDataTask()
@@ -104,7 +105,7 @@ extension CafeListViewModel {
         refreshQuery()
         await setupDataTask()
     }
-    
+
     func refreshQuery() {
         placeList.value.removeAll()
         nextPageStatus = .loading

@@ -9,7 +9,7 @@ import XCTest
 @testable import CoffeeMap
 
 final class SearchCafeUseCaseMock: SearchCafeListUseCaseType {
-    
+
     let cafeListModel: CafeListModel
     let error: Error?
     let expectation: XCTestExpectation?

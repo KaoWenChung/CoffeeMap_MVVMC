@@ -7,7 +7,7 @@
 
 enum CommonString: LocallizedStringType {
     case error
-    case ok
+    case confirm
     case cancel
 }
 

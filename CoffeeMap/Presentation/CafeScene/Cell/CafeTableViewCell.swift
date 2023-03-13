@@ -14,7 +14,7 @@ final class CafeTableViewCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     private var imageLoadTask: CancellableType?
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         imageLoadTask?.cancel()

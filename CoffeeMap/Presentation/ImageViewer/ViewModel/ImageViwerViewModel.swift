@@ -36,7 +36,9 @@ final class ImageViewerViewModel: ImageViewerViewModelType {
     init(imageRotatorCells: [ImageRotatorCollectionCellViewModel],
          page: Int,
          pastImageRect: CGRect?) {
-        self.imageUrlList = imageRotatorCells.map { ImageViewerCollectionCellViewModel(imageURL: $0.getOriginalImage()) }
+        self.imageUrlList = imageRotatorCells.map {
+            ImageViewerCollectionCellViewModel(imageURL: $0.getOriginalImage())
+        }
         self.page = page
         self.pastImageRect = pastImageRect
     }
@@ -44,11 +46,11 @@ final class ImageViewerViewModel: ImageViewerViewModelType {
     func toggleShowButtons() {
         isShowButtons.toggle()
     }
-    
+
     func setPage(_ page: Int) {
         self.page = page
     }
-    
+
     func toggleDismiss() {
         isDismiss.toggle()
     }

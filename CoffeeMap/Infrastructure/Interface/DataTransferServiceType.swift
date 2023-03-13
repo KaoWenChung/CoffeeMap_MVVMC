@@ -8,8 +8,12 @@
 import Foundation
 
 public protocol DataTransferServiceType {
-    func request<T: Decodable, E: ResponseRequestableType>(with endpoint: E) async throws -> (T, URLResponse) where E.Response == T
-    func request<T: Decodable, E: ResponseRequestableType>(with endpoint: E) async throws -> T where E.Response == T
+    func request<T: Decodable, E: ResponseRequestableType>(
+        with endpoint: E
+    ) async throws -> (T, URLResponse) where E.Response == T
+    func request<T: Decodable, E: ResponseRequestableType>(
+        with endpoint: E
+    ) async throws -> T where E.Response == T
     func request<E: ResponseRequestableType>(with endpoint: E) async throws where E.Response == Void
 }
 

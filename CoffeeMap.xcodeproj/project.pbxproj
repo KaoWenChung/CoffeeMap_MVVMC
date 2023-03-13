@@ -29,6 +29,7 @@
 		2135C419297205E6006A4339 /* ImageRotatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */; };
 		2135C41C29720C52006A4339 /* ImageRotatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */; };
 		2135C41E29720D5D006A4339 /* GetImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 2135C41D29720D5D006A4339 /* GetImage.json */; };
+		213DF41629BF5C6000E7E45E /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DF41529BF5C6000E7E45E /* XCTestCase+.swift */; };
 		21468CCA297414A100649FE2 /* CollectionViewAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21468CC9297414A100649FE2 /* CollectionViewAdapterTests.swift */; };
 		214999C32919BCA400F412BD /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C22919BCA400F412BD /* APIEndpoints.swift */; };
 		214999C7291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */; };
@@ -100,7 +101,6 @@
 		7952AB3A28C0563D00607B77 /* CafePlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3928C0563D00607B77 /* CafePlacesRepository.swift */; };
 		7952AB3D28C05CD400607B77 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3C28C05CD400607B77 /* Encodable.swift */; };
 		7952AB3F28C0619E00607B77 /* CafeListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3E28C0619E00607B77 /* CafeListViewModelTests.swift */; };
-		7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB4128C0627A00607B77 /* XCTestCase+.swift */; };
 		7952AB4728C0642E00607B77 /* GetPlace_London.json in Resources */ = {isa = PBXBuildFile; fileRef = 7952AB4628C0642E00607B77 /* GetPlace_London.json */; };
 		796EB62028C18E0300F1A01B /* CafeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796EB61F28C18E0300F1A01B /* CafeListViewController.xib */; };
 		796EB62628C1AF1000F1A01B /* EncodableExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796EB62528C1AF1000F1A01B /* EncodableExtensionTests.swift */; };
@@ -139,6 +139,7 @@
 		2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewModel.swift; sourceTree = "<group>"; };
 		2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewTests.swift; sourceTree = "<group>"; };
 		2135C41D29720D5D006A4339 /* GetImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetImage.json; sourceTree = "<group>"; };
+		213DF41529BF5C6000E7E45E /* XCTestCase+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
 		21468CC9297414A100649FE2 /* CollectionViewAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewAdapterTests.swift; sourceTree = "<group>"; };
 		214999C22919BCA400F412BD /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		214999C6291AB11F00F412BD /* GetPlaceResponseDTO+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GetPlaceResponseDTO+Mapping.swift"; sourceTree = "<group>"; };
@@ -213,7 +214,6 @@
 		7952AB3928C0563D00607B77 /* CafePlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafePlacesRepository.swift; sourceTree = "<group>"; };
 		7952AB3C28C05CD400607B77 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		7952AB3E28C0619E00607B77 /* CafeListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeListViewModelTests.swift; sourceTree = "<group>"; };
-		7952AB4128C0627A00607B77 /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
 		7952AB4628C0642E00607B77 /* GetPlace_London.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPlace_London.json; sourceTree = "<group>"; };
 		796EB61F28C18E0300F1A01B /* CafeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CafeListViewController.xib; sourceTree = "<group>"; };
 		796EB62528C1AF1000F1A01B /* EncodableExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtensionTests.swift; sourceTree = "<group>"; };
@@ -584,6 +584,7 @@
 			children = (
 				21F7654A2970711E00403B49 /* Extension */,
 				21723DFF297305D400306D34 /* LocallizedStringTypeTests.swift */,
+				213DF41529BF5C6000E7E45E /* XCTestCase+.swift */,
 				7952AB2128C040CE00607B77 /* TableViewAdapterTests.swift */,
 				21468CC9297414A100649FE2 /* CollectionViewAdapterTests.swift */,
 			);
@@ -730,7 +731,6 @@
 		7952AB4028C0625F00607B77 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				7952AB4128C0627A00607B77 /* XCTestCase+.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -754,6 +754,7 @@
 				79242C5728C03ADD00766059 /* Sources */,
 				79242C5828C03ADD00766059 /* Frameworks */,
 				79242C5928C03ADD00766059 /* Resources */,
+				213DF41429BF5AF100E7E45E /* Swift Lint */,
 			);
 			buildRules = (
 			);
@@ -850,6 +851,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		213DF41429BF5AF100E7E45E /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		79242C5728C03ADD00766059 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -935,12 +958,12 @@
 				2135C41C29720C52006A4339 /* ImageRotatorViewTests.swift in Sources */,
 				21A1D782295280AD0061DE76 /* NetworkConfigurableMock.swift in Sources */,
 				7952AB3F28C0619E00607B77 /* CafeListViewModelTests.swift in Sources */,
+				213DF41629BF5C6000E7E45E /* XCTestCase+.swift in Sources */,
 				21135558294B7D830039287B /* SearchCafeUseCaseMock.swift in Sources */,
 				7952AB2228C040CE00607B77 /* TableViewAdapterTests.swift in Sources */,
 				21723E00297305D400306D34 /* LocallizedStringTypeTests.swift in Sources */,
 				21F7654C2970712900403B49 /* DateTests.swift in Sources */,
 				21A1D784295280C40061DE76 /* NetworkSessionManagerMock.swift in Sources */,
-				7952AB4228C0627A00607B77 /* XCTestCase+.swift in Sources */,
 				212BB4E829780A6400E1D51E /* ImageRotatorCollectionCellViewModelTests.swift in Sources */,
 				21468CCA297414A100649FE2 /* CollectionViewAdapterTests.swift in Sources */,
 				796EB62628C1AF1000F1A01B /* EncodableExtensionTests.swift in Sources */,

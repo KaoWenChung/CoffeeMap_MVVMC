@@ -31,13 +31,13 @@ final class CafeDetailViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .clear
     }
-    
+
     init(_ viewModel: CafeDetailViewModel, imageRepository: ImageRepositoryType) {
         self.viewModel = viewModel
         self.imageRepository = imageRepository
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

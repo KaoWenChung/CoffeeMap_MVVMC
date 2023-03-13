@@ -10,7 +10,7 @@ import XCTest
 
 final class DictionaryTests: XCTestCase {
     func testQueryString_intStringDouble() throws {
-        let test: [String : Any] = ["int": 0,
+        let test: [String: Any] = ["int": 0,
                     "string": "String",
                     "double": 0.0001]
         let sut = test.queryString

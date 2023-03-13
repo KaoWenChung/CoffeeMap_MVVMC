@@ -10,11 +10,15 @@ import XCTest
 
 final class ImageRotatorCollectionCellViewModelTests: XCTestCase {
     func testInitViewModel_initByCafePhotoModel() {
-        //given
-        let mockResponse = makeResponse(height: 1080, prefix: "https://mock.com/img/", suffix: "/mockimage.jpg", width: 1920, createdAt: "2011-11-08T18:41:47.000Z")
+        // given
+        let mockResponse = makeResponse(height: 1080,
+                                        prefix: "https://mock.com/img/",
+                                        suffix: "/mockimage.jpg",
+                                        width: 1920,
+                                        createdAt: "2011-11-08T18:41:47.000Z")
         let cafePhotoModel = CafePhotoModel(mockResponse)
         let sut = ImageRotatorCollectionCellViewModel(cafePhotoModel)
-        //then
+        // then
         XCTAssertEqual(sut.date, "2011-11-08")
         XCTAssertEqual(sut.height, 1080)
         XCTAssertEqual(sut.width, 1920)
@@ -23,24 +27,32 @@ final class ImageRotatorCollectionCellViewModelTests: XCTestCase {
     }
 
     func testGetOriginalImage_hasData_getResult() {
-        //given
-        let mockResponse = makeResponse(height: 1080, prefix: "https://mock.com/img/", suffix: "/mockimage.jpg", width: 1920, createdAt: "2011-11-08T18:41:47.000Z")
+        // given
+        let mockResponse = makeResponse(height: 1080,
+                                        prefix: "https://mock.com/img/",
+                                        suffix: "/mockimage.jpg",
+                                        width: 1920,
+                                        createdAt: "2011-11-08T18:41:47.000Z")
         let cafePhotoModel = CafePhotoModel(mockResponse)
         let sut = ImageRotatorCollectionCellViewModel(cafePhotoModel)
-        //when
+        // when
         let originalImageURL = sut.getOriginalImage()
-        //then
+        // then
         XCTAssertEqual(originalImageURL, "https://mock.com/img/1920x1080/mockimage.jpg")
     }
 
     func testGetOriginalImage_hasIncorrectData_getEmptyResult() {
-        //given
-        let mockResponse = makeResponse(height: nil, prefix: "https://mock.com/img/", suffix: nil, width: 1920, createdAt: "2011-11-08T18:41:47.000Z")
+        // given
+        let mockResponse = makeResponse(height: nil,
+                                        prefix: "https://mock.com/img/",
+                                        suffix: nil,
+                                        width: 1920,
+                                        createdAt: "2011-11-08T18:41:47.000Z")
         let cafePhotoModel = CafePhotoModel(mockResponse)
         let sut = ImageRotatorCollectionCellViewModel(cafePhotoModel)
-        //when
+        // when
         let originalImageURL = sut.getOriginalImage()
-        //then
+        // then
         XCTAssertEqual(originalImageURL, "")
     }
 

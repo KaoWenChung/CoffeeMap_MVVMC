@@ -43,7 +43,6 @@ final class ImageRotatorView: BaseXibView {
     }
 }
 
-
 extension ImageRotatorView: TableCollectionViewAdapterDelegate {
     func configure(model: AdapterItemModel, view: UIView, indexPath: IndexPath) {
         switch (model, view) {
@@ -54,12 +53,12 @@ extension ImageRotatorView: TableCollectionViewAdapterDelegate {
             break
         }
     }
-    
+
     func select(model: AdapterItemModel) {
         guard let viewModel else { return }
         delegate?.didSelectImage(viewModel)
     }
-    
+
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {
         let width = frame.width
         let height = frame.height
@@ -67,7 +66,7 @@ extension ImageRotatorView: TableCollectionViewAdapterDelegate {
     }
 }
 
-extension ImageRotatorView: CollectionAdapterDidEndDeceleratingDelegate {
+extension ImageRotatorView: CollectionAdapterDecelerateDelegate {
     // Show index of images
     func didEndDecelerating(_ scrollView: UIScrollView) {
         let offsetPage = Int(scrollView.contentOffset.x / frame.width)

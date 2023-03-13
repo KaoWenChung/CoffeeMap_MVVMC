@@ -7,20 +7,20 @@
 
 import UIKit
 
-protocol CafeSearchFlowCoordinatorDependenciesType {
+protocol CafeSearchFlowCoordinatorDependency {
     func makeCafeListViewController(actions: CafeListViewModelActions?) -> CafeListViewController
-    func makeCafeDetailViewController(cellModel: CafeTableViewCellModel, actions: CafeDetailViewModelActions) -> CafeDetailViewController
+    func makeCafeDetailViewController(cellModel: CafeTableViewCellModel,
+                                      actions: CafeDetailViewModelActions) -> CafeDetailViewController
     func makeImageViewerViewController(_ viewModel: ImageRotatorViewModel) -> ImageViewerViewController
 }
 
 final class CafeSearchFlowCoordinator {
     private weak var navigationController: UINavigationController?
-    private let dependencies: CafeSearchFlowCoordinatorDependenciesType
-    
+    private let dependencies: CafeSearchFlowCoordinatorDependency
     private weak var cafeListViewController: CafeListViewController?
 
     init(navigationController: UINavigationController,
-         dependencies: CafeSearchFlowCoordinatorDependenciesType) {
+         dependencies: CafeSearchFlowCoordinatorDependency) {
         self.navigationController = navigationController
         self.dependencies = dependencies
     }

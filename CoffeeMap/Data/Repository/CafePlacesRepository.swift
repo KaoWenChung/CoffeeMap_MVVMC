@@ -38,10 +38,8 @@ extension CafePlacesRepository: CafePlacesRepositoryType {
     // MARK: - Pagination
     private func getNextPageFromHeaders(response: HTTPURLResponse?) -> String? {
         if let linkHeader = response?.allHeaderFields[Content.link] as? String {
-            /* looks like:
-             <https://api.foursquare.com/v3/places/search?ll=51.50998%2C-0.1337&cursor=c3I6MTA&sort=DISTANCE>; rel="next"
-             */
-            if let leftRange = linkHeader.range(of: Content.lowerRange), let rightRange = linkHeader.range(of: Content.upperRange) {
+            if let leftRange = linkHeader.range(of: Content.lowerRange),
+                let rightRange = linkHeader.range(of: Content.upperRange) {
                 var substring = linkHeader[leftRange.upperBound..<rightRange.lowerBound]
                 if let index = substring.firstIndex(of: "&") {
                     substring.removeSubrange(index...)

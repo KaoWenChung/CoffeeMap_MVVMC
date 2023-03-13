@@ -6,7 +6,7 @@
 //
 
 class CafePlaceRequestDTO: Encodable {
-    var ll: String?
+    var latitudeLongitude: String?
     var radius: Int?
     var query: String?
     var sort: String?
@@ -14,7 +14,7 @@ class CafePlaceRequestDTO: Encodable {
     var cursor: String?
 
     enum CodingKeys: String, CodingKey {
-        case ll
+        case latitudeLongitude
         case radius
         case query
         case sort

@@ -21,6 +21,7 @@ final class ImageViewerViewController: UIViewController {
         static let turnOffRange: PartialRangeFrom<CGFloat> = 80...
         static let alphaToMinus = 1.6
     }
+
     @IBOutlet weak private var collectionView: UICollectionView!
     @IBOutlet weak private var closeButton: UIButton!
     @IBOutlet weak private var pageLabel: UILabel!
@@ -28,22 +29,22 @@ final class ImageViewerViewController: UIViewController {
     @IBOutlet weak private var rightButton: UIButton!
     @IBOutlet weak private var bottomView: UIView!
     private let viewModel: ImageViewerViewModelType
-    
+
     private var imageRepository: ImageRepositoryType?
     private var collectionViewAdapter: CollectionViewAdapter?
-    
+
     weak var delegate: ImageViewerViewControllerDelegate?
-    
+
     init(viewModel: ImageViewerViewModelType, imageRepository: ImageRepositoryType) {
         self.viewModel = viewModel
         self.imageRepository = imageRepository
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initAdapter()
@@ -59,7 +60,8 @@ final class ImageViewerViewController: UIViewController {
 
     @IBAction private func clickCloseHandler() {
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
-            let cell: ImageViewerCollectionViewCell? = self.collectionView.cellForItem(at: IndexPath(row: self.viewModel.page - 1, section: 0)) as? ImageViewerCollectionViewCell
+            let cell = self.collectionView.cellForItem(at: IndexPath(row: self.viewModel.page - 1,
+                                                                     section: 0)) as? ImageViewerCollectionViewCell
             cell?.zoomOut()
             self.setView2Past()
             self.view.backgroundColor = .clear
@@ -89,7 +91,8 @@ final class ImageViewerViewController: UIViewController {
         let viewHeight: CGFloat = collectionView.frame.size.height
         let safeAreaSpacing: CGFloat = collectionView.safeAreaInsets.top
         let imageMidAnchor: CGFloat = frame.midY
-        collectionView.transform = CGAffineTransform(translationX: 0, y: -(((viewHeight + safeAreaSpacing) / 2) - imageMidAnchor))
+        collectionView.transform = CGAffineTransform(translationX: 0,
+                                                     y: -(((viewHeight + safeAreaSpacing) / 2) - imageMidAnchor))
     }
 
     private func updateBottomView() {
@@ -123,13 +126,13 @@ final class ImageViewerViewController: UIViewController {
     }
 }
 
-extension ImageViewerViewController: CollectionAdapterDidEndDeceleratingDelegate {
+extension ImageViewerViewController: CollectionAdapterDecelerateDelegate {
     func didEndDecelerating(_ scrollView: UIScrollView) {
         updateBottomView()
     }
 }
 
-extension ImageViewerViewController: CollectionAdapterDidEndScrollingAnimationDelegate {
+extension ImageViewerViewController: CollectionAdapterScrollDelegate {
     func didEndScrollingAnimation(_ scrollView: UIScrollView) {
         updateBottomView()
     }
@@ -168,12 +171,12 @@ extension ImageViewerViewController: TableCollectionViewAdapterDelegate {
             break
         }
     }
-    
+
     func select(model: AdapterItemModel) {}
-    
+
     func size(model: AdapterItemModel, containerSize: CGSize) -> CGSize {
-        let _width : CGFloat = collectionView.frame.size.width
-        let _height: CGFloat = collectionView.frame.size.height
-        return CGSize(width: _width, height: _height)
+        let width: CGFloat = collectionView.frame.size.width
+        let height: CGFloat = collectionView.frame.size.height
+        return CGSize(width: width, height: height)
     }
 }

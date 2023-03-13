@@ -1,4 +1,3 @@
-
 //  DataTransferService.swift
 //  CoffeeMap
 //
@@ -19,8 +18,8 @@ public final class DataTransferService {
     private let errorResolver: DataTransferErrorResolverType
     private let errorLogger: DataTransferErrorLoggerType
     public init(networkService: NetworkServiceType,
-         errorResolver: DataTransferErrorResolverType = DataTransferErrorResolver(),
-         errorLogger: DataTransferErrorLoggerType = DataTransferErrorLogger()) {
+                errorResolver: DataTransferErrorResolverType = DataTransferErrorResolver(),
+                errorLogger: DataTransferErrorLoggerType = DataTransferErrorLogger()) {
         self.networkService = networkService
         self.errorResolver = errorResolver
         self.errorLogger = errorLogger
@@ -28,8 +27,9 @@ public final class DataTransferService {
 }
 
 extension DataTransferService: DataTransferServiceType {
-    
-    public func request<T: Decodable, E: ResponseRequestableType>(with endpoint: E) async throws -> T where E.Response == T {
+    public func request<T: Decodable, E: ResponseRequestableType>(
+        with endpoint: E
+    ) async throws -> T where E.Response == T {
         do {
             let task = try networkService.request(endpoint: endpoint)
             let (data, _) = try await task.value
@@ -42,7 +42,9 @@ extension DataTransferService: DataTransferServiceType {
         }
     }
 
-    public func request<T: Decodable, E: ResponseRequestableType>(with endpoint: E) async throws -> (T, URLResponse) where E.Response == T {
+    public func request<T: Decodable, E: ResponseRequestableType>(
+        with endpoint: E
+    ) async throws -> (T, URLResponse) where E.Response == T {
         do {
             let task = try networkService.request(endpoint: endpoint)
             let (data, response) = try await task.value
@@ -55,7 +57,9 @@ extension DataTransferService: DataTransferServiceType {
         }
     }
 
-    public func request<E>(with endpoint: E) async throws where E : ResponseRequestableType, E.Response == Void {
+    public func request<E>(
+        with endpoint: E
+    ) async throws where E: ResponseRequestableType, E.Response == Void {
         do {
             try networkService.request(endpoint: endpoint)
         } catch let error as NetworkError {
@@ -75,7 +79,7 @@ extension DataTransferService: DataTransferServiceType {
             throw DataTransferError.parsing(error)
         }
     }
-    
+
     private func resolve(networkError error: NetworkError) -> DataTransferError {
         let resolvedError = self.errorResolver.resolve(error: error)
         return resolvedError is NetworkError ? .networkFailure(error) : .resolvedNetworkFailure(resolvedError)
@@ -103,7 +107,7 @@ public final class DataTransferErrorResolver: DataTransferErrorResolverType {
 public class JSONResponseDecoder: ResponseDecoderType {
     private let jsonDecoder = JSONDecoder()
     public init() {}
-    public func decode<T>(_ data: Data) throws -> T where T : Decodable {
+    public func decode<T>(_ data: Data) throws -> T where T: Decodable {
         return try jsonDecoder.decode(T.self, from: data)
     }
 }
@@ -113,11 +117,12 @@ public class RawDataResponseDecoder: ResponseDecoderType {
     enum CodingKeys: String, CodingKey {
         case `default` = ""
     }
-    public func decode<T>(_ data: Data) throws -> T where T : Decodable {
+    public func decode<T>(_ data: Data) throws -> T where T: Decodable {
         if T.self is Data.Type, let data = data as? T {
             return data
         } else {
-            let context = DecodingError.Context(codingPath: [CodingKeys.default], debugDescription: "Expected data type")
+            let context = DecodingError.Context(codingPath: [CodingKeys.default],
+                                                debugDescription: "Expected data type")
             throw Swift.DecodingError.typeMismatch(T.self, context)
         }
     }

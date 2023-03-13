@@ -52,9 +52,18 @@ extension ImageViewerCollectionViewCell: UIScrollViewDelegate {
                 let newWidth = image.size.width * ratio
                 let newHeight = image.size.height * ratio
                 let conditionLeft = newWidth * scrollView.zoomScale > imageView.frame.width
-                let left = 0.5 * (conditionLeft ? newWidth - imageView.frame.width : (scrollView.frame.width - scrollView.contentSize.width))
+                let imageViewWidth = imageView.frame.width
+                let scrollViewWidth = scrollView.frame.width
+                let contentSizeWidth = scrollView.contentSize.width
+                let newWidthCondition = conditionLeft ? newWidth - imageViewWidth : scrollViewWidth - contentSizeWidth
+                let left = 0.5 * newWidthCondition
                 let conditionTop = newHeight * scrollView.zoomScale > imageView.frame.height
-                let top = 0.5 * (conditionTop ? newHeight - imageView.frame.height : (scrollView.frame.height - scrollView.contentSize.height))
+
+                let imageHeight = imageView.frame.height
+                let scrollViewHeight = scrollView.frame.height
+                let contentSizeHeight = scrollView.contentSize.height
+                let newHeightCondition = conditionTop ? newHeight - imageHeight : (scrollViewHeight - contentSizeHeight)
+                let top = 0.5 * newHeightCondition
                 scrollView.contentInset = UIEdgeInsets(top: top, left: left, bottom: top, right: left)
             }
         } else {

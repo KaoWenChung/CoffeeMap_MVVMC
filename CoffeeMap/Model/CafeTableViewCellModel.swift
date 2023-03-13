@@ -27,7 +27,7 @@ struct CafeTableViewCellModel: AdapterItemModel {
     let description: String?
     let coordinate: (latitude: Double, longitude: Double)?
     let photos: [CafePhotoModel]
-    
+
     init(_ cafe: Cafe, photoModel: [CafePhotoModel]) {
         name = cafe.name ?? ""
         if let address = cafe.formattedAddress,

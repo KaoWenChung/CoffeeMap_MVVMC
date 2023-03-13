@@ -11,16 +11,17 @@ public class CollectionViewRegistryService {
     public private(set) var registeredTypes = Set<String>()
 
     public func registerCell(_ collectionView: UICollectionView, cellType: UICollectionViewCell.Type) {
-        
         if !registeredTypes.contains("\(cellType)") {
-            collectionView.register(UINib(nibName: "\(cellType)", bundle: nil), forCellWithReuseIdentifier: "\(cellType)")
+            collectionView.register(UINib(nibName: "\(cellType)", bundle: nil),
+                                    forCellWithReuseIdentifier: "\(cellType)")
         }
     }
 
     public func registerCell(_ collectionView: UICollectionView, item: AdapterItemModel) {
         if !registeredTypes.contains(item.type.name) {
             if item.type.isSubclass(of: UITableViewCell.self) {
-                collectionView.register(UINib(nibName: item.type.name, bundle: nil), forCellWithReuseIdentifier: item.type.name)
+                collectionView.register(UINib(nibName: item.type.name, bundle: nil),
+                                        forCellWithReuseIdentifier: item.type.name)
             }
             registeredTypes.insert(item.type.name)
         }
@@ -28,7 +29,9 @@ public class CollectionViewRegistryService {
 
     public func registerHeaderFooter(_ collectionView: UICollectionView, item: AdapterItemModel) {
         if item.type.isSubclass(of: UICollectionReusableView.self) {
-            collectionView.register(item.type, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: item.type.name)
+            collectionView.register(item.type,
+                                    forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                    withReuseIdentifier: item.type.name)
         }
         registeredTypes.insert(item.type.name)
     }
@@ -47,4 +50,3 @@ public class CollectionViewRegistryService {
         }
     }
 }
-
