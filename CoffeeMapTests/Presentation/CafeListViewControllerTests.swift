@@ -17,33 +17,26 @@ final class CafeListViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.locationManager?.location?.coordinate.latitude, 51.50998)
     }
 
-    func testViewDidload_tableViewHasCells() throws {
-        // TODO: Unknown reason, failed testing
+    @MainActor
+    func testViewDidload_tableViewHasCells() async throws {
         let location = makeCLLocation()
         let sut = try makeSUTWithLocation(location)
-        Task.init {
-            await sut.fetchDataByLocation()
-            DispatchQueue.main.async {
-                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.nameLabel.text, "Mock 1")
-                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.addressLabel.text, "Mock address")
-                XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.distanceLabel.text, "39 meters")
-                XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 2)
-                XCTAssertEqual(sut.tableView.isHidden, false)
-                XCTAssertEqual(sut.noResultLabel.isHidden, true)
-            }
-        }
+        await sut.fetchDataByLocation()
+        XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.nameLabel.text, "Mock 1")
+        XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.addressLabel.text, "Mock address")
+        XCTAssertEqual(sut.tableView.placeSearchCell(at: 0)?.distanceLabel.text, "39 meters")
+        XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 2)
+        XCTAssertEqual(sut.tableView.isHidden, false)
+        XCTAssertEqual(sut.noResultLabel.isHidden, true)
     }
 
-    func testViewDidload_tableViewHasNoCells() throws {
+    @MainActor
+    func testViewDidload_tableViewHasNoCells() async throws {
         let sut = try makeSUTWithLocation(nil)
         XCTAssertEqual(sut.locationManager?.location, nil)
-        Task.init {
-            await sut.fetchDataByLocation()
-            DispatchQueue.main.async {
-                XCTAssertEqual(sut.tableView.isHidden, true)
-                XCTAssertEqual(sut.noResultLabel.isHidden, false)
-            }
-        }
+        await sut.fetchDataByLocation()
+        XCTAssertEqual(sut.tableView.isHidden, true)
+        XCTAssertEqual(sut.noResultLabel.isHidden, false)
     }
 
     // MARK: - Helper
