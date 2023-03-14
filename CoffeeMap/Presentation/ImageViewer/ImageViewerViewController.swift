@@ -49,6 +49,15 @@ final class ImageViewerViewController: UIViewController {
         super.viewDidLoad()
         initAdapter()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if viewModel.page < collectionView.numberOfItems(inSection: 0) {
+            scrollTo(viewModel.page, animated: false)
+            updateBottomView()
+        }
+    }
+
     // MARK: IBAction functions
     @IBAction private func tapRecognizer(_ sender: Any) {
         viewModel.toggleShowButtons()
@@ -103,13 +112,13 @@ final class ImageViewerViewController: UIViewController {
         pageLabel.text = viewModel.page.description + "/ " + viewModel.imageUrlList.count.description
     }
 
-    private func scrollTo(_ aRow: Int, animated aAnimated: Bool = true) {
-        let indexPath = IndexPath(row: aRow, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: aAnimated)
+    private func scrollTo(_ row: Int, animated: Bool = true) {
+        let indexPath = IndexPath(row: row, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: animated)
     }
 
-    private func runExitAnimation(isUp: Bool, _ aBgAlpha: CGFloat = 1) {
-        view.backgroundColor = .black.withAlphaComponent(aBgAlpha)
+    private func runExitAnimation(isUp: Bool, _ alpha: CGFloat = 1) {
+        view.backgroundColor = .black.withAlphaComponent(alpha)
         let transformY: CGFloat = isUp ? view.frame.height : -view.frame.height
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
             self.collectionView.transform.ty = transformY
@@ -139,10 +148,10 @@ extension ImageViewerViewController: CollectionAdapterScrollDelegate {
 }
 
 extension ImageViewerViewController: ImageViewerCollectionViewCellDelegate {
-    func imageViewerCollectionViewCell(contentOffset aOffset: CGFloat) {
+    func imageViewerCollectionViewCell(contentOffset: CGFloat) {
         guard !viewModel.isDismiss else { return }
         var alpha: CGFloat = 0
-        let asbOffset: CGFloat = abs(aOffset)
+        let asbOffset: CGFloat = abs(contentOffset)
         let valueToMinus = asbOffset / Content.scrollBufferSpace
         switch asbOffset {
         // Fade out
@@ -151,7 +160,7 @@ extension ImageViewerViewController: ImageViewerCollectionViewCellDelegate {
         // turn off
         case Content.turnOffRange:
             viewModel.toggleDismiss()
-            runExitAnimation(isUp: aOffset < 0, alpha)
+            runExitAnimation(isUp: contentOffset < 0, alpha)
             return
         default:
             alpha = 1
