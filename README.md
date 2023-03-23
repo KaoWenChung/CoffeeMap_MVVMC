@@ -1,4 +1,6 @@
 # CoffeeMap
+![Screen Shot](Resources/ScreenShot.png)
+
 * Without any third-party library.
 This app allows users to use their location to find coffee venues nearby.
 Users can find coffee venue information on the table view.

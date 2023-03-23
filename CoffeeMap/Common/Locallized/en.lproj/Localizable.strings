@@ -7,7 +7,7 @@
 */
 
 "CommonString.error" = "ERROR";
-"CommonString.ok" = "OK";
+"CommonString.confirm" = "OK";
 "CommonString.cancel" = "Cancel";
 
 "ErrorString.noInternet" = "No internet connection";

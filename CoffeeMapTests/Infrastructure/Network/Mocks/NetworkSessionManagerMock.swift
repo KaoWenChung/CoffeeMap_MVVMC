@@ -9,7 +9,6 @@ import XCTest
 @testable import CoffeeMap
 
 struct NetworkSessionManagerMock: NetworkSessionManagerType {
-
     let response: HTTPURLResponse?
     let data: Data?
     let error: Error?

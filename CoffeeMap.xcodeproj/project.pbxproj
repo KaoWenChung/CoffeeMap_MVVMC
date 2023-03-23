@@ -28,7 +28,6 @@
 		212BB4EA29783AA900E1D51E /* ImageViewerCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212BB4E929783AA900E1D51E /* ImageViewerCollectionCellViewModel.swift */; };
 		2135C419297205E6006A4339 /* ImageRotatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */; };
 		2135C41C29720C52006A4339 /* ImageRotatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */; };
-		2135C41E29720D5D006A4339 /* GetImage.json in Resources */ = {isa = PBXBuildFile; fileRef = 2135C41D29720D5D006A4339 /* GetImage.json */; };
 		213DF41829BF6C5E00E7E45E /* CafePlaceResponseDTO+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DF41729BF6C5E00E7E45E /* CafePlaceResponseDTO+Stub.swift */; };
 		213DF41A29BF6C9B00E7E45E /* GetPlaceResultDTO_Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DF41929BF6C9B00E7E45E /* GetPlaceResultDTO_Stub.swift */; };
 		213DF41C29BF6E9700E7E45E /* CafePhotosResponseDTO+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213DF41B29BF6E9700E7E45E /* CafePhotosResponseDTO+Stub.swift */; };
@@ -103,7 +102,6 @@
 		7952AB3A28C0563D00607B77 /* CafePlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3928C0563D00607B77 /* CafePlacesRepository.swift */; };
 		7952AB3D28C05CD400607B77 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3C28C05CD400607B77 /* Encodable.swift */; };
 		7952AB3F28C0619E00607B77 /* CafeListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7952AB3E28C0619E00607B77 /* CafeListViewModelTests.swift */; };
-		7952AB4728C0642E00607B77 /* GetPlace_London.json in Resources */ = {isa = PBXBuildFile; fileRef = 7952AB4628C0642E00607B77 /* GetPlace_London.json */; };
 		796EB62028C18E0300F1A01B /* CafeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796EB61F28C18E0300F1A01B /* CafeListViewController.xib */; };
 		796EB62628C1AF1000F1A01B /* EncodableExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796EB62528C1AF1000F1A01B /* EncodableExtensionTests.swift */; };
 /* End PBXBuildFile section */
@@ -140,7 +138,6 @@
 		212BB4E929783AA900E1D51E /* ImageViewerCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		2135C418297205E6006A4339 /* ImageRotatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewModel.swift; sourceTree = "<group>"; };
 		2135C41B29720C52006A4339 /* ImageRotatorViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRotatorViewTests.swift; sourceTree = "<group>"; };
-		2135C41D29720D5D006A4339 /* GetImage.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetImage.json; sourceTree = "<group>"; };
 		213DF41729BF6C5E00E7E45E /* CafePlaceResponseDTO+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CafePlaceResponseDTO+Stub.swift"; sourceTree = "<group>"; };
 		213DF41929BF6C9B00E7E45E /* GetPlaceResultDTO_Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlaceResultDTO_Stub.swift; sourceTree = "<group>"; };
 		213DF41B29BF6E9700E7E45E /* CafePhotosResponseDTO+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CafePhotosResponseDTO+Stub.swift"; sourceTree = "<group>"; };
@@ -218,7 +215,6 @@
 		7952AB3928C0563D00607B77 /* CafePlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafePlacesRepository.swift; sourceTree = "<group>"; };
 		7952AB3C28C05CD400607B77 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		7952AB3E28C0619E00607B77 /* CafeListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeListViewModelTests.swift; sourceTree = "<group>"; };
-		7952AB4628C0642E00607B77 /* GetPlace_London.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPlace_London.json; sourceTree = "<group>"; };
 		796EB61F28C18E0300F1A01B /* CafeListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CafeListViewController.xib; sourceTree = "<group>"; };
 		796EB62528C1AF1000F1A01B /* EncodableExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtensionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -741,8 +737,6 @@
 		7952AB4328C062FB00607B77 /* Mock+Stub */ = {
 			isa = PBXGroup;
 			children = (
-				7952AB4628C0642E00607B77 /* GetPlace_London.json */,
-				2135C41D29720D5D006A4339 /* GetImage.json */,
 				213DF41729BF6C5E00E7E45E /* CafePlaceResponseDTO+Stub.swift */,
 				213DF41929BF6C9B00E7E45E /* GetPlaceResultDTO_Stub.swift */,
 				213DF41B29BF6E9700E7E45E /* CafePhotosResponseDTO+Stub.swift */,
@@ -850,8 +844,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2135C41E29720D5D006A4339 /* GetImage.json in Resources */,
-				7952AB4728C0642E00607B77 /* GetPlace_London.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
