@@ -28,9 +28,9 @@ final class AppConfiguration {
 
     private func getAPIKey() -> String {
         #if DEBUG
-        return <#Enter your API key here#>
+        return "fsq307lIbZfyTOdzdqWhFM/6wQ4lPPkL0hQdHyV79PhyIqE="
         #elseif RELEASE
-        return <#Enter your API key here#>
+        return "fsq307lIbZfyTOdzdqWhFM/6wQ4lPPkL0hQdHyV79PhyIqE="
         #endif
     }
 

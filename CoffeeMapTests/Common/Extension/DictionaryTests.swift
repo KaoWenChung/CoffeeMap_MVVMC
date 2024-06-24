@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import CoffeeMap
+@testable import Networking
 
 final class DictionaryTests: XCTestCase {
     func testQueryString_intStringDouble() throws {

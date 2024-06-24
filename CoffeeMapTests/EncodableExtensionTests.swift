@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import CoffeeMap
+@testable import Networking
 
 class EncodableExtensionTests: XCTestCase {
     func testDictionary_londonParameters() throws {

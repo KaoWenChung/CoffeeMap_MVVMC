@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Networking
 
 final class CafeSceneDIContainer {
 

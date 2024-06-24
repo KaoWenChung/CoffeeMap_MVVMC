@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Networking
 
-struct APIEndpoints {
-    static func getCafePlaces(with request: CafePlaceRequestDTO) -> Endpoint<CafePlaceResponseDTO> {
+final class APIEndpoints {
+    class func getCafePlaces(with request: CafePlaceRequestDTO) -> Endpoint<CafePlaceResponseDTO> {
         return Endpoint(path: "v3/places/search",
                         method: .get,
                         queryParametersEncodable: request)

@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import ListViewAdapter
 
 final class CafeListViewController: UIViewController, Alertable {
 

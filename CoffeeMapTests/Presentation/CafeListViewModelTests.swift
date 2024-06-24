@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import Networking
 @testable import CoffeeMap
 
 final class CafeListViewModelTests: XCTestCase {

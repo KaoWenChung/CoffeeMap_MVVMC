@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ListViewAdapter
 
 struct ImageViewerCollectionCellViewModel: AdapterItemModel {
     var type: UIView.Type { ImageViewerCollectionViewCell.self }

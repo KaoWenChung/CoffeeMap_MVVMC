@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import CoffeeMap
+@testable import ListViewAdapter
 
 class CollectionViewAdapterTests: XCTestCase {
     func testCollectionView_updateData_1Section1Cell() {

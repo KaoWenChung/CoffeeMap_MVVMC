@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Networking
 
 protocol ImageRepositoryType {
     func fetchImage(with imagePath: String) async throws -> UIImage?

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ListViewAdapter
 
 struct CafeListModel {
     let cursor: String?

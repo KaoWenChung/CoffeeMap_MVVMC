@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ListViewAdapter
 
 protocol ImageViewerViewControllerDelegate: AnyObject {
     func didDissmissedView(stopAtIndex index: Int)

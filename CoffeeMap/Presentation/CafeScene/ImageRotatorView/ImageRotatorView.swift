@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ListViewAdapter
 
 protocol ImageRotatorViewDelegate: AnyObject {
     func didSelectImage(_ viewModel: ImageRotatorViewModel)

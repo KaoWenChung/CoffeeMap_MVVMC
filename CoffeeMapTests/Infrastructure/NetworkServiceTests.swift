@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import CoffeeMap
+@testable import Networking
 
 class NetworkServiceTests: XCTestCase {
     private struct EndpointMock: RequestableType {

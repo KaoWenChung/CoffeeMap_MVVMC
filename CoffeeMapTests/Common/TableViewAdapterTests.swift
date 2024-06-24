@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import CoffeeMap
+@testable import ListViewAdapter
 
 class TableViewAdapterTests: XCTestCase {
     func testTableView_updateData_1Section1Cell() {

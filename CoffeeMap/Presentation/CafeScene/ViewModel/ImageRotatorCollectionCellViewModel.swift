@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import ListViewAdapter
 
 struct ImageRotatorCollectionCellViewModel: AdapterItemModel {
     var type: UIView.Type { return ImageRotatorCollectionViewCell.self }

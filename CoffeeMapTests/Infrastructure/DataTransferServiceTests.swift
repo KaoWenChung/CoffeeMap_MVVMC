@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import CoffeeMap
+@testable import Networking
 
 // MARK: - Mock Data
 private struct MockResponseData: Decodable {

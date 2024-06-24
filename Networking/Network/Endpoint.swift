@@ -30,6 +30,7 @@ public class Endpoint<R>: ResponseRequestableType {
     public let bodyEncoding: BodyEncoding
     public let responseDecoder: ResponseDecoderType
 
+    public
     init(path: String,
          isFullPath: Bool = false,
          method: HTTPMethod,

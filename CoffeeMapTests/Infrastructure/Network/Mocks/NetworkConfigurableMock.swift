@@ -6,7 +6,7 @@
 //
 
 import Foundation
-@testable import CoffeeMap
+@testable import Networking
 
 struct NetworkConfigurableMock: NetworkConfigurableType {
     var baseURL: URL? = URL(string: "https://mock.testing.com")

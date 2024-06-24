@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Networking
 
 struct CafePlacesRepository {
     private let dataTransferService: DataTransferServiceType
