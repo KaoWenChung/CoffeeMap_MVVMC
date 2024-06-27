@@ -6,7 +6,7 @@
 //
 
 #import "SceneDelegate.h"
-#import "TestViewController.h"
+#import "CafeListViewController.h"
 
 @interface SceneDelegate ()
 
@@ -21,7 +21,7 @@
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.windowScene = (UIWindowScene *)scene;
-    TestViewController *vc = [[TestViewController alloc] init];
+    CafeListViewController *vc = [[CafeListViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: vc];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];

@@ -100,8 +100,16 @@
 		21F7D4352C2DFA4700BF1ED7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21F7D4332C2DFA4700BF1ED7 /* LaunchScreen.storyboard */; };
 		21F7D4382C2DFA4700BF1ED7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7D4372C2DFA4700BF1ED7 /* main.m */; };
 		21F7D4422C2DFA4800BF1ED7 /* CoffeeMap_OCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7D4412C2DFA4800BF1ED7 /* CoffeeMap_OCTests.m */; };
-		21F7D4612C2E070D00BF1ED7 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7D45F2C2E070D00BF1ED7 /* TestViewController.m */; };
-		21F7D4622C2E070D00BF1ED7 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21F7D4602C2E070D00BF1ED7 /* TestViewController.xib */; };
+		21F7D4632C2E11FB00BF1ED7 /* ImageViewerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212BB4E329770A5700E1D51E /* ImageViewerCollectionViewCell.xib */; };
+		21F7D4642C2E11FB00BF1ED7 /* CafeMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BAEBFB28E0671E002616F6 /* CafeMapViewController.xib */; };
+		21F7D4652C2E11FB00BF1ED7 /* ImageRotatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C1F496296DAFD800FCF813 /* ImageRotatorView.xib */; };
+		21F7D4662C2E11FC00BF1ED7 /* ImageViewerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 212BB4DA2977084F00E1D51E /* ImageViewerViewController.xib */; };
+		21F7D4672C2E11FC00BF1ED7 /* CafeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796EB61F28C18E0300F1A01B /* CafeListViewController.xib */; };
+		21F7D4682C2E11FC00BF1ED7 /* CafeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C1F490296DAF2E00FCF813 /* CafeDetailViewController.xib */; };
+		21F7D4692C2E11FC00BF1ED7 /* ImageRotatorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21C1F4A1296DC00F00FCF813 /* ImageRotatorCollectionViewCell.xib */; };
+		21F7D46A2C2E11FC00BF1ED7 /* CafeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79290E0C28C080CF00439E38 /* CafeTableViewCell.xib */; };
+		21F7D46E2C2E1D6900BF1ED7 /* CafeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7D46D2C2E1D6900BF1ED7 /* CafeListViewController.m */; };
+		21F7D4712C2E213100BF1ED7 /* CafeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 21F7D4702C2E213100BF1ED7 /* CafeTableViewCell.m */; };
 		79242C5F28C03ADD00766059 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C5E28C03ADD00766059 /* AppDelegate.swift */; };
 		79242C6128C03ADD00766059 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C6028C03ADD00766059 /* SceneDelegate.swift */; };
 		79242C6328C03ADD00766059 /* CafeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79242C6228C03ADD00766059 /* CafeListViewController.swift */; };
@@ -265,9 +273,10 @@
 		21F7D4372C2DFA4700BF1ED7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		21F7D43D2C2DFA4800BF1ED7 /* CoffeeMap-OCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CoffeeMap-OCTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21F7D4412C2DFA4800BF1ED7 /* CoffeeMap_OCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoffeeMap_OCTests.m; sourceTree = "<group>"; };
-		21F7D45E2C2E070D00BF1ED7 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		21F7D45F2C2E070D00BF1ED7 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		21F7D4602C2E070D00BF1ED7 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		21F7D46C2C2E1D6900BF1ED7 /* CafeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CafeListViewController.h; sourceTree = "<group>"; };
+		21F7D46D2C2E1D6900BF1ED7 /* CafeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CafeListViewController.m; sourceTree = "<group>"; };
+		21F7D46F2C2E213100BF1ED7 /* CafeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CafeTableViewCell.h; sourceTree = "<group>"; };
+		21F7D4702C2E213100BF1ED7 /* CafeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CafeTableViewCell.m; sourceTree = "<group>"; };
 		79242C5B28C03ADD00766059 /* CoffeeMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79242C5E28C03ADD00766059 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79242C6028C03ADD00766059 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -738,15 +747,13 @@
 			isa = PBXGroup;
 			children = (
 				21F7D45A2C2E060800BF1ED7 /* Application */,
+				21F7D46B2C2E1D3C00BF1ED7 /* Presentation */,
 				21F7D42B2C2DFA4300BF1ED7 /* ViewController.h */,
 				21F7D42C2C2DFA4300BF1ED7 /* ViewController.m */,
 				21F7D4312C2DFA4700BF1ED7 /* Assets.xcassets */,
 				21F7D4332C2DFA4700BF1ED7 /* LaunchScreen.storyboard */,
 				21F7D4362C2DFA4700BF1ED7 /* Info.plist */,
 				21F7D4372C2DFA4700BF1ED7 /* main.m */,
-				21F7D45E2C2E070D00BF1ED7 /* TestViewController.h */,
-				21F7D45F2C2E070D00BF1ED7 /* TestViewController.m */,
-				21F7D4602C2E070D00BF1ED7 /* TestViewController.xib */,
 			);
 			path = "CoffeeMap-OC";
 			sourceTree = "<group>";
@@ -799,6 +806,25 @@
 				21C1F496296DAFD800FCF813 /* ImageRotatorView.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		21F7D46B2C2E1D3C00BF1ED7 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				21F7D4722C2E213500BF1ED7 /* Cell */,
+				21F7D46C2C2E1D6900BF1ED7 /* CafeListViewController.h */,
+				21F7D46D2C2E1D6900BF1ED7 /* CafeListViewController.m */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		21F7D4722C2E213500BF1ED7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				21F7D46F2C2E213100BF1ED7 /* CafeTableViewCell.h */,
+				21F7D4702C2E213100BF1ED7 /* CafeTableViewCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		79242C5228C03ADD00766059 = {
@@ -1152,9 +1178,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F7D4692C2E11FC00BF1ED7 /* ImageRotatorCollectionViewCell.xib in Resources */,
+				21F7D46A2C2E11FC00BF1ED7 /* CafeTableViewCell.xib in Resources */,
+				21F7D4652C2E11FB00BF1ED7 /* ImageRotatorView.xib in Resources */,
+				21F7D4662C2E11FC00BF1ED7 /* ImageViewerViewController.xib in Resources */,
 				21F7D4352C2DFA4700BF1ED7 /* LaunchScreen.storyboard in Resources */,
+				21F7D4682C2E11FC00BF1ED7 /* CafeDetailViewController.xib in Resources */,
 				21F7D4322C2DFA4700BF1ED7 /* Assets.xcassets in Resources */,
-				21F7D4622C2E070D00BF1ED7 /* TestViewController.xib in Resources */,
+				21F7D4632C2E11FB00BF1ED7 /* ImageViewerCollectionViewCell.xib in Resources */,
+				21F7D4672C2E11FC00BF1ED7 /* CafeListViewController.xib in Resources */,
+				21F7D4642C2E11FB00BF1ED7 /* CafeMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1251,11 +1284,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F7D4712C2E213100BF1ED7 /* CafeTableViewCell.m in Sources */,
 				21F7D42D2C2DFA4300BF1ED7 /* ViewController.m in Sources */,
+				21F7D46E2C2E1D6900BF1ED7 /* CafeListViewController.m in Sources */,
 				21F7D4272C2DFA4300BF1ED7 /* AppDelegate.m in Sources */,
 				21F7D4382C2DFA4700BF1ED7 /* main.m in Sources */,
 				21F7D42A2C2DFA4300BF1ED7 /* SceneDelegate.m in Sources */,
-				21F7D4612C2E070D00BF1ED7 /* TestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

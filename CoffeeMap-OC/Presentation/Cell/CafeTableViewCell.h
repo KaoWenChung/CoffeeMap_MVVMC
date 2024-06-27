@@ -1,5 +1,5 @@
 //
-//  TestViewController.h
+//  CafeTableViewCell.h
 //  CoffeeMap-OC
 //
 //  Created by wyn on 2024/6/27.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TestViewController : UIViewController
+@interface CafeTableViewCell : UITableViewCell
 
 @end
 
